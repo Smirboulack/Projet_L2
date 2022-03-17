@@ -49,6 +49,15 @@ void Personnage::deplacer(char direction){
     }
 }
 
+void Personnage::subirDegat(int degat){
+  if(degat <= vie)
+    vie -= degat;
+  else
+    vie = 0;
+  if(vie <= 0)
+    setMort(true);
+}
+
 void Personnage::setX(int x){
   this->x = x;
 }

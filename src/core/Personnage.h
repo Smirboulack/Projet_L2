@@ -30,6 +30,8 @@ class Personnage{
     ~Personnage();
     //pour déplacer le personnage
     void deplacer(char direction);
+    //Methode permettant au personnage de perdre des pvs et mourrir
+    void subirDegat(int degat);
 
     //des getter et setter
     void setX(int x);
