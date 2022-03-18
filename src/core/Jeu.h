@@ -13,7 +13,7 @@ private :
 
 	Terrain  * ter;
 	Personnage perso;
-    Menu cmenu;
+  Menu cmenu;
     // Monstre * monst;
     // Equipement * equip;
 
@@ -27,7 +27,7 @@ public :
     Terrain& getTerrain ();
     Personnage& getPerso ();
     Monstre & getMonstre ();
-    
+
 
     const Terrain& getConstTerrain () const;
     const Personnage& getConstPersonnage () const;

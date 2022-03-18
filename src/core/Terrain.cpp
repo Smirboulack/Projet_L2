@@ -48,7 +48,7 @@ Terrain::~Terrain()
     dimy = 0;
 }
 
-void Terrain::afficherTerrain() 
+void Terrain::afficherTerrain()
 {
     for(int i=0; i<dimx; i++)
     {
@@ -59,3 +59,9 @@ void Terrain::afficherTerrain()
         cout<<endl;
     }
 }
+
+
+
+int Terrain::getDimX () const { return dimx; }
+
+int Terrain::getDimY () const {	return dimy; }
