@@ -4,6 +4,8 @@
 #include "Personnage.h"
 #include "Terrain.h"
 #include "Menu.h"
+#include "Monstre.h"
+
 
 class Jeu {
 
