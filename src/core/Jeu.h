@@ -3,39 +3,38 @@
 
 #include "Personnage.h"
 #include "Terrain.h"
-#include "Menu.h"
-#include "Monstre.h"
+//#include "Menu.h"
+//#include "Monstre.h"
 
 
 class Jeu {
 
 private :
 
-	Terrain  * ter;
+	Terrain ter;
 	Personnage perso;
-  Menu cmenu;
+  	//Menu cmenu;
     // Monstre * monst;
     // Equipement * equip;
 
 public :
 
     Jeu();
-    ~Jeu();
 
-    void genereMenu();
+    //void genereMenu();
 
     Terrain& getTerrain ();
     Personnage& getPerso ();
-    Monstre & getMonstre ();
+    //Monstre & getMonstre ();
 
 
     const Terrain& getConstTerrain () const;
     const Personnage& getConstPersonnage () const;
    // const Monstre& getConstMonstre () const;
-    int getNombreMonstre() const;
+    //int getNombreMonstre() const;
 
-    void actionsAutomatiques ();
-    bool actionClavier(const char touche); // rend vrai si mange une pastille, faux sinon
+    //void actionsAutomatiques ();
+    //bool actionClavier(const char touche); // rend vrai si mange une pastille, faux sinon
 
 };
 

@@ -1,24 +1,23 @@
 #include "Jeu.h"
 
-/*
-Jeu::Jeu () : ter(), pac(), fan() {
-	ter.mangePastille(pac.getX(),pac.getY());
+
+Jeu::Jeu () : ter(), perso(){
 }
 
-*/
+
 
 
 Terrain& Jeu::getTerrain () { return ter; }
 
-Personnage& Jeu::getPerso () {	return pac; }
+Personnage& Jeu::getPerso () {	return perso; }
 
 const Terrain& Jeu::getConstTerrain () const { return ter; }
 
-const Personnage& Jeu::getConstPersonnage () const { return pac; }
+const Personnage& Jeu::getConstPersonnage () const { return perso; }
 
 // const Monstre& Jeu::getConstFantome () const { return fan; }
 
-int Jeu::getNombreMonstre() const { return 1; }
+//int Jeu::getNombreMonstre() const { return 1; }
 
 /*
 

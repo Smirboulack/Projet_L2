@@ -43,8 +43,8 @@ class Personnage{
     void setNom(string nom);
     void setDegat(int degat);
     void setPortee(int portee);
-    int getX();
-    int getY();
+    int getX() const;
+    int getY() const;
     int getVie();
     string getNom();
     int getSexe();

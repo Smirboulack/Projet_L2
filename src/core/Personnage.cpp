@@ -85,10 +85,10 @@ void Personnage::setDegat(int degat){
 void Personnage::setPortee(int portee){
   this->portee = portee;
 }
-int Personnage::getX(){
+int Personnage::getX() const{
   return x;
 }
-int Personnage::getY(){
+int Personnage::getY() const{
   return y;
 }
 int Personnage::getVie(){

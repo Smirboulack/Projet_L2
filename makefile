@@ -1,25 +1,22 @@
-all: Ultimate_LIFKAS
+all: main_sdl
 
-Ultimate_LIFKAS: obj/core/main_Ultimate_LIFKAS.o ./src/core/main_Ultimate_LIFKAS.cpp
-	g++ -g obj/core/main_Ultimate_LIFKAS.o -o ./bin/Ultimate_LIFKAS
+main_sdl: obj/sdl2/main_sdl.o obj/sdl2/sdlJeu.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o
+	g++ -g obj/sdl2/main_sdl.o obj/sdl2/sdlJeu.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o -lSDL2 -lSDL2_image -o ./bin/main_sdl
 
-obj/core/main_Ultimate_LIFKAS.o: /src/core/Jeu.h ./src/core/main_Ultimate_LIFKAS.cpp
-	g++ -g -Wall -c ./src/core/main_Ultimate_LIFKAS.cpp -o  obj/core/main_Ultimate_LIFKAS.o
- 
-obj/core/Jeu.o: ./src/core/Jeu.h ./src/core/Jeu.cpp ./src/core/Terrain.h ./src/core/Personnage.h ./src/core/Monstre.h ./src/core/Menu.h
+obj/sdl2/main_sdl.o: ./src/core/Jeu.h ./src/sdl2/main_sdl.cpp
+	g++ -g -Wall -c ./src/sdl2/main_sdl.cpp -o  obj/sdl2/main_sdl.o
+
+obj/sdl2/sdlJeu.o:./src/sdl2/sdlJeu.h ./src/sdl2/sdlJeu.cpp ./src/core/Jeu.h
+	g++ -g -Wall -c ./src/sdl2/sdlJeu.cpp -o obj/sdl2/sdlJeu.o
+
+obj/core/Jeu.o: ./src/core/Jeu.h ./src/core/Jeu.cpp ./src/core/Terrain.h ./src/core/Personnage.h
 	g++ -g -Wall -c ./src/core/Jeu.cpp -o obj/core/Jeu.o
 
-obj/core/Menu.o: ./src/core/Menu.h ./src/core/Menu.cpp
-	g++ -g -Wall -c ./src/core/Menu.cpp -o obj/core/Menu.o
-
 obj/core/Terrain.o: ./src/core/Terrain.h ./src/core/Terrain.cpp
-	g++ -g -Wall -c ./src/core/Terrain.h -o obj/core/Terrain.o
-
-obj/core/Monstre.o: ./src/core/Monstre.h ./src/core/Monstre.cpp ./src/core/Personnage.h ./src/core/Terrain.h
-	g++ -g -Wall -c ./src/core/Monstre.cpp -o obj/core/Monstre.o
+	g++ -g -Wall -c ./src/core/Terrain.cpp -o obj/core/Terrain.o
 
 obj/core/Personnage.o: ./src/core/Personnage.h ./src/core/Personnage.cpp ./src/core/Terrain.h
 	g++ -g -Wall -c ./src/core/Personnage.cpp -o obj/core/Personnage.o
 
 clean:
-	rm ./obj/core/* ./bin/Ultimate_LIFKAS
+	rm ./obj/core/*.o ./obj/sdl2/*.o ./bin/main_sdl
