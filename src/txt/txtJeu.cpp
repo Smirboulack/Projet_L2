@@ -1,13 +1,14 @@
 #include <iostream>
-#ifdef _WIN32
-#include <windows.h>
-#else
+//#ifdef _WIN32
+//#include <windows.h>
+//#else
 #include <unistd.h>
-#endif // WIN32
+//#endif // WIN32
 #include "winTxt.h"
 #include "../core/Jeu.h"
 
-void txtAff(WinTXT & win, const Jeu & jeu) {
+
+void txtAff(WinTXT & win, Jeu & jeu) {
 	const Terrain& ter = jeu.getConstTerrain();
 	const Personnage& perso = jeu.getConstPersonnage();
 	const Monstre& monst = jeu.getConstMonstre();
@@ -26,6 +27,7 @@ void txtAff(WinTXT & win, const Jeu & jeu) {
 
 	win.draw();
 }
+
 
 void txtBoucle (Jeu & jeu) {
 	// Creation d'une nouvelle fenetre en mode texte

@@ -38,13 +38,13 @@ void Personnage::deplacer(char direction){
     if(direction == 'd'){
       setX(getX()+1);
     }
-    if(direction == 'g'){
+    if(direction == 'q'){
       setX(getX()-1);
     }
-    if(direction == 'h'){
+    if(direction == 's'){
       setY(getY()-1);
     }
-    if(direction == 'b'){
+    if(direction == 'z'){
       setY(getY()+1);
     }
 }

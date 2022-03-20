@@ -1,7 +1,10 @@
-#ifndef WINTXT_H
-#define WINTXT_H
+#ifndef _WINTXT_H
+#define _WINTXT_H
 
+/*
 //! \brief une fenêtre texte est un tableau 2D de caractères
+
+*/
 class WinTXT
 {
 private:

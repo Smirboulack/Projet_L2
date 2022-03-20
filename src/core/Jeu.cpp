@@ -15,7 +15,7 @@ const Terrain& Jeu::getConstTerrain () const { return ter; }
 
 const Personnage& Jeu::getConstPersonnage () const { return perso; }
 
-// const Monstre& Jeu::getConstFantome () const { return fan; }
+ const Monstre& Jeu::getConstMonstre () const { return monst; }
 
 //int Jeu::getNombreMonstre() const { return 1; }
 
