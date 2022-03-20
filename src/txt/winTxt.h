@@ -5,8 +5,7 @@
 //! \brief une fenêtre texte est un tableau 2D de caractères
 
 */
-class WinTXT
-{
+class WinTXT{
 private:
 
     int dimx;       //!< \brief largeur
@@ -15,6 +14,7 @@ private:
 
 public:
 
+    WinTXT ();
     WinTXT (int dx, int dy);
     void clear (char c=' ');
     void print (int x, int y, char c);

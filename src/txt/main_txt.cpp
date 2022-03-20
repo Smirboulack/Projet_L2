@@ -2,8 +2,9 @@
 #include "txtJeu.h"
 
 int main ( int argc, char** argv ) {
+
+    Jeu jeu;
     termClear();
-	Jeu jeu;
 	txtBoucle(jeu);
     termClear();
 	return 0;

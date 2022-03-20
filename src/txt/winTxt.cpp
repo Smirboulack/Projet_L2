@@ -74,6 +74,12 @@ void termInit()      // configure la saisie : ne pas afficher les caracteres tap
 #endif
 }
 
+WinTXT::WinTXT(){
+    dimx=0;
+    dimy=0;
+    win=NULL;
+}
+
 WinTXT::WinTXT (int dx, int dy) {
     dimx = dx;
     dimy = dy;
@@ -87,6 +93,7 @@ void WinTXT::clear (char c) {
         for(int j=0;j<dimy;++j)
             print(i,j,c);
 }
+
 
 void WinTXT::print (int x, int y, char c) {
     if (x<0) return;
