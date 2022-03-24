@@ -35,17 +35,17 @@ Personnage::~Personnage(){
   portee = 0;
 }
 void Personnage::deplacer(char direction, const Terrain & t){
-    if(direction == 'd'){
-      setX(getX()+1);
+    if(direction == 'd' && t.estPositionPersoValide(x+1,y)){
+      x++;
     }
-    if(direction == 'q'){
-      setX(getX()-1);
+    if(direction == 'q' && t.estPositionPersoValide(x-1,y)){
+      x--;
     }
-    if(direction == 's'){
-      setY(getY()+1);
+    if(direction == 's' && t.estPositionPersoValide(x,y+1)){
+      y++;
     }
-    if(direction == 'z'){
-      setY(getY()-1);
+    if(direction == 'z' && t.estPositionPersoValide(x,y-1)){
+      y--;
     }
 }
 

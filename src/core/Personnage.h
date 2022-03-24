@@ -2,6 +2,7 @@
 #define PERSONNAGE_H
 
 #include <string>
+#include "Terrain.h"
 using namespace std;
 
 class Personnage{
@@ -29,7 +30,7 @@ class Personnage{
     //déstructeur
     ~Personnage();
     //pour déplacer le personnage
-    void deplacer(char direction);
+    void deplacer(char direction,const Terrain & t);
     //Methode permettant au personnage de perdre des pvs et mourrir
     void subirDegat(int degat);
 

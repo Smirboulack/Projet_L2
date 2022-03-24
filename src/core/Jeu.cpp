@@ -24,16 +24,16 @@ const Personnage& Jeu::getConstPersonnage () const { return perso; }
 bool Jeu::actionClavier (const char touche) {
 	switch(touche) {
 		case 'q' :
-				perso.deplacer(touche);
+				perso.deplacer(touche,ter);
 				break;
 		case 'd' :
-				perso.deplacer(touche);
+				perso.deplacer(touche,ter);
 				break;
 		case 'z' :
-				perso.deplacer(touche);
+				perso.deplacer(touche,ter);
 				break;
 		case 's' :
-				perso.deplacer(touche);
+				perso.deplacer(touche,ter);
 				break;
 	}
 	/*
@@ -48,4 +48,3 @@ void Jeu::actionsAutomatiques () {
     //fan.verspersoman(ter,perso);
   //  monstre.bougeAuto(ter);
 }
-

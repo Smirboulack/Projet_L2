@@ -66,7 +66,9 @@ char Terrain::getXY (const int x, const int y) const {
 	return ter[y][x];
 }
 
-
+bool Terrain::estPositionPersoValide(const int x,const int y) const{
+  return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy) && (ter[y][x]==' '));
+}
 
 int Terrain::getDimX () const { return dimx; }
 
