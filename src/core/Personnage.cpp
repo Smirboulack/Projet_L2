@@ -4,8 +4,8 @@
 using namespace std;
 
 Personnage::Personnage(){
-  x = 0;
-  y = 0;
+  x = 2;
+  y = 2;
   vie = 20;
   sexe = 0;
   sens = 0;
@@ -42,10 +42,10 @@ void Personnage::deplacer(char direction){
       setX(getX()-1);
     }
     if(direction == 's'){
-      setY(getY()-1);
+      setY(getY()+1);
     }
     if(direction == 'z'){
-      setY(getY()+1);
+      setY(getY()-1);
     }
 }
 

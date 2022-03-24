@@ -166,14 +166,31 @@ for (x=0;x<ter.getDimX();++x){
 
 void sdlJeu::sdlBoucle(){
   bool quit = false;
-  SDL_Event event;
+  SDL_Event events;
 
   while(!quit){
-    SDL_WaitEvent(&event);
-    switch (event.type) {
-      case SDL_QUIT:
+
+    while(SDL_PollEvent(&events)){
+      if(events.type == SDL_QUIT){
         quit = true;
-        break;
+      }else if(events.type == SDL_KEYDOWN){
+        switch(events.key.keysym.scancode){
+          case SDL_SCANCODE_LEFT:
+            jeu.actionClavier('q');
+            break;
+          case SDL_SCANCODE_RIGHT:
+            jeu.actionClavier('d');
+            break;
+          case SDL_SCANCODE_DOWN:
+            jeu.actionClavier('s');
+            break;
+          case SDL_SCANCODE_UP:
+            jeu.actionClavier('z');
+            break;
+          default:
+            break;
+        }
+      }
     }
     sdlAff();
     SDL_RenderPresent(renderer);
