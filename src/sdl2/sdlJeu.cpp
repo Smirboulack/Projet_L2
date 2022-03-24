@@ -69,6 +69,36 @@ void Image::draw (SDL_Renderer * renderer, int x, int y, int w, int h) {
     assert(ok == 0);
 }
 
+
+//xs : x srcrect
+//xd: x dstrect
+void Image::draw_animation(SDL_Renderer * renderer, int i, int x, int y, int w, int h){
+  int ok;
+  SDL_Rect r;
+  SDL_Rect run[10];
+
+  r.x = x;
+  r.y = y;
+  r.w = (w<0)?surface->w:w;
+  r.h = (h<0)?surface->h:h;
+
+  for(int i = 0;i < 10;i++){
+    run[i].w = surface->w / 10;
+    run[i].h = surface->h;
+    run[i].x = i*run[i].w;
+    run[i].y = 0;
+  }
+
+  if (has_changed) {
+      ok = SDL_UpdateTexture(texture,NULL,surface->pixels,surface->pitch);
+      assert(ok == 0);
+      has_changed = false;
+  }
+
+  ok = SDL_RenderCopy(renderer,texture,&run[i],&r);
+  assert(ok == 0);
+}
+
 SDL_Texture * Image::getTexture() const {return texture;}
 
 void Image::setSurface(SDL_Surface * surf) {surface = surf;}
@@ -115,7 +145,7 @@ sdlJeu::sdlJeu() : jeu(){
   im_mur_bas_droite.loadFromFile("data/).png",renderer);
   im_perso.loadFromFile("data/perso.png",renderer);
   im_background.loadFromFile("data/background.png",renderer);
-
+  im_run.loadFromFile("data/Run.png",renderer);
 }
 
 sdlJeu::~sdlJeu () {
@@ -159,7 +189,9 @@ for (x=0;x<ter.getDimX();++x){
       }
   }
 }
-  im_perso.draw(renderer,perso.getX()*TAILLE_SPRITE,perso.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+    im_run.draw_animation(renderer,i,perso.getX()*TAILLE_SPRITE,perso.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+    i = (i + 1) % 10;
+//  im_perso.draw(renderer,perso.getX()*TAILLE_SPRITE,perso.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
 
 
 }
@@ -169,6 +201,7 @@ void sdlJeu::sdlBoucle(){
   SDL_Event events;
 
   while(!quit){
+    jeu.actionsAutomatiques();
 
     while(SDL_PollEvent(&events)){
       if(events.type == SDL_QUIT){
@@ -193,6 +226,7 @@ void sdlJeu::sdlBoucle(){
       }
     }
     sdlAff();
+    SDL_Delay(90);
     SDL_RenderPresent(renderer);
   }
 }

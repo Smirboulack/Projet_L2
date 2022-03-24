@@ -19,8 +19,10 @@ public:
     void loadFromFile (const char* filename, SDL_Renderer * renderer);
     void loadFromCurrentSurface (SDL_Renderer * renderer);
     void draw (SDL_Renderer * renderer, int x, int y, int w=-1, int h=-1);
+    void draw_animation(SDL_Renderer * renderer, int i, int x, int y, int w, int h);
     SDL_Texture * getTexture() const;
     void setSurface(SDL_Surface * surf);
+    void animationRun();
 };
 
 
@@ -43,12 +45,16 @@ private:
   Image im_mur_bas;
   Image im_mur_bas_gauche;
   Image im_mur_bas_droite;
+  Image im_run;
 
+  int i = 0;
 public:
   sdlJeu();
   ~sdlJeu();
   void sdlBoucle();
   void sdlAff();
+
+
 };
 
 #endif

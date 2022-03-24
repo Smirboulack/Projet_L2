@@ -47,4 +47,9 @@ bool Jeu::actionClavier (const char touche) {
 void Jeu::actionsAutomatiques () {
     //fan.verspersoman(ter,perso);
   //  monstre.bougeAuto(ter);
+  //
+  gravite();
+}
+void Jeu::gravite(){
+  perso.deplacer('s',ter);
 }
