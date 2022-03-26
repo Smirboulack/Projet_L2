@@ -12,7 +12,7 @@ obj/txt/txtJeu.o:./src/txt/txtJeu.h ./src/txt/txtJeu.cpp ./src/core/Jeu.h ./src/
 obj/core/Jeu.o: ./src/core/Jeu.h ./src/core/Jeu.cpp ./src/core/Terrain.h ./src/core/Personnage.h ./src/core/Monstre.h
 	g++ -g -Wall -c ./src/core/Jeu.cpp -o obj/core/Jeu.o
 
-obj/core/winTxt.o: ./src/txt/winTxt.cpp ./src/txt/winTxt.h
+obj/txt/winTxt.o: ./src/txt/winTxt.cpp ./src/txt/winTxt.h
 	g++ -g -Wall -c ./src/txt/winTxt.cpp -o obj/txt/winTxt.o
 
 obj/core/Terrain.o: ./src/core/Terrain.h ./src/core/Terrain.cpp

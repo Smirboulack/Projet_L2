@@ -52,16 +52,16 @@ void txtBoucle (Jeu & jeu) {
         
         switch (c) {
 			case 'z':
-				jeu.getPerso().deplacer('z');
+				jeu.getPerso().deplacer('z',jeu.getConstTerrain());
 				break;
 			case 'q':
-				jeu.getPerso().deplacer('q');
+				jeu.getPerso().deplacer('q',jeu.getConstTerrain());
 				break;
 			case 's':
-				jeu.getPerso().deplacer('s');
+				jeu.getPerso().deplacer('s',jeu.getConstTerrain());
 				break;
 			case 'd':
-				jeu.getPerso().deplacer('d');
+				jeu.getPerso().deplacer('d',jeu.getConstTerrain());
 				break;
 			case 'x':
 				ok = false;
