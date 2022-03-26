@@ -2,36 +2,33 @@
 #define _Equipement_H
 
 #include "Terrain.h"
-#include "Monstre"
-#include "Personnage"
+#include "Monstre.h"
+#include "Vie.h"
+#include "Armure.h"
+#include "Arme.h"
+#include "Piece.h"
 
-class Equipement{
+class Items{
 
 private:
 
-// coordonnées de l'equipement ainsi que sa direction
-float x,y,direc;
-// entier qui permettent de selectionner le type d'équipement pour le joueur
-enum type_equip = {arme=1,vie=2};
-
-extern const int equip_max;
-
-
+ Arme * armes;
+ Armure * armure;
+ Piece * piece;
+ Vie * vies;
+ 
 
 public:
-    Equipement();
-    Equipement (float _x,float _y,float _direc);
-    ~Equipement();
+    Items();
+    Items(const int _x,const int _y);
+    ~Items();
 
-    float getX()const;
-    float getY()const;
-    float getDirec()const;
-
-    void tirer(Monstre & monst , Terrain & Eterr);
-    bool estRamasser(Personnage & Epers);
+    int getX()const;
+    int getY()const;
+    int setX();
+    int setY();
 
     void testRegression();
-
 
 };
 
