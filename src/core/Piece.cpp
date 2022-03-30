@@ -24,24 +24,15 @@ Piece::Piece(const int _x,const int _y){
 }
 
 
-int Piece::getX()const{
-    return x;
-}
+int Piece::getX()const{return x;}
 
-int Piece::getY()const{
-    return y;
-}
+int Piece::getY()const{return y;}
 
-char Piece::getchar()const{
-    return *(coin);
-}
+char Piece::getchar()const{return *(coin);}
+
+char Piece::getbool()const{return estRamasser;}
+
+void Piece::setX(const int a){x=a;}
 
 
-void Piece::setX(const int a){
-    x=a;
-}
-
-
-void Piece::setY(const int a){
-    y=a;
-}
+void Piece::setY(const int a){y=a;}

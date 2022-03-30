@@ -31,6 +31,8 @@ int Armure::getX()const{return x;}
 
 char Armure::getchar()const{return *(armor);}
 
+char Armure::getbool()const{return estRamasser;}
+
 
 int Armure::getY()const{return y;}
 

@@ -28,6 +28,8 @@ int Vie::getX()const{return x;}
 
 char Vie::getchar()const{return *(life);}
 
+char Vie::getbool()const{return estRamasser;}
+
 int Vie::getY()const{return y;}
 
 void Vie::setX(const int a){x=a;}

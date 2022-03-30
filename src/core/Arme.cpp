@@ -31,6 +31,8 @@ int Arme::getX()const{return x;}
 
 char Arme::getchar()const{return *(weapon);}
 
+char Arme::getbool()const{return estRamasser;}
+
 
 int Arme::getY()const{return y;}
 
