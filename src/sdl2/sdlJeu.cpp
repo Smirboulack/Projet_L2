@@ -5,7 +5,7 @@
 
 #include <iostream>
 using namespace std;
-const int TAILLE_SPRITE = 64;
+const int TAILLE_SPRITE = 25;
 
 Image::Image () {
     surface = NULL;
@@ -125,7 +125,7 @@ sdlJeu::sdlJeu() : jeu(){
 	dimy = dimy * TAILLE_SPRITE;
 
   // Creation de la fenetre
-  window = SDL_CreateWindow("Jeu1.0", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dimx, dimy, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+  window = SDL_CreateWindow("Jeu1.0", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dimx=800, dimy=500, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
   if (window == NULL) {
       cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << endl;
       SDL_Quit();
