@@ -5,17 +5,19 @@ class Armure{
 
 private:
 int x,y;
-char armor='¤';
-bool estRamasser=false;
+char * armor;
+bool estRamasser;
 
 
 public:
-Arme();
-Arme(const int _x,const int _y);
-getX()const;
-getY()const;
-setX();
-setY();
+Armure();
+~Armure();
+Armure(const int _x,const int _y);
+int getX()const;
+char getchar()const;
+int getY()const;
+void setX(const int a);
+void setY(const int a);
 
 
 

@@ -12,6 +12,7 @@ void txtAff(WinTXT & win, Jeu & jeu) {
 	const Terrain& ter = jeu.getConstTerrain();
 	const Personnage& perso = jeu.getConstPersonnage();
 	const Monstre& monst = jeu.getConstMonstre();
+	const Items& items = jeu.getConstItems();
 
 	win.clear();
 
@@ -24,6 +25,11 @@ void txtAff(WinTXT & win, Jeu & jeu) {
 	win.print(perso.getX(),perso.getY(),'P');
 	// Affichage du Monstre
 	win.print(monst.getX(),monst.getY(),'M');
+	// Affichage des items
+	win.print(items.getarmex(),items.getarmey(),items.getchararme());
+	win.print(items.getpiecex(),items.getpiecey(),items.getcharpiece());
+	win.print(items.getarmurex(),items.getarmurey(),items.getchararmure());
+	win.print(items.getviex(),items.getviey(),items.getcharvie());
 
 	win.draw();
 }
@@ -67,28 +73,6 @@ void txtBoucle (Jeu & jeu) {
 				ok = false;
 				break;
 		}
-
-        /*
-		switch (c) {
-			case 'z':
-				jeu.actionClavier('z');
-				break;
-			case 'q':
-				jeu.actionClavier('q');
-				break;
-			case 's':
-				jeu.actionClavier('s');
-				break;
-			case 'd':
-				jeu.actionClavier('d');
-				break;
-			case 'x':
-				ok = false;
-				break;
-		}
-
-
-        */
 
 	} while (ok);
 

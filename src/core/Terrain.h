@@ -1,17 +1,22 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
+#include "Items.h"
+
 class Terrain
 {
     private :
     int dimx, dimy;
     char ter[21][41];
-
+    
 
 
     public :
+
     Terrain(); //Constructeur
     ~Terrain();                 //Destructeur
+
+    // Items * items;
 
     void afficherTerrain();     //Procédure d'affichage
     /**
@@ -29,6 +34,7 @@ class Terrain
     //Renvoie la hauteur du terrain
     int getDimY () const;
     bool estPositionPersoValide(const int x,const int y) const;
+    void initItems(char ** tab);
 };
 
 

@@ -1,42 +1,47 @@
 #include "Terrain.h"
+#include "Items.h"
 #include <iostream>
 #include <cassert>
 
 using namespace std;
 
+Items * item1=new Items[1];
 
-const char terrain1[21][26]=
+char terrain1[21][101]=
 {
- "                         ",
- "                         ",
- "                         ",
- "                         ",
- "                         ",
- "                         ",
- "                         ",
- "                         ",
- "                         ",
- "                         ",
- "                         ",
- "  [GGG]           [GGGGGG",
- "  (___)           (______",
- "                         ",
- "                         ",
- "                         ",
- "TTTTTTTTTTTTTTTTTTTTTTTTT",
- "#########################",
- "#########################",
- "#########################"
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "  [GGG]           [GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG]    [GGG]         [GGG]                     ", 
+ "  (___)           (____________________________________)    (___)         (___)                     ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "                                                                                                    ",
+ "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+ "####################################################################################################",
+ "####################################################################################################",
+ "####################################################################################################"
 };
 
 Terrain::Terrain(){
-    dimx = 26;
+    dimx = 101;
     dimy = 21;
     for(int i=0; i < dimy; i++)
     {
         for(int j=0; j < dimx; j++)
         {
+            terrain1[item1[0].getarmey()][item1[0].getarmurex()] = item1[0].getchararme();
             ter[i][j] = terrain1[i][j];
+            
+            
         }
     }
 }
@@ -45,6 +50,8 @@ Terrain::Terrain(){
 Terrain::~Terrain(){
     dimx = 0;
     dimy = 0;
+    delete item1;
+    item1=nullptr;
 }
 
 void Terrain::afficherTerrain(){
@@ -73,3 +80,8 @@ bool Terrain::estPositionPersoValide(const int x,const int y) const{
 int Terrain::getDimX () const { return dimx; }
 
 int Terrain::getDimY () const {	return dimy; }
+
+void Terrain::initItems(char ** tab){
+
+
+}

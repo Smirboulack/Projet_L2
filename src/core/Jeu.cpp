@@ -1,10 +1,8 @@
 #include "Jeu.h"
 
 
-Jeu::Jeu () : ter(), perso() , monst(){
+Jeu::Jeu () : ter(), perso() , monst(), itemss(){
 }
-
-
 
 
 Terrain& Jeu::getTerrain () { return ter; }
@@ -13,9 +11,11 @@ Personnage& Jeu::getPerso () {	return perso; }
 
 const Terrain& Jeu::getConstTerrain () const { return ter; }
 
-const Personnage& Jeu::getConstPersonnage () const { return perso; }
+const Personnage& Jeu::getConstPersonnage()const{return perso; }
 
  const Monstre& Jeu::getConstMonstre () const { return monst; }
+
+const Items& Jeu::getConstItems()const{return itemss;}
 
 //int Jeu::getNombreMonstre() const { return 1; }
 

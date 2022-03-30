@@ -5,6 +5,7 @@
 #include "Terrain.h"
 //#include "Menu.h"
 #include "Monstre.h"
+#include "Items.h"
 
 
 class Jeu {
@@ -13,7 +14,8 @@ private :
 
 	Terrain ter;
 	Personnage perso;
-  	Monstre monst;
+  Monstre monst;
+  Items itemss;
       //Menu cmenu;
     // Equipement * equip;
 
@@ -31,6 +33,7 @@ public :
     const Terrain& getConstTerrain () const;
     const Personnage& getConstPersonnage () const;
     const Monstre& getConstMonstre () const;
+    const Items& getConstItems()const;
     //int getNombreMonstre() const;
 
     void actionsAutomatiques ();
