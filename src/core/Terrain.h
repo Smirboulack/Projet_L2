@@ -7,10 +7,7 @@ class Terrain
 {
     private :
     int dimx, dimy;
-    char ter[21][41];
-    
-
-
+    char ter[21][101];
     public :
 
     Terrain(); //Constructeur
@@ -34,7 +31,6 @@ class Terrain
     //Renvoie la hauteur du terrain
     int getDimY () const;
     bool estPositionPersoValide(const int x,const int y) const;
-    void initItems(char ** tab);
 };
 
 

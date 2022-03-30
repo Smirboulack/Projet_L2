@@ -80,8 +80,3 @@ bool Terrain::estPositionPersoValide(const int x,const int y) const{
 int Terrain::getDimX () const { return dimx; }
 
 int Terrain::getDimY () const {	return dimy; }
-
-void Terrain::initItems(char ** tab){
-
-
-}
