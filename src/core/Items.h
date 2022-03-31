@@ -1,6 +1,9 @@
 #ifndef _Equipement_H
 #define _Equipement_H
 
+#include <stdlib.h>
+#include <time.h> 
+
 #include "Terrain.h"
 #include "Monstre.h"
 #include "Vie.h"
@@ -8,17 +11,22 @@
 #include "Arme.h"
 #include "Piece.h"
 
+
 class Items{
 
 private:
 
+ unsigned int nb_items;
+
  Arme * armes;
  Armure * armure;
  Piece * piece;
- Vie * vies;
- 
+ Vie * vies; 
 
 public:
+
+     unsigned int min = 1, max = 31;
+    unsigned int plage = max-min+1;
 
     Items();
     ~Items();
@@ -31,23 +39,14 @@ public:
     int getarmex()const;
     int getarmey()const;
 
-    const Arme& getarme()const;
-
     int getarmurex()const;
     int getarmurey()const;
-
-    const Armure& getarmure()const;
-
 
     int getpiecex()const;
     int getpiecey()const;
 
-    const Piece& getpiece()const;
-
     int getviex()const;
     int getviey()const;
-
-    const Vie& getvies()const;
     
     void setarmex(const int a);
     void setarmey(const int a);
@@ -64,6 +63,13 @@ public:
     void setviex(const int a);
     void setviey(const int a);
     void setviexy(const int a,const int b);
+
+    const Arme& getarme()const;
+    const Armure& getarmure()const;
+    const Piece& getpiece()const;
+    const Vie& getvies()const;
+
+    const unsigned int getnbitems()const;
 
     void testRegression();
 

@@ -1,26 +1,27 @@
 #include "Items.h"
-#include <stdlib.h>
 #include <iostream>
 
 Items::Items(){
-     armes=new Arme[2];
-     armure=new Armure[2];
-     piece=new Piece[2];
-     vies=new Vie[2];
 
-     for (unsigned int i=0;i<2;i++){
-         int alearmex = rand()%42;
-         int alearmey = (rand()%10)+3;
+    nb_items = (rand() % plage) + min;
 
-         int alearmurex = rand()%42;
-         int alearmurey = (rand()%10)+3;
+     armes=new Arme[nb_items];
+     armure=new Armure[nb_items];
+     piece=new Piece[nb_items];
+     vies=new Vie[nb_items];
 
-         int alepiecex = rand()%42;
-         int alepiecey = (rand()%10)+3;
+     for (unsigned int i=0;i<nb_items;i++){
+         int alearmex = rand()%101;
+         int alearmey = (rand()%15)+3;
 
-         int aleviesx = rand()%42;
-         int aleviesy = (rand()%10)+3;
+         int alearmurex = rand()%101;
+         int alearmurey = (rand()%15)+3;
 
+         int alepiecex = rand()%101;
+         int alepiecey = (rand()%15)+3;
+
+         int aleviesx = rand()%101;
+         int aleviesy = (rand()%15)+3;
 
         armes[i].setX(alearmex);
         armes[i].setY(alearmey);
@@ -58,109 +59,103 @@ Items::~Items(){
 
 
 char Items::getchararme()const{
-    return armes[0].getchar();
+    return armes->getchar();
 }
 char Items::getchararmure()const{
-    return armure[0].getchar();
+    return armure->getchar();
 }
 char Items::getcharpiece()const{
-    return piece[0].getchar();
+    return piece->getchar();
 }
 char Items::getcharvie()const{
-    return vies[0].getchar();
+    return vies->getchar();
 }
 
 int Items::getarmex()const{
-    return armes[0].getX();
+    return armes->getX();
 }
 
 int Items::getarmey()const{
-    return armes[0].getY();
+    return armes->getY();
 }
 
 int Items::getarmurex()const{
-    return armure[0].getX();
+    return armure->getX();
 }
 
 int Items::getarmurey()const{
-    return armure[0].getY();
+    return armure->getY();
 }
 
 int Items::getviex()const{
-    return vies[0].getX();
+    return vies->getX();
 }
 
 int Items::getviey()const{
-    return vies[0].getY();
+    return vies->getY();
 }
 
 int Items::getpiecex()const{
-    return piece[0].getX();
+    return piece->getX();
 }
 
 int Items::getpiecey()const{
-    return piece[0].getY();
+    return piece->getY();
 }
 
 void Items::setarmex(const int a){
- armes[0].setX(a);
+ armes->setX(a);
 }
 void Items::setarmey(const int a){
-armes[0].setY(a);
+armes->setY(a);
 }
 
 void Items::setarmexy(const int a,const int b){
-     armes[0].setX(a);
-     armes[0].setY(b);
+     armes->setX(a);
+     armes->setY(b);
 }
 
 void Items::setarmurex(const int a){
-armure[0].setX(a);
+armure->setX(a);
 }
 void Items::setarmurey(const int a){
-armure[0].setY(a);
+armure->setY(a);
 }
 
 void Items::setarmurexy(const int a,const int b){
-     armure[0].setX(a);
-     armure[0].setY(b);
+     armure->setX(a);
+     armure->setY(b);
 }
 
 void Items::setpiecex(const int a){
-piece[0].setX(a);
+piece->setX(a);
 }
 void Items::setpiecey(const int a){
-    piece[0].setY(a);
+    piece->setY(a);
 }
 
 void Items::setpiecexy(const int a,const int b){
-     piece[0].setX(a);
-     piece[0].setY(b);
+     piece->setX(a);
+     piece->setY(b);
 }
 
 void Items::setviex(const int a){
-    vies[0].setX(a);
+    vies->setX(a);
 }
 
 void Items::setviey(const int a){
-vies[0].setY(a);
+vies->setY(a);
 }
 
 void Items::setviexy(const int a,const int b){
-     vies[0].setX(a);
-     vies[0].setY(a);
+     vies->setX(a);
+     vies->setY(a);
 }
 
 
-const Arme& Items::getarme()const{
-    return *(armes);
-}
-const Armure& Items::getarmure()const{
-    return *(armure);
-}
-const Piece& Items::getpiece()const{
-    return *(piece);
-}
-const Vie& Items::getvies()const{
-    return *(vies);
-}   
+const Arme& Items::getarme()const{return *(armes);}
+const Armure& Items::getarmure()const{return *(armure);}
+const Piece& Items::getpiece()const{ return *(piece);}
+const Vie& Items::getvies()const{return *(vies);}   
+
+const unsigned int Items::getnbitems()const{return nb_items;}

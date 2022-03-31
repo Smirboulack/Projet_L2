@@ -1,11 +1,11 @@
 #include "Terrain.h"
-#include "Items.h"
+//#include "Items.h"
 #include <iostream>
 #include <cassert>
 
 using namespace std;
 
-Items * item1=new Items[1];
+//Items item1;
 
 char terrain1[21][101]=
 {
@@ -38,7 +38,8 @@ Terrain::Terrain(){
     {
         for(int j=0; j < dimx; j++)
         {
-            terrain1[item1[0].getarmey()][item1[0].getarmurex()] = item1[0].getchararme();
+           // terrain1[item1[0].getarmey()][item1[0].getarmurex()] = item1[0].getchararme();
+            //terrain1[item1.getarmey()][item1.getarmurex()] = item1.getchararme();
             ter[i][j] = terrain1[i][j];
             
             
@@ -50,8 +51,8 @@ Terrain::Terrain(){
 Terrain::~Terrain(){
     dimx = 0;
     dimy = 0;
-    delete item1;
-    item1=nullptr;
+   // delete item1;
+   // item1=nullptr;
 }
 
 void Terrain::afficherTerrain(){

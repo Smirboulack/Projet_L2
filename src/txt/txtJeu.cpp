@@ -7,6 +7,8 @@
 #include "winTxt.h"
 #include "../core/Jeu.h"
 
+using namespace std;
+
 
 void txtAff(WinTXT & win, Jeu & jeu) {
 	const Terrain& ter = jeu.getConstTerrain();
@@ -26,10 +28,19 @@ void txtAff(WinTXT & win, Jeu & jeu) {
 	// Affichage du Monstre
 	win.print(monst.getX(),monst.getY(),'M');
 	// Affichage des items
-	win.print(items.getarmex(),items.getarmey(),items.getchararme());
-	win.print(items.getpiecex(),items.getpiecey(),items.getcharpiece());
-	win.print(items.getarmurex(),items.getarmurey(),items.getchararmure());
-	win.print(items.getviex(),items.getviey(),items.getcharvie());
+	for (unsigned int i=0;i<items.getnbitems();i++){
+		/*
+		win.print(items.getarmex(),items.getarmey(),items.getchararme());
+		win.print(items.getpiecex(),items.getpiecey(),items.getcharpiece());
+		win.print(items.getarmurex(),items.getarmurey(),items.getchararmure());
+		win.print(items.getviex(),items.getviey(),items.getcharvie());
+		*/
+		win.print(items.getarmex(),items.getarmey(),items.getchararme());
+		win.print(items.getpiecex(),items.getpiecey(),items.getcharpiece());
+		win.print(items.getarmurex(),items.getarmurey(),items.getchararmure());
+		win.print(items.getviex(),items.getviey(),items.getcharvie());
+	}
+	
 
 	win.draw();
 }
@@ -41,10 +52,13 @@ void txtBoucle (Jeu & jeu) {
     WinTXT win (jeu.getConstTerrain().getDimX(),jeu.getConstTerrain().getDimY());
 
 	bool ok = true;
+	const Items& items = jeu.getConstItems();
+	unsigned int nombre=items.getnbitems();
 	int c;
 
 	do {
 	    txtAff(win,jeu);
+		 cout <<nombre;
 
         #ifdef _WIN32
         Sleep(100);
