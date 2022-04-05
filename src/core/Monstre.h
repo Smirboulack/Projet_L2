@@ -1,11 +1,20 @@
 #ifndef _MONSTRE_H
 #define _MONSTRE_H
 
+#include "Terrain.h"
+#include "Personnage.h"
+
+using namespace std;
+
+class Terrain;
+class Personnage;
 
 class Monstre{
   private:
     //position du monstre en x et y
     int x, y;
+    int limg, limd;
+    int dir;
     //point de vie du monstre
     int mvie;
     //le sens du personnage 0 pour gauche et 1 pour droit
@@ -42,6 +51,14 @@ class Monstre{
     bool getMort();
     int getDegat();
     int getPortee();
+
+
+    void gauche(const Terrain &ter);
+    void droite(const Terrain &ter);
+    void bougeAutoMonstre(const Terrain &ter);
+    void versPerso(const Terrain & ter, const Personnage &p);
+
+
 };
 
 #endif

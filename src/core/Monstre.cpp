@@ -4,8 +4,11 @@
 using namespace std;
 
 Monstre::Monstre(){
-  x = 0;
-  y = 0;
+  x = 35;
+  y = 10;
+  dir=-1;
+  limg=x;
+  limd=limg+10;
   mvie = 30;
   sens = 0;
   mort = false;
@@ -14,8 +17,11 @@ Monstre::Monstre(){
 }
 
 Monstre::Monstre(int mvie, int sens, int degat, int portee){
-  x = 0;
-  y = 0;
+  x = 30;
+  y = 20;
+  dir=-1;
+  limg=x;
+  limd=limg+10;
   this->mvie = mvie;
   this->sens = sens;
   this->degat = degat;
@@ -90,4 +96,54 @@ int Monstre::getDegat(){
 
 int Monstre::getPortee(){
   return portee;
+}
+
+
+void Monstre::gauche(const Terrain &ter){
+  if (ter.estPositionPersoValide(x-1,y)) x--;
+}
+
+void Monstre::droite(const Terrain &ter){
+  if (ter.estPositionPersoValide(x+1,y)) x++;
+}
+
+void Monstre::bougeAutoMonstre(const Terrain &ter){
+    int xtmp;
+    xtmp = x + dir;
+    if (ter.estPositionPersoValide(xtmp,y)) {
+        if(x==limg)dir=1;
+        if(x==limd)dir=-1;
+        x=xtmp;
+    }
+   if (!ter.estPositionPersoValide(xtmp,y)){
+        limg=-x;
+        dir=-dir;
+    }
+
+  if (dir==1){
+    if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)){
+      dir=-dir;
+    }
+    if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){
+      dir=-dir;
+    }
+
+  }
+
+    /*
+    if(ter.getXY(getX()+1,getY()+1) == ' ' || ter.getXY(getX()+1,getY()+1) != ']' || ter.getXY(getX(),getY()+1) != '[' || ter.getXY(getX(),getY()+1) != 'T' ){
+       
+
+      
+    }
+    */
+
+      cout << ter.getXY(getX(),getY()+1) ;
+}
+
+void Monstre::versPerso(const Terrain & ter, const Personnage &p){
+  if(ter.estPositionPersoValide(p.getX(),p.getY()) && ter.estPositionPersoValide(x,y)){
+    if(p.getX()<getX()-5){dir=dir;}
+    if(p.getX()>getX()+5){dir=-dir;}
+  }
 }

@@ -209,16 +209,16 @@ void sdlJeu::sdlBoucle(){
       }else if(events.type == SDL_KEYDOWN){
         switch(events.key.keysym.scancode){
           case SDL_SCANCODE_LEFT:
-            jeu.actionClavier('q');
+            jeu.actionClavier(113,jeu.getTemps());
             break;
           case SDL_SCANCODE_RIGHT:
-            jeu.actionClavier('d');
+            jeu.actionClavier(100,jeu.getTemps());
             break;
           case SDL_SCANCODE_DOWN:
-            jeu.actionClavier('s');
+            jeu.actionClavier(115,jeu.getTemps());
             break;
           case SDL_SCANCODE_UP:
-            jeu.actionClavier('z');
+            jeu.actionClavier(122,jeu.getTemps());
             break;
           default:
             break;

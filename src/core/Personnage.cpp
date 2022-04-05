@@ -34,6 +34,7 @@ Personnage::~Personnage(){
   degat = 0;
   portee = 0;
 }
+
 void Personnage::deplacer(char direction, const Terrain & t){
     if(direction == 'd' && t.estPositionPersoValide(x+1,y)){
       x++;

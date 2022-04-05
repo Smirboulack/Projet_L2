@@ -5,6 +5,8 @@
 #include "Terrain.h"
 using namespace std;
 
+class Terrain;
+
 class Personnage{
   private:
     //position du personnage en x et y
