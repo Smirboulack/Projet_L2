@@ -54,7 +54,7 @@ void txtBoucle (Jeu & jeu) {
 	bool ok = true;
 	const Items& items = jeu.getConstItems();
 	unsigned int nombre=items.getnbitems();
-	int c;
+	char c;
 
 
 	do {
@@ -71,7 +71,6 @@ void txtBoucle (Jeu & jeu) {
 
 		
 		jeu.actionsAutomatiques();
-        
         jeu.actionClavier(c,jeu.getTemps());
 
 

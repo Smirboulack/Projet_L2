@@ -6,7 +6,10 @@
 //#include "Menu.h"
 #include "Monstre.h"
 #include "Items.h"
+#include <ctime>
+#include <iostream>
 
+using namespace std;
 
 class Jeu {
 
@@ -16,9 +19,9 @@ private :
 	Personnage perso;
   Monstre monst;
   Items itemss;
-   int temps, dsaut, fsaut;
       //Menu cmenu;
     // Equipement * equip;
+  int temps, dsaut, fsaut;
 
 public :
 
