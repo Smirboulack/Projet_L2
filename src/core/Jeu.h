@@ -6,7 +6,10 @@
 //#include "Menu.h"
 #include "Monstre.h"
 #include "Items.h"
+#include <ctime>
+#include <iostream>
 
+using namespace std;
 
 class Jeu {
 
@@ -18,6 +21,7 @@ private :
   Items itemss;
       //Menu cmenu;
     // Equipement * equip;
+  int temps, dsaut, fsaut;
 
 public :
 
@@ -36,8 +40,10 @@ public :
     const Items& getConstItems()const;
     //int getNombreMonstre() const;
 
-    void actionsAutomatiques ();
-    bool actionClavier(const char touche); // rend vrai si mange une pastille, faux sinon
+    int getTemps();
+
+    void actionsAutomatiques (const char touche);
+    bool actionClavier(const char touche, int tps);
 		void gravite();
 };
 

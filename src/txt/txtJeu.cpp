@@ -54,7 +54,7 @@ void txtBoucle (Jeu & jeu) {
 	bool ok = true;
 	const Items& items = jeu.getConstItems();
 	unsigned int nombre=items.getnbitems();
-	int c;
+	char c;
 
 	do {
 	    txtAff(win,jeu);
@@ -66,28 +66,15 @@ void txtBoucle (Jeu & jeu) {
 		usleep(100000);
         #endif // WIN32
 
-		jeu.actionsAutomatiques();
-
 		c = win.getCh();
-        
-        switch (c) {
-			case 'z':
-				jeu.getPerso().deplacer('z',jeu.getConstTerrain());
-				break;
-			case 'q':
-				jeu.getPerso().deplacer('q',jeu.getConstTerrain());
-				break;
-			case 's':
-				jeu.getPerso().deplacer('s',jeu.getConstTerrain());
-				break;
-			case 'd':
-				jeu.getPerso().deplacer('d',jeu.getConstTerrain());
-				break;
-			case 'x':
-				ok = false;
-				break;
-		}
 
+		
+		jeu.actionsAutomatiques(c);
+        
+        jeu.actionClavier(c,jeu.getTemps());
+
+
+		if(c=='x') ok = false;
 	} while (ok);
 
 }
