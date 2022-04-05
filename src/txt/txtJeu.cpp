@@ -6,6 +6,9 @@
 //#endif // WIN32
 #include "winTxt.h"
 #include "../core/Jeu.h"
+#include "txtJeu.h"
+
+#define LEN 10
 
 using namespace std;
 
@@ -15,6 +18,14 @@ void txtAff(WinTXT & win, Jeu & jeu) {
 	const Personnage& perso = jeu.getConstPersonnage();
 	const Monstre& monst = jeu.getConstMonstre();
 	const Items& items = jeu.getConstItems();
+	
+	char * nom = new char [LEN];
+	string n = jeu.getPerso().getNom();
+	strcpy(nom,n.c_str());
+
+	char * vie = new char [LEN];
+	string v = to_string(jeu.getPerso().getVie());
+	strcpy(vie,v.c_str());
 
 	win.clear();
 
@@ -41,6 +52,8 @@ void txtAff(WinTXT & win, Jeu & jeu) {
 		win.print(items.getviex(),items.getviey(),items.getcharvie());
 	}
 	
+	win.print(0,0,nom);
+	win.print(0,1, vie);
 
 	win.draw();
 }
@@ -59,7 +72,8 @@ void txtBoucle (Jeu & jeu) {
 
 	do {
 	    txtAff(win,jeu);
-		 cout <<nombre;
+		 cout <<nombre <<endl;
+		 cout<<jeu.getPerso().getVie();
 
         #ifdef _WIN32
         Sleep(100);

@@ -54,7 +54,7 @@ void Jeu::actionsAutomatiques()
 	//monstre.bougeAuto(ter);
 	temps++;
 
-	fsaut = dsaut+2;
+	fsaut = dsaut+12;
 	if(fsaut < temps)
 	{
 		gravite();
