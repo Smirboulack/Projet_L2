@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cassert>
 
+const int TAILLE_SPRITE = 32;
 using namespace std;
 
 //Items item1;
@@ -20,7 +21,7 @@ char terrain1[21][101]=
  "                                                                                                    ",
  "                                                                                                    ",
  "                                                                                                    ",
- "  [GGG]           [GGGGGGGGGGGGGGGGGGGGGGGG]       [GGG]               [GGG]                        ", 
+ "  [GGG]           [GGGGGGGGGGGGGGGGGGGGGGGG]       [GGG]               [GGG]                        ",
  "  (___)           (________________________)       (___)               (___)                        ",
  "                                                                                                    ",
  "                                [GGG]                      [GGG][GGG]                               ",
@@ -32,8 +33,8 @@ char terrain1[21][101]=
 };
 
 Terrain::Terrain(){
-    dimx = 101;
-    dimy = 21;
+    dimx = 100;
+    dimy = 20;
     for(int i=0; i < dimy; i++)
     {
         for(int j=0; j < dimx; j++)
@@ -41,8 +42,8 @@ Terrain::Terrain(){
            // terrain1[item1[0].getarmey()][item1[0].getarmurex()] = item1[0].getchararme();
             //terrain1[item1.getarmey()][item1.getarmurex()] = item1.getchararme();
             ter[i][j] = terrain1[i][j];
-            
-            
+
+
         }
     }
 }
@@ -75,7 +76,15 @@ char Terrain::getXY (const int x, const int y) const {
 }
 
 bool Terrain::estPositionPersoValide(const int x,const int y) const{
-  return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy) && (ter[y][x]==' '));
+  int xtMin = x/TAILLE_SPRITE;
+  int ytMin = y/TAILLE_SPRITE;
+  int xtMax = (x + TAILLE_SPRITE - 1)/TAILLE_SPRITE ;
+  int ytMax = (y + TAILLE_SPRITE - 1)/TAILLE_SPRITE ;
+  cout << dimx * TAILLE_SPRITE << " " << dimy * TAILLE_SPRITE << endl;
+  cout << x << " " << y << endl;
+  cout << xtMin << " " << ytMin << endl;
+  cout << xtMax << " " << ytMax << endl;
+  return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && (ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' '));
 }
 
 int Terrain::getDimX () const { return dimx; }

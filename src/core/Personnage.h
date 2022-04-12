@@ -34,6 +34,7 @@ class Personnage{
     //pour déplacer le personnage
     void deplacer(char direction,const Terrain & t);
     //Methode permettant au personnage de perdre des pvs et mourrir
+    void deplacerVite(int n, char direction, const Terrain & t);
     void subirDegat(int degat);
 
     //des getter et setter

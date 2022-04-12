@@ -49,6 +49,11 @@ void Personnage::deplacer(char direction, const Terrain & t){
       y--;
     }
 }
+void Personnage::deplacerVite(int n, char direction, const Terrain & t){
+  for(int i = 0; i < n;i++){
+    deplacer(direction, t);
+  }
+}
 
 void Personnage::subirDegat(int degat){
   if(degat <= vie)

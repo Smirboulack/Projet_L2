@@ -5,7 +5,7 @@
 
 #include <iostream>
 using namespace std;
-const int TAILLE_SPRITE = 25;
+const int TAILLE_SPRITE = 32;
 
 Image::Image () {
     surface = NULL;
@@ -189,7 +189,7 @@ for (x=0;x<ter.getDimX();++x){
       }
   }
 }
-    im_run.draw_animation(renderer,i,perso.getX()*TAILLE_SPRITE,perso.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+    im_run.draw_animation(renderer,i,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
     i = (i + 1) % 10;
 //  im_perso.draw(renderer,perso.getX()*TAILLE_SPRITE,perso.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
 

@@ -1,4 +1,5 @@
 #include "Jeu.h"
+const int VITESSE = 3;
 
 Jeu::Jeu() : ter(), perso(), monst(), itemss()
 {
@@ -24,17 +25,17 @@ bool Jeu::actionClavier(const int touche, int tps)
 	switch (touche)
 	{
 	case 'q':
-		perso.deplacer(touche, ter);
+		perso.deplacerVite(VITESSE, touche, ter);
 		break;
 	case 'd':
-		perso.deplacer(touche, ter);
+		perso.deplacerVite(VITESSE, touche, ter);
 		break;
 	case 'z':
 		dsaut = tps;
-		perso.deplacer(touche, ter);
+		perso.deplacerVite(VITESSE, touche, ter);
 		break;
 	case 's':
-		perso.deplacer(touche, ter);
+		perso.deplacerVite(VITESSE, touche, ter);
 		break;
 	}
 	/*
@@ -59,12 +60,13 @@ void Jeu::actionsAutomatiques()
 	{
 		gravite();
 	}
-	monst.bougeAutoMonstre(ter);
+	gravite();
+	//monst.bougeAutoMonstre(ter);
 }
 
 void Jeu::gravite()
 {
-	perso.deplacer('s', ter);
+	perso.deplacerVite(VITESSE, 's', ter);
 }
 
 int Jeu::getTemps()
