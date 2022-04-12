@@ -73,3 +73,17 @@ int Jeu::getTemps()
 {
 	return temps;
 }
+
+int Jeu::getStatus() const{
+	cout << "x = " << perso.getX() << "y = " << perso.getY() << endl;
+	cout << "xo = " << perso.getXO() << "yo = " << perso.getYO() << endl;
+	if(perso.getXO() == perso.getX() && perso.getYO() == perso.getY()){
+		return 0;
+	}else if(perso.getXO() < perso.getX()){
+		return 1;
+	}else if(perso.getYO() < perso.getY()){
+		return 3;
+	}else if(perso.getXO() > perso.getX()){
+		return 2;
+	}
+}

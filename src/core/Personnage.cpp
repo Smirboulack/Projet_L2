@@ -6,6 +6,8 @@ using namespace std;
 Personnage::Personnage(){
   x = 2;
   y = 2;
+  xold = x;
+  yold = y;
   vie = 20;
   sexe = 0;
   sens = 0;
@@ -36,6 +38,8 @@ Personnage::~Personnage(){
 }
 
 void Personnage::deplacer(char direction, const Terrain & t){
+    xold = x;
+    yold = y;
     if(direction == 'd' && t.estPositionPersoValide(x+1,y)){
       x++;
     }
@@ -96,6 +100,12 @@ int Personnage::getX() const{
 }
 int Personnage::getY() const{
   return y;
+}
+int Personnage::getXO() const{
+  return xold;
+}
+int Personnage::getYO() const{
+  return yold;
 }
 int Personnage::getVie(){
   return vie;

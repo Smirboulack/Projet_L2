@@ -72,18 +72,18 @@ void Image::draw (SDL_Renderer * renderer, int x, int y, int w, int h) {
 
 //xs : x srcrect
 //xd: x dstrect
-void Image::draw_animation(SDL_Renderer * renderer, int i, int x, int y, int w, int h){
+void Image::draw_animation(int n, SDL_Renderer * renderer, int i, int x, int y, int w, int h){
   int ok;
   SDL_Rect r;
-  SDL_Rect run[10];
+  SDL_Rect run[n];
 
   r.x = x;
   r.y = y;
   r.w = (w<0)?surface->w:w;
   r.h = (h<0)?surface->h:h;
 
-  for(int i = 0;i < 10;i++){
-    run[i].w = surface->w / 10;
+  for(int i = 0;i < n;i++){
+    run[i].w = surface->w / n;
     run[i].h = surface->h;
     run[i].x = i*run[i].w;
     run[i].y = 0;
@@ -145,7 +145,10 @@ sdlJeu::sdlJeu() : jeu(){
   im_mur_bas_droite.loadFromFile("data/).png",renderer);
   im_perso.loadFromFile("data/perso.png",renderer);
   im_background.loadFromFile("data/background.png",renderer);
-  im_run.loadFromFile("data/Run.png",renderer);
+  im_runright.loadFromFile("data/RunRight.png",renderer);
+  im_runleft.loadFromFile("data/RunLeft.png",renderer);
+  im_static.loadFromFile("data/Static.png",renderer);
+  im_fall.loadFromFile("data/Fall.png",renderer);
 }
 
 sdlJeu::~sdlJeu () {
@@ -189,8 +192,21 @@ for (x=0;x<ter.getDimX();++x){
       }
   }
 }
-    im_run.draw_animation(renderer,i,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
-    i = (i + 1) % 10;
+    int status = jeu.getStatus();
+    if(status == 0){
+      im_static.draw_animation(4, renderer,indiceStatic,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      indiceStatic = (indiceStatic + 1) % 4;
+    }else if(status == 1){
+      im_runright.draw_animation(10, renderer,indiceRunRight,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      indiceRunRight = (indiceRunRight + 1) % 10;
+    }else if(status == 3){
+      im_fall.draw_animation(4, renderer,indiceFall,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      indiceFall = (indiceFall + 1) % 4;
+    }else if(status == 2){
+      im_runleft.draw_animation(10, renderer,indiceRunLeft,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      indiceRunLeft = (indiceRunLeft + 1) % 10;
+    }
+
 //  im_perso.draw(renderer,perso.getX()*TAILLE_SPRITE,perso.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
 
 

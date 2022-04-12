@@ -11,6 +11,8 @@ class Personnage{
   private:
     //position du personnage en x et y
     int x, y;
+    //position du personnage avant
+    int xold,yold;
     //point de vie de personnage
     int vie;
     int sexe;
@@ -49,6 +51,8 @@ class Personnage{
     void setPortee(int portee);
     int getX() const;
     int getY() const;
+    int getXO() const;
+    int getYO() const;
     int getVie();
     string getNom();
     int getSexe();

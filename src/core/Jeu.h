@@ -39,6 +39,7 @@ public :
     const Monstre& getConstMonstre () const;
     const Items& getConstItems()const;
     //int getNombreMonstre() const;
+    int getStatus() const;
 
     int getTemps();
 
