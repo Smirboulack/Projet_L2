@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cassert>
 
-const int TAILLE_SPRITE = 32;
+const int TAILLE_SPRITE = 36;
 using namespace std;
 
 //Items item1;

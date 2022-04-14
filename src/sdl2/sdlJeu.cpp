@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 //taille de chaque case par pixels
-const int TAILLE_SPRITE = 32;
+const int TAILLE_SPRITE = 36;
 //FPS pour animation après FPS meme images on change à l'images suivante
 const int FPS = 20;
 
@@ -200,21 +200,21 @@ for (x=0;x<ter.getDimX();++x){
     int status = jeu.getStatus();
     int sens = jeu.getSens();
     if(status == 0 && sens == 0){
-      im_idleleft.draw_animation(2, renderer,(i/FPS)%2,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      im_idleleft.draw_animation(2, renderer,(i/FPS)%2,perso.getX()+3,perso.getY(),30,36);
       //Comme il n'y a que n images et que nous voulons ralentir l'animation,
       // nous passons à l'image suivante toutes les n images.(n == nombre image pour l'animation)
     }else if(status == 0 && sens == 1){
-      im_idleright.draw_animation(2, renderer,(i/FPS)%2,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      im_idleright.draw_animation(2, renderer,(i/FPS)%2,perso.getX()+3,perso.getY(),30,36);
     }else if(currentKeyStates[SDL_SCANCODE_RIGHT]){
-      im_runright.draw_animation(10, renderer,(i/FPS)%10,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      im_runright.draw_animation(10, renderer,(i/FPS)%10,perso.getX()-1,perso.getY()-3,38,42);
     }else if(currentKeyStates[SDL_SCANCODE_LEFT]){
-      im_runleft.draw_animation(10, renderer,(i/ FPS) % 10,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      im_runleft.draw_animation(10, renderer,(i/ FPS) % 10,perso.getX()-1,perso.getY()-3,38,42);
     }else if(status == 3){
-      im_fall.draw_animation(4, renderer,(i/FPS)%4,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      im_fall.draw_animation(4, renderer,(i/FPS)%4,perso.getX()+2,perso.getY()-12,32,60);
     }else if(sens == 0){
-      im_idleleft.draw_animation(2, renderer,(i/FPS)%2,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      im_idleleft.draw_animation(2, renderer,(i/FPS)%2,perso.getX()+3,perso.getY(),30,36);
     }else if(sens == 1){
-      im_idleright.draw_animation(2, renderer,(i/FPS)%2,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      im_idleright.draw_animation(2, renderer,(i/FPS)%2,perso.getX()+3,perso.getY(),30,36);
     }
     i++;
 }
