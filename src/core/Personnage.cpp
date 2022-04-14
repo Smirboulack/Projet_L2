@@ -10,11 +10,12 @@ Personnage::Personnage(){
   yold = y;
   vie = 20;
   sexe = 0;
-  sens = 0;
+  sens = 1;
   mort = false;
   nom = "mario";
   degat = 8;
   portee = 3;
+  status = 0;
 }
 
 Personnage::Personnage(int vie, int sexe, string nom, int degat, int portee){
@@ -25,6 +26,8 @@ Personnage::Personnage(int vie, int sexe, string nom, int degat, int portee){
   this->nom = nom;
   this->degat = degat;
   this->portee = portee;
+  sens = 1;
+  status = 0;
 }
 
 Personnage::~Personnage(){
@@ -42,15 +45,21 @@ void Personnage::deplacer(char direction, const Terrain & t){
     yold = y;
     if(direction == 'd' && t.estPositionPersoValide(x+1,y)){
       x++;
-    }
-    if(direction == 'q' && t.estPositionPersoValide(x-1,y)){
+      status = 2;//droite
+      sens = 1;
+
+    }else if(direction == 'q' && t.estPositionPersoValide(x-1,y)){
       x--;
-    }
-    if(direction == 's' && t.estPositionPersoValide(x,y+1)){
+      status = 1;//gauche
+      sens = 0;
+    }else if(direction == 's' && t.estPositionPersoValide(x,y+1)){
       y++;
-    }
-    if(direction == 'z' && t.estPositionPersoValide(x,y-1)){
+      status = 3;//tomper
+    }else if(direction == 'z' && t.estPositionPersoValide(x,y-1)){
       y--;
+      status = 4;//sauter
+    }else{
+      status = 0;//idle
     }
 }
 void Personnage::deplacerVite(int n, char direction, const Terrain & t){
@@ -116,7 +125,7 @@ string Personnage::getNom(){
 int Personnage::getSexe(){
   return sexe;
 }
-int Personnage::getSens(){
+int Personnage::getSens() const{
   return sens;
 }
 bool Personnage::getMort(){
@@ -127,4 +136,7 @@ int Personnage::getDegat(){
 }
 int Personnage::getPortee(){
   return portee;
+}
+int Personnage::getStatus() const{
+  return status;
 }

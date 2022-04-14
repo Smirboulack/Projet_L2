@@ -26,6 +26,8 @@ class Personnage{
     int degat;
     //portée d'attaque du personnage
     int portee;
+    //status de Personnage
+    int status;
   public:
     //crée le personnage par défaut
     Personnage();
@@ -56,10 +58,11 @@ class Personnage{
     int getVie();
     string getNom();
     int getSexe();
-    int getSens();
+    int getSens() const;
     bool getMort();
     int getDegat();
     int getPortee();
+    int getStatus() const;
 };
 
 

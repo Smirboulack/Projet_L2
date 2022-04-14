@@ -1,5 +1,5 @@
 #include "Jeu.h"
-const int VITESSE = 3;
+const int VITESSE = 1;
 
 Jeu::Jeu() : ter(), perso(), monst(), itemss()
 {
@@ -66,6 +66,7 @@ void Jeu::actionsAutomatiques()
 
 void Jeu::gravite()
 {
+	if(ter.estPositionPersoValide(perso.getX(), perso.getY()+1))
 	perso.deplacerVite(VITESSE, 's', ter);
 }
 
@@ -75,15 +76,9 @@ int Jeu::getTemps()
 }
 
 int Jeu::getStatus() const{
-	cout << "x = " << perso.getX() << "y = " << perso.getY() << endl;
-	cout << "xo = " << perso.getXO() << "yo = " << perso.getYO() << endl;
-	if(perso.getXO() == perso.getX() && perso.getYO() == perso.getY()){
-		return 0;
-	}else if(perso.getXO() < perso.getX()){
-		return 1;
-	}else if(perso.getYO() < perso.getY()){
-		return 3;
-	}else if(perso.getXO() > perso.getX()){
-		return 2;
-	}
+
+	return perso.getStatus();
+}
+int Jeu::getSens() const{
+	return perso.getSens();
 }

@@ -40,6 +40,7 @@ public :
     const Items& getConstItems()const;
     //int getNombreMonstre() const;
     int getStatus() const;
+		int getSens() const;
 
     int getTemps();
 

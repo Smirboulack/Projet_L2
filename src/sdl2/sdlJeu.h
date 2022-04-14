@@ -33,7 +33,6 @@ private:
   SDL_Renderer * renderer;
 
   Image im_mur;
-  Image im_perso;
   Image im_background;
   Image im_ter;
   Image im_grass;
@@ -44,13 +43,11 @@ private:
   Image im_mur_bas_droite;
   Image im_runright;
   Image im_runleft;
-  Image im_static;
+  Image im_idleright;
+  Image im_idleleft;
   Image im_fall;
 
-  int indiceStatic = 0;
-  int indiceRunRight = 0;
-  int indiceRunLeft = 0;
-  int indiceFall = 0;
+  int i = 0;
 public:
   sdlJeu();
   ~sdlJeu();

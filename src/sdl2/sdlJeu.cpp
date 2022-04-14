@@ -5,7 +5,10 @@
 
 #include <iostream>
 using namespace std;
+//taille de chaque case par pixels
 const int TAILLE_SPRITE = 32;
+//FPS pour animation après FPS meme images on change à l'images suivante
+const int FPS = 20;
 
 Image::Image () {
     surface = NULL;
@@ -30,11 +33,11 @@ void Image::loadFromFile (const char* filename, SDL_Renderer * renderer) {
         exit(1);
     }
 
-    SDL_Surface * surfaceCorrectPixelFormat = SDL_ConvertSurfaceFormat(surface,SDL_PIXELFORMAT_ARGB8888,0);
-    SDL_FreeSurface(surface);
-    surface = surfaceCorrectPixelFormat;
+    //SDL_Surface * surfaceCorrectPixelFormat = SDL_ConvertSurfaceFormat(surface,SDL_PIXELFORMAT_ARGB8888,0);
+    //SDL_FreeSurface(surface);
+    //surface = surfaceCorrectPixelFormat;
 
-    texture = SDL_CreateTextureFromSurface(renderer,surfaceCorrectPixelFormat);
+    texture = SDL_CreateTextureFromSurface(renderer,surface);
     if (texture == NULL) {
         cout << "Error: problem to create the texture of "<< filename<< endl;
         SDL_Quit();
@@ -70,8 +73,9 @@ void Image::draw (SDL_Renderer * renderer, int x, int y, int w, int h) {
 }
 
 
-//xs : x srcrect
-//xd: x dstrect
+//
+//n: animation à n image
+//i: image actuel
 void Image::draw_animation(int n, SDL_Renderer * renderer, int i, int x, int y, int w, int h){
   int ok;
   SDL_Rect r;
@@ -81,7 +85,7 @@ void Image::draw_animation(int n, SDL_Renderer * renderer, int i, int x, int y, 
   r.y = y;
   r.w = (w<0)?surface->w:w;
   r.h = (h<0)?surface->h:h;
-
+  //on range les images dans chaque case
   for(int i = 0;i < n;i++){
     run[i].w = surface->w / n;
     run[i].h = surface->h;
@@ -143,11 +147,11 @@ sdlJeu::sdlJeu() : jeu(){
   im_mur_bas.loadFromFile("data/_.png",renderer);
   im_mur_bas_gauche.loadFromFile("data/(.png",renderer);
   im_mur_bas_droite.loadFromFile("data/).png",renderer);
-  im_perso.loadFromFile("data/perso.png",renderer);
   im_background.loadFromFile("data/background.png",renderer);
   im_runright.loadFromFile("data/RunRight.png",renderer);
   im_runleft.loadFromFile("data/RunLeft.png",renderer);
-  im_static.loadFromFile("data/Static.png",renderer);
+  im_idleright.loadFromFile("data/IdleRight.png",renderer);
+  im_idleleft.loadFromFile("data/IdleLeft.png",renderer);
   im_fall.loadFromFile("data/Fall.png",renderer);
 }
 
@@ -192,57 +196,57 @@ for (x=0;x<ter.getDimX();++x){
       }
   }
 }
+    const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
     int status = jeu.getStatus();
-    if(status == 0){
-      im_static.draw_animation(4, renderer,indiceStatic,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
-      indiceStatic = (indiceStatic + 1) % 4;
-    }else if(status == 1){
-      im_runright.draw_animation(10, renderer,indiceRunRight,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
-      indiceRunRight = (indiceRunRight + 1) % 10;
+    int sens = jeu.getSens();
+    if(status == 0 && sens == 0){
+      im_idleleft.draw_animation(2, renderer,(i/FPS)%2,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+      //Comme il n'y a que n images et que nous voulons ralentir l'animation,
+      // nous passons à l'image suivante toutes les n images.(n == nombre image pour l'animation)
+    }else if(status == 0 && sens == 1){
+      im_idleright.draw_animation(2, renderer,(i/FPS)%2,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+    }else if(currentKeyStates[SDL_SCANCODE_RIGHT]){
+      im_runright.draw_animation(10, renderer,(i/FPS)%10,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+    }else if(currentKeyStates[SDL_SCANCODE_LEFT]){
+      im_runleft.draw_animation(10, renderer,(i/ FPS) % 10,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
     }else if(status == 3){
-      im_fall.draw_animation(4, renderer,indiceFall,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
-      indiceFall = (indiceFall + 1) % 4;
-    }else if(status == 2){
-      im_runleft.draw_animation(10, renderer,indiceRunLeft,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
-      indiceRunLeft = (indiceRunLeft + 1) % 10;
+      im_fall.draw_animation(4, renderer,(i/FPS)%4,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+    }else if(sens == 0){
+      im_idleleft.draw_animation(2, renderer,(i/FPS)%2,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
+    }else if(sens == 1){
+      im_idleright.draw_animation(2, renderer,(i/FPS)%2,perso.getX(),perso.getY(),TAILLE_SPRITE,TAILLE_SPRITE);
     }
-
-//  im_perso.draw(renderer,perso.getX()*TAILLE_SPRITE,perso.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
-
-
+    i++;
 }
 
 void sdlJeu::sdlBoucle(){
   bool quit = false;
   SDL_Event events;
 
+
   while(!quit){
-    jeu.actionsAutomatiques();
+    //jeu.actionsAutomatiques();
 
     while(SDL_PollEvent(&events)){
       if(events.type == SDL_QUIT){
         quit = true;
       }else if(events.type == SDL_KEYDOWN){
-        switch(events.key.keysym.scancode){
-          case SDL_SCANCODE_LEFT:
-            jeu.actionClavier(113,jeu.getTemps());
-            break;
-          case SDL_SCANCODE_RIGHT:
-            jeu.actionClavier(100,jeu.getTemps());
-            break;
-          case SDL_SCANCODE_DOWN:
-            jeu.actionClavier(115,jeu.getTemps());
-            break;
-          case SDL_SCANCODE_UP:
-            jeu.actionClavier(122,jeu.getTemps());
-            break;
-          default:
-            break;
-        }
+
       }
     }
+    const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+
+    if(currentKeyStates[SDL_SCANCODE_LEFT]){
+      jeu.actionClavier(113,jeu.getTemps());
+    }else if(currentKeyStates[SDL_SCANCODE_RIGHT]){
+      jeu.actionClavier(100,jeu.getTemps());
+    }else if(currentKeyStates[SDL_SCANCODE_DOWN]){
+      jeu.actionClavier(115,jeu.getTemps());
+    }else if(currentKeyStates[SDL_SCANCODE_UP]){
+      jeu.actionClavier(122,jeu.getTemps());
+    }
     sdlAff();
-    SDL_Delay(90);
+    SDL_Delay(5);
     SDL_RenderPresent(renderer);
   }
 }
