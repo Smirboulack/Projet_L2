@@ -8,6 +8,7 @@
 #include "Items.h"
 #include <ctime>
 #include <iostream>
+#include <assert.h>
 
 using namespace std;
 
@@ -22,7 +23,7 @@ private :
       //Menu cmenu;
     // Equipement * equip;
   int temps, dsaut, fsaut;
-
+	int vitesse_gravite;
 public :
 
     Jeu();
@@ -40,7 +41,9 @@ public :
     const Items& getConstItems()const;
     //int getNombreMonstre() const;
     int getStatus() const;
+    int getStatusO() const;
 		int getSens() const;
+		int getSensO() const;
 
     int getTemps();
 

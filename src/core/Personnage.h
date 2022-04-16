@@ -11,13 +11,13 @@ class Personnage{
   private:
     //position du personnage en x et y
     int x, y;
-    //position du personnage avant
-    int xold,yold;
     //point de vie de personnage
     int vie;
     int sexe;
     //le sens du personnage 0 pour gauche et 1 pour droit
     int sens;
+    //le sens d'avant
+    int sens_o;
     //l'etat viant ou mort du personnage
     bool mort;
     //le nom du personnage
@@ -27,7 +27,14 @@ class Personnage{
     //portée d'attaque du personnage
     int portee;
     //status de Personnage
+    //idle:0
+    //left:1
+    //right:2
+    //down:3
+    //up:4
     int status;
+    //status avant de Personnage
+    int status_o;
   public:
     //crée le personnage par défaut
     Personnage();
@@ -36,11 +43,14 @@ class Personnage{
     //déstructeur
     ~Personnage();
     //pour déplacer le personnage
-    void deplacer(char direction,const Terrain & t);
+    bool deplacer(char direction,const Terrain & t);
     //Methode permettant au personnage de perdre des pvs et mourrir
-    void deplacerVite(int n, char direction, const Terrain & t);
+    bool deplacerVite(int n, char direction, const Terrain & t);
     void subirDegat(int degat);
-
+    //s: new status
+    void updateStatus(int s);
+    //s:new sens
+    void updateSens(int s);
     //des getter et setter
     void setX(int x);
     void setY(int y);
@@ -59,10 +69,12 @@ class Personnage{
     string getNom();
     int getSexe();
     int getSens() const;
+    int getSensO() const;
     bool getMort();
     int getDegat();
     int getPortee();
     int getStatus() const;
+    int getStatusO() const;
 };
 
 

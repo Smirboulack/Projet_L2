@@ -100,31 +100,31 @@ int Monstre::getPortee(){
 
 
 void Monstre::gauche(const Terrain &ter){
-  if (ter.estPositionPersoValide(x-1,y)) x--;
+  if (ter.estPositionPersoVide(x-1,y)) x--;
 }
 
 void Monstre::droite(const Terrain &ter){
-  if (ter.estPositionPersoValide(x+1,y)) x++;
+  if (ter.estPositionPersoVide(x+1,y)) x++;
 }
 
 void Monstre::bougeAutoMonstre(const Terrain &ter){
     int xtmp;
     xtmp = x + dir;
-    if (ter.estPositionPersoValide(xtmp,y)) {
+    if (ter.estPositionPersoVide(xtmp,y)) {
         if(x==limg)dir=1;
         if(x==limd)dir=-1;
         x=xtmp;
     }
-   if (!ter.estPositionPersoValide(xtmp,y)){
+   if (!ter.estPositionPersoVide(xtmp,y)){
         limg=-x;
         dir=-dir;
     }
 
   if (dir==1){
-    if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)){
+    if(!ter.estPositionPersoVide(x+1,y) || ter.estPositionPersoVide(x+1,y+1)){
       dir=-dir;
     }
-    if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){
+    if(!ter.estPositionPersoVide(x-1,y) || ter.estPositionPersoVide(x-1,y+1)){
       dir=-dir;
     }
 
@@ -132,9 +132,9 @@ void Monstre::bougeAutoMonstre(const Terrain &ter){
 
     /*
     if(ter.getXY(getX()+1,getY()+1) == ' ' || ter.getXY(getX()+1,getY()+1) != ']' || ter.getXY(getX(),getY()+1) != '[' || ter.getXY(getX(),getY()+1) != 'T' ){
-       
 
-      
+
+
     }
     */
 
@@ -142,7 +142,7 @@ void Monstre::bougeAutoMonstre(const Terrain &ter){
 }
 
 void Monstre::versPerso(const Terrain & ter, const Personnage &p){
-  if(ter.estPositionPersoValide(p.getX(),p.getY()) && ter.estPositionPersoValide(x,y)){
+  if(ter.estPositionPersoVide(p.getX(),p.getY()) && ter.estPositionPersoVide(x,y)){
     if(p.getX()<getX()-5){dir=dir;}
     if(p.getX()>getX()+5){dir=-dir;}
   }

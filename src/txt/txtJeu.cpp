@@ -18,7 +18,7 @@ void txtAff(WinTXT & win, Jeu & jeu) {
 	const Personnage& perso = jeu.getConstPersonnage();
 	const Monstre& monst = jeu.getConstMonstre();
 	const Items& items = jeu.getConstItems();
-	
+
 	char * nom = new char [LEN];
 	string n = jeu.getPerso().getNom();
 	strcpy(nom,n.c_str());
@@ -51,7 +51,7 @@ void txtAff(WinTXT & win, Jeu & jeu) {
 		win.print(items.getarmurex(),items.getarmurey(),items.getchararmure());
 		win.print(items.getviex(),items.getviey(),items.getcharvie());
 	}
-	
+
 	win.print(0,0,nom);
 	win.print(0,1, vie);
 
@@ -83,7 +83,7 @@ void txtBoucle (Jeu & jeu) {
 
 		c = win.getCh();
 
-		
+
 		jeu.actionsAutomatiques();
         jeu.actionClavier(c,jeu.getTemps());
 

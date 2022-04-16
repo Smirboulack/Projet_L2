@@ -75,7 +75,7 @@ char Terrain::getXY (const int x, const int y) const {
 	return ter[y][x];
 }
 
-bool Terrain::estPositionPersoValide(const int x,const int y) const{
+bool Terrain::estPositionPersoVide(const int x,const int y) const{
   int xtMin = x/TAILLE_SPRITE;
   int ytMin = y/TAILLE_SPRITE;
   int xtMax = (x + TAILLE_SPRITE - 1)/TAILLE_SPRITE ;

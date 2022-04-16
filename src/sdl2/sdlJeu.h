@@ -45,7 +45,12 @@ private:
   Image im_runleft;
   Image im_idleright;
   Image im_idleleft;
-  Image im_fall;
+  Image im_fallleft;
+  Image im_fallright;
+  Image im_jumpleft;
+  Image im_jumpright;
+  Image im_turnleft;
+  Image im_turnright;
 
   int i = 0;
 public:

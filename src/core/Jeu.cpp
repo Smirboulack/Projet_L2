@@ -1,9 +1,12 @@
 #include "Jeu.h"
 const int VITESSE = 1;
+const int VITESSE_SAUTER = 6;
+const int VITESSE_ACCELEREE = 20;
 
 Jeu::Jeu() : ter(), perso(), monst(), itemss()
 {
 	temps = 0;
+	vitesse_gravite = VITESSE_ACCELEREE;
 }
 
 Terrain &Jeu::getTerrain() { return ter; }
@@ -31,8 +34,17 @@ bool Jeu::actionClavier(const int touche, int tps)
 		perso.deplacerVite(VITESSE, touche, ter);
 		break;
 	case 'z':
-		dsaut = tps;
-		perso.deplacerVite(VITESSE, touche, ter);
+		/*
+		if(!ter.estPositionPersoVide(perso.getX(),perso.getY()+1)){
+			dsaut = tps;
+			perso.deplacerVite(VITESSE+100, touche, ter);
+		}*/
+		if(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE) > 0){
+			perso.deplacerVite(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE), touche, ter);
+		}else{
+			perso.deplacerVite(-(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE)), 's', ter);
+		}
+		vitesse_gravite++;
 		break;
 	case 's':
 		perso.deplacerVite(VITESSE, touche, ter);
@@ -53,6 +65,7 @@ void Jeu::actionsAutomatiques()
 {
 	//fan.verspersoman(ter,perso);
 	//monstre.bougeAuto(ter);
+	/*
 	temps++;
 
 	fsaut = dsaut+12;
@@ -60,14 +73,19 @@ void Jeu::actionsAutomatiques()
 	{
 		gravite();
 	}
+	*/
 	gravite();
 	//monst.bougeAutoMonstre(ter);
 }
 
 void Jeu::gravite()
 {
-	if(ter.estPositionPersoValide(perso.getX(), perso.getY()+1))
-	perso.deplacerVite(VITESSE, 's', ter);
+	if(perso.deplacerVite(vitesse_gravite/VITESSE_ACCELEREE, 's', ter)){
+		vitesse_gravite++;
+	}else{
+		vitesse_gravite = VITESSE_ACCELEREE;
+	}
+	//cout << vitesse_gravite/VITESSE_ACCELEREE << endl;
 }
 
 int Jeu::getTemps()
@@ -79,6 +97,14 @@ int Jeu::getStatus() const{
 
 	return perso.getStatus();
 }
+int Jeu::getStatusO() const{
+
+	return perso.getStatusO();
+}
 int Jeu::getSens() const{
 	return perso.getSens();
+}
+int Jeu::getSensO() const{
+
+	return perso.getSensO();
 }
