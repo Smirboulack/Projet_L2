@@ -3,14 +3,8 @@
 
 #include "Personnage.h"
 #include "Terrain.h"
-//#include "Menu.h"
 #include "Monstre.h"
-#include "Items.h"
-#include <ctime>
-#include <iostream>
-#include <assert.h>
 
-using namespace std;
 
 class Jeu {
 

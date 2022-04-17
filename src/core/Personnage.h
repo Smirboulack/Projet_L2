@@ -3,7 +3,6 @@
 
 #include <string>
 #include "Terrain.h"
-using namespace std;
 
 class Terrain;
 
@@ -21,7 +20,7 @@ class Personnage{
     //l'etat viant ou mort du personnage
     bool mort;
     //le nom du personnage
-    string nom;
+    std::string nom;
     //dégats du personnage
     int degat;
     //portée d'attaque du personnage
@@ -42,7 +41,7 @@ class Personnage{
     //crée le personnage par défaut
     Personnage();
     //crée le personnage par des attributs
-    Personnage(int vie, int sexe, string nom, int degat, int portee);
+    Personnage(int vie, int sexe, std::string nom, int degat, int portee);
     //déstructeur
     ~Personnage();
     //pour déplacer le personnage
@@ -61,7 +60,7 @@ class Personnage{
     void setSexe(int sexe);
     void setSens(int sens);
     void setMort(bool mort);
-    void setNom(string nom);
+    void setNom(std::string nom);
     void setDegat(int degat);
     void setPortee(int portee);
     void setPiece(int piece);
@@ -71,7 +70,7 @@ class Personnage{
     int getXO() const;
     int getYO() const;
     int getVie();
-    string getNom();
+    std::string getNom();
     int getSexe();
     int getSens() const;
     int getSensO() const;

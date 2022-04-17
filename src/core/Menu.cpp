@@ -1,6 +1,8 @@
 #include <cstdio>
 #include "Menu.h"
 
+#include <iostream>
+
 const int MENU_MAX = 4;
 
 void menuAff()

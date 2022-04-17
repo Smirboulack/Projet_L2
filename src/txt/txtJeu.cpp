@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 //#ifdef _WIN32
 //#include <windows.h>
 //#else

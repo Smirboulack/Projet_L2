@@ -1,7 +1,6 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
-#include "Items.h"
 
 class Terrain
 {
@@ -13,8 +12,6 @@ class Terrain
     Terrain(); //Constructeur
     ~Terrain();                 //Destructeur
 
-    // Items * items;
-
     void afficherTerrain();     //Procédure d'affichage
     /**
      * Renvoie le type d'objet se trouvant en (x,y)
@@ -24,7 +21,7 @@ class Terrain
      */
 
     char getXY (const int x, const int y) const;
-    char setXY(const int x, const int y,const char & c);
+    void setXY(const int x, const int y,const char & c);
 
     //Renvoie la largeur du terrain
     int getDimX () const;

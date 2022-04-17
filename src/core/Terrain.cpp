@@ -69,11 +69,11 @@ char Terrain::getXY (const int x, const int y) const {
 	return ter[y][x];
 }
 
-char Terrain::setXY(const int x, const int y,const char & c){
+void Terrain::setXY(const int x, const int y,const char & c){
     assert(x>=0);
 	assert(y>=0);
 	assert(x<dimx);
-	assert(y<dimy);
+	assert(y<dimy); 
     ter[y][x]=c;
 }
 

@@ -4,8 +4,6 @@
 #include "Terrain.h"
 #include "Personnage.h"
 
-using namespace std;
-
 class Terrain;
 class Personnage;
 

@@ -1,4 +1,10 @@
 #include "Jeu.h"
+#include <ctime>
+#include <iostream>
+#include <assert.h>
+
+using namespace std;
+
 const int VITESSE = 1;
 const int VITESSE_SAUTER = 6;
 const int VITESSE_ACCELEREE = 20;
@@ -13,7 +19,7 @@ Terrain &Jeu::getTerrain() { return ter; }
 
 Personnage &Jeu::getPerso() { return perso; }
 
-Personnage &Jeu::getMonstre() { return monst; }
+Monstre &Jeu::getMonstre() { return monst; }
 
 const Terrain &Jeu::getConstTerrain() const { return ter; }
 
