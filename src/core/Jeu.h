@@ -28,7 +28,7 @@ public :
 
     Terrain& getTerrain ();
     Personnage& getPerso ();
-    //Monstre & getMonstre ();
+    Monstre & getMonstre ();
 
 
     const Terrain& getConstTerrain () const;

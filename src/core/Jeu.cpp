@@ -13,6 +13,8 @@ Terrain &Jeu::getTerrain() { return ter; }
 
 Personnage &Jeu::getPerso() { return perso; }
 
+Personnage &Jeu::getMonstre() { return monst; }
+
 const Terrain &Jeu::getConstTerrain() const { return ter; }
 
 const Personnage &Jeu::getConstPersonnage() const { return perso; }
