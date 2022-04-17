@@ -14,6 +14,7 @@ Personnage::Personnage(){
   nom = "mario";
   degat = 8;
   portee = 3;
+  piece=0;
   status = 0;
   status_o = status;
 }
@@ -39,25 +40,26 @@ Personnage::~Personnage(){
   nom = "";
   degat = 0;
   portee = 0;
+  piece=0;
 }
 
 bool Personnage::deplacer(char direction, const Terrain & t){
 
-    if(direction == 'd' && t.estPositionPersoVide(x+1,y)){
+    if(direction == 'd' && t.estPositionPersoValide(x+1,y)){
       x++;
       updateStatus(2);//droite
       updateSens(1);
       return true;
-    }else if(direction == 'q' && t.estPositionPersoVide(x-1,y)){
+    }else if(direction == 'q' && t.estPositionPersoValide(x-1,y)){
       x--;
       updateStatus(1);//gauche
       updateSens(0);
       return true;
-    }else if(direction == 's' && t.estPositionPersoVide(x,y+1)){
+    }else if(direction == 's' && t.estPositionPersoValide(x,y+1)){
       y++;
       updateStatus(3);//tomper
       return true;
-    }else if(direction == 'z' && t.estPositionPersoVide(x,y-1)){
+    }else if(direction == 'z' && t.estPositionPersoValide(x,y-1)){
       y--;
       updateStatus(4);//sauter
       return true;
@@ -122,6 +124,16 @@ void Personnage::setDegat(int degat){
 void Personnage::setPortee(int portee){
   this->portee = portee;
 }
+
+void Personnage::setPiece(int piece){
+  this->piece = piece;
+}
+
+void Personnage::setArmure(int armure){
+  this->Armure = armure;
+}
+
+
 int Personnage::getX() const{
   return x;
 }
@@ -153,6 +165,15 @@ int Personnage::getDegat(){
 int Personnage::getPortee(){
   return portee;
 }
+
+int Personnage::getArmure(){
+  return Armure;
+}
+
+int Personnage::getPiece(){
+  return piece;
+}
+
 int Personnage::getStatus() const{
   return status;
 }

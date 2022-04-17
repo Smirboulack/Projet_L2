@@ -26,6 +26,9 @@ class Personnage{
     int degat;
     //portée d'attaque du personnage
     int portee;
+    int Armure;
+    //Piece du personnage
+    int piece;
     //status de Personnage
     //idle:0
     //left:1
@@ -61,6 +64,8 @@ class Personnage{
     void setNom(string nom);
     void setDegat(int degat);
     void setPortee(int portee);
+    void setPiece(int piece);
+    void setArmure(int armure);
     int getX() const;
     int getY() const;
     int getXO() const;
@@ -75,6 +80,8 @@ class Personnage{
     int getPortee();
     int getStatus() const;
     int getStatusO() const;
+    int getPiece();
+    int getArmure();
 };
 
 

@@ -1,16 +1,28 @@
 #include <cstdio>
-#include "menu.h"
+#include "Menu.h"
 
 const int MENU_MAX = 4;
 
 void menuAff()
 {
+
+std::cout<<"****************************************************"<<std::endl;
+std::cout<<"*                                                  *"<<std::endl;
+std::cout<<"*           BIENVENUE DANS ULTIMATE-LIKFAS         *"<<std::endl;
+std::cout<<"*                      ****                        *"<<std::endl;
+std::cout<<"*                      ****                        *"<<std::endl;
+std::cout<<"*                    ********                      *"<<std::endl;
+std::cout<<"*                    * MENU *                      *"<<std::endl;
+std::cout<<"*                    ********                      *"<<std::endl;
+std::cout<<"*                                                  *"<<std::endl;
+std::cout<<"****************************************************"<<std::endl;
+
+
+	
 	printf("\nMenu\n");
-	printf("1 : Choix1\n");
-	printf("2 : Choix1\n");
-	printf("3 : Choix1\n");
-	printf("4 : Choix1\n");
-	printf("0 : Exit\n");
+	printf("1 : Commencer la partie\n");
+	printf("2 : Choix du niveau\n");
+	printf("3 : Quitter le jeu\n");
 	printf("Votre choix?\n");
 	fflush(stdout);
 }

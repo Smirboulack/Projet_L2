@@ -19,16 +19,12 @@ private :
 	Terrain ter;
 	Personnage perso;
   Monstre monst;
-  Items itemss;
-      //Menu cmenu;
-    // Equipement * equip;
+
   int temps, dsaut, fsaut;
 	int vitesse_gravite;
 public :
 
     Jeu();
-
-    //void genereMenu();
 
     Terrain& getTerrain ();
     Personnage& getPerso ();
@@ -38,7 +34,6 @@ public :
     const Terrain& getConstTerrain () const;
     const Personnage& getConstPersonnage () const;
     const Monstre& getConstMonstre () const;
-    const Items& getConstItems()const;
     //int getNombreMonstre() const;
     int getStatus() const;
     int getStatusO() const;
@@ -50,6 +45,7 @@ public :
     void actionsAutomatiques ();
     bool actionClavier(const int touche, int tps);
 		void gravite();
+    void ramasserItems();
 };
 
 

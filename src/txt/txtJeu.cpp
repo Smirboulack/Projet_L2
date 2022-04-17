@@ -17,15 +17,32 @@ void txtAff(WinTXT & win, Jeu & jeu) {
 	const Terrain& ter = jeu.getConstTerrain();
 	const Personnage& perso = jeu.getConstPersonnage();
 	const Monstre& monst = jeu.getConstMonstre();
-	const Items& items = jeu.getConstItems();
 
 	char * nom = new char [LEN];
+	char * vie = new char [LEN];
+	char * armure = new char[LEN];
+	char * degat = new char[LEN];
+	char * piece = new char[LEN];
+	char * portee = new char[LEN];
+	char * persox = new char[LEN];
+	char * persoy = new char[LEN];
+
 	string n = jeu.getPerso().getNom();
 	strcpy(nom,n.c_str());
-
-	char * vie = new char [LEN];
 	string v = to_string(jeu.getPerso().getVie());
 	strcpy(vie,v.c_str());
+	string a = to_string(jeu.getPerso().getArmure());
+	strcpy(armure,a.c_str());
+	string deg = to_string(jeu.getPerso().getDegat());
+	strcpy(degat,deg.c_str());
+	string coin = to_string(jeu.getPerso().getPiece());
+	strcpy(piece,coin.c_str());
+	string rg = to_string(jeu.getPerso().getPortee());
+	strcpy(portee,rg.c_str());
+	string persx = to_string(jeu.getPerso().getX());
+	strcpy(persox,persx.c_str());
+	string persy = to_string(jeu.getPerso().getY());
+	strcpy(persoy,persy.c_str());
 
 	win.clear();
 
@@ -38,22 +55,15 @@ void txtAff(WinTXT & win, Jeu & jeu) {
 	win.print(perso.getX(),perso.getY(),'P');
 	// Affichage du Monstre
 	win.print(monst.getX(),monst.getY(),'M');
-	// Affichage des items
-	for (unsigned int i=0;i<items.getnbitems();i++){
-		/*
-		win.print(items.getarmex(),items.getarmey(),items.getchararme());
-		win.print(items.getpiecex(),items.getpiecey(),items.getcharpiece());
-		win.print(items.getarmurex(),items.getarmurey(),items.getchararmure());
-		win.print(items.getviex(),items.getviey(),items.getcharvie());
-		*/
-		win.print(items.getarmex(),items.getarmey(),items.getchararme());
-		win.print(items.getpiecex(),items.getpiecey(),items.getcharpiece());
-		win.print(items.getarmurex(),items.getarmurey(),items.getchararmure());
-		win.print(items.getviex(),items.getviey(),items.getcharvie());
-	}
 
-	win.print(0,0,nom);
-	win.print(0,1, vie);
+	win.print(9,0,nom);
+	win.print(22,0, vie);
+	win.print(32,0, armure);
+	win.print(42,0, degat);
+	win.print(52,0, portee);
+	win.print(61,0, piece);
+	win.print(83,0,persox);
+	win.print(88,0,persoy);
 
 	win.draw();
 }
@@ -65,14 +75,10 @@ void txtBoucle (Jeu & jeu) {
     WinTXT win (jeu.getConstTerrain().getDimX(),jeu.getConstTerrain().getDimY());
 
 	bool ok = true;
-	const Items& items = jeu.getConstItems();
-	unsigned int nombre=items.getnbitems();
 	char c;
-
 
 	do {
 	    txtAff(win,jeu);
-		 cout <<nombre <<endl;
 		 cout<<jeu.getPerso().getVie();
 
         #ifdef _WIN32
@@ -86,6 +92,7 @@ void txtBoucle (Jeu & jeu) {
 
 		jeu.actionsAutomatiques();
         jeu.actionClavier(c,jeu.getTemps());
+		jeu.ramasserItems();
 
 
 		if(c=='x') ok = false;

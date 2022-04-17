@@ -3,7 +3,7 @@ const int VITESSE = 1;
 const int VITESSE_SAUTER = 6;
 const int VITESSE_ACCELEREE = 20;
 
-Jeu::Jeu() : ter(), perso(), monst(), itemss()
+Jeu::Jeu() : ter(), perso(), monst()
 {
 	temps = 0;
 	vitesse_gravite = VITESSE_ACCELEREE;
@@ -18,10 +18,6 @@ const Terrain &Jeu::getConstTerrain() const { return ter; }
 const Personnage &Jeu::getConstPersonnage() const { return perso; }
 
 const Monstre &Jeu::getConstMonstre() const { return monst; }
-
-const Items &Jeu::getConstItems() const { return itemss; }
-
-//int Jeu::getNombreMonstre() const { return 1; }
 
 bool Jeu::actionClavier(const int touche, int tps)
 {
@@ -65,17 +61,16 @@ void Jeu::actionsAutomatiques()
 {
 	//fan.verspersoman(ter,perso);
 	//monstre.bougeAuto(ter);
-	/*
+	
 	temps++;
-
 	fsaut = dsaut+12;
 	if(fsaut < temps)
 	{
 		gravite();
 	}
-	*/
+	
 	gravite();
-	//monst.bougeAutoMonstre(ter);
+	monst.bougeAutoMonstre(ter);
 }
 
 void Jeu::gravite()
@@ -86,6 +81,18 @@ void Jeu::gravite()
 		vitesse_gravite = VITESSE_ACCELEREE;
 	}
 	//cout << vitesse_gravite/VITESSE_ACCELEREE << endl;
+}
+
+void Jeu::ramasserItems(){
+	
+	for (int i=0;i<ter.getDimX();i++){
+		for (int j=0;j<ter.getDimY();j++){
+			if(ter.getXY(i,j)=='$' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setPiece(perso.getPiece()+1);}
+			if(ter.getXY(i,j)=='!' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setDegat(perso.getDegat()+1);}
+			if(ter.getXY(i,j)=='O' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setArmure(perso.getArmure()+1);}
+			if(ter.getXY(i,j)=='+' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setVie(perso.getVie()+1);}
+		}
+	}
 }
 
 int Jeu::getTemps()

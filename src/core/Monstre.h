@@ -13,6 +13,7 @@ class Monstre{
   private:
     //position du monstre en x et y
     int x, y;
+
     int limg, limd;
     int dir;
     //point de vie du monstre

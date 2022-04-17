@@ -24,13 +24,14 @@ class Terrain
      */
 
     char getXY (const int x, const int y) const;
+    char setXY(const int x, const int y,const char & c);
 
     //Renvoie la largeur du terrain
     int getDimX () const;
 
     //Renvoie la hauteur du terrain
     int getDimY () const;
-    bool estPositionPersoVide(const int x,const int y) const;
+    bool estPositionPersoValide(const int x,const int y) const;
 };
 
 
