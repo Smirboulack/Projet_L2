@@ -10,14 +10,14 @@
 
 using namespace std;
 
-/*
+
 int main (int argc, char** argv) {
 	sdlJeu sj;
 	sj.sdlBoucle();
 	return 0;
 }
-*/
 
+/*
 void CommencerPartie(sdlJeu & sj)
 {
     string nomperso;
@@ -72,3 +72,5 @@ int main ( int argc, char** argv ) {
     
 	return 0;
 }
+
+*/
