@@ -11,7 +11,7 @@ const int VITESSE_ACCELEREE = 20;
 
 Jeu::Jeu() : ter(), perso(), monst()
 {
-	temps = 0;
+	
 	vitesse_gravite = VITESSE_ACCELEREE;
 }
 
@@ -27,7 +27,7 @@ const Personnage &Jeu::getConstPersonnage() const { return perso; }
 
 const Monstre &Jeu::getConstMonstre() const { return monst; }
 
-bool Jeu::actionClavier(const int touche, int tps)
+bool Jeu::actionClavier(const int touche)
 {
 	switch (touche)
 	{
@@ -69,14 +69,14 @@ void Jeu::actionsAutomatiques()
 {
 	//fan.verspersoman(ter,perso);
 	//monstre.bougeAuto(ter);
-	
+	/*
 	temps++;
 	fsaut = dsaut+12;
 	if(fsaut < temps)
 	{
 		gravite();
 	}
-	
+	*/
 	gravite();
 	monst.bougeAutoMonstre(ter);
 }
@@ -102,11 +102,12 @@ void Jeu::ramasserItems(){
 		}
 	}
 }
-
+/*
 int Jeu::getTemps()
 {
 	return temps;
 }
+*/
 
 int Jeu::getStatus() const{
 

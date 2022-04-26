@@ -81,8 +81,8 @@ void Terrain::setXY(const int x, const int y,const char & c){
 bool Terrain::estPositionPersoValide(const int x,const int y) const{
   int xtMin = x/TAILLE_SPRITE;
   int ytMin = y/TAILLE_SPRITE;
-  int xtMax = (x + TAILLE_SPRITE - 1)/TAILLE_SPRITE ;
-  int ytMax = (y + TAILLE_SPRITE - 1)/TAILLE_SPRITE ;
+  int xtMax = (x + TAILLE_SPRITE - 1)/TAILLE_SPRITE;
+  int ytMax = (y + TAILLE_SPRITE - 1)/TAILLE_SPRITE;
   //cout << dimx * TAILLE_SPRITE << " " << dimy * TAILLE_SPRITE << endl;
   //cout << x << " " << y << endl;
   //cout << xtMin << " " << ytMin << endl;
@@ -90,6 +90,6 @@ bool Terrain::estPositionPersoValide(const int x,const int y) const{
   return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && ((ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' ')));
 }
 
-int Terrain::getDimX () const { return dimx; }
 
+int Terrain::getDimX () const { return dimx; }
 int Terrain::getDimY () const {	return dimy; }

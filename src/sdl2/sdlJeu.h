@@ -5,25 +5,8 @@
 #include <SDL2/SDL_image.h>
 
 #include "../core/Jeu.h"
-
-class Image {
-
-private:
-
-    SDL_Surface * surface;
-    SDL_Texture * texture;
-    bool has_changed;
-
-public:
-    Image () ;
-    void loadFromFile (const char* filename, SDL_Renderer * renderer);
-    void loadFromCurrentSurface (SDL_Renderer * renderer);
-    void draw (SDL_Renderer * renderer, int x, int y, int w=-1, int h=-1);
-    void draw_animation(int n, SDL_Renderer * renderer, int i, int x, int y, int w, int h);
-    SDL_Texture * getTexture() const;
-    void setSurface(SDL_Surface * surf);
-    void animationRun();
-};
+#include "Image.h"
+#include "Camera.h"
 
 class sdlJeu{
 private:
@@ -52,12 +35,20 @@ private:
   Image im_turnleft;
   Image im_turnright;
 
+  Camera camera;
+
   int i = 0;
 public:
+  //taille de chaque case par pixels
+  const int TAILLE_SPRITE = 36;
+  //FPS pour animation après FPS meme images on change à l'images suivante
+  const int FPS = 20;
   sdlJeu();
   ~sdlJeu();
   void sdlBoucle();
   void sdlAff();
+  void drawTerrain();
+  void drawPersonnage();
 
 
 };

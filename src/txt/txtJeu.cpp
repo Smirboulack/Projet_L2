@@ -92,7 +92,7 @@ void txtBoucle (Jeu & jeu) {
 
 
 		jeu.actionsAutomatiques();
-        jeu.actionClavier(c,jeu.getTemps());
+       // jeu.actionClavier(c,jeu.getTemps());
 		jeu.ramasserItems();
 
 

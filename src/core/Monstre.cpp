@@ -129,8 +129,7 @@ void Monstre::bougeAutoMonstre(const Terrain &ter){
     }
 
   }
-
-      cout << ter.getXY(getX(),getY()+1);
+  
 }
 
 void Monstre::versPerso(const Terrain & ter, const Personnage &p){

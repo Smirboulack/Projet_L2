@@ -1,7 +1,7 @@
 all: main_sdl main_txt
 
-main_sdl: obj/sdl2/main_sdl.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o
-	g++ -ggdb obj/sdl2/main_sdl.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o -lSDL2 -lSDL2_image -o ./bin/main_sdl
+main_sdl: obj/sdl2/main_sdl.o obj/sdl2/Image.o obj/sdl2/Camera.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o
+	g++ -ggdb obj/sdl2/main_sdl.o obj/sdl2/Image.o obj/sdl2/Camera.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o -lSDL2 -lSDL2_image -o ./bin/main_sdl
 
 main_txt: obj/txt/main_txt.o obj/core/Menu.o obj/txt/txtJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o 
 	g++ -ggdb obj/txt/main_txt.o obj/core/Menu.o obj/txt/txtJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o -o ./bin/main_txt
@@ -14,6 +14,12 @@ obj/txt/main_txt.o: ./src/txt/txtJeu.h ./src/txt/winTxt.h ./src/txt/main_txt.cpp
 
 obj/sdl2/sdlJeu.o:./src/sdl2/sdlJeu.h ./src/sdl2/sdlJeu.cpp ./src/core/Jeu.h
 	g++ -ggdb -Wall -c ./src/sdl2/sdlJeu.cpp -o obj/sdl2/sdlJeu.o
+
+obj/sdl2/Image.o:./src/sdl2/Image.cpp
+	g++ -ggdb -Wall -c ./src/sdl2/Image.cpp -o obj/sdl2/Image.o
+
+obj/sdl2/Camera.o:./src/sdl2/Camera.cpp
+	g++ -ggdb -Wall -c ./src/sdl2/Camera.cpp -o obj/sdl2/Camera.o
 
 obj/txt/txtJeu.o:./src/txt/txtJeu.h ./src/txt/txtJeu.cpp ./src/core/Jeu.h ./src/txt/winTxt.h
 	g++ -ggdb -Wall -c ./src/txt/txtJeu.cpp -o obj/txt/txtJeu.o

@@ -13,9 +13,11 @@ private :
 	Terrain ter;
 	Personnage perso;
   Monstre monst;
-
+  /*
   int temps, dsaut, fsaut;
-	int vitesse_gravite;
+	*/
+  int vitesse_gravite;
+  
 public :
 
     Jeu();
@@ -34,10 +36,11 @@ public :
 		int getSens() const;
 		int getSensO() const;
 
-    int getTemps();
+    //int getTemps();
 
     void actionsAutomatiques ();
-    bool actionClavier(const int touche, int tps);
+   // bool actionClavier(const int touche, int tps);
+    bool actionClavier(const int touche);
 		void gravite();
     void ramasserItems();
 };
