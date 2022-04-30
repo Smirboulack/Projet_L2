@@ -50,6 +50,60 @@ Terrain::~Terrain(){
     dimy = 0;
 }
 
+
+void Terrain::ouvrir(string pathname)
+{
+    char buf;
+    int fd, nbrd;
+    int x,y;
+    x=0;
+    y=0;
+
+    fd = open(pathname.c_str(), O_RDONLY);
+    if (fd == -1)
+    {
+        cout << "Erreur lors de l'ouverture" << endl;
+    }
+    else
+    {
+        for ( y = 0; y < dimy; y++)
+        {
+            for ( x = 0; x < dimx; x++)
+            {
+                /*do
+                {
+                    if (buf != 'G' && buf != '[' && buf != ']' && buf != '_' && buf != '(' &&
+                        buf != ')' && buf != '#' && buf != 'T' && buf != 'F' && buf != ' ')
+                    {
+                        cout << "Caractere SPECIAL à l'adresse y: " << y << " x: " << x <<" valeur : "<<buf <<endl;
+                    }
+                    else
+                    {
+                        cout << "Caractere normal à l'adresse y: " << y << " x: " << x <<" valeur : "<<buf << endl;
+                    }
+                    nbrd = read(fd, &buf, 1);
+                    x++;
+                    if(x==80)
+                    {
+                        x=0;
+                        y++;
+                    }
+                }*/
+
+                    nbrd = read(fd, &buf, 1);
+                    if(buf == '\n')
+                    {
+                    nbrd = read(fd, &buf, 1);
+                    y++;
+                    x=0;
+                    }
+                    ter[y][x] = buf;
+           }
+        }
+    }
+    close(fd);
+}
+
 void Terrain::afficherTerrain(){
     for(int i=0; i<dimx; i++)
     {
