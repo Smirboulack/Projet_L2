@@ -80,6 +80,7 @@ void sdlJeu::sdlBoucle(){
   bool quit = false;
   SDL_Event events;
   bool sauter = false;
+  jeu.getTerrain().setVersion(1);
 
   while(!quit){
 

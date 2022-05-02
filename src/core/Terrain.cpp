@@ -2,6 +2,20 @@
 //#include "Items.h"
 #include <iostream>
 #include <cassert>
+#include <sys/types.h>
+#include <unistd.h>
+#include <errno.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <signal.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cerrno>
+#include <string>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 
 const int TAILLE_SPRITE = 36;
 using namespace std;
@@ -131,6 +145,8 @@ void Terrain::setXY(const int x, const int y,const char & c){
     ter[y][x]=c;
 }
 
+void Terrain::setVersion(const int & v){version=v;}
+
 
 bool Terrain::estPositionPersoValide(const int x,const int y) const{
   int xtMin = x/TAILLE_SPRITE;
@@ -141,9 +157,15 @@ bool Terrain::estPositionPersoValide(const int x,const int y) const{
   //cout << x << " " << y << endl;
   //cout << xtMin << " " << ytMin << endl;
   //cout << xtMax << " " << ytMax << endl;
-  return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && ((ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' ')));
+if(version==1){return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && ((ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' ')));
+}else{
+    return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy) 
+    && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+')));
+}
+
 }
 
 
 int Terrain::getDimX () const { return dimx; }
 int Terrain::getDimY () const {	return dimy; }
+int Terrain::getVersion()const {return version;}
