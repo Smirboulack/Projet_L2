@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-const int MENU_MAX = 4;
+const int MENU_MAX = 5;
 
 void menuAff()
 {
@@ -24,7 +24,8 @@ std::cout<<"****************************************************"<<std::endl;
 	printf("\nMenu\n");
 	printf("1 : Commencer la partie\n");
 	printf("2 : Choix du niveau\n");
-	printf("3 : Quitter le jeu\n");
+	printf("3 : Paramètres\n");
+	printf("4 : Quitter le jeu\n");
 	printf("Votre choix?\n");
 	fflush(stdout);
 }

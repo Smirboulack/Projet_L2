@@ -12,6 +12,7 @@ Personnage::Personnage(){
   sens = 1;
   mort = false;
   nom = "mario";
+  Armure = 0;
   degat = 8;
   portee = 3;
   piece=0;
@@ -19,7 +20,7 @@ Personnage::Personnage(){
   status_o = status;
 }
 
-Personnage::Personnage(int vie, int sexe, string nom, int degat, int portee){
+Personnage::Personnage(int vie, bool sexe, string nom, int degat, int portee){
   x = 0;
   y = 0;
   this->vie = vie;
@@ -106,7 +107,7 @@ void Personnage::setY(int y){
 void Personnage::setVie(int vie){
   this->vie = vie;
 }
-void Personnage::setSexe(int sexe){
+void Personnage::setSexe(bool sexe){
   this->sexe = sexe;
 }
 void Personnage::setSens(int sens){
@@ -147,7 +148,7 @@ int Personnage::getVie(){
 string Personnage::getNom(){
   return nom;
 }
-int Personnage::getSexe(){
+bool Personnage::getSexe(){
   return sexe;
 }
 int Personnage::getSens() const{

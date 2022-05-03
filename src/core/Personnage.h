@@ -12,7 +12,7 @@ class Personnage{
     int x, y;
     //point de vie de personnage
     int vie;
-    int sexe;
+    bool sexe;
     //le sens du personnage 0 pour gauche et 1 pour droit
     int sens;
     //le sens d'avant
@@ -41,7 +41,7 @@ class Personnage{
     //crée le personnage par défaut
     Personnage();
     //crée le personnage par des attributs
-    Personnage(int vie, int sexe, std::string nom, int degat, int portee);
+    Personnage(int vie, bool sexe, std::string nom, int degat, int portee);
     //déstructeur
     ~Personnage();
     //pour déplacer le personnage
@@ -57,7 +57,7 @@ class Personnage{
     void setX(int x);
     void setY(int y);
     void setVie(int vie);
-    void setSexe(int sexe);
+    void setSexe(bool sexe);
     void setSens(int sens);
     void setMort(bool mort);
     void setNom(std::string nom);
@@ -71,7 +71,7 @@ class Personnage{
     int getYO() const;
     int getVie();
     std::string getNom();
-    int getSexe();
+    bool getSexe();
     int getSens() const;
     int getSensO() const;
     bool getMort();

@@ -87,7 +87,7 @@ void sdlJeu::sdlBoucle(){
 
   while(!quit){
 
-    jeu.ramasserItems();
+    
 
     while(SDL_PollEvent(&events)){
       if(events.type == SDL_QUIT){
@@ -121,6 +121,7 @@ void sdlJeu::sdlBoucle(){
     }else if(currentKeyStates[SDL_SCANCODE_UP]){
       sauter = true;
     }
+    jeu.ramasserItems();
     sdlAff();
     SDL_Delay(3);
     SDL_RenderPresent(renderer);

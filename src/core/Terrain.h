@@ -6,12 +6,15 @@
 
 using namespace std;
 
+const int TAILLE_SPRITE = 36;
+
 class Terrain
 {
     private :
     int dimx, dimy;
     char ter[21][101];
     int version;
+    int choixniv;
     public :
 
     Terrain(); //Constructeur
@@ -29,9 +32,12 @@ class Terrain
     void setXY(const int x, const int y,const char & c);
     void setDimx(const int Dimx);
     void setVersion(const int & v);
+    void setChoixniv(const int &n);
 
     //Renvoie la largeur du terrain
     int getDimX () const;
+
+    int getChoixniv () const;
 
     //Renvoie la hauteur du terrain
     int getDimY () const;

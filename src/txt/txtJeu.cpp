@@ -49,6 +49,8 @@ void txtAff(WinTXT &win, Jeu &jeu)
 	strcpy(persox, persx.c_str());
 	string persy = to_string(jeu.getPerso().getY());
 	strcpy(persoy, persy.c_str());
+	
+	
 
 	win.clear();
 
@@ -57,7 +59,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 	xd = perso.getX()+25;
 	if(xp == perso.getX()+1) {xp = xp++;} 
 
-	 // Affichage des murs et des plateformes et des monstres
+	 // Affichage des murs et des plateformes et des monstres selon le champ de vision du personnage
 	if(xd){
 
 		for(int x=xp;x<xd;++x)
@@ -72,6 +74,9 @@ void txtAff(WinTXT &win, Jeu &jeu)
 		win.print(x,y,ter.getXY(x,y));
 		win.print(monst.getX(),monst.getY(),'M');
 	}
+
+	cout <<endl << endl<< "Appuyez sur X pour quitter et retourner au menu" << endl;
+	cout <<endl << endl<< jeu.getTerrain().getChoixniv() << endl;
 	
     // Affichage du personnage
 	win.print(perso.getX(),perso.getY(),'P');
@@ -159,7 +164,8 @@ void txtBoucle(Jeu &jeu)
 	do
 	{
 		txtAff(win, jeu);
-		cout << jeu.getPerso().getVie();
+		//cout << jeu.getPerso().getVie();
+		//cout << jeu.getTerrain().getChoixniv() << endl;
 
 		#ifdef _WIN32
 		Sleep(100);

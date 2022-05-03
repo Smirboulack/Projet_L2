@@ -17,7 +17,7 @@
 #include <fcntl.h>
 
 
-const int TAILLE_SPRITE = 36;
+//const int TAILLE_SPRITE = 36;
 using namespace std;
 
 //Items item1;
@@ -39,7 +39,7 @@ char terrain1[21][101]=
  "  (___)           (________________________)       (___)               (___)                        ",
  "                                                                                                    ",
  "                                    [GGG]                          [GGG][GGG]                       ",
- "            ++     F    !!          (___)      OO   OO             (___)(___)                       ",
+ "            ++++++     F    !!          (___)      OO   OO             (___)(___)                   ",
  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
  "####################################################################################################",
  "####################################################################################################",
@@ -58,9 +58,44 @@ Terrain::Terrain(){
         {
             ter[i][j] = terrain1[i][j];
         }
+    }*/
+    /*
+    switch (choixniv)
+    {
+    case '1':
+        ouvrir("./data/Niveau1.txt");
+        break;
+    case '2':
+        ouvrir("./data/Niveau2.txt");
+        break;
+    case 3:
+        ouvrir("./data/Niveau3.txt");
+        break;
+    case 4:
+        ouvrir("./data/Niveau4.txt");
+        break;
+    case 5:
+        ouvrir("./data/Niveau5.txt");
+        break;
+    default:
+        ouvrir("./data/Niveau1.txt");
     }
     */
-    ouvrir("./data/Niveau1.txt");
+
+    if(choixniv=1){ouvrir("./data/Niveau1.txt");
+    }else if(choixniv=2){
+        ouvrir("./data/Niveau2.txt");
+    }else if(choixniv=3){
+        ouvrir("./data/Niveau2.txt");
+    }else if(choixniv=4){
+        ouvrir("./data/Niveau2.txt");
+    }else if(choixniv=5){
+        ouvrir("./data/Niveau2.txt");
+    }else{
+        exit(EXIT_SUCCESS);
+    }
+    
+
 }
 
 
@@ -152,6 +187,12 @@ void Terrain::setXY(const int x, const int y,const char & c){
 
 void Terrain::setVersion(const int & v){version=v;}
 void Terrain::setDimx(const int Dimx){dimx=Dimx;}
+void Terrain::setChoixniv(const int &n){choixniv=n;}
+
+int Terrain::getDimX () const { return dimx; }
+int Terrain::getDimY () const {	return dimy; }
+int Terrain::getVersion()const {return version;}
+int Terrain::getChoixniv () const{return choixniv;}
 
 
 bool Terrain::estPositionPersoValide(const int x,const int y) const{
@@ -164,7 +205,16 @@ bool Terrain::estPositionPersoValide(const int x,const int y) const{
   //cout << xtMin << " " << ytMin << endl;
   //cout << xtMax << " " << ytMax << endl;
 
-  /*
+
+/*
+if(version==1){return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && ((ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' ')));
+}else{
+    return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
+    && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
+}
+*/
+
+
 if(version==1){return (
     (x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) &&
     (
@@ -182,25 +232,14 @@ if(version==1){return (
       &&
       ((ter[ytMax][xtMin] == ' ') || (ter[ytMax][xtMin] == '+')|| (ter[ytMax][xtMin] == '$')|| (ter[ytMax][xtMin] == 'O')|| (ter[ytMax][xtMin] == '!'))
   )
-
   );}else{
     return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
     && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
 }
 
-*/
-
-
-if(version==1){return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && ((ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' ')));
-}else{
-    return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
-    && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
-}
 
 
 }
 
 
-int Terrain::getDimX () const { return dimx; }
-int Terrain::getDimY () const {	return dimy; }
-int Terrain::getVersion()const {return version;}
+
