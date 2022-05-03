@@ -103,12 +103,7 @@ void Jeu::ramasserItems(){
 		}
 	}
 }
-/*
-int Jeu::getTemps()
-{
-	return temps;
-}
-*/
+
 
 int Jeu::getStatus() const{
 

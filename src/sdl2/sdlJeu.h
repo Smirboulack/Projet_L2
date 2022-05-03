@@ -6,7 +6,7 @@
 
 #include "../core/Jeu.h"
 #include "Image.h"
-#include "Camera.h"
+#include "../core/Camera.h"
 
 class sdlJeu{
 private:

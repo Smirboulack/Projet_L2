@@ -13,11 +13,16 @@
 
 using namespace std;
 
-void txtAff(WinTXT &win, Jeu &jeu)
+void txtAff(WinTXT &win, Jeu &jeu)	
 {
-	const Terrain &ter = jeu.getConstTerrain();
-	const Personnage &perso = jeu.getConstPersonnage();
-	const Monstre &monst = jeu.getConstMonstre();
+	 Terrain& ter = jeu.getTerrain();
+	 Personnage& perso = jeu.getPerso();	 
+	 Monstre& monst = jeu.getMonstre();
+	 /*
+	 const Terrain& tero = jeu.getConstTerrain();
+	 const Personnage& perso2 = jeu.getConstPersonnage();
+	 const Monstre& monsto = jeu.getConstMonstre();
+	 */
 
 	char *nom = new char[LEN];
 	char *vie = new char[LEN];
@@ -47,15 +52,29 @@ void txtAff(WinTXT &win, Jeu &jeu)
 
 	win.clear();
 
-	// Affichage des murs et des plateformes
-	for (int x = 0; x < ter.getDimX(); ++x)
-		for (int y = 0; y < ter.getDimY(); ++y)
-			win.print(x, y, ter.getXY(x, y));
+	int xp,xd=0;
+	if(perso.getX()>20){xp = perso.getX()-20;}else{xp=0;}
+	xd = perso.getX()+25;
+	if(xp == perso.getX()+1) {xp = xp++;} 
 
-	// Affichage du personnage
-	win.print(perso.getX(), perso.getY(), 'P');
-	// Affichage du Monstre
-	win.print(monst.getX(), monst.getY(), 'M');
+	 // Affichage des murs et des plateformes et des monstres
+	if(xd){
+
+		for(int x=xp;x<xd;++x)
+		for(int y=0;y<ter.getDimY();++y)
+		win.print(x,y,ter.getXY(x,y));
+		if(monst.getX()<=xd && monst.getX()>=xp){
+		win.print(monst.getX(),monst.getY(),'M');
+		}
+	}else{
+		for(int x=0;x<ter.getDimX()/2;++x)
+		for(int y=0;y<ter.getDimY();++y)
+		win.print(x,y,ter.getXY(x,y));
+		win.print(monst.getX(),monst.getY(),'M');
+	}
+	
+    // Affichage du personnage
+	win.print(perso.getX(),perso.getY(),'P');
 
 	win.print(9, 0, nom);
 	win.print(22, 0, vie);
@@ -71,9 +90,11 @@ void txtAff(WinTXT &win, Jeu &jeu)
 
 void AffFin(WinTXT &win, Jeu &jeu)
 {
+	/*
 	const Terrain &ter = jeu.getConstTerrain();
 	const Personnage &perso = jeu.getConstPersonnage();
 	const Monstre &monst = jeu.getConstMonstre();
+	*/
 
 	char m[]  = "Félicitations !!! Vous avez terminé le niveau !";
 	char m2[]  = "Appuyez sur ENTREE touche pour terminer";

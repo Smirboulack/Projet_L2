@@ -147,6 +147,7 @@ void Terrain::setXY(const int x, const int y,const char & c){
 }
 
 void Terrain::setVersion(const int & v){version=v;}
+void Terrain::setDimx(const int Dimx){dimx=Dimx;}
 
 
 bool Terrain::estPositionPersoValide(const int x,const int y) const{
@@ -158,6 +159,8 @@ bool Terrain::estPositionPersoValide(const int x,const int y) const{
   //cout << x << " " << y << endl;
   //cout << xtMin << " " << ytMin << endl;
   //cout << xtMax << " " << ytMax << endl;
+
+  /*
 if(version==1){return (
     (x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) &&
     (
@@ -180,6 +183,16 @@ if(version==1){return (
     return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
     && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
 }
+
+*/
+
+
+if(version==1){return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && ((ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' ')));
+}else{
+    return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
+    && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
+}
+
 
 }
 

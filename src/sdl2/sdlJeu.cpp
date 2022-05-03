@@ -87,6 +87,8 @@ void sdlJeu::sdlBoucle(){
 
   while(!quit){
 
+    jeu.ramasserItems();
+
     while(SDL_PollEvent(&events)){
       if(events.type == SDL_QUIT){
         quit = true;

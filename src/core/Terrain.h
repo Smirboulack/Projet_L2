@@ -27,6 +27,7 @@ class Terrain
 
     char getXY (const int x, const int y) const;
     void setXY(const int x, const int y,const char & c);
+    void setDimx(const int Dimx);
     void setVersion(const int & v);
 
     //Renvoie la largeur du terrain
