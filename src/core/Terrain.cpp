@@ -21,7 +21,7 @@ const int TAILLE_SPRITE = 36;
 using namespace std;
 
 //Items item1;
-
+/*
 char terrain1[21][101]=
 {                   //22    //32        //42    //52       //61         //79      //83  //88
  "  PSEUDO:         VIE:   Armure:   Degats:   Portee:   Piece:    positionPerso: {x:  ,y:  }         ",
@@ -45,10 +45,13 @@ char terrain1[21][101]=
  "####################################################################################################",
  "####################################################################################################"
 };
+*/
+
 
 Terrain::Terrain(){
-    dimx = 80;
-    dimy = 20;
+    dimx = 106;
+    dimy = 21;
+    /*
     for(int i=0; i < dimy; i++)
     {
         for(int j=0; j < dimx; j++)
@@ -56,7 +59,8 @@ Terrain::Terrain(){
             ter[i][j] = terrain1[i][j];
         }
     }
-    //ouvrir("./data/terrain1.txt");
+    */
+    ouvrir("./data/Niveau1.txt");
 }
 
 
