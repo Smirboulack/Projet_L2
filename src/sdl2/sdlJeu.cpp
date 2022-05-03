@@ -55,6 +55,9 @@ sdlJeu::sdlJeu() : jeu(){
   im_jumpright.loadFromFile("data/JumpRight.png",renderer);
   im_turnleft.loadFromFile("data/TurnLeft.png",renderer);
   im_turnright.loadFromFile("data/TurnRight.png",renderer);
+  im_vie.loadFromFile("data/Vie.png", renderer);
+  im_money.loadFromFile("data/Money.png", renderer);
+  im_item.loadFromFile("data/Item.png", renderer);
 }
 
 sdlJeu::~sdlJeu () {
@@ -147,6 +150,12 @@ for (x=0;x<ter.getDimX();++x){
         im_mur_bas_droite.draw(renderer,x*TAILLE_SPRITE-dx,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
       }else if(ter.getXY(x,y) == '_'){
         im_mur_bas.draw(renderer,x*TAILLE_SPRITE-dx,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+      }else if(ter.getXY(x,y) == '+'){
+        im_vie.draw(renderer,x*TAILLE_SPRITE-dx,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+      }else if(ter.getXY(x,y) == '$'){
+        im_money.draw(renderer,x*TAILLE_SPRITE-dx,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+      }else if(ter.getXY(x,y) == '!'){
+        im_item.draw(renderer,x*TAILLE_SPRITE-dx,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
       }
   }
 }

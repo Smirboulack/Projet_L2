@@ -34,6 +34,9 @@ private:
   Image im_jumpright;
   Image im_turnleft;
   Image im_turnright;
+  Image im_item;
+  Image im_vie;
+  Image im_money;
 
   Camera camera;
 
