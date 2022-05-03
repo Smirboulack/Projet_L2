@@ -35,7 +35,7 @@ char terrain1[21][101]=
  "                                                                                                    ",
  "                                                                                                    ",
  "                      $$$$$$$$$$$$$$$$                                                              ",
- "  [GGG]           [GGGGGGGGGGGGGGGGGGGGGGGG]       [GGG]               [GGG]                        ", 
+ "  [GGG]           [GGGGGGGGGGGGGGGGGGGGGGGG]       [GGG]               [GGG]                        ",
  "  (___)           (________________________)       (___)               (___)                        ",
  "                                                                                                    ",
  "                                    [GGG]                          [GGG][GGG]                       ",
@@ -142,7 +142,7 @@ void Terrain::setXY(const int x, const int y,const char & c){
     assert(x>=0);
 	assert(y>=0);
 	assert(x<dimx);
-	assert(y<dimy); 
+	assert(y<dimy);
     ter[y][x]=c;
 }
 
@@ -158,9 +158,26 @@ bool Terrain::estPositionPersoValide(const int x,const int y) const{
   //cout << x << " " << y << endl;
   //cout << xtMin << " " << ytMin << endl;
   //cout << xtMax << " " << ytMax << endl;
-if(version==1){return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && ((ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' ')));
-}else{
-    return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy) 
+if(version==1){return (
+    (x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) &&
+    (
+      (
+        (ter[ytMin][xtMin] == ' ')||(ter[ytMin][xtMin] == '+')||(ter[ytMin][xtMin] == '$')||(ter[ytMin][xtMin] == 'O')||(ter[ytMin][xtMin] == '!')
+      )
+      &&
+      (
+        (ter[ytMax][xtMax] == ' ') ||(ter[ytMax][xtMax] == '+')||(ter[ytMax][xtMax] == '$')||(ter[ytMax][xtMax] == 'O')||(ter[ytMax][xtMax] == '!')
+      )
+      &&
+      (
+        (ter[ytMin][xtMax] == ' ') || (ter[ytMin][xtMax] == '+')|| (ter[ytMin][xtMax] == '$')|| (ter[ytMin][xtMax] == 'O')|| (ter[ytMin][xtMax] == '!')
+      )
+      &&
+      ((ter[ytMax][xtMin] == ' ') || (ter[ytMax][xtMin] == '+')|| (ter[ytMax][xtMin] == '$')|| (ter[ytMax][xtMin] == 'O')|| (ter[ytMax][xtMin] == '!'))
+  )
+
+  );}else{
+    return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
     && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
 }
 
