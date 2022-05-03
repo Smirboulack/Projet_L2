@@ -81,6 +81,8 @@ class Personnage{
     int getStatusO() const;
     int getPiece();
     int getArmure();
+    void estMort(Terrain & t);
+
 };
 
 

@@ -11,7 +11,8 @@ const int VITESSE_ACCELEREE = 20;
 
 Jeu::Jeu() : ter(), perso(), monst()
 {
-	
+
+	fdj = getPerso().getMort();	
 	vitesse_gravite = VITESSE_ACCELEREE;
 }
 
@@ -123,4 +124,21 @@ int Jeu::getSens() const{
 int Jeu::getSensO() const{
 
 	return perso.getSensO();
+}
+
+
+void Jeu::FinDuJeu()
+{
+	getPerso().estMort(getTerrain());
+	if(getPerso().getMort()) fdj = getPerso().getMort();
+}
+
+bool Jeu::getFdj() const
+{
+	return fdj;
+}
+
+void Jeu::setFdj(bool b)
+{
+	fdj = b;
 }

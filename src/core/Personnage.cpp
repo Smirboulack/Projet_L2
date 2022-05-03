@@ -1,5 +1,5 @@
-#include"Personnage.h"
-#include<iostream>
+#include "Personnage.h"
+#include <iostream>
 
 using namespace std;
 
@@ -179,4 +179,15 @@ int Personnage::getStatus() const{
 }
 int Personnage::getStatusO() const{
   return status_o;
+}
+void Personnage::estMort(Terrain & t)
+{
+  if(getVie() == 0)
+  {
+    setMort(true);
+  }
+  if(t.getXY(getX(),getY()) == 'F')
+  {
+    setMort(true);
+  }
 }
