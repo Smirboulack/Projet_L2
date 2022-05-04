@@ -23,6 +23,8 @@ public:
     void pause();
     char getCh();
 
+    void testRegression();
+
 };
 
 void termClear ();

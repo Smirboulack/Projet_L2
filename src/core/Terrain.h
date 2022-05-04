@@ -4,8 +4,6 @@
 #include <string.h>
 #include <string>
 
-using namespace std;
-
 const int TAILLE_SPRITE = 36;
 
 class Terrain
@@ -43,7 +41,9 @@ class Terrain
     int getDimY () const;
     int getVersion()const;
     bool estPositionPersoValide(const int x,const int y) const;
-    void ouvrir(string pathname);
+    void ouvrir(std::string pathname);
+
+    void testRegression();
 };
 
 

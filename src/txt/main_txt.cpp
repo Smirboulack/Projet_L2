@@ -1,11 +1,13 @@
-#include "winTxt.h"
 #include <iostream>
 #include <cstdlib>
 #include <stdio.h>
 #include <stdlib.h>
+
+
 #include "txtJeu.h"
-#include "../core/Jeu.h"
+#include "winTxt.h"
 #include "../core/Menu.h"
+#include "../core/Jeu.h"
 
 using namespace std;
 

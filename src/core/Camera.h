@@ -14,6 +14,8 @@ class Camera{
       ~Camera();
       //decalage de x
       int decalageX(const Personnage & perso, const Terrain & ter);
+
+      void testRegression();
 /*
     private:
       //Coordonnées horizontales à gauche et à droite de camera

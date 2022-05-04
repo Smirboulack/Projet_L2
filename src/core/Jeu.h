@@ -5,6 +5,7 @@
 #include "Terrain.h"
 #include "Monstre.h"
 
+
 class Jeu
 {
 
@@ -44,6 +45,8 @@ public:
   void gravite();
   void ramasserItems();
   void FinDuJeu();
+
+  void testRegression();
 };
 
 #endif

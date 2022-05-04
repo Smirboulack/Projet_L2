@@ -1,12 +1,12 @@
 #include "sdlJeu.h"
 #include <string>
-#include "../core/Menu.h"
-#include "../core/Jeu.h"
-#include "../txt/winTxt.h"
 #include <iostream>
 #include <cstdlib>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "../core/Jeu.h"
+#include "../txt/winTxt.h"
 
 using namespace std;
 

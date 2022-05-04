@@ -53,6 +53,7 @@ public:
   void drawTerrain();
   void drawPersonnage();
 
+  void testRegression();
 
 };
 

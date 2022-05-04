@@ -22,5 +22,7 @@ public:
     SDL_Texture * getTexture() const;
     void setSurface(SDL_Surface * surf);
     void animationRun();
+
+    void testRegression();
 };
 #endif

@@ -7,5 +7,7 @@ extern const int MENU_MAX;
 void menuAff();
 ChoixMenu menuQuestion();
 
+void testRegression();
+
 
 #endif

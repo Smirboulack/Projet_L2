@@ -4,8 +4,6 @@
 #include "Terrain.h"
 #include "Personnage.h"
 
-class Terrain;
-class Personnage;
 
 class Monstre{
   private:
@@ -56,6 +54,8 @@ class Monstre{
     void droite(const Terrain &ter);
     void bougeAutoMonstre(const Terrain &ter);
     void versPerso(const Terrain & ter, const Personnage &p);
+
+    void testRegression();
 
 
 };

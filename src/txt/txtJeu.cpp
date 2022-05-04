@@ -6,7 +6,6 @@
 #include <unistd.h>
 //#endif // WIN32
 #include "winTxt.h"
-#include "../core/Jeu.h"
 #include "txtJeu.h"
 
 #define LEN 40

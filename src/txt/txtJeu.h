@@ -5,4 +5,6 @@
 
 void txtBoucle (Jeu & j);
 
+void testRegression();
+
 #endif

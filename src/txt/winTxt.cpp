@@ -1,10 +1,9 @@
-#include "winTxt.h"
 #include <cassert>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <iostream>
 #include <stdio.h>
-
+#include "winTxt.h"
 #if _WIN32
 #include <windef.h>
 #include <winbase.h>

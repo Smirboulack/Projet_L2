@@ -1,12 +1,11 @@
-#include "Personnage.h"
 #include <iostream>
+#include "Personnage.h"
 
 using namespace std;
 
 Personnage::Personnage(){
   x = 2;
   y = 2;
-
   vie = 20;
   sexe = 0;
   sens = 1;

@@ -83,6 +83,8 @@ class Personnage{
     int getArmure();
     void estMort(Terrain & t);
 
+    void testRegression();
+
 };
 
 

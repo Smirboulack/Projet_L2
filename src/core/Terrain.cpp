@@ -1,19 +1,7 @@
 #include "Terrain.h"
-//#include "Items.h"
 #include <iostream>
 #include <cassert>
-#include <sys/types.h>
 #include <unistd.h>
-#include <errno.h>
-#include <string.h>
-#include <sys/wait.h>
-#include <signal.h>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <cerrno>
-#include <string>
-#include <sys/stat.h>
 #include <fcntl.h>
 
 
