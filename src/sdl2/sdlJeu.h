@@ -17,6 +17,7 @@ private:
 
   Image im_mur;
   Image im_background;
+  Image im_ciel;
   Image im_ter;
   Image im_grass;
   Image im_grass_gauche;

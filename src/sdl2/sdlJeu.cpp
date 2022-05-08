@@ -45,6 +45,7 @@ sdlJeu::sdlJeu() : jeu(){
   im_mur_bas_gauche.loadFromFile("data/(.png",renderer);
   im_mur_bas_droite.loadFromFile("data/).png",renderer);
   im_background.loadFromFile("data/background.png",renderer);
+  im_ciel.loadFromFile("data/background3.png",renderer);
   im_runright.loadFromFile("data/RunRight.png",renderer);
   im_runleft.loadFromFile("data/RunLeft.png",renderer);
   im_idleright.loadFromFile("data/IdleRight.png",renderer);
@@ -133,7 +134,9 @@ void sdlJeu::drawTerrain(){
   int x,y;
 	const Terrain& ter = jeu.getConstTerrain();
   //renderer background
-  im_background.draw(renderer,0,0,25*TAILLE_SPRITE,20*TAILLE_SPRITE);
+  // im_background.draw(renderer,0,0,25*TAILLE_SPRITE,20*TAILLE_SPRITE);
+  //renderer background
+   im_ciel.draw(renderer,0,15,27*TAILLE_SPRITE,18*TAILLE_SPRITE);
   // Afficher les sprites des murs et des pastilles
 for (x=0;x<ter.getDimX();++x){
   for (y=0;y<ter.getDimY();++y){
