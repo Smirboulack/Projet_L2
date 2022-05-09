@@ -3,6 +3,9 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL_ttf.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include "../core/Jeu.h"
 #include "Image.h"
@@ -42,6 +45,9 @@ private:
   Image im_item;
   Image im_vie;
   Image im_money;
+
+    Mix_Chunk * sound;
+    bool withSound;
 
   Camera camera;
 

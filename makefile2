@@ -6,7 +6,7 @@ FINAL_TARGET_TXT = main_txt
 
 SRCS_SDL = $(CORE) sdl2/sdlJeu.cpp sdl2/Image.cpp sdl2/main_sdl.cpp
 FINAL_TARGET_SDL = main_sdl
-#DEFINE_SDL = -DJEU_SDL
+#DEFINE_SDL = -DJEU_SDL 
 
 ifeq ($(OS),Windows_NT)
 	INCLUDE_DIR_SDL = 	-Isrc/SDL2 \
@@ -54,8 +54,8 @@ $(BIN_DIR)/$(FINAL_TARGET_SDL): $(SRCS_SDL:%.cpp=$(OBJ_DIR)/%.o)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) -c $(CPPFLAGS) $(INCLUDE_DIR_SDL) $(INCLUDE_DIR) $< -o $@
 
-docu: doc/pacman.doxy
-	cd doc ; doxygen pacman.doxy
+docu: doc/LIFKAS.doxy
+	cd doc ; doxygen LIFKAS.doxy
 
 clean:
 ifeq ($(OS),Windows_NT)

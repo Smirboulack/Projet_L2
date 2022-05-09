@@ -1,7 +1,7 @@
 all: main_sdl main_txt mainmenu_sdl
 
 main_sdl: obj/sdl2/main_sdl.o obj/sdl2/Image.o obj/core/Camera.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o
-	g++ -ggdb -Wall obj/sdl2/main_sdl.o obj/sdl2/Image.o obj/core/Camera.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o -lSDL2 -lSDL2_image -o ./bin/main_sdl
+	g++ -ggdb -Wall obj/sdl2/main_sdl.o obj/sdl2/Image.o obj/core/Camera.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o -lSDL2 -lSDL2_image -lSDL2_mixer -o ./bin/main_sdl
 
 main_txt: obj/txt/main_txt.o obj/core/Menu.o obj/txt/txtJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o 
 	g++ -ggdb -Wall obj/txt/main_txt.o obj/core/Menu.o obj/txt/txtJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o -o ./bin/main_txt

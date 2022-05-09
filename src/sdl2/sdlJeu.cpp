@@ -19,6 +19,16 @@ sdlJeu::sdlJeu() : jeu(){
       SDL_Quit();
       exit(1);
   }
+
+  if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+    {
+        cout << "SDL_mixer could not initialize! SDL_mixer Error: " << Mix_GetError() << endl;
+        cout << "No sound !!!" << endl;
+        //SDL_Quit();exit(1);
+        withSound = false;
+    }
+    else withSound = true;
+
   int dimx, dimy;
 	dimx = jeu.getConstTerrain().getDimX();
 	dimy = jeu.getConstTerrain().getDimY();
@@ -63,6 +73,21 @@ sdlJeu::sdlJeu() : jeu(){
   im_vie.loadFromFile("data/Vie.png", renderer);
   im_money.loadFromFile("data/Money.png", renderer);
   im_item.loadFromFile("data/Item.png", renderer);
+
+  // SONS
+    if (withSound)
+    {
+        sound = Mix_LoadWAV("data/zicmu.wav");
+        if (sound == nullptr) 
+            sound = Mix_LoadWAV("../data/zicmu.wav");
+        if (sound == nullptr) {
+                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl; 
+                SDL_Quit();
+                exit(1);
+        }
+    }
+
+
 }
 
 sdlJeu::~sdlJeu () {
