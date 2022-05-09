@@ -8,7 +8,7 @@ using namespace std;
 
 sdlJeu::sdlJeu() : jeu(){
 
-  if(SDL_Init(SDL_INIT_VIDEO) < 0){
+  if(SDL_Init(SDL_INIT_EVERYTHING) < 0){
     cout << "Erreur lors de l'initialisation de la SDL : " << SDL_GetError() << endl;
     SDL_Quit();
     exit(1);
@@ -33,9 +33,13 @@ sdlJeu::sdlJeu() : jeu(){
       exit(1);
   }
 
+  //Attribution d'un icon à la fenetre
+  im_icon = IMG_Load("data/icon-jeu.png");
+	SDL_SetWindowIcon(window, im_icon);
+
   renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED);
-
-
+  
+  im_mortperso.loadFromFile("data/deathscene.png",renderer);
   im_mur.loadFromFile("data/#.png",renderer);
   im_ter.loadFromFile("data/T.png",renderer);
   im_grass.loadFromFile("data/G.png",renderer);
@@ -87,16 +91,39 @@ void sdlJeu::sdlBoucle(){
   jeu.getTerrain().setVersion(1);
 
   while(!quit){
-
     
-
+    
+/*
     while(SDL_PollEvent(&events)){
       if(events.type == SDL_QUIT){
         quit = true;
       }else if(events.type == SDL_KEYDOWN){
-
+       if (events.type == SDLK_ESCAPE){quit=true;}
+				
       }
     }
+*/
+
+  while(SDL_PollEvent(&events)){
+    switch (events.type)
+		{
+		case SDL_QUIT:
+			quit=true;
+			break;
+		case SDL_KEYDOWN:
+			switch (events.key.keysym.sym)
+			{
+			case SDLK_ESCAPE:
+				quit=true;
+				break;
+			case SDLK_SPACE:
+				break;
+			}
+			break;
+  }
+  }
+		
+
 
     if(sauter){
       jeu.actionClavier(122);

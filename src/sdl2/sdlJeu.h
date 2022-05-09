@@ -14,7 +14,11 @@ private:
 
   SDL_Window * window;
   SDL_Renderer * renderer;
+  SDL_Surface * im_icon;
+  //SDL_Event event;
 
+  Image im_menu;
+  Image im_mortperso;
   Image im_mur;
   Image im_background;
   Image im_ciel;
@@ -49,10 +53,13 @@ public:
   const int FPS = 20;
   sdlJeu();
   ~sdlJeu();
+
   void sdlBoucle();
   void sdlAff();
   void drawTerrain();
   void drawPersonnage();
+  void drawMenu();
+
 
   void testRegression();
 
