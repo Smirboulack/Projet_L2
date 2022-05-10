@@ -12,7 +12,7 @@ const int VITESSE_ACCELEREE = 20;
 Jeu::Jeu() : ter(), perso(), monst()
 {
 
-	fdj = getPerso().getMort();	
+	fdj = getPerso().getMort();
 	vitesse_gravite = VITESSE_ACCELEREE;
 }
 
@@ -95,13 +95,28 @@ void Jeu::gravite()
 void Jeu::ramasserItems(){
 
 	if(ter.getVersion()==1){
-		for (int i=0;i<ter.getDimX();i++){
-		for (int j=0;j<ter.getDimY();j++){
-			if(ter.getXY(i,j)=='$' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setPiece(perso.getPiece()+1);}
-			if(ter.getXY(i,j)=='!' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setDegat(perso.getDegat()+1);}
-			if(ter.getXY(i,j)=='O' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setArmure(perso.getArmure()+1);}
-			if(ter.getXY(i,j)=='+' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setVie(perso.getVie()+1);}
+		int x = perso.getX() + ter.TAILLE_SPRITE/2;
+		int y = perso.getY() + ter.TAILLE_SPRITE/2;
+		int xtMin = x/ter.TAILLE_SPRITE;
+		int ytMin = y/ter.TAILLE_SPRITE;
+		cout << "x : " << xtMin << endl;
+		cout << "y : " << ytMin << endl;
+		cout << "terXY : " << ter.getXY(xtMin,ytMin) << endl;
+		if(ter.getXY(xtMin, ytMin) == '$'){
+			ter.setXY(xtMin, ytMin, ' ');
+			perso.setPiece(perso.getPiece()+1);
 		}
+		if(ter.getXY(xtMin, ytMin) == '!'){
+			ter.setXY(xtMin, ytMin, ' ');
+			perso.setDegat(perso.getDegat()+1);
+		}
+		if(ter.getXY(xtMin, ytMin) == 'O'){
+			ter.setXY(xtMin, ytMin, ' ');
+			perso.setArmure(perso.getArmure()+1);
+		}
+		if(ter.getXY(xtMin, ytMin) == '+'){
+			ter.setXY(xtMin, ytMin, ' ');
+			perso.setVie(perso.getVie()+1);
 		}
 	}else{
 
