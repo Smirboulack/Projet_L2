@@ -9,7 +9,7 @@ const int VITESSE = 1;
 const int VITESSE_SAUTER = 6;
 const int VITESSE_ACCELEREE = 20;
 
-Jeu::Jeu() : ter(), perso(), monst()
+Jeu::Jeu() : ter(), perso(), monst(360,180,20,20,20)
 {
 
 	fdj = getPerso().getMort();

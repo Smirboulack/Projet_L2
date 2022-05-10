@@ -272,7 +272,7 @@ void sdlJeu::drawPersonnage(){
     int sens_o = jeu.getSensO();
     //cout << "sens_o: " << sens_o << " sens: " << sens << endl;
     //status idle left and right
-    if(status == 0 && sens == 0 && status_o == 0 && sens_o == 0){
+    if(status == -1 && sens == -1 && status_o == 0 && sens_o == -1){
       im_idleleft.draw_animation(2, renderer,(i/FPS)%2,perso.getX()+3-dx,perso.getY(),30,36);
       //Comme il n'y a que n images et que nous voulons ralentir l'animation,
       // nous passons à l'image suivante toutes les n images.(n == nombre image pour l'animation)
@@ -289,13 +289,13 @@ void sdlJeu::drawPersonnage(){
       im_runleft.draw_animation(10, renderer,(i/ FPS) % 10,perso.getX()-1-dx,perso.getY()-3,38,42);
     }
     //fall
-    else if((status_o == 3 && status == 1 && sens == 0) || (status == 3 && sens == 0)){
+    else if((status_o == 3 && status == 1 && sens == -1) || (status == 3 && sens == -1)){
       im_fallleft.draw_animation(4, renderer,(i/FPS)%4,perso.getX()+2-dx,perso.getY()-12,32,60);
     }else if((status_o == 3 && status == 2 && sens == 1) || (status == 3 && sens == 1)){
       im_fallright.draw_animation(4, renderer,(i/FPS)%4,perso.getX()+2-dx,perso.getY()-12,32,60);
     }
     //jump
-    else if((status_o == 4 && status == 1 && sens == 0) || (status == 4 && sens == 0) ){
+    else if((status_o == 4 && status == 1 && sens == -1) || (status == 4 && sens == -1) ){
       im_jumpleft.draw_animation(4, renderer,(i/FPS)%4,perso.getX()+5-dx,perso.getY()-7,26,50);
     }else if((status_o == 4 && status == 2 && sens == 1) || (status == 4 && sens == 1)){
       im_jumpright.draw_animation(4, renderer,(i/FPS)%4,perso.getX()+5-dx,perso.getY()-7,26,50);
@@ -304,10 +304,10 @@ void sdlJeu::drawPersonnage(){
     else if(sens_o == 0 && sens == 1){
       cout << "yes" << endl;
       im_turnright.draw_animation(10, renderer,(i/FPS)%10,perso.getX()+1-dx,perso.getY(),34,36);
-    }else if(sens_o == 1 && sens == 0){
+    }else if(sens_o == 1 && sens == -1){
       im_turnleft.draw_animation(10, renderer,(i/FPS)%10,perso.getX()+1-dx,perso.getY(),34,36);
     }
-    else if(sens == 0){
+    else if(sens == -1){
       im_idleleft.draw_animation(2, renderer,(i/FPS)%2,perso.getX()+3-dx,perso.getY(),30,36);
     }else if(sens == 1){
       im_idleright.draw_animation(2, renderer,(i/FPS)%2,perso.getX()+3-dx,perso.getY(),30,36);

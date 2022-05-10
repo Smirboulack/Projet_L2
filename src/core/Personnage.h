@@ -13,9 +13,7 @@ class Personnage{
     //point de vie de personnage
     int vie;
     bool sexe;
-    int limg, limd;
-    //le sens du personnage 0 pour gauche et 1 pour droit
-    int dir; // Direction du monstre
+    //le sens du personnage -1 pour gauche et 1 pour droit
     int sens;
     //le sens d'avant
     int sens_o;
@@ -43,7 +41,7 @@ class Personnage{
     //crée le personnage par défaut
     Personnage();
     //crée le personnage par des attributs
-    Personnage(int vie, bool sexe, std::string nom, int degat, int portee);
+    Personnage(int x, int y, int vie, int degat, int portee);
     //déstructeur
     ~Personnage();
     //pour déplacer le personnage

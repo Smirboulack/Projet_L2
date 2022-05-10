@@ -19,9 +19,9 @@ Personnage::Personnage(){
   status_o = status;
 }
 
-Personnage::Personnage(int vie, bool sexe, string nom, int degat, int portee){
-  x = 0;
-  y = 0;
+Personnage::Personnage(int x, int y, int vie, int degat, int portee){
+  this->x = x;
+  this->y = y;
   this->vie = vie;
   this->sexe = sexe;
   this->nom = nom;
@@ -53,7 +53,7 @@ bool Personnage::deplacer(char direction, const Terrain & t){
     }else if(direction == 'q' && t.estPositionPersoValide(x-1,y)){
       x--;
       updateStatus(1);//gauche
-      updateSens(0);
+      updateSens(-1);
       return true;
     }else if(direction == 's' && t.estPositionPersoValide(x,y+1)){
       y++;
@@ -201,7 +201,16 @@ void Personnage::droite(const Terrain &ter){
   if (ter.estPositionPersoValide(x+1,y)) x++;
 }
 
-void Personnage::bougeAutoMonstre(const Terrain &ter){
+void Personnage::bougeAutoMonstre(const Terrain & ter){
+  srand((int)time(0));
+  if(rand()%100 < 50){
+    deplacer('d',ter);
+  }else{
+    deplacer('q', ter);
+  }
+
+
+  /*
     int xtmp;
     xtmp = x + dir;
     if (ter.estPositionPersoValide(xtmp,y)) {
@@ -222,12 +231,5 @@ void Personnage::bougeAutoMonstre(const Terrain &ter){
       dir=-dir;
     }
   }
-
-}
-
-void Personnage::versPerso(const Terrain & ter, const Personnage &p){
-  if(ter.estPositionPersoValide(p.getX(),p.getY()) && ter.estPositionPersoValide(x,y)){
-    if(p.getX()<getX()-5){dir=dir;}
-    if(p.getX()>getX()+5){dir=-dir;}
-  }
+  */
 }
