@@ -21,14 +21,16 @@ sdlJeu::sdlJeu() : jeu(){
       exit(1);
   }
 
-  if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+  //if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+  if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024)<0)
     {
         cout << "SDL_mixer could not initialize! SDL_mixer Error: " << Mix_GetError() << endl;
         cout << "No sound !!!" << endl;
         //SDL_Quit();exit(1);
         withSound = false;
+        withmusique = false;
     }
-    else withSound = true;
+    else{withSound = true; withmusique=true;}
 
   int dimx, dimy;
 	dimx = jeu.getConstTerrain().getDimX();
@@ -78,7 +80,9 @@ sdlJeu::sdlJeu() : jeu(){
   im_skeletonWalkRight.loadFromFile("data/SkeletonWalkRight.png", renderer);
   im_skeletonWalkLeft.loadFromFile("data/SkeletonWalkLeft.png", renderer);
 
-  // SONS
+  // SONS et MUSIQUE
+
+  /*
     if (withSound)
     {
         sound = Mix_LoadWAV("data/zicmu.wav");
@@ -89,12 +93,25 @@ sdlJeu::sdlJeu() : jeu(){
                 SDL_Quit();
                 exit(1);
         }
+    }*/
+
+
+    if(withmusique){
+      musique = Mix_LoadMUS("data/zicmu.mp3");
+      Mix_PlayMusic(musique, -1);
+      if (musique == nullptr){ musique = Mix_LoadMUS("../data/zicmu.mp3"); Mix_PlayMusic(musique, -1);}
+      if (musique == nullptr) {
+                cout << "Failed to load zicmu.mp3! SDL_mixer Error: " << Mix_GetError() << endl;
+                SDL_Quit();
+                exit(1);
+        }
     }
 
 
 }
 
 sdlJeu::~sdlJeu () {
+  if (withSound) Mix_Quit();
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
@@ -114,9 +131,11 @@ void sdlJeu::sdlAff(){
 
 }
 
+SDL_Event sdlJeu::getEvent()const{return event;}
+
 void sdlJeu::sdlBoucle(){
   bool quit = false;
-  SDL_Event events;
+   SDL_Event events=getEvent();
   bool sauter = false;
   jeu.getTerrain().setVersion(1);
 
@@ -134,31 +153,48 @@ void sdlJeu::sdlBoucle(){
     }
 */
 
-  while(SDL_PollEvent(&events)){
-    switch (events.type)
-		{
-		case SDL_QUIT:
-			quit=true;
-			break;
-		case SDL_KEYDOWN:
-			switch (events.key.keysym.sym)
-			{
-			case SDLK_ESCAPE:
-				quit=true;
-				break;
-			case SDLK_SPACE:
-				break;
-			}
-			break;
-  }
-  }
+  while (SDL_PollEvent(&events))
+    {
 
+      switch (events.type)
+      {
+      case SDL_QUIT:
+        quit = true;
+        Mix_FreeMusic(musique);
+        Mix_CloseAudio();
+        break;
+      case SDL_KEYDOWN:
+        switch (events.key.keysym.sym)
+        {
+        case SDLK_ESCAPE:
+          quit = true;
+          Mix_FreeMusic(musique);
+          Mix_CloseAudio();
+          break;
+        case SDLK_SPACE:
+          break;
+        case SDLK_m:
+          if (Mix_PausedMusic() == 1) //Si la musique est en pause
+          {
+            Mix_ResumeMusic(); //Reprendre la musique
+          }
+          else
+          {
+            Mix_PauseMusic(); //Mettre en pause la musique
+          }
+          break;
+          case SDLK_p:
+            jeupause=true;
+          break;
+        }
+        break;
+      }
+    }
 
-
-    if(sauter){
+    if(sauter && jeupause==false){
       jeu.actionClavier(122);
       if(jeu.getStatus() == 0) sauter = false;
-    }else{
+    }else if(jeupause==false){
       jeu.actionsAutomatiques();
     }
 

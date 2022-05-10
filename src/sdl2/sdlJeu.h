@@ -18,7 +18,7 @@ private:
   SDL_Window * window;
   SDL_Renderer * renderer;
   SDL_Surface * im_icon;
-  //SDL_Event event;
+  SDL_Event event;
 
   Image im_menu;
   Image im_mortperso;
@@ -50,7 +50,9 @@ private:
   Image im_skeletonWalkLeft;
 
     Mix_Chunk * sound;
+    Mix_Music *musique;
     bool withSound;
+    bool withmusique;
 
   Camera camera;
 
@@ -60,6 +62,7 @@ public:
   const int TAILLE_SPRITE = 36;
   //FPS pour animation après FPS meme images on change à l'images suivante
   const int FPS = 20;
+  bool jeupause=false;
   sdlJeu();
   ~sdlJeu();
 
@@ -69,6 +72,7 @@ public:
   void drawPersonnage();
   void drawMenu();
   void drawMonstre();
+  SDL_Event getEvent()const;
 
 
   void testRegression();

@@ -58,7 +58,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 	xd = perso.getX()+25;
 	if(xp == perso.getX()+1) {xp = xp++;} 
 
-	 // Affichage des murs et des plateformes et des monstres selon le champ de vision du personnage
+	 // Affichage des murs,des plateformes et des monstres selon le champ de vision du personnage
 	if(xd){
 
 		for(int x=xp;x<xd;++x)
