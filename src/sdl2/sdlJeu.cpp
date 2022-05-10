@@ -317,7 +317,7 @@ void sdlJeu::drawPersonnage(){
 
 void sdlJeu::drawMonstre(){
   int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
-   Monstre& monst = jeu.getMonstre();
+   Personnage& monst = jeu.getMonstre();
   int sens = monst.getSens();
   if(sens == 1){
     im_skeletonWalkRight.draw_animation(13, renderer, (i/FPS)%13,monst.getX()-4-dx,monst.getY()-30,44,66);

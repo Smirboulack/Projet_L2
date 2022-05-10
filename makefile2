@@ -1,4 +1,4 @@
-CORE = core/Personnage.cpp core/Terrain.cpp core/Jeu.cpp core/Monstre.cpp core/Boss.cpp core/Camera.cpp core/Menu.cpp
+CORE = core/Personnage.cpp core/Terrain.cpp core/Jeu.cpp core/Boss.cpp core/Camera.cpp core/Menu.cpp
 
 SRCS_TXT = $(CORE) txt/txtJeu.cpp txt/winTxt.cpp txt/main_txt.cpp
 FINAL_TARGET_TXT = main_txt

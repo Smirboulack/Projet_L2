@@ -20,13 +20,13 @@ Terrain &Jeu::getTerrain() { return ter; }
 
 Personnage &Jeu::getPerso() { return perso; }
 
-Monstre &Jeu::getMonstre() { return monst; }
+Personnage &Jeu::getMonstre() { return monst; }
 
 const Terrain &Jeu::getConstTerrain() const { return ter; }
 
 const Personnage &Jeu::getConstPersonnage() const { return perso; }
 
-const Monstre &Jeu::getConstMonstre() const { return monst; }
+const Personnage &Jeu::getConstMonstre() const { return monst; }
 
 bool Jeu::actionClavier(const int touche)
 {

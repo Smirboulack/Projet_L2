@@ -16,7 +16,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 {
 	 Terrain& ter = jeu.getTerrain();
 	 Personnage& perso = jeu.getPerso();	 
-	 Monstre& monst = jeu.getMonstre();
+	 Personnage& monst = jeu.getMonstre();
 	 /*
 	 const Terrain& tero = jeu.getConstTerrain();
 	 const Personnage& perso2 = jeu.getConstPersonnage();

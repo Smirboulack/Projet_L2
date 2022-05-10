@@ -13,7 +13,9 @@ class Personnage{
     //point de vie de personnage
     int vie;
     bool sexe;
+    int limg, limd;
     //le sens du personnage 0 pour gauche et 1 pour droit
+    int dir; // Direction du monstre
     int sens;
     //le sens d'avant
     int sens_o;
@@ -82,6 +84,13 @@ class Personnage{
     int getPiece();
     int getArmure();
     void estMort(Terrain & t);
+
+
+    void gauche(const Terrain &ter);
+    void droite(const Terrain &ter);
+    void bougeAutoMonstre(const Terrain &ter);
+    void versPerso(const Terrain & ter, const Personnage &p);
+
 
     void testRegression();
 

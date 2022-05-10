@@ -3,7 +3,7 @@
 
 #include "Personnage.h"
 #include "Terrain.h"
-#include "Monstre.h"
+//#include "Monstre.h"
 
 
 class Jeu
@@ -12,7 +12,8 @@ class Jeu
 private:
   Terrain ter;
   Personnage perso;
-  Monstre monst;
+  Personnage monst;
+  
   /*
   int temps, dsaut, fsaut;
 	*/
@@ -24,11 +25,11 @@ public:
 
   Terrain &getTerrain();
   Personnage &getPerso();
-  Monstre &getMonstre();
+  Personnage &getMonstre();
 
   const Terrain &getConstTerrain() const;
   const Personnage &getConstPersonnage() const;
-  const Monstre &getConstMonstre() const;
+  const Personnage &getConstMonstre() const;
   //int getNombreMonstre() const;
   int getStatus() const;
   int getStatusO() const;

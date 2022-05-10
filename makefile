@@ -1,10 +1,10 @@
 all: main_sdl main_txt mainmenu_sdl
 
-main_sdl: obj/sdl2/main_sdl.o obj/sdl2/Image.o obj/core/Camera.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o
-	g++ -ggdb -Wall obj/sdl2/main_sdl.o obj/sdl2/Image.o obj/core/Camera.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o -lSDL2 -lSDL2_image -lSDL2_mixer -o ./bin/main_sdl
+main_sdl: obj/sdl2/main_sdl.o obj/sdl2/Image.o obj/core/Camera.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o
+	g++ -ggdb -Wall obj/sdl2/main_sdl.o obj/sdl2/Image.o obj/core/Camera.o obj/core/Menu.o obj/sdl2/sdlJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o -lSDL2 -lSDL2_image -lSDL2_mixer -o ./bin/main_sdl
 
-main_txt: obj/txt/main_txt.o obj/core/Menu.o obj/txt/txtJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o 
-	g++ -ggdb -Wall obj/txt/main_txt.o obj/core/Menu.o obj/txt/txtJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o obj/core/Monstre.o -o ./bin/main_txt
+main_txt: obj/txt/main_txt.o obj/core/Menu.o obj/txt/txtJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o 
+	g++ -ggdb -Wall obj/txt/main_txt.o obj/core/Menu.o obj/txt/txtJeu.o obj/txt/winTxt.o obj/core/Jeu.o obj/core/Terrain.o obj/core/Personnage.o -o ./bin/main_txt
 
 mainmenu_sdl: obj/sdl2/mainmenu_sdl.o obj/sdl2/Image.o
 	g++ -ggdb -Wall obj/sdl2/mainmenu_sdl.o obj/sdl2/Image.o -lSDL2 -lSDL2_image -o ./bin/mainmenu_sdl
@@ -41,9 +41,6 @@ obj/core/Menu.o: ./src/core/Menu.h ./src/core/Menu.cpp
 
 obj/core/Terrain.o: ./src/core/Terrain.h ./src/core/Terrain.cpp
 	g++ -ggdb -Wall -c ./src/core/Terrain.cpp -o obj/core/Terrain.o
-
-obj/core/Monstre.o: ./src/core/Monstre.h ./src/core/Monstre.cpp
-	g++ -ggdb -Wall -c ./src/core/Monstre.cpp -o obj/core/Monstre.o
 
 obj/core/Boss.o: ./src/core/Boss.h ./src/core/Boss.cpp
 	g++ -ggdb -Wall -c ./src/core/Boss.cpp -o obj/core/Boss.o
