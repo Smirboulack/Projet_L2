@@ -82,7 +82,7 @@ Terrain::Terrain(){
     }else{
         exit(EXIT_SUCCESS);
     }
-    
+
 
 }
 
@@ -207,18 +207,18 @@ if(version==1){return (
     (x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) &&
     (
       (
-        (ter[ytMin][xtMin] == ' ')||(ter[ytMin][xtMin] == '+')||(ter[ytMin][xtMin] == '$')||(ter[ytMin][xtMin] == 'O')||(ter[ytMin][xtMin] == '!')
+        (ter[ytMin][xtMin] == ' ')||(ter[ytMin][xtMin] == '+')||(ter[ytMin][xtMin] == '$')||(ter[ytMin][xtMin] == 'O')||(ter[ytMin][xtMin] == '!')||(ter[ytMin][xtMin] == 'F')
       )
       &&
       (
-        (ter[ytMax][xtMax] == ' ') ||(ter[ytMax][xtMax] == '+')||(ter[ytMax][xtMax] == '$')||(ter[ytMax][xtMax] == 'O')||(ter[ytMax][xtMax] == '!')
+        (ter[ytMax][xtMax] == ' ') ||(ter[ytMax][xtMax] == '+')||(ter[ytMax][xtMax] == '$')||(ter[ytMax][xtMax] == 'O')||(ter[ytMax][xtMax] == '!')||(ter[ytMax][xtMax] == 'F')
       )
       &&
       (
-        (ter[ytMin][xtMax] == ' ') || (ter[ytMin][xtMax] == '+')|| (ter[ytMin][xtMax] == '$')|| (ter[ytMin][xtMax] == 'O')|| (ter[ytMin][xtMax] == '!')
+        (ter[ytMin][xtMax] == ' ') || (ter[ytMin][xtMax] == '+')|| (ter[ytMin][xtMax] == '$')|| (ter[ytMin][xtMax] == 'O')|| (ter[ytMin][xtMax] == '!')|| (ter[ytMin][xtMax] == 'F')
       )
       &&
-      ((ter[ytMax][xtMin] == ' ') || (ter[ytMax][xtMin] == '+')|| (ter[ytMax][xtMin] == '$')|| (ter[ytMax][xtMin] == 'O')|| (ter[ytMax][xtMin] == '!'))
+      ((ter[ytMax][xtMin] == ' ') || (ter[ytMax][xtMin] == '+')|| (ter[ytMax][xtMin] == '$')|| (ter[ytMax][xtMin] == 'O')|| (ter[ytMax][xtMin] == '!')|| (ter[ytMax][xtMin] == 'F'))
   )
   );}else{
     return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
@@ -228,6 +228,3 @@ if(version==1){return (
 
 
 }
-
-
-

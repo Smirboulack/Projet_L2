@@ -45,6 +45,7 @@ private:
   Image im_item;
   Image im_vie;
   Image im_money;
+  Image im_portal;
 
     Mix_Chunk * sound;
     bool withSound;

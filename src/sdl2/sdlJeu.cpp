@@ -48,7 +48,7 @@ sdlJeu::sdlJeu() : jeu(){
 	SDL_SetWindowIcon(window, im_icon);
 
   renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED);
-  
+
   im_mortperso.loadFromFile("data/deathscene.png",renderer);
   im_mur.loadFromFile("data/#.png",renderer);
   im_ter.loadFromFile("data/T.png",renderer);
@@ -73,15 +73,16 @@ sdlJeu::sdlJeu() : jeu(){
   im_vie.loadFromFile("data/Vie.png", renderer);
   im_money.loadFromFile("data/Money.png", renderer);
   im_item.loadFromFile("data/Item.png", renderer);
+  im_portal.loadFromFile("data/Portal.png", renderer);
 
   // SONS
     if (withSound)
     {
         sound = Mix_LoadWAV("data/zicmu.wav");
-        if (sound == nullptr) 
+        if (sound == nullptr)
             sound = Mix_LoadWAV("../data/zicmu.wav");
         if (sound == nullptr) {
-                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl; 
+                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
                 SDL_Quit();
                 exit(1);
         }
@@ -116,15 +117,15 @@ void sdlJeu::sdlBoucle(){
   jeu.getTerrain().setVersion(1);
 
   while(!quit){
-    
-    
+
+
 /*
     while(SDL_PollEvent(&events)){
       if(events.type == SDL_QUIT){
         quit = true;
       }else if(events.type == SDL_KEYDOWN){
        if (events.type == SDLK_ESCAPE){quit=true;}
-				
+
       }
     }
 */
@@ -147,7 +148,7 @@ void sdlJeu::sdlBoucle(){
 			break;
   }
   }
-		
+
 
 
     if(sauter){
@@ -214,6 +215,8 @@ for (x=0;x<ter.getDimX();++x){
         im_money.draw(renderer,x*TAILLE_SPRITE-dx,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
       }else if(ter.getXY(x,y) == '!'){
         im_item.draw(renderer,x*TAILLE_SPRITE-dx,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+      }else if(ter.getXY(x,y) == 'F'){
+        im_portal.draw_animation(10, renderer,(i/FPS)%10,x*TAILLE_SPRITE-dx-28,y*TAILLE_SPRITE-38,93,94);
       }
   }
 }
