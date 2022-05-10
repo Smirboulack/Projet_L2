@@ -95,10 +95,10 @@ void Jeu::gravite()
 void Jeu::ramasserItems(){
 
 	if(ter.getVersion()==1){
-		int x = perso.getX() + ter.TAILLE_SPRITE/2;
-		int y = perso.getY() + ter.TAILLE_SPRITE/2;
-		int xtMin = x/ter.TAILLE_SPRITE;
-		int ytMin = y/ter.TAILLE_SPRITE;
+		int x = perso.getX() + TAILLE_SPRITE/2;
+		int y = perso.getY() + TAILLE_SPRITE/2;
+		int xtMin = x/TAILLE_SPRITE;
+		int ytMin = y/TAILLE_SPRITE;
 		cout << "x : " << xtMin << endl;
 		cout << "y : " << ytMin << endl;
 		cout << "terXY : " << ter.getXY(xtMin,ytMin) << endl;

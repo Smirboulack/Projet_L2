@@ -5,7 +5,7 @@
 #include <string>
 
 
-
+const int TAILLE_SPRITE = 36;
 class Terrain
 {
     private :
@@ -14,7 +14,7 @@ class Terrain
     int version;
     int choixniv;
     public :
-    const int TAILLE_SPRITE = 36;
+
     Terrain(); //Constructeur
     ~Terrain();                 //Destructeur
 
