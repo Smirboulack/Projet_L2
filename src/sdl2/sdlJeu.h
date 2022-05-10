@@ -46,6 +46,8 @@ private:
   Image im_vie;
   Image im_money;
   Image im_portal;
+  Image im_skeletonWalkRight;
+  Image im_skeletonWalkLeft;
 
     Mix_Chunk * sound;
     bool withSound;
@@ -66,6 +68,7 @@ public:
   void drawTerrain();
   void drawPersonnage();
   void drawMenu();
+  void drawMonstre();
 
 
   void testRegression();

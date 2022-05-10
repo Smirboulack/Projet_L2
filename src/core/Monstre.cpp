@@ -83,7 +83,7 @@ int Monstre::getMvie(){
 
 
 int Monstre::getSens(){
-  return sens;
+  return dir;
 }
 
 bool Monstre::getMort(){
@@ -129,7 +129,7 @@ void Monstre::bougeAutoMonstre(const Terrain &ter){
     }
 
   }
-  
+
 }
 
 void Monstre::versPerso(const Terrain & ter, const Personnage &p){

@@ -8,6 +8,7 @@ using namespace std;
 
 sdlJeu::sdlJeu() : jeu(){
 
+
   if(SDL_Init(SDL_INIT_EVERYTHING) < 0){
     cout << "Erreur lors de l'initialisation de la SDL : " << SDL_GetError() << endl;
     SDL_Quit();
@@ -74,6 +75,8 @@ sdlJeu::sdlJeu() : jeu(){
   im_money.loadFromFile("data/Money.png", renderer);
   im_item.loadFromFile("data/Item.png", renderer);
   im_portal.loadFromFile("data/Portal.png", renderer);
+  im_skeletonWalkRight.loadFromFile("data/SkeletonWalkRight.png", renderer);
+  im_skeletonWalkLeft.loadFromFile("data/SkeletonWalkLeft.png", renderer);
 
   // SONS
     if (withSound)
@@ -106,6 +109,7 @@ void sdlJeu::sdlAff(){
 
   drawTerrain();
   drawPersonnage();
+  drawMonstre();
 
 
 }
@@ -224,9 +228,8 @@ for (x=0;x<ter.getDimX();++x){
 }
 
 void sdlJeu::drawPersonnage(){
-  int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
-  const Personnage& perso = jeu.getConstPersonnage();
-
+    int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
+    const Personnage& perso = jeu.getConstPersonnage();
     int status = jeu.getStatus();
     int sens = jeu.getSens();
     int status_o = jeu.getStatusO();
@@ -274,4 +277,15 @@ void sdlJeu::drawPersonnage(){
       im_idleright.draw_animation(2, renderer,(i/FPS)%2,perso.getX()+3-dx,perso.getY(),30,36);
     }
     i++;
+}
+
+void sdlJeu::drawMonstre(){
+  int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
+   Monstre& monst = jeu.getMonstre();
+  int sens = monst.getSens();
+  if(sens == 1){
+    im_skeletonWalkRight.draw_animation(13, renderer, (i/FPS)%13,monst.getX()-4-dx,monst.getY()-30,44,66);
+  }else{
+    im_skeletonWalkLeft.draw_animation(13, renderer, (i/FPS)%13,monst.getX()-4-dx,monst.getY()-30,44,66);
+  }
 }
