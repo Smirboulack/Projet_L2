@@ -1,4 +1,4 @@
-  PSEUDO:         VIE:   Armure:   Degats:   Portee:   Piece:    positionPerso: {x:  ,y:  }        ,
+                                                                                                   ,
                                                                                                    ,
                                                                                                    ,
                                                                                                    ,

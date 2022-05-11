@@ -16,42 +16,11 @@ using namespace std;
 void txtAff(WinTXT &win, Jeu &jeu)	
 {
 	 Terrain& ter = jeu.getTerrain();
-	 Personnage& perso = jeu.getPerso();	 
-	 Personnage& monst = jeu.getMonstre();
-	 /*
-	 const Terrain& tero = jeu.getConstTerrain();
-	 const Personnage& perso2 = jeu.getConstPersonnage();
-	 const Monstre& monsto = jeu.getConstMonstre();
-	 */
-
-	char *nom = new char[LEN];
-	char *vie = new char[LEN];
-	char *armure = new char[LEN];
-	char *degat = new char[LEN];
-	char *piece = new char[LEN];
-	char *portee = new char[LEN];
-	char *persox = new char[LEN];
-	char *persoy = new char[LEN];
-
-	string n = jeu.getPerso().getNom();
-	strcpy(nom, n.c_str());
-	string v = to_string(jeu.getPerso().getVie());
-	strcpy(vie, v.c_str());
-	string a = to_string(jeu.getPerso().getArmure());
-	strcpy(armure, a.c_str());
-	string deg = to_string(jeu.getPerso().getDegat());
-	strcpy(degat, deg.c_str());
-	string coin = to_string(jeu.getPerso().getPiece());
-	strcpy(piece, coin.c_str());
-	string rg = to_string(jeu.getPerso().getPortee());
-	strcpy(portee, rg.c_str());
-	string persx = to_string(jeu.getPerso().getX());
-	strcpy(persox, persx.c_str());
-	string persy = to_string(jeu.getPerso().getY());
-	strcpy(persoy, persy.c_str());
+	 Terrain terconst = jeu.getConstTerrain();
+	 Personnage& perso = jeu.getPerso();
+	 Personnage Tmonst[10];
+	 for (int i=0;i<10;i++){ Tmonst[i] = jeu.getConstMonstre(i);}	 
 	
-	
-
 	win.clear();
 
 	int xp,xd=0;
@@ -65,77 +34,43 @@ void txtAff(WinTXT &win, Jeu &jeu)
 		for(int x=xp;x<xd;++x)
 		for(int y=0;y<ter.getDimY();++y)
 		win.print(x,y,ter.getXY(x,y));
-		if(monst.getX()<=xd && monst.getX()>=xp){
-		win.print(monst.getX(),monst.getY(),'M');
+		for(int i=0;i<10;i++){
+			if(Tmonst[i].getX()<=xd && Tmonst[i].getX()>=xp){
+		win.print(Tmonst[i].getX(),Tmonst[i].getY(),'M');
 		}
+		}
+		
 	}else{
 		for(int x=0;x<ter.getDimX()/2;++x)
 		for(int y=0;y<ter.getDimY();++y)
 		win.print(x,y,ter.getXY(x,y));
-		win.print(monst.getX(),monst.getY(),'M');
+		for(int i=0;i<10;i++){win.print(Tmonst[i].getX(),Tmonst[i].getY(),'M');}
+		
 	}
 
-	cout <<endl << endl<< "Appuyez sur X pour quitter et retourner au menu" << endl;
+	cout << endl << endl<<"PSEUDO: "<<perso.getNom()<<" Vie:"<<perso.getVie()<<" Armure:"
+	<<perso.getArmure()<<" Degats:"<<perso.getDegat()<<" Portee:"<<perso.getPortee()<<" Piece:"<<perso.getPiece()
+	<<" positionPerso: {x:"<<perso.getX()<<",y:"<<perso.getY()<<"}"<< endl;
+
+	cout <<endl<< "Appuyez sur X pour quitter et retourner au menu" << endl;
 	//cout <<endl << endl<< jeu.getTerrain().getChoixniv() << endl;
+
 	
     // Affichage du personnage
 	win.print(perso.getX(),perso.getY(),'P');
-
-	win.print(9, 0, nom);
-	win.print(22, 0, vie);
-	win.print(32, 0, armure);
-	win.print(42, 0, degat);
-	win.print(52, 0, portee);
-	win.print(61, 0, piece);
-	win.print(83, 0, persox);
-	win.print(88, 0, persoy);
 
 	win.draw();
 }
 
 void AffFin(WinTXT &win, Jeu &jeu)
 {
-	/*
-	const Terrain &ter = jeu.getConstTerrain();
-	const Personnage &perso = jeu.getConstPersonnage();
-	const Monstre &monst = jeu.getConstMonstre();
-	*/
+
 
 	char m[]  = "Félicitations !!! Vous avez terminé le niveau !";
 	char m2[]  = "Appuyez sur ENTREE touche pour terminer";
-	/*char *vie = new char[LEN];
-	char *armure = new char[LEN];
-	char *degat = new char[LEN];
-	char *piece = new char[LEN];
-	char *portee = new char[LEN];
-	char *persox = new char[LEN];
-	char *persoy = new char[LEN];*/
+
 	string msg = "Félicitations !!! Vous avez terminé le niveau !";
 	string msg2 = "Appuyez sur ENTREE touche pour terminer";
-
-	
-	
-
-	/*string n = jeu.getPerso().getNom();
-	strcpy(nom, n.c_str());
-	string v = to_string(jeu.getPerso().getVie());
-	strcpy(vie, v.c_str());
-	string a = to_string(jeu.getPerso().getArmure());
-	strcpy(armure, a.c_str());
-	string deg = to_string(jeu.getPerso().getDegat());
-	strcpy(degat, deg.c_str());
-	string coin = to_string(jeu.getPerso().getPiece());
-	strcpy(piece, coin.c_str());
-	string rg = to_string(jeu.getPerso().getPortee());
-	strcpy(portee, rg.c_str());
-	string persx = to_string(jeu.getPerso().getX());
-	strcpy(persox, persx.c_str());
-	string persy = to_string(jeu.getPerso().getY());
-	strcpy(persoy, persy.c_str());*/
-
-	/*strcpy(m, msg.c_str());
-	strcpy(m2,msg2.c_str());*/
-	
 
 	char c;
 

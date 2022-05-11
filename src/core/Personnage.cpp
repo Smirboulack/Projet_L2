@@ -4,8 +4,8 @@
 using namespace std;
 
 Personnage::Personnage(){
-  x = 2;
-  y = 2;
+  x = 0;
+  y = 0;
   vie = 20;
   sexe = 0;
   sens = 1;
@@ -202,34 +202,55 @@ void Personnage::droite(const Terrain &ter){
 }
 
 void Personnage::bougeAutoMonstre(const Terrain & ter){
+  
   srand((int)time(0));
   if(rand()%100 < 50){
     deplacer('d',ter);
   }else{
     deplacer('q', ter);
   }
-
+  
 
   /*
     int xtmp;
-    xtmp = x + dir;
+    xtmp = x + sens;
     if (ter.estPositionPersoValide(xtmp,y)) {
-        if(x==limg)dir=1;
-        if(x==limd)dir=-1;
+        if(x==limg)sens=1;
+        if(x==limd)sens=-1;
         x=xtmp;
     }
    if (!ter.estPositionPersoValide(xtmp,y)){
         limg=-x;
-        dir=-dir;
+        sens=-sens;
     }
 
-  if (dir==1){
+  if (sens==1){
     if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)){
-      dir=-dir;
+      sens=-sens;
     }
     if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){
-      dir=-dir;
+      sens=-sens;
     }
   }
   */
+  
+}
+
+void Personnage::bougeAutoMonstre(const int &i,const Terrain & ter){
+
+  srand((int)time(0));
+  if(rand()%100 < 50){
+    if (ter.estPositionPersoValide(i,y)) deplacer('d',ter);
+    if (!ter.estPositionPersoValide(i,y)) deplacer ('q',ter);
+    if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)) {deplacer ('q',ter) || deplacer ('d',ter);} 
+    if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){deplacer ('d',ter) || deplacer ('q',ter);}
+
+  }else{
+   if (ter.estPositionPersoValide(i,y)) deplacer('q', ter);
+   if (!ter.estPositionPersoValide(i,y)) deplacer ('d',ter);
+
+   if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)) {deplacer ('q',ter) || deplacer ('d',ter);} 
+    if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){deplacer ('d',ter) || deplacer ('q',ter);}
+  }
+  
 }

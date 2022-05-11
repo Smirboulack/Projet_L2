@@ -317,6 +317,7 @@ void sdlJeu::drawPersonnage(){
 }
 
 void sdlJeu::drawMonstre(){
+  /*
   int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
    Personnage& monst = jeu.getMonstre();
   int sens = monst.getSens();
@@ -324,5 +325,24 @@ void sdlJeu::drawMonstre(){
     im_skeletonWalkRight.draw_animation(13, renderer, (i/FPS)%13,monst.getX()-4-dx,monst.getY()-30,44,66);
   }else{
     im_skeletonWalkLeft.draw_animation(13, renderer, (i/FPS)%13,monst.getX()-4-dx,monst.getY()-30,44,66);
+  }*/
+
+  int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
+  int Tsens[10];
+   Personnage Tmonst[10];
+  for (int i=0;i<10;i++){
+    Tmonst[i]=jeu.getMonstre(i);
+    Tsens[i]=Tmonst[i].getSens();
+
+    if(Tsens[i] == 1){
+    im_skeletonWalkRight.draw_animation(13, renderer, (i/FPS)%13,Tmonst[i].getX()-dx,Tmonst[i].getY(),44,66);
+  }else{
+    im_skeletonWalkLeft.draw_animation(13, renderer, (i/FPS)%13,Tmonst[i].getX()-dx,Tmonst[i].getY(),44,66);
   }
+    }
+
+   
+  
+
+
 }

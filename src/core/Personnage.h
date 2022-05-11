@@ -87,6 +87,7 @@ class Personnage{
     void gauche(const Terrain &ter);
     void droite(const Terrain &ter);
     void bougeAutoMonstre(const Terrain &ter);
+    void bougeAutoMonstre(const int &i,const Terrain & ter);
     void versPerso(const Terrain & ter, const Personnage &p);
 
 

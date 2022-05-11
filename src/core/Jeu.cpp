@@ -11,7 +11,43 @@ const int VITESSE_ACCELEREE = 20;
 
 Jeu::Jeu() : ter(), perso(), monst(360,180,20,20,20)
 {
+/*
+	monstre1x = 29  ; monstre1y= 11 0
+monstre2x = 40  ; monstre2y= 11	 1
+monstre3x = 5  ; monstre3y= 11	2
+monstre4x = 44  ; monstre4y= 16  3
+monstre5x = 65  ; monstre5y= 16  4
+monstre6x = 19  ; monstre6y= 16  5
+monstre7x = 86  ; monstre7y= 16  6
+monstre8x = 71  ; monstre8y= 14  7
+monstre9x = 54  ; monstre9y= 11  8 
+monstre10x =  75 ; monstre10y= 11 */ 
 
+		tabmonstre[0].setX(29);
+		tabmonstre[0].setY(10);
+		tabmonstre[1].setX(40);
+		tabmonstre[1].setY(10);
+		tabmonstre[2].setX(5);
+		tabmonstre[2].setY(10);
+		tabmonstre[3].setX(44);
+		tabmonstre[3].setY(15);
+		tabmonstre[4].setX(44);
+		tabmonstre[4].setY(15);
+		tabmonstre[5].setX(65);
+		tabmonstre[5].setY(15);
+		tabmonstre[6].setX(19);
+		tabmonstre[6].setY(15);
+		tabmonstre[7].setX(83);
+		tabmonstre[7].setY(15);
+		tabmonstre[8].setX(71);
+		tabmonstre[8].setY(13);
+		tabmonstre[9].setX(54);
+		tabmonstre[9].setY(10);
+		tabmonstre[10].setX(75);
+		tabmonstre[10].setY(10);
+
+
+	
 	fdj = getPerso().getMort();
 	vitesse_gravite = VITESSE_ACCELEREE;
 }
@@ -22,11 +58,15 @@ Personnage &Jeu::getPerso() { return perso; }
 
 Personnage &Jeu::getMonstre() { return monst; }
 
+Personnage &Jeu::getMonstre(const int &i) {return tabmonstre[i];}
+
 const Terrain &Jeu::getConstTerrain() const { return ter; }
 
 const Personnage &Jeu::getConstPersonnage() const { return perso; }
 
 const Personnage &Jeu::getConstMonstre() const { return monst; }
+
+const Personnage &Jeu::getConstMonstre(const int &i)const{return tabmonstre[i];}
 
 bool Jeu::actionClavier(const int touche)
 {
@@ -80,6 +120,7 @@ void Jeu::actionsAutomatiques()
 	*/
 	gravite();
 	monst.bougeAutoMonstre(ter);
+	for (int i=0;i<10;i++){tabmonstre[i].bougeAutoMonstre(i,ter);}
 }
 
 void Jeu::gravite()

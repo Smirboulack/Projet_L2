@@ -13,6 +13,7 @@ private:
   Terrain ter;
   Personnage perso;
   Personnage monst;
+  Personnage tabmonstre[10];
   
   /*
   int temps, dsaut, fsaut;
@@ -26,10 +27,12 @@ public:
   Terrain &getTerrain();
   Personnage &getPerso();
   Personnage &getMonstre();
+  Personnage &getMonstre(const int &i);
 
   const Terrain &getConstTerrain() const;
   const Personnage &getConstPersonnage() const;
   const Personnage &getConstMonstre() const;
+  const Personnage &getConstMonstre(const int &i)const;
   //int getNombreMonstre() const;
   int getStatus() const;
   int getStatusO() const;
