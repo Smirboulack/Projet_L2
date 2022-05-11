@@ -48,7 +48,9 @@ monstre10x =  75 ; monstre10y= 11 */
 
 
 	
-	fdj = getPerso().getMort();
+	setFdj(false);
+	setVictoire(false);
+	
 	vitesse_gravite = VITESSE_ACCELEREE;
 }
 
@@ -119,8 +121,11 @@ void Jeu::actionsAutomatiques()
 	}
 	*/
 	gravite();
-	monst.bougeAutoMonstre(ter);
-	for (int i=0;i<10;i++){tabmonstre[i].bougeAutoMonstre(i,ter);}
+	/*monst.bougeAutoMonstre(ter);
+	for (int i=0;i<10;i++){tabmonstre[i].bougeAutoMonstre(i,ter);}*/
+	PersoSubirDegat();
+	ramasserItems();
+	FinDuJeu();
 }
 
 void Jeu::gravite()
@@ -172,6 +177,18 @@ void Jeu::ramasserItems(){
 		}
 }
 
+void Jeu::PersoSubirDegat()
+{
+	if(getPerso().getX()==getMonstre().getX() && getPerso().getY()==getMonstre().getY())
+	{
+		getPerso().subirDegat(4);
+	}
+
+	if(getPerso().getY() >= getTerrain().getDimY())
+	{
+		getPerso().setMort(true);
+	}
+}
 
 int Jeu::getStatus() const{
 
@@ -192,8 +209,9 @@ int Jeu::getSensO() const{
 
 void Jeu::FinDuJeu()
 {
-	getPerso().estMort(getTerrain());
-	if(getPerso().getMort()) fdj = getPerso().getMort();
+	/*getPerso().estMort(getTerrain());
+	if(getPerso().getMort()) fdj = getPerso().getMort();*/
+	if(getTerrain().getXY((getPerso().getX() + TAILLE_SPRITE/2)/TAILLE_SPRITE , (getPerso().getY()+TAILLE_SPRITE/2)/TAILLE_SPRITE) == 'F') setVictoire(true);
 }
 
 bool Jeu::getFdj() const
@@ -204,4 +222,14 @@ bool Jeu::getFdj() const
 void Jeu::setFdj(bool b)
 {
 	fdj = b;
+}
+
+bool Jeu::getVictoire() const
+{
+	return victoire;
+}
+
+void Jeu::setVictoire(bool b)
+{
+	victoire = b;
 }

@@ -177,10 +177,10 @@ void Terrain::afficherTerrain(){
 }
 
 char Terrain::getXY (const int x, const int y) const {
-	assert(x>=0);
+	/*assert(x>=0);
 	assert(y>=0);
 	assert(x<dimx);
-	assert(y<dimy);
+	assert(y<dimy);*/
 	return ter[y][x];
 }
 

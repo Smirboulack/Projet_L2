@@ -20,6 +20,7 @@ private:
 	*/
   int vitesse_gravite;
   bool fdj;
+  bool victoire;
 
 public:
   Jeu();
@@ -40,14 +41,17 @@ public:
   int getSensO() const;
   bool getFdj() const;
   void setFdj(bool b);
+  bool getVictoire() const;
+  void setVictoire(bool b);
 
       //int getTemps();
 
-      void actionsAutomatiques();
+  void actionsAutomatiques();
   // bool actionClavier(const int touche, int tps);
   bool actionClavier(const int touche);
   void gravite();
   void ramasserItems();
+  void PersoSubirDegat();
   void FinDuJeu();
 
   void testRegression();

@@ -186,10 +186,6 @@ void Personnage::estMort(Terrain & t)
   {
     setMort(true);
   }
-  if(t.getXY(getX(),getY()) == 'F')
-  {
-    setMort(true);
-  }
 }
 
 

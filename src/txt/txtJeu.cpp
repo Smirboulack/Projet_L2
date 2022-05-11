@@ -116,8 +116,6 @@ void txtBoucle(Jeu &jeu)
 
 		jeu.actionsAutomatiques();
 		jeu.actionClavier(c);
-		jeu.ramasserItems();
-		jeu.FinDuJeu();
 
 		if(jeu.getFdj()) AffFin(win, jeu);
 
@@ -126,6 +124,6 @@ void txtBoucle(Jeu &jeu)
 			//fflush(stdout);
 			}
 
-	} while (!jeu.getFdj());
+	} while (!jeu.getFdj() && !jeu.getVictoire());
 	
 }
