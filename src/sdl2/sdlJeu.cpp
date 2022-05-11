@@ -133,11 +133,12 @@ void sdlJeu::sdlAff(){
 
 SDL_Event sdlJeu::getEvent()const{return event;}
 
-void sdlJeu::sdlBoucle(){
+void sdlJeu::sdlBoucle(int n){
   bool quit = false;
    SDL_Event events=getEvent();
   bool sauter = false;
   jeu.getTerrain().setVersion(1);
+  jeu.getTerrain().setChoixniv(n);
 
   while(!quit){
 

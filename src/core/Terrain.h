@@ -13,6 +13,7 @@ class Terrain
     char ter[21][101];
     int version;
     int choixniv;
+    //std::string pathname;
     public :
 
     Terrain(); //Constructeur

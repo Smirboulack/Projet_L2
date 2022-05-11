@@ -66,7 +66,7 @@ public:
   sdlJeu();
   ~sdlJeu();
 
-  void sdlBoucle();
+  void sdlBoucle(int n);
   void sdlAff();
   void drawTerrain();
   void drawPersonnage();

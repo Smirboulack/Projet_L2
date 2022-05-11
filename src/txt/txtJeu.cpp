@@ -4,6 +4,7 @@
 //#include <windows.h>
 //#else
 #include <unistd.h>
+
 //#endif // WIN32
 #include "winTxt.h"
 #include "txtJeu.h"
@@ -75,7 +76,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 	}
 
 	cout <<endl << endl<< "Appuyez sur X pour quitter et retourner au menu" << endl;
-	cout <<endl << endl<< jeu.getTerrain().getChoixniv() << endl;
+	//cout <<endl << endl<< jeu.getTerrain().getChoixniv() << endl;
 	
     // Affichage du personnage
 	win.print(perso.getX(),perso.getY(),'P');
@@ -111,6 +112,8 @@ void AffFin(WinTXT &win, Jeu &jeu)
 	char *persoy = new char[LEN];*/
 	string msg = "Félicitations !!! Vous avez terminé le niveau !";
 	string msg2 = "Appuyez sur ENTREE touche pour terminer";
+
+	
 	
 
 	/*string n = jeu.getPerso().getNom();
@@ -148,6 +151,7 @@ void AffFin(WinTXT &win, Jeu &jeu)
 		
 	}while(c != 13);
 
+	system("clear");
 	exit(EXIT_SUCCESS);
 }
 
@@ -182,6 +186,11 @@ void txtBoucle(Jeu &jeu)
 
 		if(jeu.getFdj()) AffFin(win, jeu);
 
-		if (c == 'x') jeu.setFdj(true);
+		if (c == 'x') {
+			jeu.setFdj(true);
+			//fflush(stdout);
+			}
+
 	} while (!jeu.getFdj());
+	
 }

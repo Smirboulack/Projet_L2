@@ -68,9 +68,9 @@ Terrain::Terrain(){
     default:
         ouvrir("./data/Niveau1.txt");
     }
-    */
 
-    if(choixniv=1){ouvrir("./data/Niveau1.txt");
+*/
+if(choixniv=1){ouvrir("./data/Niveau1.txt");
     }else if(choixniv=2){
         ouvrir("./data/Niveau2.txt");
     }else if(choixniv=3){
@@ -84,13 +84,17 @@ Terrain::Terrain(){
     }
 
 
+  // ouvrir(choixnive);
+
 }
+
 
 
 Terrain::~Terrain(){
     dimx = 0;
     dimy = 0;
 }
+
 
 
 void Terrain::ouvrir(string pathname)
@@ -100,6 +104,21 @@ void Terrain::ouvrir(string pathname)
     int x,y;
     x=0;
     y=0;
+    /*
+    if(choixniv==1){ouvrir("./data/Niveau1.txt");
+    }else if(choixniv==2){
+        ouvrir("./data/Niveau2.txt");
+    }else if(choixniv==3){
+        ouvrir("./data/Niveau2.txt");
+    }else if(choixniv==4){
+        ouvrir("./data/Niveau2.txt");
+    }else if(choixniv==5){
+        ouvrir("./data/Niveau2.txt");
+    }else{
+        exit(EXIT_SUCCESS);
+    }
+    */
+    
 
     fd = open(pathname.c_str(), O_RDONLY);
     if (fd == -1)
@@ -176,6 +195,7 @@ void Terrain::setXY(const int x, const int y,const char & c){
 void Terrain::setVersion(const int & v){version=v;}
 void Terrain::setDimx(const int Dimx){dimx=Dimx;}
 void Terrain::setChoixniv(const int &n){choixniv=n;}
+
 
 int Terrain::getDimX () const { return dimx; }
 int Terrain::getDimY () const {	return dimy; }
