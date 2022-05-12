@@ -9,6 +9,13 @@ using namespace std;
 sdlJeu::sdlJeu() : jeu()
 {
 
+  jeu.getTerrain().setVersion(1);
+ 
+  int niv;
+	cout << "Quel niveau jouer ? " <<endl;
+	cin >> niv;
+	jeu.getTerrain().setChoixniv(niv);
+
   if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
   {
     cout << "Erreur lors de l'initialisation de la SDL : " << SDL_GetError() << endl;
@@ -88,19 +95,62 @@ sdlJeu::sdlJeu() : jeu()
   im_skeletonWalkLeft.loadFromFile("data/SkeletonWalkLeft.png", renderer);
 
   // SONS et MUSIQUE
-
-  /*
     if (withSound)
     {
-        sound = Mix_LoadWAV("data/zicmu.wav");
-        if (sound == nullptr)
-            sound = Mix_LoadWAV("../data/zicmu.wav");
-        if (sound == nullptr) {
+        soundpiece = Mix_LoadWAV("data/piece2.wav");
+        if (soundpiece == nullptr)
+            soundpiece = Mix_LoadWAV("../data/piece2.wav");
+        if (soundpiece == nullptr) {
                 cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
                 SDL_Quit();
                 exit(1);
         }
-    }*/
+
+        soundvie = Mix_LoadWAV("data/vie.wav");
+        if (soundvie == nullptr)
+            soundvie = Mix_LoadWAV("../data/vie.wav");
+        if (soundvie == nullptr) {
+                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
+                SDL_Quit();
+                exit(1);
+        }
+
+        soundarmure = Mix_LoadWAV("data/armure.wav");
+        if (soundarmure == nullptr)
+            soundarmure = Mix_LoadWAV("../data/armure.wav");
+        if (soundarmure == nullptr) {
+                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
+                SDL_Quit();
+                exit(1);
+        }
+
+        soundarme = Mix_LoadWAV("data/arme.wav");
+        if (soundarme == nullptr)
+            soundarme = Mix_LoadWAV("../data/arme.wav");
+        if (soundarme == nullptr) {
+                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
+                SDL_Quit();
+                exit(1);
+        }
+
+        soundattack = Mix_LoadWAV("data/attack.wav");
+        if (soundattack == nullptr)
+            soundattack = Mix_LoadWAV("../data/attack.wav");
+        if (soundattack == nullptr) {
+                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
+                SDL_Quit();
+                exit(1);
+        }
+
+        finniveau = Mix_LoadWAV("data/finniveau.wav");
+        if (finniveau == nullptr)
+            finniveau = Mix_LoadWAV("../data/finniveau.wav");
+        if (finniveau == nullptr) {
+                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
+                SDL_Quit();
+                exit(1);
+        }
+    }
 
   if (withmusique)
   {
@@ -143,13 +193,11 @@ void sdlJeu::sdlAff()
 
 SDL_Event sdlJeu::getEvent() const { return event; }
 
-void sdlJeu::sdlBoucle(int n)
+void sdlJeu::sdlBoucle()
 {
   bool quit = false;
   SDL_Event events = getEvent();
   bool sauter = false;
-  jeu.getTerrain().setVersion(1);
-  jeu.getTerrain().setChoixniv(n);
 
 
   while (!jeu.getFdj() && !jeu.getVictoire() && !quit)
@@ -168,25 +216,25 @@ void sdlJeu::sdlBoucle(int n)
         }
     */
 
-    while (SDL_PollEvent(&events))
-    {
-
-      switch (events.type)
-      {
-      case SDL_QUIT:
-        quit = true;
-        Mix_FreeMusic(musique);
-        Mix_CloseAudio();
-        break;
-      case SDL_KEYDOWN:
-        switch (events.key.keysym.sym)
-        {
-        case SDLK_ESCAPE:
-          quit = true;
-          Mix_FreeMusic(musique);
-          Mix_CloseAudio();
-          break;
-        case SDLK_SPACE:
+    while (SDL_PollEvent(&events)) {
+			if (events.type == SDL_QUIT) quit = true;           // Si l'utilisateur a clique sur la croix de fermeture
+			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
+                bool mangepiece = false;
+				switch (events.key.keysym.sym) {
+				case SDLK_UP:
+				//	mangepiece = jeu.actionClavier();    // car Y inverse
+					break;
+				case SDLK_DOWN:
+				//	mangepiece = jeu.actionClavier();     // car Y inverse
+					break;
+				case SDLK_LEFT:
+				//	mangepiece = jeu.actionClavier();
+					break;
+				case SDLK_RIGHT:
+				//	mangepiece = jeu.actionClavier();
+					break;
+        case SDLK_v:
+          Mix_PlayChannel(-1,soundattack,0);
           break;
         case SDLK_m:
           if (Mix_PausedMusic() == 1) // Si la musique est en pause
@@ -198,13 +246,24 @@ void sdlJeu::sdlBoucle(int n)
             Mix_PauseMusic(); // Mettre en pause la musique
           }
           break;
-        case SDLK_p:
-          jeupause = true;
+          case SDLK_ESCAPE:
+          Mix_FreeMusic(musique);
+          Mix_CloseAudio();
+          quit = true;
           break;
+                case SDL_SCANCODE_ESCAPE:
+                case SDL_SCANCODE_Q:
+                    quit = true;
+                    break;
+				default: break;
+				}
+				if ((withSound) && jeu.actionClavier()){
+          cout << endl << "piece ramassé ! " << endl;
+          Mix_PlayChannel(-1,soundpiece,0);
         }
-        break;
-      }
-    }
+                    
+			}
+		}
 
     if (sauter && jeupause == false)
     {

@@ -101,6 +101,28 @@ bool Jeu::actionClavier(const int touche)
 	return false;
 }
 
+bool Jeu::actionClavier(){
+		ter.setVersion(1);
+		if(ter.getVersion()==1){
+		int x,y;
+		//if(perso.getNom() == "mario") 
+		//if(perso.getNom() == "mario") 
+		x = perso.getX() + TAILLE_SPRITE/2;
+		y =  perso.getY() + TAILLE_SPRITE/2;
+		int xtMin = x/TAILLE_SPRITE;
+		int ytMin = y/TAILLE_SPRITE;
+		
+		
+		//if(ter.getXY(xtMin, ytMin) == '!'){return true;}
+		//if(ter.getXY(xtMin, ytMin) == 'O'){return true;}
+		//if(ter.getXY(xtMin, ytMin) == '+'){return true;}
+		if(ter.getXY(xtMin, ytMin) == '$'){return true;}
+		else{
+			return false;
+		}
+}
+}
+
 void Jeu::attaquer()
 {
 	for(int i=0; i<10; i++)
@@ -124,7 +146,7 @@ void Jeu::actionsAutomatiques()
 
 	gravite();
 	monst.bougeAutoMonstre(ter);
-	for (int i=1;i<10;i++){tabmonstre[i].bougeAutoMonstre(ter);}
+	for (int i=0;i<10;i++){tabmonstre[i].bougeAutoMonstre(ter);}
 	PersoSubirDegat();
 	ramasserItems();
 	FinDuJeu();

@@ -13,14 +13,8 @@ using namespace std;
 
 int main (int argc, char** argv) {
 	
-	int niv;
-	cout << "Quel niveau jouer ? " <<endl;
-	cin >> niv;
-
-
-
 	sdlJeu sj;
-	sj.sdlBoucle(niv);
+	sj.sdlBoucle();
 	return 0;
 }
 

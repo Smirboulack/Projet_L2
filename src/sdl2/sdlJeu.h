@@ -49,7 +49,13 @@ private:
   Image im_skeletonWalkRight;
   Image im_skeletonWalkLeft;
 
-    Mix_Chunk * sound;
+    Mix_Chunk * soundpiece;
+    Mix_Chunk * soundvie;
+    Mix_Chunk * soundarmure;
+    Mix_Chunk * soundarme;
+    Mix_Chunk * soundattack;
+    Mix_Chunk * finniveau;
+    
     Mix_Music *musique;
     bool withSound;
     bool withmusique;
@@ -66,7 +72,7 @@ public:
   sdlJeu();
   ~sdlJeu();
 
-  void sdlBoucle(int n);
+  void sdlBoucle();
   void sdlAff();
   void drawTerrain();
   void drawPersonnage();
