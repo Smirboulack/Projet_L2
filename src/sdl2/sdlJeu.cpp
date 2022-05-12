@@ -89,7 +89,8 @@ sdlJeu::sdlJeu() : jeu()
   im_turnright.loadFromFile("data/TurnRight.png", renderer);
   im_vie.loadFromFile("data/Vie.png", renderer);
   im_money.loadFromFile("data/Money.png", renderer);
-  im_item.loadFromFile("data/Item.png", renderer);
+  im_item.loadFromFile("data/epee.png", renderer);
+  im_armor.loadFromFile("data/armor.png", renderer);
   im_portal.loadFromFile("data/Portal.png", renderer);
   im_skeletonWalkRight.loadFromFile("data/SkeletonWalkRight.png", renderer);
   im_skeletonWalkLeft.loadFromFile("data/SkeletonWalkLeft.png", renderer);
@@ -363,6 +364,10 @@ void sdlJeu::drawTerrain()
       else if (ter.getXY(x, y) == '+')
       {
         im_vie.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
+      }
+      else if (ter.getXY(x,y)=='O')
+      {
+        im_armor.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
       }
       else if (ter.getXY(x, y) == '$')
       {

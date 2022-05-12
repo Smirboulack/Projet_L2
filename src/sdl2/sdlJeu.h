@@ -44,6 +44,7 @@ private:
   Image im_turnright;
   Image im_item;
   Image im_vie;
+  Image im_armor;
   Image im_money;
   Image im_portal;
   Image im_skeletonWalkRight;
