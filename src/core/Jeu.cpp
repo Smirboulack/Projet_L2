@@ -9,7 +9,7 @@ const int VITESSE = 1;
 const int VITESSE_SAUTER = 6;
 const int VITESSE_ACCELEREE = 20;
 
-Jeu::Jeu() : ter(), perso(), monst(360,180,20,20,20)
+Jeu::Jeu() : ter(), perso(), monst(360,180,20,20,20,"Monstre")
 {
 /*
 	monstre1x = 29  ; monstre1y= 11 0
@@ -23,28 +23,26 @@ monstre8x = 71  ; monstre8y= 14  7
 monstre9x = 54  ; monstre9y= 11  8 
 monstre10x =  75 ; monstre10y= 11 */ 
 
-		tabmonstre[0].setX(29);
-		tabmonstre[0].setY(10);
-		tabmonstre[1].setX(40);
-		tabmonstre[1].setY(10);
-		tabmonstre[2].setX(5);
-		tabmonstre[2].setY(10);
-		tabmonstre[3].setX(44);
-		tabmonstre[3].setY(15);
-		tabmonstre[4].setX(44);
-		tabmonstre[4].setY(15);
-		tabmonstre[5].setX(65);
-		tabmonstre[5].setY(15);
-		tabmonstre[6].setX(19);
-		tabmonstre[6].setY(15);
-		tabmonstre[7].setX(83);
-		tabmonstre[7].setY(15);
-		tabmonstre[8].setX(71);
-		tabmonstre[8].setY(13);
-		tabmonstre[9].setX(54);
-		tabmonstre[9].setY(10);
-		tabmonstre[10].setX(75);
-		tabmonstre[10].setY(10);
+		tabmonstre[0].setX(0 * TAILLE_SPRITE);
+		tabmonstre[0].setY(14 * TAILLE_SPRITE);
+		tabmonstre[1].setX(40 * TAILLE_SPRITE);
+		tabmonstre[1].setY(10 * TAILLE_SPRITE);
+		tabmonstre[2].setX(5 * TAILLE_SPRITE);
+		tabmonstre[2].setY(10 * TAILLE_SPRITE);
+		tabmonstre[3].setX(44 * TAILLE_SPRITE);
+		tabmonstre[3].setY(15 * TAILLE_SPRITE);
+		tabmonstre[4].setX(44 * TAILLE_SPRITE);
+		tabmonstre[4].setY(15 * TAILLE_SPRITE);
+		tabmonstre[5].setX(65 * TAILLE_SPRITE);
+		tabmonstre[5].setY(15 * TAILLE_SPRITE);
+		tabmonstre[6].setX(19 * TAILLE_SPRITE);
+		tabmonstre[6].setY(15 * TAILLE_SPRITE);
+		tabmonstre[7].setX(83 * TAILLE_SPRITE);
+		tabmonstre[7].setY(15 * TAILLE_SPRITE);
+		tabmonstre[8].setX(71 * TAILLE_SPRITE);
+		tabmonstre[8].setY(13 * TAILLE_SPRITE);
+		tabmonstre[9].setX(54 * TAILLE_SPRITE);
+		tabmonstre[9].setY(10 * TAILLE_SPRITE);
 
 
 	
@@ -96,7 +94,13 @@ bool Jeu::actionClavier(const int touche)
 	case 's':
 		perso.deplacerVite(VITESSE, touche, ter);
 		break;
+	case 'v':
+	cout<<"V appuyé"<<endl;
+		attaquer();
+		break;
 	}
+
+	
 	/*
 	if (ter.getXY(perso.getX(),perso.getY())=='.') {
 	    ter.mangePastille(perso.getX(),perso.getY());
@@ -106,6 +110,24 @@ bool Jeu::actionClavier(const int touche)
 
 
 	return false;
+}
+
+void Jeu::attaquer()
+{
+	for(int i=0; i<10; i++)
+	{
+		if ( (getPerso().getX() - getMonstre(i).getX()  <= 70 && getPerso().getX() - getMonstre(i).getX() >= 0 && 
+			 ((getPerso().getY() - getMonstre(i).getY()  <= 0  && getPerso().getY() - getMonstre(i).getY()  >= -70) ||
+			  getPerso().getY() - getMonstre(i).getY()  >= 0  && getPerso().getY() - getMonstre(i).getY()  <= 70)) || 
+			 (getPerso().getX() - getMonstre(i).getX()  <= 0  && getPerso().getX() - getMonstre(i).getX() >= -70 && 
+			 ((getPerso().getY() - getMonstre(i).getY()  <= 0  && getPerso().getY() - getMonstre(i).getY()  >= -70) ||
+			  getPerso().getY() - getMonstre(i).getY()  >= 0  && getPerso().getY() - getMonstre(i).getY()  <= 70))
+			 )
+		  {
+			  cout<<"##############################################################"<<endl;
+			  getMonstre(i).setMort(true);
+		  }
+	}
 }
 
 void Jeu::actionsAutomatiques()
@@ -121,8 +143,8 @@ void Jeu::actionsAutomatiques()
 	}
 	*/
 	gravite();
-	/*monst.bougeAutoMonstre(ter);
-	for (int i=0;i<10;i++){tabmonstre[i].bougeAutoMonstre(i,ter);}*/
+	monst.bougeAutoMonstre(ter);
+	for (int i=1;i<10;i++){tabmonstre[i].bougeAutoMonstre(i,ter);}
 	PersoSubirDegat();
 	ramasserItems();
 	FinDuJeu();
@@ -141,13 +163,14 @@ void Jeu::gravite()
 void Jeu::ramasserItems(){
 
 	if(ter.getVersion()==1){
-		int x = perso.getX() + TAILLE_SPRITE/2;
-		int y = perso.getY() + TAILLE_SPRITE/2;
+		int x,y;
+		if(perso.getNom() == "mario") x = perso.getX() + TAILLE_SPRITE/2;
+		if(perso.getNom() == "mario") y =  perso.getY() + TAILLE_SPRITE/2;
 		int xtMin = x/TAILLE_SPRITE;
 		int ytMin = y/TAILLE_SPRITE;
-		cout << "x : " << xtMin << endl;
+		/*cout << "x : " << xtMin << endl;
 		cout << "y : " << ytMin << endl;
-		cout << "terXY : " << ter.getXY(xtMin,ytMin) << endl;
+		cout << "terXY : " << ter.getXY(xtMin,ytMin) << endl;*/
 		if(ter.getXY(xtMin, ytMin) == '$'){
 			ter.setXY(xtMin, ytMin, ' ');
 			perso.setPiece(perso.getPiece()+1);

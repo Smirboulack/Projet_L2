@@ -156,8 +156,6 @@ void sdlJeu::sdlBoucle(int n)
   while (!jeu.getFdj() && !jeu.getVictoire())
   {
     //jeu.actionsAutomatiques();
-    cout<<"FDJ: " <<jeu.getFdj() <<" vic: "<<jeu.getVictoire() <<endl;
-    cout<<"Dimx: "<<jeu.getTerrain().getDimX() <<" Dimy: "<<jeu.getTerrain().getDimY()<<endl;
     //cout<<"GetXY: "<<jeu.getConstTerrain().getXY(jeu.getConstPersonnage().getX(), jeu.getConstPersonnage().getY()+ TAILLE_SPRITE/2)<<endl;
 
     /*
@@ -218,7 +216,6 @@ void sdlJeu::sdlBoucle(int n)
     else if (jeupause == false)
     {
       jeu.actionsAutomatiques();
-      cout<<"Appel automatiques"<<endl;
     }
 
     const Uint8 *currentKeyStates = SDL_GetKeyboardState(NULL);
@@ -248,6 +245,10 @@ void sdlJeu::sdlBoucle(int n)
     else if (currentKeyStates[SDL_SCANCODE_UP])
     {
       sauter = true;
+    }
+    else if (currentKeyStates[SDL_SCANCODE_V])
+    {
+      jeu.actionClavier(118);
     }
     sdlAff();
     SDL_Delay(3);
@@ -410,6 +411,9 @@ void sdlJeu::drawMonstre()
     Tmonst[i] = jeu.getMonstre(i);
     Tsens[i] = Tmonst[i].getSens();
 
+  if(!Tmonst[i].getMort())
+  {
+    
     if (Tsens[i] == 1)
     {
       im_skeletonWalkRight.draw_animation(13, renderer, (i / FPS) % 13, Tmonst[i].getX() - dx, Tmonst[i].getY(), 44, 66);
@@ -418,5 +422,6 @@ void sdlJeu::drawMonstre()
     {
       im_skeletonWalkLeft.draw_animation(13, renderer, (i / FPS) % 13, Tmonst[i].getX() - dx, Tmonst[i].getY(), 44, 66);
     }
+  }
   }
 }

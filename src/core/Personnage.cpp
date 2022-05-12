@@ -19,12 +19,12 @@ Personnage::Personnage(){
   status_o = status;
 }
 
-Personnage::Personnage(int x, int y, int vie, int degat, int portee){
+Personnage::Personnage(int x, int y, int vie, int degat, int portee, string monst){
   this->x = x;
   this->y = y;
   this->vie = vie;
   this->sexe = sexe;
-  this->nom = nom;
+  this->nom = monst;
   this->degat = degat;
   this->portee = portee;
   sens = 1;

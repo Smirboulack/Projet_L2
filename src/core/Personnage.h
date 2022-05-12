@@ -41,7 +41,7 @@ class Personnage{
     //crée le personnage par défaut
     Personnage();
     //crée le personnage par des attributs
-    Personnage(int x, int y, int vie, int degat, int portee);
+    Personnage(int x, int y, int vie, int degat, int portee, std::string monst);
     //déstructeur
     ~Personnage();
     //pour déplacer le personnage
