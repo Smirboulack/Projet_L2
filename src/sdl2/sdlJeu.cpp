@@ -136,7 +136,6 @@ void sdlJeu::sdlAff()
   // dimy = jeu.getConstTerrain().getDimY();
   SDL_SetRenderDrawColor(renderer, 230, 240, 255, 255);
   SDL_RenderClear(renderer);
-
   drawTerrain();
   drawPersonnage();
   drawMonstre();
@@ -153,7 +152,7 @@ void sdlJeu::sdlBoucle(int n)
   jeu.getTerrain().setChoixniv(n);
 
 
-  while (!jeu.getFdj() && !jeu.getVictoire())
+  while (!jeu.getFdj() && !jeu.getVictoire() && !quit)
   {
     //jeu.actionsAutomatiques();
     //cout<<"GetXY: "<<jeu.getConstTerrain().getXY(jeu.getConstPersonnage().getX(), jeu.getConstPersonnage().getY()+ TAILLE_SPRITE/2)<<endl;

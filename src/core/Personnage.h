@@ -5,7 +5,8 @@
 #include "Terrain.h"
 
 class Terrain;
-
+const int VITESSE_SAUTER = 6;
+const int VITESSE_ACCELEREE = 20;
 class Personnage{
   private:
     //position du personnage en x et y
@@ -37,6 +38,8 @@ class Personnage{
     int status;
     //status avant de Personnage
     int status_o;
+
+    int vitesse_gravite;
   public:
     //crée le personnage par défaut
     Personnage();
@@ -54,6 +57,10 @@ class Personnage{
     //s:new sens
     void updateSens(int s);
     //des getter et setter
+    void sauter(const Terrain & ter);
+    void gravite(const Terrain & ter);
+
+
     void setX(int x);
     void setY(int y);
     void setVie(int vie);
@@ -84,10 +91,8 @@ class Personnage{
     void estMort(Terrain & t);
 
 
-    void gauche(const Terrain &ter);
-    void droite(const Terrain &ter);
     void bougeAutoMonstre(const Terrain &ter);
-    void bougeAutoMonstre(const int &i,const Terrain & ter);
+    //void bougeAutoMonstre(const int &i,const Terrain & ter);
     void versPerso(const Terrain & ter, const Personnage &p);
 
 

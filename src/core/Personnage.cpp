@@ -17,6 +17,7 @@ Personnage::Personnage(){
   piece=0;
   status = 0;
   status_o = status;
+  vitesse_gravite = VITESSE_ACCELEREE;
 }
 
 Personnage::Personnage(int x, int y, int vie, int degat, int portee, string monst){
@@ -30,6 +31,7 @@ Personnage::Personnage(int x, int y, int vie, int degat, int portee, string mons
   sens = 1;
   status = 0;
   status_o = status;
+  vitesse_gravite = VITESSE_ACCELEREE;
 }
 
 Personnage::~Personnage(){
@@ -95,6 +97,23 @@ void Personnage::subirDegat(int degat){
     vie = 0;
   if(vie <= 0)
     setMort(true);
+}
+
+void Personnage::sauter(const Terrain & ter){
+  if(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE) > 0){
+    deplacerVite(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE), 'z', ter);
+  }else{
+    deplacerVite(-(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE)), 's', ter);
+  }
+  vitesse_gravite++;
+}
+
+void Personnage::gravite(const Terrain & ter){
+  if(deplacerVite(vitesse_gravite/VITESSE_ACCELEREE, 's', ter)){
+    vitesse_gravite++;
+  }else{
+    vitesse_gravite = VITESSE_ACCELEREE;
+  }
 }
 
 void Personnage::setX(int x){
@@ -189,64 +208,34 @@ void Personnage::estMort(Terrain & t)
 }
 
 
-void Personnage::gauche(const Terrain &ter){
-  if (ter.estPositionPersoValide(x-1,y)) x--;
-}
 
-void Personnage::droite(const Terrain &ter){
-  if (ter.estPositionPersoValide(x+1,y)) x++;
-}
 
 void Personnage::bougeAutoMonstre(const Terrain & ter){
-  
+
   srand((int)time(0));
   if(rand()%100 < 50){
     deplacer('d',ter);
   }else{
     deplacer('q', ter);
   }
-  
-
-  /*
-    int xtmp;
-    xtmp = x + sens;
-    if (ter.estPositionPersoValide(xtmp,y)) {
-        if(x==limg)sens=1;
-        if(x==limd)sens=-1;
-        x=xtmp;
-    }
-   if (!ter.estPositionPersoValide(xtmp,y)){
-        limg=-x;
-        sens=-sens;
-    }
-
-  if (sens==1){
-    if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)){
-      sens=-sens;
-    }
-    if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){
-      sens=-sens;
-    }
-  }
-  */
-  
 }
-
+/*
 void Personnage::bougeAutoMonstre(const int &i,const Terrain & ter){
 
   srand((int)time(0));
   if(rand()%100 < 50){
     if (ter.estPositionPersoValide(i,y)) deplacer('d',ter);
     if (!ter.estPositionPersoValide(i,y)) deplacer ('q',ter);
-    if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)) {deplacer ('q',ter) || deplacer ('d',ter);} 
+    if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)) {deplacer ('q',ter) || deplacer ('d',ter);}
     if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){deplacer ('d',ter) || deplacer ('q',ter);}
 
   }else{
    if (ter.estPositionPersoValide(i,y)) deplacer('q', ter);
    if (!ter.estPositionPersoValide(i,y)) deplacer ('d',ter);
 
-   if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)) {deplacer ('q',ter) || deplacer ('d',ter);} 
+   if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)) {deplacer ('q',ter) || deplacer ('d',ter);}
     if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){deplacer ('d',ter) || deplacer ('q',ter);}
   }
-  
+
 }
+*/

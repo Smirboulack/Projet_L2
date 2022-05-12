@@ -6,8 +6,7 @@
 using namespace std;
 
 const int VITESSE = 1;
-const int VITESSE_SAUTER = 6;
-const int VITESSE_ACCELEREE = 20;
+
 
 Jeu::Jeu() : ter(), perso(), monst(360,180,20,20,20,"Monstre")
 {
@@ -20,8 +19,8 @@ monstre5x = 65  ; monstre5y= 16  4
 monstre6x = 19  ; monstre6y= 16  5
 monstre7x = 86  ; monstre7y= 16  6
 monstre8x = 71  ; monstre8y= 14  7
-monstre9x = 54  ; monstre9y= 11  8 
-monstre10x =  75 ; monstre10y= 11 */ 
+monstre9x = 54  ; monstre9y= 11  8
+monstre10x =  75 ; monstre10y= 11 */
 
 		tabmonstre[0].setX(0 * TAILLE_SPRITE);
 		tabmonstre[0].setY(14 * TAILLE_SPRITE);
@@ -45,11 +44,11 @@ monstre10x =  75 ; monstre10y= 11 */
 		tabmonstre[9].setY(10 * TAILLE_SPRITE);
 
 
-	
+
 	setFdj(false);
 	setVictoire(false);
-	
-	vitesse_gravite = VITESSE_ACCELEREE;
+
+
 }
 
 Terrain &Jeu::getTerrain() { return ter; }
@@ -79,17 +78,7 @@ bool Jeu::actionClavier(const int touche)
 		perso.deplacerVite(VITESSE, touche, ter);
 		break;
 	case 'z':
-		/*
-		if(!ter.estPositionPersoVide(perso.getX(),perso.getY()+1)){
-			dsaut = tps;
-			perso.deplacerVite(VITESSE+100, touche, ter);
-		}*/
-		if(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE) > 0){
-			perso.deplacerVite(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE), touche, ter);
-		}else{
-			perso.deplacerVite(-(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE)), 's', ter);
-		}
-		vitesse_gravite++;
+		perso.sauter(ter);
 		break;
 	case 's':
 		perso.deplacerVite(VITESSE, touche, ter);
@@ -100,7 +89,7 @@ bool Jeu::actionClavier(const int touche)
 		break;
 	}
 
-	
+
 	/*
 	if (ter.getXY(perso.getX(),perso.getY())=='.') {
 	    ter.mangePastille(perso.getX(),perso.getY());
@@ -116,10 +105,10 @@ void Jeu::attaquer()
 {
 	for(int i=0; i<10; i++)
 	{
-		if ( (getPerso().getX() - getMonstre(i).getX()  <= 70 && getPerso().getX() - getMonstre(i).getX() >= 0 && 
+		if ( (getPerso().getX() - getMonstre(i).getX()  <= 70 && getPerso().getX() - getMonstre(i).getX() >= 0 &&
 			 ((getPerso().getY() - getMonstre(i).getY()  <= 0  && getPerso().getY() - getMonstre(i).getY()  >= -70) ||
-			  getPerso().getY() - getMonstre(i).getY()  >= 0  && getPerso().getY() - getMonstre(i).getY()  <= 70)) || 
-			 (getPerso().getX() - getMonstre(i).getX()  <= 0  && getPerso().getX() - getMonstre(i).getX() >= -70 && 
+			  getPerso().getY() - getMonstre(i).getY()  >= 0  && getPerso().getY() - getMonstre(i).getY()  <= 70)) ||
+			 (getPerso().getX() - getMonstre(i).getX()  <= 0  && getPerso().getX() - getMonstre(i).getX() >= -70 &&
 			 ((getPerso().getY() - getMonstre(i).getY()  <= 0  && getPerso().getY() - getMonstre(i).getY()  >= -70) ||
 			  getPerso().getY() - getMonstre(i).getY()  >= 0  && getPerso().getY() - getMonstre(i).getY()  <= 70))
 			 )
@@ -132,19 +121,10 @@ void Jeu::attaquer()
 
 void Jeu::actionsAutomatiques()
 {
-	//fan.verspersoman(ter,perso);
-	//monstre.bougeAuto(ter);
-	/*
-	temps++;
-	fsaut = dsaut+12;
-	if(fsaut < temps)
-	{
-		gravite();
-	}
-	*/
+
 	gravite();
 	monst.bougeAutoMonstre(ter);
-	for (int i=1;i<10;i++){tabmonstre[i].bougeAutoMonstre(i,ter);}
+	for (int i=1;i<10;i++){tabmonstre[i].bougeAutoMonstre(ter);}
 	PersoSubirDegat();
 	ramasserItems();
 	FinDuJeu();
@@ -152,12 +132,10 @@ void Jeu::actionsAutomatiques()
 
 void Jeu::gravite()
 {
-	if(perso.deplacerVite(vitesse_gravite/VITESSE_ACCELEREE, 's', ter)){
-		vitesse_gravite++;
-	}else{
-		vitesse_gravite = VITESSE_ACCELEREE;
+	perso.gravite(ter);
+	for(int i = 0; i < 10;i++){
+		tabmonstre[i].gravite(ter);
 	}
-	//cout << vitesse_gravite/VITESSE_ACCELEREE << endl;
 }
 
 void Jeu::ramasserItems(){

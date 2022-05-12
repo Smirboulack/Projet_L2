@@ -14,11 +14,11 @@ private:
   Personnage perso;
   Personnage monst;
   Personnage tabmonstre[10];
-  
+
   /*
   int temps, dsaut, fsaut;
 	*/
-  int vitesse_gravite;
+
   bool fdj;
   bool victoire;
 
