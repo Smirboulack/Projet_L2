@@ -413,14 +413,14 @@ void sdlJeu::drawMonstre()
 
   if(!Tmonst[i].getMort())
   {
-    
+
     if (Tsens[i] == 1)
     {
-      im_skeletonWalkRight.draw_animation(13, renderer, (i / FPS) % 13, Tmonst[i].getX() - dx, Tmonst[i].getY(), 44, 66);
+      im_skeletonWalkRight.draw_animation(13, renderer, (i / FPS) % 13, Tmonst[i].getX() - dx -4, Tmonst[i].getY() - 30, 44, 66);
     }
     else
     {
-      im_skeletonWalkLeft.draw_animation(13, renderer, (i / FPS) % 13, Tmonst[i].getX() - dx, Tmonst[i].getY(), 44, 66);
+      im_skeletonWalkLeft.draw_animation(13, renderer, (i / FPS) % 13, Tmonst[i].getX() - dx - 4, Tmonst[i].getY() - 30, 44, 66);
     }
   }
   }
