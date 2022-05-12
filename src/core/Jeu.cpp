@@ -43,7 +43,7 @@ monstre10x =  75 ; monstre10y= 11 */
 		tabmonstre[9].setX(54 * TAILLE_SPRITE);
 		tabmonstre[9].setY(10 * TAILLE_SPRITE);
 
-
+	ter.ouvrir("./data/Niveau12.txt");
 
 	setFdj(false);
 	setVictoire(false);

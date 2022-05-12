@@ -37,7 +37,7 @@ char terrain1[21][101]=
 
 
 Terrain::Terrain(){
-    dimx = 106;
+    dimx = 171;
     dimy = 21;
     /*
     for(int i=0; i < dimy; i++)
@@ -70,6 +70,7 @@ Terrain::Terrain(){
     }
 
 */
+/*
 if(choixniv=1){ouvrir("./data/Niveau1.txt");
     }else if(choixniv=2){
         ouvrir("./data/Niveau2.txt");
@@ -82,6 +83,7 @@ if(choixniv=1){ouvrir("./data/Niveau1.txt");
     }else{
         exit(EXIT_SUCCESS);
     }
+*/
 
 
   // ouvrir(choixnive);
