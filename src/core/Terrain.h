@@ -10,7 +10,7 @@ class Terrain
 {
     private :
     int dimx, dimy;
-    char ter[21][201];
+    char ter[20][169];
     int version;
     int choixniv;
     //std::string pathname;

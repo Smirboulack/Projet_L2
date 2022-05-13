@@ -9,7 +9,7 @@
 using namespace std;
 
 Terrain::Terrain(){
-    dimx = 200;
+    dimx = 169;
     dimy = 20;
     choixniv = 1;
     loadMap("./data/Niveau" + std::to_string(choixniv) + ".txt");
@@ -121,22 +121,22 @@ if(version==1){return (
     (x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) &&
     (
       (
-        (ter[ytMin][xtMin] == ' ')||(ter[ytMin][xtMin] == '+')||(ter[ytMin][xtMin] == '$')||(ter[ytMin][xtMin] == 'O')||(ter[ytMin][xtMin] == '!')||(ter[ytMin][xtMin] == 'F')
+        (ter[ytMin][xtMin] == ' ')||(ter[ytMin][xtMin] == '+')||(ter[ytMin][xtMin] == '$')||(ter[ytMin][xtMin] == 'O')||(ter[ytMin][xtMin] == '!')||(ter[ytMin][xtMin] == 'F')||(ter[ytMin][xtMin] == 'Y')||(ter[ytMin][xtMin] == '/')||(ter[ytMin][xtMin] == '=')
       )
       &&
       (
-        (ter[ytMax][xtMax] == ' ') ||(ter[ytMax][xtMax] == '+')||(ter[ytMax][xtMax] == '$')||(ter[ytMax][xtMax] == 'O')||(ter[ytMax][xtMax] == '!')||(ter[ytMax][xtMax] == 'F')
+        (ter[ytMax][xtMax] == ' ') ||(ter[ytMax][xtMax] == '+')||(ter[ytMax][xtMax] == '$')||(ter[ytMax][xtMax] == 'O')||(ter[ytMax][xtMax] == '!')||(ter[ytMax][xtMax] == 'F')||(ter[ytMax][xtMax] == 'Y')||(ter[ytMax][xtMax] == '/')||(ter[ytMax][xtMax] == '=')
       )
       &&
       (
-        (ter[ytMin][xtMax] == ' ') || (ter[ytMin][xtMax] == '+')|| (ter[ytMin][xtMax] == '$')|| (ter[ytMin][xtMax] == 'O')|| (ter[ytMin][xtMax] == '!')|| (ter[ytMin][xtMax] == 'F')
+        (ter[ytMin][xtMax] == ' ') || (ter[ytMin][xtMax] == '+')|| (ter[ytMin][xtMax] == '$')|| (ter[ytMin][xtMax] == 'O')|| (ter[ytMin][xtMax] == '!')|| (ter[ytMin][xtMax] == 'F')|| (ter[ytMin][xtMax] == 'Y')|| (ter[ytMin][xtMax] == '/')|| (ter[ytMin][xtMax] == '=')
       )
       &&
-      ((ter[ytMax][xtMin] == ' ') || (ter[ytMax][xtMin] == '+')|| (ter[ytMax][xtMin] == '$')|| (ter[ytMax][xtMin] == 'O')|| (ter[ytMax][xtMin] == '!')|| (ter[ytMax][xtMin] == 'F'))
+      ((ter[ytMax][xtMin] == ' ') || (ter[ytMax][xtMin] == '+')|| (ter[ytMax][xtMin] == '$')|| (ter[ytMax][xtMin] == 'O')|| (ter[ytMax][xtMin] == '!')|| (ter[ytMax][xtMin] == 'F')|| (ter[ytMax][xtMin] == 'Y')|| (ter[ytMax][xtMin] == '/')|| (ter[ytMax][xtMin] == '='))
   )
   );}else{
     return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
-    && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
+    && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F')|| (ter[y][x]=='Y')|| (ter[y][x]=='/')|| (ter[y][x]=='=') ));
 }
 
 

@@ -60,9 +60,15 @@ sdlJeu::sdlJeu() : jeu()
 
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+  im_arbressapins.loadFromFile("data/Y.png", renderer);
+  im_burnedground.loadFromFile("data/B.png", renderer);
+  im_burnedground2.loadFromFile("data/L.png", renderer);
+  im_piques.loadFromFile("data/^.png", renderer);
+  im_lave.loadFromFile("data/=.png", renderer);
+  im_fond.loadFromFile("data/0.png", renderer);
   im_mortperso.loadFromFile("data/deathscene.png", renderer);
   im_mur.loadFromFile("data/#.png", renderer);
-  im_ter.loadFromFile("data/T.png", renderer);
+  im_ter.loadFromFile("data/G.png", renderer);
   im_grass.loadFromFile("data/G.png", renderer);
   im_grass_gauche.loadFromFile("data/[.png", renderer);
   im_grass_droite.loadFromFile("data/].png", renderer);
@@ -70,7 +76,7 @@ sdlJeu::sdlJeu() : jeu()
   im_mur_bas_gauche.loadFromFile("data/(.png", renderer);
   im_mur_bas_droite.loadFromFile("data/).png", renderer);
   im_background.loadFromFile("data/background.png", renderer);
-  im_ciel.loadFromFile("data/background3.png", renderer);
+  im_ciel.loadFromFile("data/background4.png", renderer);
   im_runright.loadFromFile("data/RunRight.png", renderer);
   im_runleft.loadFromFile("data/RunLeft.png", renderer);
   im_idleright.loadFromFile("data/IdleRight.png", renderer);
@@ -81,7 +87,7 @@ sdlJeu::sdlJeu() : jeu()
   im_jumpright.loadFromFile("data/JumpRight.png", renderer);
   im_turnleft.loadFromFile("data/TurnLeft.png", renderer);
   im_turnright.loadFromFile("data/TurnRight.png", renderer);
-  im_vie.loadFromFile("data/Vie.png", renderer);
+  im_vie.loadFromFile("data/vie2.png", renderer);
   im_money.loadFromFile("data/Money.png", renderer);
   im_item.loadFromFile("data/epee.png", renderer);
   im_armor.loadFromFile("data/armor.png", renderer);
@@ -317,14 +323,38 @@ void sdlJeu::drawTerrain()
   // renderer background
   //  im_background.draw(renderer,0,0,25*TAILLE_SPRITE,20*TAILLE_SPRITE);
   // renderer background
-  im_ciel.draw(renderer, 0, 15, 27 * TAILLE_SPRITE, 18 * TAILLE_SPRITE);
+ im_ciel.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
   // Afficher les sprites des murs et des pastilles
   for (y = 0; y < ter.getDimY(); y++)
   {
     for (x = 0; x < ter.getDimX(); x++)
     {
       //cout << ter.getXY(x, y);
-      if (ter.getXY(x, y) == '#')
+      if (ter.getXY(x, y) == 'Y')
+      {
+        im_arbressapins.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE-300, 5*TAILLE_SPRITE, 10*TAILLE_SPRITE);
+      }
+      else if (ter.getXY(x, y) == '=')
+      {
+        im_lave.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
+      }
+      else if (ter.getXY(x, y) == 'B')
+      {
+        im_burnedground.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
+      }
+      else if (ter.getXY(x, y) == '0')
+      {
+        im_fond.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
+      }
+      else if (ter.getXY(x, y) == '^')
+      {
+        im_piques.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE-15, TAILLE_SPRITE, 3*TAILLE_SPRITE);
+      }
+      else if (ter.getXY(x, y) == 'L')
+      {
+        im_burnedground2.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
+      }
+      else if (ter.getXY(x, y) == '#')
       {
         im_mur.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
       }
