@@ -8,8 +8,12 @@ using namespace std;
 
 sdlJeu::sdlJeu() : jeu()
 {
-
+  int n;
+  cout << "quel niveau jouer ? " << endl;
+  cin >> n;
+  jeu.getTerrain().setChoixniv(n);
   jeu.getTerrain().setVersion(1);
+
   if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
   {
     cout << "Erreur lors de l'initialisation de la SDL : " << SDL_GetError() << endl;
@@ -60,12 +64,7 @@ sdlJeu::sdlJeu() : jeu()
 
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  im_arbressapins.loadFromFile("data/Y.png", renderer);
-  im_burnedground.loadFromFile("data/B.png", renderer);
-  im_burnedground2.loadFromFile("data/L.png", renderer);
-  im_piques.loadFromFile("data/^.png", renderer);
-  im_lave.loadFromFile("data/=.png", renderer);
-  im_fond.loadFromFile("data/0.png", renderer);
+ 
   im_mortperso.loadFromFile("data/deathscene.png", renderer);
   im_mur.loadFromFile("data/#.png", renderer);
   im_ter.loadFromFile("data/G.png", renderer);
@@ -75,8 +74,8 @@ sdlJeu::sdlJeu() : jeu()
   im_mur_bas.loadFromFile("data/_.png", renderer);
   im_mur_bas_gauche.loadFromFile("data/(.png", renderer);
   im_mur_bas_droite.loadFromFile("data/).png", renderer);
-  im_background.loadFromFile("data/background.png", renderer);
-  im_ciel.loadFromFile("data/background4.png", renderer);
+  //im_background.loadFromFile("data/background.png", renderer);
+  im_ciel.loadFromFile("data/background1.png", renderer);
   im_runright.loadFromFile("data/RunRight.png", renderer);
   im_runleft.loadFromFile("data/RunLeft.png", renderer);
   im_idleright.loadFromFile("data/IdleRight.png", renderer);
@@ -96,6 +95,17 @@ sdlJeu::sdlJeu() : jeu()
   im_skeletonWalkLeft.loadFromFile("data/SkeletonWalkLeft.png", renderer);
   im_attack1right.loadFromFile("data/Attack1Right.png", renderer);
   im_attack1left.loadFromFile("data/Attack1Left.png", renderer);
+  im_arbressapins.loadFromFile("data/Y.png", renderer);
+  im_burnedground.loadFromFile("data/B.png", renderer);
+  im_burnedground2.loadFromFile("data/L.png", renderer);
+  im_piques.loadFromFile("data/^.png", renderer);
+  im_lave.loadFromFile("data/=.png", renderer);
+  im_fond.loadFromFile("data/0.png", renderer);
+  im_ciel2.loadFromFile("data/background2.png", renderer);
+   // im_heart.loadFromFile("data/coeur.png", renderer);
+  //im_ciel3.loadFromFile("data/background3.jpg", renderer);
+
+
   // SONS et MUSIQUE
     if (withSound)
     {
@@ -154,7 +164,7 @@ sdlJeu::sdlJeu() : jeu()
         }
     }
 
-  if (withmusique)
+  if (withmusique && jeu.getConstTerrain().getChoixniv()==1)
   {
     musique = Mix_LoadMUS("data/zicmu.mp3");
     Mix_PlayMusic(musique, -1);
@@ -170,6 +180,27 @@ sdlJeu::sdlJeu() : jeu()
       exit(1);
     }
   }
+if (withmusique && jeu.getConstTerrain().getChoixniv()==2){
+  musique2 = Mix_LoadMUS("data/zicmu2.mp3");
+    Mix_PlayMusic(musique2, -1);
+    if (musique2 == nullptr)
+    {
+      musique2 = Mix_LoadMUS("../data/zicmu2.mp3");
+      Mix_PlayMusic(musique2, -1);
+    }
+    if (musique2 == nullptr)
+    {
+      cout << "Failed to load zicmu2.mp3! SDL_mixer Error: " << Mix_GetError() << endl;
+      SDL_Quit();
+      exit(1);
+    }
+
+
+}
+  
+
+
+
 }
 
 sdlJeu::~sdlJeu()
@@ -250,6 +281,7 @@ void sdlJeu::sdlBoucle()
           break;
           case SDLK_ESCAPE:
           Mix_FreeMusic(musique);
+          Mix_FreeMusic(musique2);
           Mix_CloseAudio();
           quit = true;
           break;
@@ -323,7 +355,9 @@ void sdlJeu::drawTerrain()
   // renderer background
   //  im_background.draw(renderer,0,0,25*TAILLE_SPRITE,20*TAILLE_SPRITE);
   // renderer background
- im_ciel.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
+ if(ter.getChoixniv()==1)im_ciel.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
+ if(ter.getChoixniv()==2)im_ciel2.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
+// if(ter.getChoixniv()==3)im_ciel3.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
   // Afficher les sprites des murs et des pastilles
   for (y = 0; y < ter.getDimY(); y++)
   {
@@ -520,3 +554,16 @@ void sdlJeu::drawMonstre()
   }
   }
 }
+
+/*
+void sdlJeu::drawPV()
+{
+  int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
+  Personnage &perso = jeu.getPerso();
+
+  for(int i; i<perso.getVie(); i++)
+  {
+    im_heart.draw(renderer, 5+(i*10),5+(i*10),TAILLE_SPRITE, TAILLE_SPRITE);
+  }
+}
+*/

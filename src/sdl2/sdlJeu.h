@@ -20,13 +20,7 @@ private:
   SDL_Surface * im_icon;
   SDL_Event event;
 
- Image im_menu;
-  Image im_lave;
-  Image im_piques;
-  Image im_fond;
-  Image im_burnedground;
-  Image im_burnedground2;
-  Image im_arbressapins;
+  Image im_menu;
   Image im_mortperso;
   Image im_mur;
   Image im_background;
@@ -57,6 +51,15 @@ private:
   Image im_skeletonWalkLeft;
   Image im_attack1right;
   Image im_attack1left;
+  Image im_lave;
+  Image im_piques;
+  Image im_fond;
+  Image im_burnedground;
+  Image im_burnedground2;
+  Image im_arbressapins;
+  Image im_ciel2;
+  Image im_ciel3;
+  Image im_heart;
 
     Mix_Chunk * soundpiece;
     Mix_Chunk * soundvie;
@@ -66,6 +69,7 @@ private:
     Mix_Chunk * finniveau;
 
     Mix_Music *musique;
+    Mix_Music *musique2;
     bool withSound;
     bool withmusique;
 
@@ -88,6 +92,7 @@ public:
   void drawMenu();
   void drawMonstre();
   SDL_Event getEvent()const;
+  void drawPV();
 
 
   void testRegression();
