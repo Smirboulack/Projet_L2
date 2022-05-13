@@ -88,7 +88,8 @@ sdlJeu::sdlJeu() : jeu()
   im_portal.loadFromFile("data/Portal.png", renderer);
   im_skeletonWalkRight.loadFromFile("data/SkeletonWalkRight.png", renderer);
   im_skeletonWalkLeft.loadFromFile("data/SkeletonWalkLeft.png", renderer);
-
+  im_attack1right.loadFromFile("data/Attack1Right.png", renderer);
+  im_attack1left.loadFromFile("data/Attack1Left.png", renderer);
   // SONS et MUSIQUE
     if (withSound)
     {
@@ -211,20 +212,6 @@ void sdlJeu::sdlBoucle()
 
   while (!quit && !jeu.getFdj())
   {
-    //jeu.actionsAutomatiques();
-    //cout<<"GetXY: "<<jeu.getConstTerrain().getXY(jeu.getConstPersonnage().getX(), jeu.getConstPersonnage().getY()+ TAILLE_SPRITE/2)<<endl;
-
-    /*
-        while(SDL_PollEvent(&events)){
-          if(events.type == SDL_QUIT){
-            quit = true;
-          }else if(events.type == SDL_KEYDOWN){
-           if (events.type == SDLK_ESCAPE){quit=true;}
-
-          }
-        }
-    */
-
     while (SDL_PollEvent(&events)) {
 			if (events.type == SDL_QUIT) quit = true;           // Si l'utilisateur a clique sur la croix de fermeture
 			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
@@ -441,6 +428,12 @@ void sdlJeu::drawPersonnage()
   else if ((status_o == 4 && status == 2 && sens == 1) || (status == 4 && sens == 1))
   {
     im_jumpright.draw_animation(4, renderer, (i / FPS) % 4, perso.getX() + 5 - dx, perso.getY() - 7, 26, 50);
+  }
+  else if(status == 5 && sens == 1){
+    im_attack1right.draw_animation(10, renderer, (i / FPS) % 10, perso.getX() - 34 - dx, perso.getY() - 18, 104, 54);
+  }
+  else if(status == 5 && sens == -1){
+    im_attack1left.draw_animation(10, renderer, (i / FPS) % 10, perso.getX() - 34 - dx, perso.getY() - 18, 104, 54);
   }
   // status turn left and turn right
   else if (sens_o == 0 && sens == 1)

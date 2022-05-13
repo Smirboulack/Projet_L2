@@ -49,6 +49,8 @@ private:
   Image im_portal;
   Image im_skeletonWalkRight;
   Image im_skeletonWalkLeft;
+  Image im_attack1right;
+  Image im_attack1left;
 
     Mix_Chunk * soundpiece;
     Mix_Chunk * soundvie;
@@ -56,7 +58,7 @@ private:
     Mix_Chunk * soundarme;
     Mix_Chunk * soundattack;
     Mix_Chunk * finniveau;
-    
+
     Mix_Music *musique;
     bool withSound;
     bool withmusique;

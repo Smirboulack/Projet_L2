@@ -10,19 +10,6 @@ const int VITESSE = 1;
 
 Jeu::Jeu() : ter(), perso(), monst(360,180,20,20,20,"Monstre")
 {
-
-/*
-	monstre1x = 29  ; monstre1y= 11 0
-monstre2x = 40  ; monstre2y= 11	 1
-monstre3x = 5  ; monstre3y= 11	2
-monstre4x = 44  ; monstre4y= 16  3
-monstre5x = 65  ; monstre5y= 16  4
-monstre6x = 19  ; monstre6y= 16  5
-monstre7x = 86  ; monstre7y= 16  6
-monstre8x = 71  ; monstre8y= 14  7
-monstre9x = 54  ; monstre9y= 11  8
-monstre10x =  75 ; monstre10y= 11 */
-
 		tabmonstre[0].setX(0 * TAILLE_SPRITE);
 		tabmonstre[0].setY(14 * TAILLE_SPRITE);
 		tabmonstre[1].setX(40 * TAILLE_SPRITE);

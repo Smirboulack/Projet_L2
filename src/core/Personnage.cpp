@@ -100,7 +100,9 @@ void Personnage::subirDegat(int degat){
 }
 
 void Personnage::attack(Personnage & perso){
-  if(x + portee * sens >= perso.getX()) perso.subirDegat(degat);
+  if((x + portee * sens >= perso.getX() && y == perso.getY())) perso.subirDegat(degat);
+  updateStatus(5);
+
 }
 
 void Personnage::sauter(const Terrain & ter){
