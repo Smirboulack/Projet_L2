@@ -20,13 +20,7 @@ private:
   SDL_Surface * im_icon;
   SDL_Event event;
 
- Image im_menu;
-  Image im_lave;
-  Image im_piques;
-  Image im_fond;
-  Image im_burnedground;
-  Image im_burnedground2;
-  Image im_arbressapins;
+  Image im_menu;
   Image im_mortperso;
   Image im_mur;
   Image im_background;
@@ -57,6 +51,7 @@ private:
   Image im_skeletonWalkLeft;
   Image im_attack1right;
   Image im_attack1left;
+  Image im_heart;
 
     Mix_Chunk * soundpiece;
     Mix_Chunk * soundvie;
@@ -87,6 +82,7 @@ public:
   void drawPersonnage();
   void drawMenu();
   void drawMonstre();
+  void drawPV();
   SDL_Event getEvent()const;
 
 
