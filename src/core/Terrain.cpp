@@ -9,7 +9,7 @@
 using namespace std;
 
 Terrain::Terrain(){
-    dimx = 99;
+    dimx = 200;
     dimy = 20;
     choixniv = 1;
     loadMap("./data/Niveau" + std::to_string(choixniv) + ".txt");
@@ -56,6 +56,7 @@ bool Terrain::loadMap(const std::string pathname){
 
   return EXIT_SUCCESS;
 }
+
 
 
 void Terrain::afficherTerrain(){

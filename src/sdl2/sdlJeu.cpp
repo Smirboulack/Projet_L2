@@ -190,6 +190,20 @@ SDL_Event sdlJeu::getEvent() const { return event; }
 
 void sdlJeu::sdlBoucle()
 {
+
+
+  const Terrain & ter = jeu.getConstTerrain();
+
+  for(int y = 0; y < jeu.getTerrain().getDimY(); y++){
+    cout << y;
+    for(int x = 0; x < jeu.getTerrain().getDimX(); x++){
+
+      cout << ter.getXY(x , y);
+    }
+    cout << endl;
+  }
+  
+  //ter.getXY(11, 5);
   bool quit = false;
   SDL_Event events = getEvent();
   bool sauter = false;
@@ -319,10 +333,11 @@ void sdlJeu::drawTerrain()
   // renderer background
   im_ciel.draw(renderer, 0, 15, 27 * TAILLE_SPRITE, 18 * TAILLE_SPRITE);
   // Afficher les sprites des murs et des pastilles
-  for (x = 0; x < ter.getDimX(); ++x)
+  for (y = 0; y < ter.getDimY(); y++)
   {
-    for (y = 0; y < ter.getDimY(); ++y)
+    for (x = 0; x < ter.getDimX(); x++)
     {
+      //cout << ter.getXY(x, y);
       if (ter.getXY(x, y) == '#')
       {
         im_mur.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
@@ -376,6 +391,7 @@ void sdlJeu::drawTerrain()
         im_portal.draw_animation(10, renderer, (i / FPS) % 10, x * TAILLE_SPRITE - dx - 28, y * TAILLE_SPRITE - 38, 93, 94);
       }
     }
+    //cout << endl;
   }
 }
 

@@ -10,7 +10,7 @@ class Terrain
 {
     private :
     int dimx, dimy;
-    char ter[21][101];
+    char ter[21][201];
     int version;
     int choixniv;
     //std::string pathname;
@@ -43,7 +43,7 @@ class Terrain
     int getVersion()const;
     bool estPositionPersoValide(const int x,const int y) const;
     void ouvrir(std::string pathname);
-
+    
     void testRegression();
 };
 

@@ -10,6 +10,7 @@ const int VITESSE = 1;
 
 Jeu::Jeu() : ter(), perso(), monst(360,180,20,20,20,"Monstre")
 {
+	
 /*
 	monstre1x = 29  ; monstre1y= 11 0
 monstre2x = 40  ; monstre2y= 11	 1
