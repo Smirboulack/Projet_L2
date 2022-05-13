@@ -102,7 +102,7 @@ sdlJeu::sdlJeu() : jeu()
   im_lave.loadFromFile("data/=.png", renderer);
   im_fond.loadFromFile("data/0.png", renderer);
   im_ciel2.loadFromFile("data/background2.png", renderer);
-   // im_heart.loadFromFile("data/coeur.png", renderer);
+   im_heart.loadFromFile("data/vie2.png", renderer);
   //im_ciel3.loadFromFile("data/background3.jpg", renderer);
 
 
@@ -197,6 +197,24 @@ if (withmusique && jeu.getConstTerrain().getChoixniv()==2){
 
 
 }
+
+if (withmusique && jeu.getConstTerrain().getChoixniv()==3){
+  musique3 = Mix_LoadMUS("data/zicmu3.ogg");
+    Mix_PlayMusic(musique3, -1);
+    if (musique3 == nullptr)
+    {
+      musique3 = Mix_LoadMUS("../data/zicmu3.ogg");
+      Mix_PlayMusic(musique3, -1);
+    }
+    if (musique3 == nullptr)
+    {
+      cout << "Failed to load zicmu3.ogg! SDL_mixer Error: " << Mix_GetError() << endl;
+      SDL_Quit();
+      exit(1);
+    }
+
+
+}
   
 
 
@@ -282,6 +300,7 @@ void sdlJeu::sdlBoucle()
           case SDLK_ESCAPE:
           Mix_FreeMusic(musique);
           Mix_FreeMusic(musique2);
+          Mix_FreeMusic(musique3);
           Mix_CloseAudio();
           quit = true;
           break;
@@ -555,7 +574,7 @@ void sdlJeu::drawMonstre()
   }
 }
 
-/*
+
 void sdlJeu::drawPV()
 {
   int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
@@ -566,4 +585,4 @@ void sdlJeu::drawPV()
     im_heart.draw(renderer, 5+(i*10),5+(i*10),TAILLE_SPRITE, TAILLE_SPRITE);
   }
 }
-*/
+

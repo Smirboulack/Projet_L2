@@ -70,6 +70,7 @@ private:
 
     Mix_Music *musique;
     Mix_Music *musique2;
+    Mix_Music *musique3;
     bool withSound;
     bool withmusique;
 
