@@ -43,8 +43,6 @@ monstre10x =  75 ; monstre10y= 11 */
 		tabmonstre[9].setX(54 * TAILLE_SPRITE);
 		tabmonstre[9].setY(10 * TAILLE_SPRITE);
 
-	ter.ouvrir("./data/Niveau12.txt");
-
 	setFdj(false);
 	setVictoire(false);
 
@@ -105,14 +103,14 @@ bool Jeu::actionClavier(){
 		ter.setVersion(1);
 		if(ter.getVersion()==1){
 		int x,y;
-		//if(perso.getNom() == "mario") 
-		//if(perso.getNom() == "mario") 
+		//if(perso.getNom() == "mario")
+		//if(perso.getNom() == "mario")
 		x = perso.getX() + TAILLE_SPRITE/2;
 		y =  perso.getY() + TAILLE_SPRITE/2;
 		int xtMin = x/TAILLE_SPRITE;
 		int ytMin = y/TAILLE_SPRITE;
-		
-		
+
+
 		//if(ter.getXY(xtMin, ytMin) == '!'){return true;}
 		//if(ter.getXY(xtMin, ytMin) == 'O'){return true;}
 		//if(ter.getXY(xtMin, ytMin) == '+'){return true;}

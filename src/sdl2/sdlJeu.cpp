@@ -10,12 +10,6 @@ sdlJeu::sdlJeu() : jeu()
 {
 
   jeu.getTerrain().setVersion(1);
- 
-  int niv;
-	cout << "Quel niveau jouer ? " <<endl;
-	cin >> niv;
-	jeu.getTerrain().setChoixniv(niv);
-
   if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
   {
     cout << "Erreur lors de l'initialisation de la SDL : " << SDL_GetError() << endl;
@@ -262,7 +256,7 @@ void sdlJeu::sdlBoucle()
           cout << endl << "piece ramassé ! " << endl;
           Mix_PlayChannel(-1,soundpiece,0);
         }
-                    
+
 			}
 		}
 

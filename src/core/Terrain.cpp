@@ -37,57 +37,9 @@ char terrain1[21][101]=
 
 
 Terrain::Terrain(){
-    dimx = 171;
-    dimy = 21;
-    /*
-    for(int i=0; i < dimy; i++)
-    {
-        for(int j=0; j < dimx; j++)
-        {
-            ter[i][j] = terrain1[i][j];
-        }
-    }*/
-    /*
-    switch (choixniv)
-    {
-    case '1':
-        ouvrir("./data/Niveau1.txt");
-        break;
-    case '2':
-        ouvrir("./data/Niveau2.txt");
-        break;
-    case 3:
-        ouvrir("./data/Niveau3.txt");
-        break;
-    case 4:
-        ouvrir("./data/Niveau4.txt");
-        break;
-    case 5:
-        ouvrir("./data/Niveau5.txt");
-        break;
-    default:
-        ouvrir("./data/Niveau1.txt");
-    }
-
-*/
-/*
-if(choixniv=1){ouvrir("./data/Niveau1.txt");
-    }else if(choixniv=2){
-        ouvrir("./data/Niveau2.txt");
-    }else if(choixniv=3){
-        ouvrir("./data/Niveau2.txt");
-    }else if(choixniv=4){
-        ouvrir("./data/Niveau2.txt");
-    }else if(choixniv=5){
-        ouvrir("./data/Niveau2.txt");
-    }else{
-        exit(EXIT_SUCCESS);
-    }
-*/
-
-
-  // ouvrir(choixnive);
-
+    dimx = 99;
+    dimy = 20;
+    loadMap("./data/Niveau1.txt");
 }
 
 
@@ -97,6 +49,40 @@ Terrain::~Terrain(){
     dimy = 0;
 }
 
+bool Terrain::loadMap(const std::string pathname){
+  char buf[1];
+  int fd, nbrd;
+  fd = open(pathname.c_str(), O_RDONLY);
+  if(fd == -1){
+    cout << "Erreur lors de ouvrir fichier Map" << endl;
+    return EXIT_FAILURE;
+  }
+
+  for(int y = 0; y < dimy; y++){
+    for(int x = 0; x < dimx; x++){
+      int nbrd = read(fd, buf, 1);
+      //cout << buf[0];
+      if(nbrd > 0 && (buf[0] == '\n' || buf[0] == '\r')){
+        nbrd = read(fd, buf, 1);
+        ter[y][x] = buf[0];
+      }else{
+        ter[y][x] = buf[0];
+      }
+
+    }
+  }
+  close(fd);
+
+  for(int y = 0; y < dimy; y++){
+    cout << y;
+    for(int x = 0; x < dimx; x++){
+      cout << ter[y][x];
+    }
+    cout << endl;
+  }
+
+  return EXIT_SUCCESS;
+}
 
 
 void Terrain::ouvrir(string pathname)
@@ -120,7 +106,7 @@ void Terrain::ouvrir(string pathname)
         exit(EXIT_SUCCESS);
     }
     */
-    
+
 
     fd = open(pathname.c_str(), O_RDONLY);
     if (fd == -1)

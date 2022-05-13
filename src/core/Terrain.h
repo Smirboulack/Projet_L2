@@ -10,7 +10,7 @@ class Terrain
 {
     private :
     int dimx, dimy;
-    char ter[21][171];
+    char ter[21][101];
     int version;
     int choixniv;
     //std::string pathname;
@@ -18,7 +18,7 @@ class Terrain
 
     Terrain(); //Constructeur
     ~Terrain();                 //Destructeur
-
+    bool loadMap(const std::string pathname);
     void afficherTerrain();     //Procédure d'affichage
     /**
      * Renvoie le type d'objet se trouvant en (x,y)
