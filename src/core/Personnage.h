@@ -60,6 +60,8 @@ class Personnage{
     void sauter(const Terrain & ter);
     void gravite(const Terrain & ter);
 
+    void attack(Personnage & perso);
+
 
     void setX(int x);
     void setY(int y);

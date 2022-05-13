@@ -10,7 +10,7 @@ const int VITESSE = 1;
 
 Jeu::Jeu() : ter(), perso(), monst(360,180,20,20,20,"Monstre")
 {
-	
+
 /*
 	monstre1x = 29  ; monstre1y= 11 0
 monstre2x = 40  ; monstre2y= 11	 1
@@ -80,61 +80,12 @@ bool Jeu::actionClavier(const int touche)
 		perso.deplacerVite(VITESSE, touche, ter);
 		break;
 	case 'v':
-	cout<<"V appuyé"<<endl;
-		attaquer();
+		for(int i = 0;i < 10;i++){
+			perso.attack(tabmonstre[i]);
+		}
 		break;
 	}
-
-
-	/*
-	if (ter.getXY(perso.getX(),perso.getY())=='.') {
-	    ter.mangePastille(perso.getX(),perso.getY());
-        return true;
-	}*/
-
-
-
 	return false;
-}
-
-bool Jeu::actionClavier(){
-		ter.setVersion(1);
-		if(ter.getVersion()==1){
-		int x,y;
-		//if(perso.getNom() == "mario")
-		//if(perso.getNom() == "mario")
-		x = perso.getX() + TAILLE_SPRITE/2;
-		y =  perso.getY() + TAILLE_SPRITE/2;
-		int xtMin = x/TAILLE_SPRITE;
-		int ytMin = y/TAILLE_SPRITE;
-
-
-		//if(ter.getXY(xtMin, ytMin) == '!'){return true;}
-		//if(ter.getXY(xtMin, ytMin) == 'O'){return true;}
-		//if(ter.getXY(xtMin, ytMin) == '+'){return true;}
-		if(ter.getXY(xtMin, ytMin) == '$'){return true;}
-		else{
-			return false;
-		}
-}
-}
-
-void Jeu::attaquer()
-{
-	for(int i=0; i<10; i++)
-	{
-		if ( (getPerso().getX() - getMonstre(i).getX()  <= 70 && getPerso().getX() - getMonstre(i).getX() >= 0 &&
-			 ((getPerso().getY() - getMonstre(i).getY()  <= 0  && getPerso().getY() - getMonstre(i).getY()  >= -70) ||
-			  getPerso().getY() - getMonstre(i).getY()  >= 0  && getPerso().getY() - getMonstre(i).getY()  <= 70)) ||
-			 (getPerso().getX() - getMonstre(i).getX()  <= 0  && getPerso().getX() - getMonstre(i).getX() >= -70 &&
-			 ((getPerso().getY() - getMonstre(i).getY()  <= 0  && getPerso().getY() - getMonstre(i).getY()  >= -70) ||
-			  getPerso().getY() - getMonstre(i).getY()  >= 0  && getPerso().getY() - getMonstre(i).getY()  <= 70))
-			 )
-		  {
-			  cout<<"##############################################################"<<endl;
-			  getMonstre(i).setMort(true);
-		  }
-	}
 }
 
 void Jeu::actionsAutomatiques()

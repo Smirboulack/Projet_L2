@@ -202,7 +202,7 @@ void sdlJeu::sdlBoucle()
     }
     cout << endl;
   }
-  
+
   //ter.getXY(11, 5);
   bool quit = false;
   SDL_Event events = getEvent();
@@ -266,8 +266,7 @@ void sdlJeu::sdlBoucle()
                     break;
 				default: break;
 				}
-				if ((withSound) && jeu.actionClavier()){
-          cout << endl << "piece ramassé ! " << endl;
+				if (withSound){
           Mix_PlayChannel(-1,soundpiece,0);
         }
 

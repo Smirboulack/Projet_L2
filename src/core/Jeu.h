@@ -38,8 +38,6 @@ public:
   void actionsAutomatiques();
   // bool actionClavier(const int touche, int tps);
   bool actionClavier(const int touche);
-  bool actionClavier();
-  void attaquer();
   void gravite();
   void ramasserItems();
   void PersoSubirDegat();

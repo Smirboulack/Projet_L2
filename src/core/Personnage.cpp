@@ -99,6 +99,10 @@ void Personnage::subirDegat(int degat){
     setMort(true);
 }
 
+void Personnage::attack(Personnage & perso){
+  if(x + portee * sens >= perso.getX()) perso.subirDegat(degat);
+}
+
 void Personnage::sauter(const Terrain & ter){
   if(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE) > 0){
     deplacerVite(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE), 'z', ter);
