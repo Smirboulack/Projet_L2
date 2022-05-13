@@ -75,7 +75,8 @@ void ChoixDuNiveau(Jeu &jeu)
 	}
 		
 		jeu.getTerrain().setChoixniv(choixniv);
-		
+  		jeu.getTerrain().loadMap("./data/Niveau" + std::to_string(jeu.getTerrain().getChoixniv()) + ".txt");
+		  
 		cout << "Choix du niveau pris en compte ! " <<endl;
 		usleep(2000000);
 	

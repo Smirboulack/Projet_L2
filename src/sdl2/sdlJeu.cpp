@@ -11,7 +11,16 @@ sdlJeu::sdlJeu() : jeu()
   int n;
   cout << "quel niveau jouer ? " << endl;
   cin >> n;
+  
   jeu.getTerrain().setChoixniv(n);
+  jeu.getTerrain().loadMap("./data/Niveau" + std::to_string(jeu.getTerrain().getChoixniv()) + ".txt");
+	/*if(ter.loadMap("./data/Niveau" + std::to_string(ter.getChoixniv()) + ".txt")){
+		setFdj(true);
+	}*/
+
+  
+
+
   jeu.getTerrain().setVersion(1);
 
   if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
@@ -67,8 +76,8 @@ sdlJeu::sdlJeu() : jeu()
  
   im_mortperso.loadFromFile("data/deathscene.png", renderer);
   im_mur.loadFromFile("data/#.png", renderer);
-  im_ter.loadFromFile("data/G.png", renderer);
-  im_grass.loadFromFile("data/G.png", renderer);
+  im_ter.loadFromFile("data/GT.png", renderer);
+  im_grass.loadFromFile("data/GT.png", renderer);
   im_grass_gauche.loadFromFile("data/[.png", renderer);
   im_grass_droite.loadFromFile("data/].png", renderer);
   im_mur_bas.loadFromFile("data/_.png", renderer);
@@ -96,14 +105,15 @@ sdlJeu::sdlJeu() : jeu()
   im_attack1right.loadFromFile("data/Attack1Right.png", renderer);
   im_attack1left.loadFromFile("data/Attack1Left.png", renderer);
   im_arbressapins.loadFromFile("data/Y.png", renderer);
-  im_burnedground.loadFromFile("data/B.png", renderer);
+  im_burnedground.loadFromFile("data/B2.jpg", renderer);
   im_burnedground2.loadFromFile("data/L.png", renderer);
   im_piques.loadFromFile("data/^.png", renderer);
   im_lave.loadFromFile("data/=.png", renderer);
   im_fond.loadFromFile("data/0.png", renderer);
   im_ciel2.loadFromFile("data/background2.png", renderer);
+  im_ciel3.loadFromFile("data/background3.png", renderer);
    im_heart.loadFromFile("data/vie2.png", renderer);
-  //im_ciel3.loadFromFile("data/background3.jpg", renderer);
+  
 
 
   // SONS et MUSIQUE
@@ -376,7 +386,7 @@ void sdlJeu::drawTerrain()
   // renderer background
  if(ter.getChoixniv()==1)im_ciel.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
  if(ter.getChoixniv()==2)im_ciel2.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
-// if(ter.getChoixniv()==3)im_ciel3.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
+ if(ter.getChoixniv()==3)im_ciel3.draw(renderer, 0, -5, 25* TAILLE_SPRITE, 19*TAILLE_SPRITE);
   // Afficher les sprites des murs et des pastilles
   for (y = 0; y < ter.getDimY(); y++)
   {

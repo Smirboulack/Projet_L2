@@ -2,19 +2,19 @@
                                                                                                                                                                          
                                                                                                                                                                          
                                                                                O !                                                                                       
-                                                                              [GGG]                                                 $                                    
-                                                                              (###)                                                [G]                                   
-                                                                          [G]                                                      ###                                   
+                                                                              GGGGG                                                 $                                    
+                                                                              (###)                                                GGG                                   
+                                                                          GGG                                                      ###                                   
                                                               $$$$$       (_)                                                      ###                                   
-        $                                                   [GGGGGGG]                                                              ###                                   
-       [G]                                                  (_______)                                                              ###                                   
+        $                                                   GGGGGGGGG                                                              ###                                   
+       GGG                                                  (_______)                                                              ###                                   
        ###                                                                                                                         ###                                   
-       ###                                     [GG]    [G]                                                                         ###                                   
+       ###                                     GGGG    GGG                                                                         ###                                   
        ###                                     (__)    (_)                                                                      Y  ###                                   
-       ###                                                                                                                   [GGGG]###                                   
+       ###                                                                                                                   GGGGGG###                                   
        ###                                                                                                                   #########                                   
-   Y   ###   Y     Y YYYY    Y         !  /                          [GGG]                Y    Y                             #######BB       /    /   /    /    /    F   
+   Y   ###   Y     Y YYYY    Y         !  /                          GGGGG                Y    Y                             #######BB       /    /   /    /    /    F   
 TTGGGTT###TTGGGTTTGGGTTTTTTGGGTT     TTLLLL                          #####  ^^^^^^LLLLTTTGGGGGGGGGGGGTT       +       LLLLLLL######BBB======BBBBBBBBBBLLLLLLLLLLLLLLLLLBB
-################################     ##BBBB      /          $$       #####  BBBB#######################      [L]      BBBBB##########B===========BBBBBBBBBBBBBBBBBBBBBBBB
+################################     ##BBBB      /          $$       #####  BBBB#######################      LLL      BBBBB##########B===========BBBBBBBBBBBBBBBBBBBBBBBB
 ################################^^^^^##BBBB====LLLLL======LLLLL======BBBBB==BBBBB#####################B^^^   (B)   ^^^BBBBB###########=======================BBBBBBBBBBBB
 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=========BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB================
