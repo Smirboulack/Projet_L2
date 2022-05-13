@@ -13,20 +13,20 @@
 
 using namespace std;
 
-void txtAff(WinTXT &win, Jeu &jeu)	
+void txtAff(WinTXT &win, Jeu &jeu)
 {
 	 Terrain& ter = jeu.getTerrain();
 	 Terrain terconst = jeu.getConstTerrain();
 	 Personnage& perso = jeu.getPerso();
 	 Personnage Tmonst[10];
-	 for (int i=0;i<10;i++){ Tmonst[i] = jeu.getConstMonstre(i);}	 
-	
+	 for (int i=0;i<10;i++){ Tmonst[i] = jeu.getConstMonstre(i);}
+
 	win.clear();
 
 	int xp,xd=0;
 	if(perso.getX()>20){xp = perso.getX()-20;}else{xp=0;}
 	xd = perso.getX()+25;
-	if(xp == perso.getX()+1) {xp = xp++;} 
+	if(xp == perso.getX()+1) {xp = xp++;}
 
 	 // Affichage des murs,des plateformes et des monstres selon le champ de vision du personnage
 	if(xd){
@@ -39,13 +39,13 @@ void txtAff(WinTXT &win, Jeu &jeu)
 		win.print(Tmonst[i].getX(),Tmonst[i].getY(),'M');
 		}
 		}
-		
+
 	}else{
 		for(int x=0;x<ter.getDimX()/2;++x)
 		for(int y=0;y<ter.getDimY();++y)
 		win.print(x,y,ter.getXY(x,y));
 		for(int i=0;i<10;i++){win.print(Tmonst[i].getX(),Tmonst[i].getY(),'M');}
-		
+
 	}
 
 	cout << endl << endl<<"PSEUDO: "<<perso.getNom()<<" Vie:"<<perso.getVie()<<" Armure:"
@@ -55,7 +55,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 	cout <<endl<< "Appuyez sur X pour quitter et retourner au menu" << endl;
 	//cout <<endl << endl<< jeu.getTerrain().getChoixniv() << endl;
 
-	
+
     // Affichage du personnage
 	win.print(perso.getX(),perso.getY(),'P');
 
@@ -83,7 +83,7 @@ void AffFin(WinTXT &win, Jeu &jeu)
 		win.print(0, 2, m2);
 
 		win.draw();
-		
+
 	}while(c != 13);
 
 	system("clear");
@@ -96,7 +96,7 @@ void txtBoucle(Jeu &jeu)
 	// => fenetre de dimension et position (WIDTH,HEIGHT,STARTX,STARTY)
 	WinTXT win(jeu.getConstTerrain().getDimX(), jeu.getConstTerrain().getDimY());
 
-	
+
 	char c;
 
 	do
@@ -124,6 +124,6 @@ void txtBoucle(Jeu &jeu)
 			//fflush(stdout);
 			}
 
-	} while (!jeu.getFdj() && !jeu.getVictoire());
-	
+	} while (!jeu.getFdj());
+
 }

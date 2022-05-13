@@ -195,7 +195,7 @@ void sdlJeu::sdlBoucle()
   bool sauter = false;
 
 
-  while (!jeu.getFdj() && !jeu.getVictoire() && !quit)
+  while (!quit && !jeu.getFdj())
   {
     //jeu.actionsAutomatiques();
     //cout<<"GetXY: "<<jeu.getConstTerrain().getXY(jeu.getConstPersonnage().getX(), jeu.getConstPersonnage().getY()+ TAILLE_SPRITE/2)<<endl;

@@ -8,38 +8,11 @@
 //const int TAILLE_SPRITE = 36;
 using namespace std;
 
-//Items item1;
-/*
-char terrain1[21][101]=
-{                   //22    //32        //42    //52       //61         //79      //83  //88
- "  PSEUDO:         VIE:   Armure:   Degats:   Portee:   Piece:    positionPerso: {x:  ,y:  }         ",
- "                                                                                                    ",
- "                                                                                                    ",
- "                                                                                                    ",
- "                                                                                                    ",
- "                                                                                                    ",
- "                                                                                                    ",
- "                                                                                                    ",
- "                                                                                                    ",
- "                                                                                                    ",
- "                      $$$$$$$$$$$$$$$$                                                              ",
- "  [GGG]           [GGGGGGGGGGGGGGGGGGGGGGGG]       [GGG]               [GGG]                        ",
- "  (___)           (________________________)       (___)               (___)                        ",
- "                                                                                                    ",
- "                                    [GGG]                          [GGG][GGG]                       ",
- "            ++++++     F    !!          (___)      OO   OO             (___)(___)                   ",
- "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
- "####################################################################################################",
- "####################################################################################################",
- "####################################################################################################"
-};
-*/
-
-
 Terrain::Terrain(){
     dimx = 99;
     dimy = 20;
-    loadMap("./data/Niveau1.txt");
+    choixniv = 1;
+    loadMap("./data/Niveau" + std::to_string(choixniv) + ".txt");
 }
 
 
@@ -54,13 +27,13 @@ bool Terrain::loadMap(const std::string pathname){
   int fd, nbrd;
   fd = open(pathname.c_str(), O_RDONLY);
   if(fd == -1){
-    cout << "Erreur lors de ouvrir fichier Map" << endl;
+    cout << "Il y a plus de Map ou Erreur lors de ouvrir fichier Map" << endl;
     return EXIT_FAILURE;
   }
 
   for(int y = 0; y < dimy; y++){
     for(int x = 0; x < dimx; x++){
-      int nbrd = read(fd, buf, 1);
+      nbrd = read(fd, buf, 1);
       //cout << buf[0];
       if(nbrd > 0 && (buf[0] == '\n' || buf[0] == '\r')){
         nbrd = read(fd, buf, 1);
@@ -84,74 +57,6 @@ bool Terrain::loadMap(const std::string pathname){
   return EXIT_SUCCESS;
 }
 
-
-void Terrain::ouvrir(string pathname)
-{
-    char buf;
-    int fd, nbrd;
-    int x,y;
-    x=0;
-    y=0;
-    /*
-    if(choixniv==1){ouvrir("./data/Niveau1.txt");
-    }else if(choixniv==2){
-        ouvrir("./data/Niveau2.txt");
-    }else if(choixniv==3){
-        ouvrir("./data/Niveau2.txt");
-    }else if(choixniv==4){
-        ouvrir("./data/Niveau2.txt");
-    }else if(choixniv==5){
-        ouvrir("./data/Niveau2.txt");
-    }else{
-        exit(EXIT_SUCCESS);
-    }
-    */
-
-
-    fd = open(pathname.c_str(), O_RDONLY);
-    if (fd == -1)
-    {
-        cout << "Erreur lors de l'ouverture" << endl;
-    }
-    else
-    {
-        for ( y = 0; y < dimy; y++)
-        {
-            for ( x = 0; x < dimx; x++)
-            {
-                /*do
-                {
-                    if (buf != 'G' && buf != '[' && buf != ']' && buf != '_' && buf != '(' &&
-                        buf != ')' && buf != '#' && buf != 'T' && buf != 'F' && buf != ' ')
-                    {
-                        cout << "Caractere SPECIAL à l'adresse y: " << y << " x: " << x <<" valeur : "<<buf <<endl;
-                    }
-                    else
-                    {
-                        cout << "Caractere normal à l'adresse y: " << y << " x: " << x <<" valeur : "<<buf << endl;
-                    }
-                    nbrd = read(fd, &buf, 1);
-                    x++;
-                    if(x==80)
-                    {
-                        x=0;
-                        y++;
-                    }
-                }*/
-
-                    nbrd = read(fd, &buf, 1);
-                    if(buf == '\n')
-                    {
-                    nbrd = read(fd, &buf, 1);
-                    y++;
-                    x=0;
-                    }
-                    ter[y][x] = buf;
-           }
-        }
-    }
-    close(fd);
-}
 
 void Terrain::afficherTerrain(){
     for(int i=0; i<dimx; i++)

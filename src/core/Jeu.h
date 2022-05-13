@@ -15,12 +15,7 @@ private:
   Personnage monst;
   Personnage tabmonstre[10];
 
-  /*
-  int temps, dsaut, fsaut;
-	*/
-
-  bool fdj;
-  bool victoire;
+  bool Fdj;
 
 public:
   Jeu();
@@ -39,12 +34,6 @@ public:
   int getStatusO() const;
   int getSens() const;
   int getSensO() const;
-  bool getFdj() const;
-  void setFdj(bool b);
-  bool getVictoire() const;
-  void setVictoire(bool b);
-
-      //int getTemps();
 
   void actionsAutomatiques();
   // bool actionClavier(const int touche, int tps);
@@ -54,8 +43,11 @@ public:
   void gravite();
   void ramasserItems();
   void PersoSubirDegat();
-  void FinDuJeu();
 
+  void niveauSuivant();
+
+  bool getFdj();
+  void setFdj(bool fdj);
   void testRegression();
 };
 

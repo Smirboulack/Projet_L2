@@ -43,10 +43,7 @@ monstre10x =  75 ; monstre10y= 11 */
 		tabmonstre[9].setX(54 * TAILLE_SPRITE);
 		tabmonstre[9].setY(10 * TAILLE_SPRITE);
 
-	setFdj(false);
-	setVictoire(false);
-
-
+		Fdj = false;
 }
 
 Terrain &Jeu::getTerrain() { return ter; }
@@ -147,7 +144,6 @@ void Jeu::actionsAutomatiques()
 	for (int i=0;i<10;i++){tabmonstre[i].bougeAutoMonstre(ter);}
 	PersoSubirDegat();
 	ramasserItems();
-	FinDuJeu();
 }
 
 void Jeu::gravite()
@@ -161,9 +157,8 @@ void Jeu::gravite()
 void Jeu::ramasserItems(){
 
 	if(ter.getVersion()==1){
-		int x,y;
-		if(perso.getNom() == "mario") x = perso.getX() + TAILLE_SPRITE/2;
-		if(perso.getNom() == "mario") y =  perso.getY() + TAILLE_SPRITE/2;
+		int x = perso.getX() + TAILLE_SPRITE/2;
+		int y =  perso.getY() + TAILLE_SPRITE/2;
 		int xtMin = x/TAILLE_SPRITE;
 		int ytMin = y/TAILLE_SPRITE;
 		/*cout << "x : " << xtMin << endl;
@@ -172,18 +167,17 @@ void Jeu::ramasserItems(){
 		if(ter.getXY(xtMin, ytMin) == '$'){
 			ter.setXY(xtMin, ytMin, ' ');
 			perso.setPiece(perso.getPiece()+1);
-		}
-		if(ter.getXY(xtMin, ytMin) == '!'){
+		}else if(ter.getXY(xtMin, ytMin) == '!'){
 			ter.setXY(xtMin, ytMin, ' ');
 			perso.setDegat(perso.getDegat()+1);
-		}
-		if(ter.getXY(xtMin, ytMin) == 'O'){
+		}else if(ter.getXY(xtMin, ytMin) == 'O'){
 			ter.setXY(xtMin, ytMin, ' ');
 			perso.setArmure(perso.getArmure()+1);
-		}
-		if(ter.getXY(xtMin, ytMin) == '+'){
+		}else if(ter.getXY(xtMin, ytMin) == '+'){
 			ter.setXY(xtMin, ytMin, ' ');
 			perso.setVie(perso.getVie()+1);
+		}else if(ter.getXY(xtMin, ytMin) == 'F'){
+			niveauSuivant();
 		}
 	}else{
 
@@ -226,31 +220,20 @@ int Jeu::getSensO() const{
 
 	return perso.getSensO();
 }
+void Jeu::niveauSuivant(){
 
-
-void Jeu::FinDuJeu()
-{
-	/*getPerso().estMort(getTerrain());
-	if(getPerso().getMort()) fdj = getPerso().getMort();*/
-	if(getTerrain().getXY((getPerso().getX() + TAILLE_SPRITE/2)/TAILLE_SPRITE , (getPerso().getY()+TAILLE_SPRITE/2)/TAILLE_SPRITE) == 'F') setVictoire(true);
+	ter.setChoixniv(ter.getChoixniv()+1);
+	if(ter.loadMap("./data/Niveau" + std::to_string(ter.getChoixniv()) + ".txt")){
+		setFdj(true);
+	}
+	perso.setX(20);
+	perso.setY(20);
 }
 
-bool Jeu::getFdj() const
-{
-	return fdj;
+void Jeu::setFdj(bool fdj){
+	Fdj = fdj;
 }
 
-void Jeu::setFdj(bool b)
-{
-	fdj = b;
-}
-
-bool Jeu::getVictoire() const
-{
-	return victoire;
-}
-
-void Jeu::setVictoire(bool b)
-{
-	victoire = b;
+bool Jeu::getFdj(){
+	return Fdj;
 }
