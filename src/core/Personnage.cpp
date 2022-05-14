@@ -12,7 +12,8 @@ Personnage::Personnage(){
   mort = false;
   nom = "mario";
   Armure = 0;
-  degat = 8;
+  degat = 1;
+  arme = false;
   portee = 3;
   piece=0;
   status = 0;
@@ -101,9 +102,11 @@ void Personnage::subirDegat(int degat){
 
 
 void Personnage::attack(Personnage & perso){
-  if((x + portee * sens >= perso.getX() && y == perso.getY())) perso.subirDegat(degat);
-  updateStatus(5);
-
+  if(getArme())
+  {
+    if((x + portee * sens >= perso.getX() && y == perso.getY())) perso.subirDegat(degat);
+    updateStatus(5);
+  }
 }
 /*
 void Personnage::attack(Personnage & perso){
@@ -172,7 +175,7 @@ void Personnage::setArmure(int armure){
 
 void Personnage::setArme(bool b)
 {
-  arme = b;
+  this->arme = b;
 }
 
 int Personnage::getX() const{

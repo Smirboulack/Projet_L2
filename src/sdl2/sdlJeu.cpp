@@ -247,6 +247,7 @@ void sdlJeu::sdlAff()
   drawTerrain();
   drawPersonnage();
   drawMonstre();
+  drawInfoPerso();
 }
 
 SDL_Event sdlJeu::getEvent() const { return event; }
@@ -274,6 +275,7 @@ void sdlJeu::sdlBoucle()
 
   while (!quit && !jeu.getFdj())
   {
+    cout<<"Arme: "<<jeu.getPerso().getArme()<<endl;
     while (SDL_PollEvent(&events)) {
 			if (events.type == SDL_QUIT) quit = true;           // Si l'utilisateur a clique sur la croix de fermeture
 			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
@@ -582,7 +584,7 @@ void sdlJeu::drawMonstre()
 }
 
 
-void sdlJeu::drawPVArmure()
+void sdlJeu::drawInfoPerso()
 {
   Personnage &perso = jeu.getPerso();
 
@@ -592,8 +594,8 @@ void sdlJeu::drawPVArmure()
   }
   for(int i=0; i<perso.getArmure(); i++)
   {
-    im_shield.draw(renderer, 10+(i*20), 20, TAILLE_SPRITE, TAILLE_SPRITE);
+    im_shield.draw(renderer, 10+(i*20), 50, TAILLE_SPRITE, TAILLE_SPRITE);
   }
-
+  if(perso.getArme()) im_item.draw(renderer, 500, 10, TAILLE_SPRITE, TAILLE_SPRITE);
 }
 

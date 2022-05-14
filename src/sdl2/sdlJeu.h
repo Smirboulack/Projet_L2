@@ -94,7 +94,7 @@ public:
   void drawMenu();
   void drawMonstre();
   SDL_Event getEvent()const;
-  void drawPVArmure();
+  void drawInfoPerso();
 
 
   void testRegression();

@@ -36,16 +36,18 @@ public:
   int getSensO() const;
 
   void actionsAutomatiques();
+  void initMonstre();
   // bool actionClavier(const int touche, int tps);
   bool actionClavier(const int touche);
   void gravite();
   void ramasserItems();
   void PersoSubirDegat();
+  void FinDuJeu();
+
+  void niveauSuivant();
+
   bool getFdj();
   void setFdj(bool fdj);
-  void niveauSuivant();
-  void initMonstre();
-
   void testRegression();
 };
 
