@@ -113,7 +113,7 @@ sdlJeu::sdlJeu() : jeu()
   im_ciel2.loadFromFile("data/background2.png", renderer);
   im_ciel3.loadFromFile("data/background3.png", renderer);
   im_heart.loadFromFile("data/vie2.png", renderer);
-  im_heart.loadFromFile("data/bouclier.png", renderer);
+  im_heart.loadFromFile("data/bouclier.jpeg", renderer);
   
 
 
