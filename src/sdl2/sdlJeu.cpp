@@ -74,9 +74,9 @@ sdlJeu::sdlJeu() : jeu()
   im_mur.loadFromFile("data/#.png", renderer);
   im_ter.loadFromFile("data/GT.png", renderer);
   im_grass.loadFromFile("data/GT.png", renderer);
-  im_grass_gauche.loadFromFile("data/[.png", renderer);
-  im_grass_droite.loadFromFile("data/].png", renderer);
-  im_mur_bas.loadFromFile("data/_.png", renderer);
+ /// im_grass_gauche.loadFromFile("data/[.png", renderer);
+  //im_grass_droite.loadFromFile("data/].png", renderer);
+ // im_mur_bas.loadFromFile("data/_.png", renderer);
   im_mur_bas_gauche.loadFromFile("data/(2.png", renderer);
   im_mur_bas_droite.loadFromFile("data/)2.png", renderer);
   //im_background.loadFromFile("data/background.png", renderer);
@@ -170,6 +170,26 @@ sdlJeu::sdlJeu() : jeu()
                 SDL_Quit();
                 exit(1);
         }
+
+        sonpas1 = Mix_LoadWAV("data/sonpas1.wav");
+        if (sonpas1 == nullptr)
+            sonpas1 = Mix_LoadWAV("../data/sonpas1.wav");
+        if (sonpas1 == nullptr) {
+                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
+                SDL_Quit();
+                exit(1);
+        }
+
+        sonpas1 = Mix_LoadWAV("data/sonpas1.wav");
+        if (sonpas1 == nullptr)
+            sonpas1 = Mix_LoadWAV("../data/sonpas1.wav");
+        if (sonpas1 == nullptr) {
+                cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
+                SDL_Quit();
+                exit(1);
+        }
+      
+
     }
 
   if (withmusique && jeu.getConstTerrain().getChoixniv()==1)
@@ -287,15 +307,18 @@ void sdlJeu::sdlBoucle()
 				switch (events.key.keysym.sym) {
 				case SDLK_UP:
 				//	mangepiece = jeu.actionClavier();    // car Y inverse
+
 					break;
 				case SDLK_DOWN:
 				//	mangepiece = jeu.actionClavier();     // car Y inverse
 					break;
 				case SDLK_LEFT:
 				//	mangepiece = jeu.actionClavier();
+
 					break;
 				case SDLK_RIGHT:
 				//	mangepiece = jeu.actionClavier();
+         Mix_PlayChannel(-1,sonpas1,0);
 					break;
         case SDLK_v:
           Mix_PlayChannel(-1,soundattack,0);
@@ -323,9 +346,9 @@ void sdlJeu::sdlBoucle()
                     break;
 				default: break;
 				}
-				if (withSound){
+				/*if (withSound){
           Mix_PlayChannel(-1,soundpiece,0);
-        }
+        }*/
 
 			}
 		}
@@ -389,7 +412,7 @@ void sdlJeu::drawTerrain()
   // renderer background
  if(ter.getChoixniv()==1)im_ciel.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
  if(ter.getChoixniv()==2)im_ciel2.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
- if(ter.getChoixniv()==3)im_ciel3.draw(renderer, 0, -5, 25* TAILLE_SPRITE, 19*TAILLE_SPRITE);
+ if(ter.getChoixniv()==3)im_ciel3.draw(renderer, 0, 0, 25* TAILLE_SPRITE, 19*TAILLE_SPRITE);
   // Afficher les sprites des murs et des pastilles
   for (y = 0; y < ter.getDimY(); y++)
   {
@@ -436,14 +459,6 @@ void sdlJeu::drawTerrain()
       {
         im_grass.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
       }
-      else if (ter.getXY(x, y) == '[')
-      {
-        im_grass_gauche.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
-      }
-      else if (ter.getXY(x, y) == ']')
-      {
-        im_grass_droite.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
-      }
       else if (ter.getXY(x, y) == '(')
       {
         im_mur_bas_gauche.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
@@ -451,10 +466,6 @@ void sdlJeu::drawTerrain()
       else if (ter.getXY(x, y) == ')')
       {
         im_mur_bas_droite.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
-      }
-      else if (ter.getXY(x, y) == '_')
-      {
-        im_mur_bas.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE, TAILLE_SPRITE, TAILLE_SPRITE);
       }
       else if (ter.getXY(x, y) == '+')
       {

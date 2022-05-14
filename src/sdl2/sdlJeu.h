@@ -69,6 +69,8 @@ private:
     Mix_Chunk * soundarme;
     Mix_Chunk * soundattack;
     Mix_Chunk * finniveau;
+    Mix_Chunk * sonpas1;
+    Mix_Chunk * sonpas2;
 
     Mix_Music *musique;
     Mix_Music *musique2;
