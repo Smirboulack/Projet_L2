@@ -61,6 +61,7 @@ private:
   Image im_ciel3;
   Image im_heart;
   Image im_shield;
+  Image im_arbremort;
 
     Mix_Chunk * soundpiece;
     Mix_Chunk * soundvie;

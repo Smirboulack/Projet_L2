@@ -107,7 +107,13 @@ void Jeu::ramasserItems(){
 		}else if(ter.getXY(xtMin, ytMin) == '+'){
 			ter.setXY(xtMin, ytMin, ' ');
 			perso.setVie(perso.getVie()+1);
-		}else if(ter.getXY(xtMin, ytMin) == 'F'){
+		}else if(ter.getXY(xtMin, ytMin) == '='){
+			getPerso().subirDegat(2);
+		}
+		else if(ter.getXY(xtMin,ytMin)=='^'){
+			getPerso().subirDegat(1);
+		}
+		else if(ter.getXY(xtMin, ytMin) == 'F'){
 			niveauSuivant();
 		}
 	}else{
@@ -141,6 +147,7 @@ void Jeu::PersoSubirDegat()
 			getPerso().setMort(true);
 		}
 	}
+	
 }
 
 int Jeu::getStatus() const{

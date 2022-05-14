@@ -121,24 +121,22 @@ if(version==1){return (
     (x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) &&
     (
       (
-        (ter[ytMin][xtMin] == ' ')||(ter[ytMin][xtMin] == '+')||(ter[ytMin][xtMin] == '$')||(ter[ytMin][xtMin] == 'O')||(ter[ytMin][xtMin] == '!')||(ter[ytMin][xtMin] == 'F')||(ter[ytMin][xtMin] == 'Y')||(ter[ytMin][xtMin] == '/')||(ter[ytMin][xtMin] == '=')
+        (ter[ytMin][xtMin] == ' ')||(ter[ytMin][xtMin] == '+')||(ter[ytMin][xtMin] == '$')||(ter[ytMin][xtMin] == 'O')||(ter[ytMin][xtMin] == '!')||(ter[ytMin][xtMin] == 'F')||(ter[ytMin][xtMin] == 'Y')||(ter[ytMin][xtMin] == '/')||(ter[ytMin][xtMin] == '=')||(ter[ytMin][xtMin] == '^')||(ter[ytMin][xtMin] == '9')
       )
       &&
       (
-        (ter[ytMax][xtMax] == ' ') ||(ter[ytMax][xtMax] == '+')||(ter[ytMax][xtMax] == '$')||(ter[ytMax][xtMax] == 'O')||(ter[ytMax][xtMax] == '!')||(ter[ytMax][xtMax] == 'F')||(ter[ytMax][xtMax] == 'Y')||(ter[ytMax][xtMax] == '/')||(ter[ytMax][xtMax] == '=')
+        (ter[ytMax][xtMax] == ' ') ||(ter[ytMax][xtMax] == '+')||(ter[ytMax][xtMax] == '$')||(ter[ytMax][xtMax] == 'O')||(ter[ytMax][xtMax] == '!')||(ter[ytMax][xtMax] == 'F')||(ter[ytMax][xtMax] == 'Y')||(ter[ytMax][xtMax] == '/')||(ter[ytMax][xtMax] == '=')||(ter[ytMax][xtMax] == '^')||(ter[ytMax][xtMax] == '9')
       )
       &&
       (
-        (ter[ytMin][xtMax] == ' ') || (ter[ytMin][xtMax] == '+')|| (ter[ytMin][xtMax] == '$')|| (ter[ytMin][xtMax] == 'O')|| (ter[ytMin][xtMax] == '!')|| (ter[ytMin][xtMax] == 'F')|| (ter[ytMin][xtMax] == 'Y')|| (ter[ytMin][xtMax] == '/')|| (ter[ytMin][xtMax] == '=')
+        (ter[ytMin][xtMax] == ' ') || (ter[ytMin][xtMax] == '+')|| (ter[ytMin][xtMax] == '$')|| (ter[ytMin][xtMax] == 'O')|| (ter[ytMin][xtMax] == '!')|| (ter[ytMin][xtMax] == 'F')|| (ter[ytMin][xtMax] == 'Y')|| (ter[ytMin][xtMax] == '/')|| (ter[ytMin][xtMax] == '=') || (ter[ytMin][xtMax] == '^')|| (ter[ytMin][xtMax] == '9')
       )
       &&
-      ((ter[ytMax][xtMin] == ' ') || (ter[ytMax][xtMin] == '+')|| (ter[ytMax][xtMin] == '$')|| (ter[ytMax][xtMin] == 'O')|| (ter[ytMax][xtMin] == '!')|| (ter[ytMax][xtMin] == 'F')|| (ter[ytMax][xtMin] == 'Y')|| (ter[ytMax][xtMin] == '/')|| (ter[ytMax][xtMin] == '='))
+      ((ter[ytMax][xtMin] == ' ') || (ter[ytMax][xtMin] == '+')|| (ter[ytMax][xtMin] == '$')|| (ter[ytMax][xtMin] == 'O')|| (ter[ytMax][xtMin] == '!')|| (ter[ytMax][xtMin] == 'F')|| (ter[ytMax][xtMin] == 'Y')|| (ter[ytMax][xtMin] == '/')|| (ter[ytMax][xtMin] == '=')|| (ter[ytMax][xtMin] == '^')|| (ter[ytMax][xtMin] == '9')  )
   )
   );}else{
     return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
-    && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F')|| (ter[y][x]=='Y')|| (ter[y][x]=='/')|| (ter[y][x]=='=') ));
+    && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F')|| (ter[y][x]=='Y')|| (ter[y][x]=='/')|| (ter[y][x]=='=')|| (ter[y][x]=='^')|| (ter[y][x]=='9') ));
 }
-
-
 
 }

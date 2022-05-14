@@ -77,8 +77,8 @@ sdlJeu::sdlJeu() : jeu()
   im_grass_gauche.loadFromFile("data/[.png", renderer);
   im_grass_droite.loadFromFile("data/].png", renderer);
   im_mur_bas.loadFromFile("data/_.png", renderer);
-  im_mur_bas_gauche.loadFromFile("data/(.png", renderer);
-  im_mur_bas_droite.loadFromFile("data/).png", renderer);
+  im_mur_bas_gauche.loadFromFile("data/(2.png", renderer);
+  im_mur_bas_droite.loadFromFile("data/)2.png", renderer);
   //im_background.loadFromFile("data/background.png", renderer);
   im_ciel.loadFromFile("data/background1.png", renderer);
   im_runright.loadFromFile("data/RunRight.png", renderer);
@@ -110,6 +110,7 @@ sdlJeu::sdlJeu() : jeu()
   im_ciel3.loadFromFile("data/background3.png", renderer);
   im_heart.loadFromFile("data/vie2.png", renderer);
   im_shield.loadFromFile("data/bouclier.png", renderer);
+  im_arbremort.loadFromFile("data/arbremort.png",renderer);
   
 
 
@@ -257,7 +258,7 @@ void sdlJeu::sdlBoucle()
 
 
   const Terrain & ter = jeu.getConstTerrain();
-
+/*
   for(int y = 0; y < jeu.getTerrain().getDimY(); y++){
     cout << y;
     for(int x = 0; x < jeu.getTerrain().getDimX(); x++){
@@ -266,16 +267,19 @@ void sdlJeu::sdlBoucle()
     }
     cout << endl;
   }
+  */
+
 
   //ter.getXY(11, 5);
   bool quit = false;
   SDL_Event events = getEvent();
   bool sauter = false;
-
+  
 
   while (!quit && !jeu.getFdj())
   {
-    cout<<"Arme: "<<jeu.getPerso().getArme()<<endl;
+
+   // cout<<"Arme: "<<jeu.getPerso().getArme()<<endl;
     while (SDL_PollEvent(&events)) {
 			if (events.type == SDL_QUIT) quit = true;           // Si l'utilisateur a clique sur la croix de fermeture
 			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
@@ -395,6 +399,10 @@ void sdlJeu::drawTerrain()
       if (ter.getXY(x, y) == 'Y')
       {
         im_arbressapins.draw(renderer, x * TAILLE_SPRITE - dx, y * TAILLE_SPRITE-300, 5*TAILLE_SPRITE, 10*TAILLE_SPRITE);
+      }
+      if (ter.getXY(x, y) == '/')
+      {
+        im_arbremort.draw(renderer, x * TAILLE_SPRITE - dx-150, y * TAILLE_SPRITE-320, 10*TAILLE_SPRITE, 10*TAILLE_SPRITE);
       }
       else if (ter.getXY(x, y) == '=')
       {
