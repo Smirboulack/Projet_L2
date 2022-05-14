@@ -1,7 +1,8 @@
-NOM DU COMMIT : 
+NOM DU COMMIT : REPARATION animations 
 
 
-CHANGEMENT PAR RAPPORT A L'ANCIEN COMMIT 'indiquez_nom_commit_precedent'. 
+CHANGEMENT PAR RAPPORT A L'ANCIEN COMMIT (indiquez_nom_commit_precedent) : Fichier de commit 
+-reparer bug animations attaque
 
 
 
@@ -10,3 +11,5 @@ INFORMATIONS COMPLEMENTAIRES SUR LES CHANGEMENTS :
 
 
 FICHIERS MODIFIES : 
+
+-Personnage.cpp

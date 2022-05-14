@@ -99,13 +99,13 @@ void Personnage::subirDegat(int degat){
     setMort(true);
 }
 
-/*
+
 void Personnage::attack(Personnage & perso){
   if((x + portee * sens >= perso.getX() && y == perso.getY())) perso.subirDegat(degat);
   updateStatus(5);
 
-}*/
-
+}
+/*
 void Personnage::attack(Personnage & perso){
   if(getArme())
   {
@@ -113,6 +113,7 @@ void Personnage::attack(Personnage & perso){
     updateStatus(5);
   }
 }
+*/
 
 
 
