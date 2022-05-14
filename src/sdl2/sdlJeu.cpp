@@ -112,7 +112,8 @@ sdlJeu::sdlJeu() : jeu()
   im_fond.loadFromFile("data/0.png", renderer);
   im_ciel2.loadFromFile("data/background2.png", renderer);
   im_ciel3.loadFromFile("data/background3.png", renderer);
-   im_heart.loadFromFile("data/vie2.png", renderer);
+  im_heart.loadFromFile("data/vie2.png", renderer);
+  im_heart.loadFromFile("data/bouclier.png", renderer);
   
 
 
@@ -249,6 +250,7 @@ void sdlJeu::sdlAff()
   SDL_RenderClear(renderer);
   drawTerrain();
   drawPersonnage();
+  drawPVArmure();
   drawMonstre();
 }
 
@@ -585,14 +587,18 @@ void sdlJeu::drawMonstre()
 }
 
 
-void sdlJeu::drawPV()
+void sdlJeu::drawPVArmure()
 {
-  int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
   Personnage &perso = jeu.getPerso();
 
-  for(int i; i<perso.getVie(); i++)
+  for(int i=0; i<perso.getVie(); i++)
   {
-    im_heart.draw(renderer, 5+(i*10),5+(i*10),TAILLE_SPRITE, TAILLE_SPRITE);
+    im_heart.draw(renderer, 10+(i*20), 10, TAILLE_SPRITE, TAILLE_SPRITE);
   }
+  for(int i=0; i<perso.getArmure(); i++)
+  {
+    im_shield.draw(renderer, 10+(i*20), 20, TAILLE_SPRITE, TAILLE_SPRITE);
+  }
+
 }
 

@@ -60,6 +60,7 @@ private:
   Image im_ciel2;
   Image im_ciel3;
   Image im_heart;
+  Image im_shield;
 
     Mix_Chunk * soundpiece;
     Mix_Chunk * soundvie;
@@ -93,7 +94,7 @@ public:
   void drawMenu();
   void drawMonstre();
   SDL_Event getEvent()const;
-  void drawPV();
+  void drawPVArmure();
 
 
   void testRegression();

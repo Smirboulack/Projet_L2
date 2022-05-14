@@ -29,6 +29,8 @@ class Personnage{
     int Armure;
     //Piece du personnage
     int piece;
+    //Possession d'une arme
+    bool arme;
     //status de Personnage
     //idle:0
     //left:1
@@ -74,6 +76,9 @@ class Personnage{
     void setPortee(int portee);
     void setPiece(int piece);
     void setArmure(int armure);
+    void setArme(bool b);
+    bool getArme();
+
     int getX() const;
     int getY() const;
     int getXO() const;

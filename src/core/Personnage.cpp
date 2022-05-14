@@ -100,8 +100,12 @@ void Personnage::subirDegat(int degat){
 }
 
 void Personnage::attack(Personnage & perso){
-  if((x + portee * sens >= perso.getX() && y == perso.getY())) perso.subirDegat(degat);
-  updateStatus(5);
+  if(getArme())
+  {
+    if((x + portee * sens >= perso.getX() && y == perso.getY())) perso.subirDegat(degat);
+    updateStatus(5);
+  }
+  
 
 }
 
@@ -158,6 +162,15 @@ void Personnage::setArmure(int armure){
   this->Armure = armure;
 }
 
+void Personnage::setArme(bool b)
+{
+  arme = b;
+}
+
+bool Personnage::getArme()
+{
+  return arme;
+}
 
 int Personnage::getX() const{
   return x;

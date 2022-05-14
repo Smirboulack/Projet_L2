@@ -108,7 +108,16 @@ void Jeu::ramasserItems(){
 			perso.setPiece(perso.getPiece()+1);
 		}else if(ter.getXY(xtMin, ytMin) == '!'){
 			ter.setXY(xtMin, ytMin, ' ');
-			perso.setDegat(perso.getDegat()+1);
+			if(getPerso().getArme())
+			{
+				getPerso().setArme(true);
+				getPerso().setDegat(1);
+			}
+			else
+			{
+				getPerso().setDegat(perso.getDegat()+1);
+			}
+			
 		}else if(ter.getXY(xtMin, ytMin) == 'O'){
 			ter.setXY(xtMin, ytMin, ' ');
 			perso.setArmure(perso.getArmure()+1);
@@ -133,14 +142,17 @@ void Jeu::ramasserItems(){
 
 void Jeu::PersoSubirDegat()
 {
-	if(getPerso().getX()==getMonstre().getX() && getPerso().getY()==getMonstre().getY())
+	for(int i=0; i<10; i++)
 	{
-		getPerso().subirDegat(4);
+		if(getPerso().getX()==getMonstre(i).getX() && getPerso().getY()==getMonstre(i).getY())
+	{
+		getPerso().subirDegat(1);
 	}
 
 	if(getPerso().getY() >= getTerrain().getDimY())
 	{
 		getPerso().setMort(true);
+	}
 	}
 }
 
