@@ -7,6 +7,7 @@
 class Terrain;
 const int VITESSE_SAUTER = 6;
 const int VITESSE_ACCELEREE = 20;
+const int NbMonstre = 10;
 class Personnage{
   private:
     //position du personnage en x et y

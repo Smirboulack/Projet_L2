@@ -275,7 +275,6 @@ void sdlJeu::sdlBoucle()
 
   while (!quit && !jeu.getFdj())
   {
-    cout<<"Arme: "<<jeu.getPerso().getArme()<<endl;
     while (SDL_PollEvent(&events)) {
 			if (events.type == SDL_QUIT) quit = true;           // Si l'utilisateur a clique sur la croix de fermeture
 			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee

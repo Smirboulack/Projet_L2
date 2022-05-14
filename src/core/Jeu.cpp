@@ -46,7 +46,7 @@ bool Jeu::actionClavier(const int touche)
 		perso.deplacerVite(VITESSE, touche, ter);
 		break;
 	case 'v':
-			for(int i = 0;i < 10;i++){
+			for(int i = 0;i < NbMonstre;i++){
 			perso.attack(tabmonstre[i]);
 		}
 		
@@ -59,8 +59,7 @@ void Jeu::actionsAutomatiques()
 {
 
 	gravite();
-	monst.bougeAutoMonstre(ter);
-	for (int i=0;i<10;i++){tabmonstre[i].bougeAutoMonstre(ter);}
+	for (int i=0;i<NbMonstre;i++){tabmonstre[i].bougeAutoMonstre(ter);}
 	FinDuJeu();
 	PersoSubirDegat();
 	ramasserItems();
@@ -125,7 +124,7 @@ void Jeu::ramasserItems(){
 
 void Jeu::PersoSubirDegat()
 {
-	for(int i=0; i<10; i++)
+	for(int i=0; i<NbMonstre; i++)
 	{
 		if(getPerso().getX()==getMonstre(i).getX() && getPerso().getY()==getMonstre(i).getY())
 		{
@@ -135,7 +134,6 @@ void Jeu::PersoSubirDegat()
 			}else getPerso().subirDegat(2);
 			
 		}
-
 		if(getPerso().getY() >= getTerrain().getDimY())
 		{
 			getPerso().setMort(true);
@@ -169,7 +167,7 @@ void Jeu::niveauSuivant(){
 }
 
 void Jeu::setFdj(bool fdj){
-	Fdj = fdj;
+	this->Fdj = fdj;
 }
 
 bool Jeu::getFdj(){
@@ -180,6 +178,7 @@ void Jeu::initMonstre()
 {
 	if(getTerrain().getVersion()==1)
 	{
+
 		tabmonstre[0].setX(0 * TAILLE_SPRITE);
 	tabmonstre[0].setY(14 * TAILLE_SPRITE);
 	tabmonstre[1].setX(40 * TAILLE_SPRITE);
@@ -200,6 +199,12 @@ void Jeu::initMonstre()
 	tabmonstre[8].setY(13 * TAILLE_SPRITE);
 	tabmonstre[9].setX(54 * TAILLE_SPRITE);
 	tabmonstre[9].setY(10 * TAILLE_SPRITE);
+
+	for(int i=0; i<NbMonstre; i++)
+	{
+		tabmonstre[i].setVie(55);
+	}
+
 	}
 	else
 	{
