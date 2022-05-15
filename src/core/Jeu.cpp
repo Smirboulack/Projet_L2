@@ -40,7 +40,7 @@ bool Jeu::actionClavier(const int touche)
 		perso.deplacerVite(VITESSE, touche, ter);
 		break;
 	case 'z':
-		perso.sauter(ter);
+		perso.setSaute(true);
 		break;
 	case 's':
 		perso.deplacerVite(VITESSE, touche, ter);

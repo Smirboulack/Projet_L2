@@ -15,7 +15,7 @@ sdlJeu::sdlJeu() : jeu()
   int n;
   cout << "quel niveau jouer ? " << endl;
   cin >> n;
-  
+
 
   jeu.getTerrain().setChoixniv(n);
   */
@@ -300,7 +300,6 @@ void sdlJeu::sdlBoucle()
   //ter.getXY(11, 5);
   bool quit = false;
   SDL_Event events = getEvent();
-  bool sauter = false;
 
 
   while (!quit && !jeu.getFdj())
@@ -359,35 +358,20 @@ void sdlJeu::sdlBoucle()
 
 			}
 		}
-    
 
-      
-    if (sauter && jeupause == false)
-    {
-      jeu.actionClavier(122);
-      jeu.bougeAutoMonstre(jeu.getTerrain());
-      jeu.graviteMonstre();
-      jeu.FinDuJeu();
-	    jeu.PersoSubirDegat();
-	    jeu.ramasserItems();
-      if (jeu.getStatus() == 0)
-        sauter = false;
-    }
-    else if (jeupause == false)
-    {
-      jeu.actionsAutomatiques();
-    }
 
+
+    jeu.actionsAutomatiques();
     const Uint8 *currentKeyStates = SDL_GetKeyboardState(NULL);
 
     if (currentKeyStates[SDL_SCANCODE_LEFT] && currentKeyStates[SDL_SCANCODE_UP])
     {
-      sauter = true;
+      jeu.actionClavier(122);
       jeu.actionClavier(113);
     }
     else if (currentKeyStates[SDL_SCANCODE_RIGHT] && currentKeyStates[SDL_SCANCODE_UP])
     {
-      sauter = true;
+      jeu.actionClavier(122);
       jeu.actionClavier(100);
     }
     else if (currentKeyStates[SDL_SCANCODE_LEFT])
@@ -404,7 +388,7 @@ void sdlJeu::sdlBoucle()
     }
     else if (currentKeyStates[SDL_SCANCODE_UP])
     {
-      sauter = true;
+      jeu.actionClavier(122);
     }
     else if (currentKeyStates[SDL_SCANCODE_V])
     {

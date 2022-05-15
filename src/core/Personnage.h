@@ -45,6 +45,8 @@ private:
 
   int vitesse_gravite;
 
+  bool saute;
+
 public:
   /**
    * @brief le constructeur par défaut de Personnage
@@ -294,7 +296,7 @@ public:
    * @return bool la donnée-membre arme
    */
   bool getArme();
-  
+
   /**
    * @brief La procédure qui permet au monstre de se diriger vers le héros
    *
@@ -304,6 +306,9 @@ public:
   void versPerso(const Terrain &ter, const Personnage &p);
 
   void testRegression();
+
+  void setSaute(bool saute);
+  bool getSaute();
 };
 
 #endif

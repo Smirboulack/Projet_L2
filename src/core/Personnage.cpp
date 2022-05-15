@@ -19,6 +19,7 @@ Personnage::Personnage(){
   status = 0;
   status_o = status;
   vitesse_gravite = VITESSE_ACCELEREE;
+  saute = false;
 }
 
 Personnage::Personnage(int x, int y, int vie, int degat, int portee, string monst){
@@ -33,6 +34,7 @@ Personnage::Personnage(int x, int y, int vie, int degat, int portee, string mons
   status = 0;
   status_o = status;
   vitesse_gravite = VITESSE_ACCELEREE;
+  saute = false;
 }
 
 Personnage::~Personnage(){
@@ -147,10 +149,15 @@ void Personnage::sauter(const Terrain & ter){
 }
 
 void Personnage::gravite(const Terrain & ter){
-  if(deplacerVite(vitesse_gravite/VITESSE_ACCELEREE, 's', ter)){
-    vitesse_gravite++;
+  if(!saute){
+    if(deplacerVite(vitesse_gravite/VITESSE_ACCELEREE, 's', ter)){
+      vitesse_gravite++;
+    }else{
+      vitesse_gravite = VITESSE_ACCELEREE;
+    }
   }else{
-    vitesse_gravite = VITESSE_ACCELEREE;
+    sauter(ter);
+    if(status == 0) saute = false;
   }
 }
 
@@ -246,4 +253,9 @@ bool Personnage::getArme()
 {
   return arme;
 }
-
+void Personnage::setSaute(bool saute){
+  this->saute = saute;
+}
+bool Personnage::getSaute(){
+  return saute;
+}
