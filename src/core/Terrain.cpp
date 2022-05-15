@@ -13,6 +13,7 @@ Terrain::Terrain()
   dimy = 20;
   choixniv = 1;
   loadMap("./data/Niveau" + std::to_string(choixniv) + ".txt");
+  
 }
 
 Terrain::~Terrain()

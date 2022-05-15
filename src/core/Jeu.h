@@ -115,6 +115,11 @@ public:
    */
   void gravite();
   /**
+   * @brief La fonction qui applique la gravité uniquement sur les monstres
+   *
+   */
+  void graviteMonstre();
+  /**
    * @brief La procédure qui permet au héros de ramasser les items
    *
    */

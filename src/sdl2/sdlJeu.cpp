@@ -6,15 +6,21 @@
 #include <iostream>
 using namespace std;
 
+
+
+
 sdlJeu::sdlJeu() : jeu()
 {
+  /*
   int n;
   cout << "quel niveau jouer ? " << endl;
   cin >> n;
+  
 
   jeu.getTerrain().setChoixniv(n);
+  */
   jeu.getTerrain().setVersion(1);
-  jeu.getTerrain().loadMap("./data/Niveau" + std::to_string(jeu.getTerrain().getChoixniv()) + ".txt");
+  //jeu.getTerrain().loadMap("./data/Niveau" + std::to_string(jeu.getTerrain().getChoixniv()) + ".txt");
 
   jeu.initMonstre();
 
@@ -353,10 +359,17 @@ void sdlJeu::sdlBoucle()
 
 			}
 		}
+    
 
+      
     if (sauter && jeupause == false)
     {
       jeu.actionClavier(122);
+      jeu.bougeAutoMonstre(jeu.getTerrain());
+      jeu.graviteMonstre();
+      jeu.FinDuJeu();
+	    jeu.PersoSubirDegat();
+	    jeu.ramasserItems();
       if (jeu.getStatus() == 0)
         sauter = false;
     }

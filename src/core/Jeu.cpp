@@ -78,6 +78,13 @@ void Jeu::gravite()
 	}
 }
 
+void Jeu::graviteMonstre()
+{
+	for(int i = 0; i < NbMonstre;i++){
+		tabmonstre[i].gravite(ter);
+	}
+}
+
 void Jeu::ramasserItems(){
 
 	if(ter.getVersion()==1){

@@ -5,10 +5,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../core/Jeu.h"
 #include "../txt/winTxt.h"
+#include "../core/Menu.h"
 
 using namespace std;
+
+
 
 
 int main (int argc, char** argv) {
@@ -16,5 +18,6 @@ int main (int argc, char** argv) {
 	sdlJeu sj;
 	sj.sdlBoucle();
 	return 0;
+
 }
 
