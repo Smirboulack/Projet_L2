@@ -20,7 +20,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 	 Terrain terconst = jeu.getConstTerrain();
 	 Personnage& perso = jeu.getPerso();
 	 
-	 Personnage Tmonst[10];
+	 Personnage Tmonst[18];
 	 for (int i=0;i<NbMonstre;i++){ Tmonst[i] = jeu.getConstMonstre(i);}
 
 	win.clear();
@@ -119,7 +119,7 @@ void txtBoucle(Jeu &jeu)
 		jeu.actionsAutomatiques();
 		jeu.actionClavier(c);
 
-		if(jeu.getFdj()) AffFin(win, jeu);
+		//if(jeu.getFdj()) AffFin(win, jeu);
 
 		if (c == 'x') {
 			jeu.setFdj(true);

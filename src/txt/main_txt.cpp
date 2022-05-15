@@ -62,8 +62,8 @@ void CommencerPartie(Jeu &jeu)
 void ChoixDuNiveau(Jeu &jeu)
 {
 	int choixniv;
-	cout << "Veuillez choisir le niveau parmis les 5 niveaux disponible " << endl;
-	cout << "1 2 3 4 5 " << endl;
+	cout << "Veuillez choisir le niveau parmis les 3 niveaux disponible " << endl;
+	cout << "1 2 3" << endl;
 	cout << " choix du niveau : " << endl;
 	cin>>choixniv;
 	
@@ -71,7 +71,7 @@ void ChoixDuNiveau(Jeu &jeu)
 		do{
 		cout << "Veuillez saisir une entrée valide " << endl;
 		cin >> choixniv;
-		}while(choixniv!=1 && choixniv!=2 && choixniv!=3 && choixniv!=4 && choixniv!=5);
+		}while(choixniv!=1 && choixniv!=2 && choixniv!=3);
 	}
 		
 		jeu.getTerrain().setChoixniv(choixniv);
