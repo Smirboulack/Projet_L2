@@ -47,7 +47,7 @@ bool Jeu::actionClavier(const int touche)
 		break;
 	case 'v':
 			for(int i = 0;i < NbMonstre;i++){
-			perso.attack(tabmonstre[i]);
+			perso.attaquer(tabmonstre[i]);
 		}
 		
 		break;

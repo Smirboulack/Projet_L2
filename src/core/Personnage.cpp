@@ -101,7 +101,7 @@ void Personnage::subirDegat(int degat){
 }
 
 
-void Personnage::attack(Personnage & perso){
+void Personnage::attaquer(Personnage & perso){
   if(getArme())
   {
     if((x + portee * sens >= perso.getX() && y == perso.getY())) perso.subirDegat(degat);
@@ -223,13 +223,6 @@ int Personnage::getStatus() const{
 }
 int Personnage::getStatusO() const{
   return status_o;
-}
-void Personnage::estMort(Terrain & t)
-{
-  if(getVie() == 0)
-  {
-    setMort(true);
-  }
 }
 
 bool Personnage::getArme()
