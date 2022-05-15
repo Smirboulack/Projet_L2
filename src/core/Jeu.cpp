@@ -123,6 +123,8 @@ void Jeu::ramasserItems(){
 			if(ter.getXY(i,j)=='!' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setDegat(perso.getDegat()+1);}
 			if(ter.getXY(i,j)=='O' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setArmure(perso.getArmure()+1);}
 			if(ter.getXY(i,j)=='+' && perso.getX()==i && perso.getY()==j){ter.setXY(i,j,' ');perso.setVie(perso.getVie()+1);}
+			if(ter.getXY(i,j)=='=' && perso.getX()==i && perso.getY()==j){perso.subirDegat(2);}
+			if(ter.getXY(i,j)=='^' && perso.getX()==i && perso.getY()==j){perso.subirDegat(1);}
 		}
 		}
 		}
@@ -163,15 +165,6 @@ int Jeu::getSensO() const{
 
 	return perso.getSensO();
 }
-void Jeu::niveauSuivant(){
-
-	ter.setChoixniv(ter.getChoixniv()+1);
-	if(ter.loadMap("./data/Niveau" + std::to_string(ter.getChoixniv()) + ".txt")){
-		setFdj(true);
-	}
-	perso.setX(20);
-	perso.setY(20);
-}
 
 void Jeu::setFdj(bool fdj){
 	this->Fdj = fdj;
@@ -186,44 +179,44 @@ void Jeu::initMonstre()
 	if (getTerrain().getVersion() == 1)
 	{
 		tabmonstre[0].setX(15 * TAILLE_SPRITE);
-		tabmonstre[0].setY(14 * TAILLE_SPRITE);
+		tabmonstre[0].setY(3 * TAILLE_SPRITE);
 		tabmonstre[1].setX(17 * TAILLE_SPRITE);
-		tabmonstre[1].setY(14 * TAILLE_SPRITE);
+		tabmonstre[1].setY(3 * TAILLE_SPRITE);
 		tabmonstre[2].setX(18 * TAILLE_SPRITE);
-		tabmonstre[2].setY(14 * TAILLE_SPRITE);
+		tabmonstre[2].setY(3 * TAILLE_SPRITE);
 		tabmonstre[3].setX(22 * TAILLE_SPRITE);
-		tabmonstre[3].setY(14 * TAILLE_SPRITE);
+		tabmonstre[3].setY(3 * TAILLE_SPRITE);
 		tabmonstre[4].setX(30 * TAILLE_SPRITE);
-		tabmonstre[4].setY(14 * TAILLE_SPRITE);
+		tabmonstre[4].setY(3 * TAILLE_SPRITE);
 		tabmonstre[5].setX(41 * TAILLE_SPRITE);
-		tabmonstre[5].setY(14 * TAILLE_SPRITE);
+		tabmonstre[5].setY(3 * TAILLE_SPRITE);
 		tabmonstre[6].setX(65 * TAILLE_SPRITE);
 		tabmonstre[6].setY(6 * TAILLE_SPRITE);
 		tabmonstre[7].setX(73 * TAILLE_SPRITE);
-		tabmonstre[7].setY(14 * TAILLE_SPRITE);
+		tabmonstre[7].setY(3 * TAILLE_SPRITE);
 		tabmonstre[8].setX(71 * TAILLE_SPRITE);
-		tabmonstre[8].setY(14 * TAILLE_SPRITE);
+		tabmonstre[8].setY(3 * TAILLE_SPRITE);
 		tabmonstre[9].setX(85 * TAILLE_SPRITE);
-		tabmonstre[9].setY(14 * TAILLE_SPRITE);
+		tabmonstre[9].setY(3 * TAILLE_SPRITE);
 
 		tabmonstre[10].setX(86 * TAILLE_SPRITE);
-		tabmonstre[10].setY(14 * TAILLE_SPRITE);
+		tabmonstre[10].setY(3 * TAILLE_SPRITE);
 		tabmonstre[11].setX(88 * TAILLE_SPRITE);
-		tabmonstre[11].setY(14 * TAILLE_SPRITE);
+		tabmonstre[11].setY(3 * TAILLE_SPRITE);
 		tabmonstre[12].setX(90 * TAILLE_SPRITE);
-		tabmonstre[12].setY(14 * TAILLE_SPRITE);
+		tabmonstre[12].setY(3 * TAILLE_SPRITE);
 		tabmonstre[13].setX(122 * TAILLE_SPRITE);
-		tabmonstre[13].setY(14 * TAILLE_SPRITE);
+		tabmonstre[13].setY(3 * TAILLE_SPRITE);
 		tabmonstre[14].setX(13 * TAILLE_SPRITE);
-		tabmonstre[14].setY(14 * TAILLE_SPRITE);
+		tabmonstre[14].setY(3 * TAILLE_SPRITE);
 		tabmonstre[15].setX(144 * TAILLE_SPRITE);
-		tabmonstre[15].setY(14 * TAILLE_SPRITE);
+		tabmonstre[15].setY(3 * TAILLE_SPRITE);
 		tabmonstre[16].setX(150 * TAILLE_SPRITE);
-		tabmonstre[16].setY(14 * TAILLE_SPRITE);
+		tabmonstre[16].setY(3 * TAILLE_SPRITE);
 		tabmonstre[17].setX(155 * TAILLE_SPRITE);
-		tabmonstre[17].setY(14 * TAILLE_SPRITE);
+		tabmonstre[17].setY(3 * TAILLE_SPRITE);
 		tabmonstre[18].setX(157 * TAILLE_SPRITE);
-		tabmonstre[18].setY(14 * TAILLE_SPRITE);
+		tabmonstre[18].setY(3 * TAILLE_SPRITE);
 
 		for (int i = 0; i < NbMonstre; i++)
 		{
@@ -286,4 +279,15 @@ void Jeu::bougeAutoMonstre(Terrain & ter){
 		  }
 		}
 
+}
+
+void Jeu::niveauSuivant(){
+
+	ter.setChoixniv(ter.getChoixniv()+1);
+	if(ter.loadMap("./data/Niveau" + std::to_string(ter.getChoixniv()) + ".txt")){
+		setFdj(true);
+	}
+	perso.setX(20);
+	perso.setY(20);
+	initMonstre();
 }
