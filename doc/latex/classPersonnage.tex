@@ -1,0 +1,545 @@
+\hypertarget{classPersonnage}{}\doxysection{Personnage Class Reference}
+\label{classPersonnage}\index{Personnage@{Personnage}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPersonnage_abec36eb0310adc71f3375297fc590c65}\label{classPersonnage_abec36eb0310adc71f3375297fc590c65}} 
+\mbox{\hyperlink{classPersonnage_abec36eb0310adc71f3375297fc590c65}{Personnage}} ()
+\begin{DoxyCompactList}\small\item\em le constructeur par défaut de \mbox{\hyperlink{classPersonnage}{Personnage}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPersonnage_a2949c4c71c663ef975502cdcab627707}{Personnage}} (int x, int y, int vie, int degat, int portee, std\+::string nom)
+\begin{DoxyCompactList}\small\item\em le constructeur paramétré de \mbox{\hyperlink{classPersonnage}{Personnage}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a05bdf2a469885bb1fbb6c2e8f98972ab}\label{classPersonnage_a05bdf2a469885bb1fbb6c2e8f98972ab}} 
+\mbox{\hyperlink{classPersonnage_a05bdf2a469885bb1fbb6c2e8f98972ab}{$\sim$\+Personnage}} ()
+\begin{DoxyCompactList}\small\item\em Le destructeur de \mbox{\hyperlink{classPersonnage}{Personnage}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPersonnage_ac78caabe877cf3cfed35d2589ef14a0f}{deplacer}} (char direction, const \mbox{\hyperlink{classTerrain}{Terrain}} \&t)
+\begin{DoxyCompactList}\small\item\em la fonction qui permet le déplacement du personnage \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPersonnage_aaccbdbcf8d301d85fcdfbb59868adb07}{deplacer\+Monstre}} (char direction, const \mbox{\hyperlink{classTerrain}{Terrain}} \&t)
+\begin{DoxyCompactList}\small\item\em la fonction qui permet le déplacement du monstre \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPersonnage_a1a7063b7feebb91583c0d6f6e707c0de}{deplacer\+Vite}} (int n, char direction, const \mbox{\hyperlink{classTerrain}{Terrain}} \&t)
+\begin{DoxyCompactList}\small\item\em la fonction qui permet le déplacement rapide du personnage \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPersonnage_af276b532e5f025357cec6ae1a1672aae}{subir\+Degat}} (int degat)
+\begin{DoxyCompactList}\small\item\em La procédure qui fait subir les dégats et réduit les points de vie du personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPersonnage_a7e479a9700f88eeb5d0e9d67c8e478ab}{update\+Status}} (int s)
+\begin{DoxyCompactList}\small\item\em la procédure de mise à jour du statut \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_acab5993ae5759d739b2b96ceb66a0474}\label{classPersonnage_acab5993ae5759d739b2b96ceb66a0474}} 
+void \mbox{\hyperlink{classPersonnage_acab5993ae5759d739b2b96ceb66a0474}{update\+Sens}} (int s)
+\begin{DoxyCompactList}\small\item\em la procédure de mise à jour du sens \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPersonnage_ab66f4ee4683eee3ae13b864604ea0ff5}{sauter}} (const \mbox{\hyperlink{classTerrain}{Terrain}} \&ter)
+\begin{DoxyCompactList}\small\item\em le procédure qui permet au héros de sauter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPersonnage_a6da6850f53d3b7f70543dcd55333c35f}{gravite}} (const \mbox{\hyperlink{classTerrain}{Terrain}} \&ter)
+\begin{DoxyCompactList}\small\item\em la procédure qui applique la gravité au \mbox{\hyperlink{classPersonnage}{Personnage}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPersonnage_a0cda40fff53575b0dd76f6984cc12544}{attaquer}} (\mbox{\hyperlink{classPersonnage}{Personnage}} \&perso)
+\begin{DoxyCompactList}\small\item\em la procédure qui permet au héros d\textquotesingle{}attaquer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a74d142c175bdd1b3b3bf2fd77d3073b5}\label{classPersonnage_a74d142c175bdd1b3b3bf2fd77d3073b5}} 
+void \mbox{\hyperlink{classPersonnage_a74d142c175bdd1b3b3bf2fd77d3073b5}{setX}} (int x)
+\begin{DoxyCompactList}\small\item\em Mutateur de x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a8605c83b27fa00a232f52727d23782cc}\label{classPersonnage_a8605c83b27fa00a232f52727d23782cc}} 
+void \mbox{\hyperlink{classPersonnage_a8605c83b27fa00a232f52727d23782cc}{setY}} (int y)
+\begin{DoxyCompactList}\small\item\em Mutateur de y. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_adde18763e3c315f53d16ebae8cf8b953}\label{classPersonnage_adde18763e3c315f53d16ebae8cf8b953}} 
+void \mbox{\hyperlink{classPersonnage_adde18763e3c315f53d16ebae8cf8b953}{set\+Vie}} (int vie)
+\begin{DoxyCompactList}\small\item\em Mutateur de vie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a7fe1cd2540ebc57d59bf147f8d524538}\label{classPersonnage_a7fe1cd2540ebc57d59bf147f8d524538}} 
+void \mbox{\hyperlink{classPersonnage_a7fe1cd2540ebc57d59bf147f8d524538}{set\+Sexe}} (bool sexe)
+\begin{DoxyCompactList}\small\item\em Mutateur du sexe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a3b26d719618be5adce87a3e4986ab6b1}\label{classPersonnage_a3b26d719618be5adce87a3e4986ab6b1}} 
+void \mbox{\hyperlink{classPersonnage_a3b26d719618be5adce87a3e4986ab6b1}{set\+Sens}} (int sens)
+\begin{DoxyCompactList}\small\item\em Mutateur du sens. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a782275b80642eb3aef68d6135a3b61ce}\label{classPersonnage_a782275b80642eb3aef68d6135a3b61ce}} 
+void \mbox{\hyperlink{classPersonnage_a782275b80642eb3aef68d6135a3b61ce}{set\+Mort}} (bool mort)
+\begin{DoxyCompactList}\small\item\em Mutateur de mort. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_aeaaf2bfced2ed27a9f55cd03476d0350}\label{classPersonnage_aeaaf2bfced2ed27a9f55cd03476d0350}} 
+void \mbox{\hyperlink{classPersonnage_aeaaf2bfced2ed27a9f55cd03476d0350}{set\+Nom}} (std\+::string nom)
+\begin{DoxyCompactList}\small\item\em Mutateur du nom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a8e8ca56baf1ee2453af8b512f550ef37}\label{classPersonnage_a8e8ca56baf1ee2453af8b512f550ef37}} 
+void \mbox{\hyperlink{classPersonnage_a8e8ca56baf1ee2453af8b512f550ef37}{set\+Degat}} (int degat)
+\begin{DoxyCompactList}\small\item\em Mutateur de degat. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a48772c1057ad3044c97bd6f751760f97}\label{classPersonnage_a48772c1057ad3044c97bd6f751760f97}} 
+void \mbox{\hyperlink{classPersonnage_a48772c1057ad3044c97bd6f751760f97}{set\+Portee}} (int portee)
+\begin{DoxyCompactList}\small\item\em Mutateur de portée. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a93b7eaaad084c449c56449c37e7c2ba5}\label{classPersonnage_a93b7eaaad084c449c56449c37e7c2ba5}} 
+void \mbox{\hyperlink{classPersonnage_a93b7eaaad084c449c56449c37e7c2ba5}{set\+Piece}} (int piece)
+\begin{DoxyCompactList}\small\item\em Mutateur de piece. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a15f79061dc0921fa610ffd0d037ec226}\label{classPersonnage_a15f79061dc0921fa610ffd0d037ec226}} 
+void \mbox{\hyperlink{classPersonnage_a15f79061dc0921fa610ffd0d037ec226}{set\+Armure}} (int armure)
+\begin{DoxyCompactList}\small\item\em Mutateur de armurer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a25b61c04ed3e3df3dce30ae651074933}\label{classPersonnage_a25b61c04ed3e3df3dce30ae651074933}} 
+void \mbox{\hyperlink{classPersonnage_a25b61c04ed3e3df3dce30ae651074933}{set\+Arme}} (bool b)
+\begin{DoxyCompactList}\small\item\em Mutateur de arme. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPersonnage_aba6ecf32a15666c615ae89f1d686dc60}{set\+Saute}} (bool saute)
+\begin{DoxyCompactList}\small\item\em Procédure qui permet de modifier la valeur du booléen saut. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a5e4e1b8c568232a939151b0a04011d72}{getX}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de x. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a025945633aade245b9ee9adf07374dd3}{getY}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de y. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a8e3b72ec923921dc3dc476afc6cffa54}{get\+XO}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de l\textquotesingle{}ancien x. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_acfae330ad45edcc1b132833cd785b75f}{get\+YO}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de l\textquotesingle{}ancien y. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a261cbb9bb3b23a147d0f88b10eaa1857}{get\+Vie}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur de vie. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPersonnage_a519301399a9bee1557858aa50a04a85a}{get\+Nom}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur de nom. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPersonnage_acfc0e083fc825f72ef00a2cd0917f574}{get\+Sexe}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur du sexe. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a84bb0f597e9779ac4bda3eb493d5c147}{get\+Sens}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de sens. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a53ccbfdaf796f2aab94441f5e77443ea}{get\+SensO}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de l\textquotesingle{}ancien sens. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPersonnage_abb980c7eb317ff8981c3680b58ed7eed}{get\+Mort}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur de mort. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a331cf349621930bbc3dd50dd6edc59b9}{get\+Degat}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur de degat. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a27b4469731bfdd0397000cf88a48ac68}{get\+Portee}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur de portée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a487bdb4280c421f21aa6c0228115853d}{get\+Status}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de statut. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a41dc1d517163e92617d3fc18f6f06ed1}{get\+StatusO}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de l\textquotesingle{}ancien statut. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_a97ba768da8eb65cf88e5dc52bd3743df}{get\+Piece}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur de piece. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPersonnage_aa66660e16fdeba57830a8654786e3d37}{get\+Armure}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur de armure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPersonnage_a2f997b354d0c0e7234371f6a913f8f5b}{get\+Arme}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur de arme. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_ae2473e90d896b71d4185e3b57f01be4d}\label{classPersonnage_ae2473e90d896b71d4185e3b57f01be4d}} 
+bool \mbox{\hyperlink{classPersonnage_ae2473e90d896b71d4185e3b57f01be4d}{get\+Saute}} ()
+\begin{DoxyCompactList}\small\item\em Fonction accesseur qui renvoie le booléen saut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPersonnage_a35d83587b0adea217151410af0481b91}{vers\+Perso}} (const \mbox{\hyperlink{classTerrain}{Terrain}} \&ter, const \mbox{\hyperlink{classPersonnage}{Personnage}} \&p)
+\begin{DoxyCompactList}\small\item\em La procédure qui permet au monstre de se diriger vers le héros. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPersonnage_a8b827a72e42d38de1b6d29dee145a4b5}\label{classPersonnage_a8b827a72e42d38de1b6d29dee145a4b5}} 
+void \mbox{\hyperlink{classPersonnage_a8b827a72e42d38de1b6d29dee145a4b5}{test\+Regression}} ()
+\begin{DoxyCompactList}\small\item\em Procédure de test de \mbox{\hyperlink{classPersonnage}{Personnage}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPersonnage_a2949c4c71c663ef975502cdcab627707}\label{classPersonnage_a2949c4c71c663ef975502cdcab627707}} 
+\index{Personnage@{Personnage}!Personnage@{Personnage}}
+\index{Personnage@{Personnage}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{Personnage()}{Personnage()}}
+{\footnotesize\ttfamily Personnage\+::\+Personnage (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{vie,  }\item[{int}]{degat,  }\item[{int}]{portee,  }\item[{std\+::string}]{nom }\end{DoxyParamCaption})}
+
+
+
+le constructeur paramétré de \mbox{\hyperlink{classPersonnage}{Personnage}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & la coordonnée x \\
+\hline
+{\em y} & la coordonnée y \\
+\hline
+{\em vie} & les points de vie \\
+\hline
+{\em degat} & les degats qu\textquotesingle{}ils infligent \\
+\hline
+{\em portee} & la portée de son attaque \\
+\hline
+{\em nom} & son nom \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPersonnage_a0cda40fff53575b0dd76f6984cc12544}\label{classPersonnage_a0cda40fff53575b0dd76f6984cc12544}} 
+\index{Personnage@{Personnage}!attaquer@{attaquer}}
+\index{attaquer@{attaquer}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{attaquer()}{attaquer()}}
+{\footnotesize\ttfamily void Personnage\+::attaquer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPersonnage}{Personnage}} \&}]{perso }\end{DoxyParamCaption})}
+
+
+
+la procédure qui permet au héros d\textquotesingle{}attaquer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em perso} & le \mbox{\hyperlink{classPersonnage}{Personnage}} à attaquer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPersonnage_ac78caabe877cf3cfed35d2589ef14a0f}\label{classPersonnage_ac78caabe877cf3cfed35d2589ef14a0f}} 
+\index{Personnage@{Personnage}!deplacer@{deplacer}}
+\index{deplacer@{deplacer}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{deplacer()}{deplacer()}}
+{\footnotesize\ttfamily bool Personnage\+::deplacer (\begin{DoxyParamCaption}\item[{char}]{direction,  }\item[{const \mbox{\hyperlink{classTerrain}{Terrain}} \&}]{t }\end{DoxyParamCaption})}
+
+
+
+la fonction qui permet le déplacement du personnage 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & le direction voulue \\
+\hline
+{\em t} & le terrain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_aaccbdbcf8d301d85fcdfbb59868adb07}\label{classPersonnage_aaccbdbcf8d301d85fcdfbb59868adb07}} 
+\index{Personnage@{Personnage}!deplacerMonstre@{deplacerMonstre}}
+\index{deplacerMonstre@{deplacerMonstre}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{deplacerMonstre()}{deplacerMonstre()}}
+{\footnotesize\ttfamily bool Personnage\+::deplacer\+Monstre (\begin{DoxyParamCaption}\item[{char}]{direction,  }\item[{const \mbox{\hyperlink{classTerrain}{Terrain}} \&}]{t }\end{DoxyParamCaption})}
+
+
+
+la fonction qui permet le déplacement du monstre 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & le direction voulue \\
+\hline
+{\em t} & le terrain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a1a7063b7feebb91583c0d6f6e707c0de}\label{classPersonnage_a1a7063b7feebb91583c0d6f6e707c0de}} 
+\index{Personnage@{Personnage}!deplacerVite@{deplacerVite}}
+\index{deplacerVite@{deplacerVite}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{deplacerVite()}{deplacerVite()}}
+{\footnotesize\ttfamily bool Personnage\+::deplacer\+Vite (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{char}]{direction,  }\item[{const \mbox{\hyperlink{classTerrain}{Terrain}} \&}]{t }\end{DoxyParamCaption})}
+
+
+
+la fonction qui permet le déplacement rapide du personnage 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & la vitesse souhaitée \\
+\hline
+{\em direction} & le direction voulue \\
+\hline
+{\em t} & le terrain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a2f997b354d0c0e7234371f6a913f8f5b}\label{classPersonnage_a2f997b354d0c0e7234371f6a913f8f5b}} 
+\index{Personnage@{Personnage}!getArme@{getArme}}
+\index{getArme@{getArme}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getArme()}{getArme()}}
+{\footnotesize\ttfamily bool Personnage\+::get\+Arme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur de arme. 
+
+\begin{DoxyReturn}{Returns}
+bool la donnée-\/membre arme 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_aa66660e16fdeba57830a8654786e3d37}\label{classPersonnage_aa66660e16fdeba57830a8654786e3d37}} 
+\index{Personnage@{Personnage}!getArmure@{getArmure}}
+\index{getArmure@{getArmure}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getArmure()}{getArmure()}}
+{\footnotesize\ttfamily int Personnage\+::get\+Armure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur de armure. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre armure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a331cf349621930bbc3dd50dd6edc59b9}\label{classPersonnage_a331cf349621930bbc3dd50dd6edc59b9}} 
+\index{Personnage@{Personnage}!getDegat@{getDegat}}
+\index{getDegat@{getDegat}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getDegat()}{getDegat()}}
+{\footnotesize\ttfamily int Personnage\+::get\+Degat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur de degat. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre degat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_abb980c7eb317ff8981c3680b58ed7eed}\label{classPersonnage_abb980c7eb317ff8981c3680b58ed7eed}} 
+\index{Personnage@{Personnage}!getMort@{getMort}}
+\index{getMort@{getMort}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getMort()}{getMort()}}
+{\footnotesize\ttfamily bool Personnage\+::get\+Mort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur de mort. 
+
+\begin{DoxyReturn}{Returns}
+bool la donnée-\/membre mort 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a519301399a9bee1557858aa50a04a85a}\label{classPersonnage_a519301399a9bee1557858aa50a04a85a}} 
+\index{Personnage@{Personnage}!getNom@{getNom}}
+\index{getNom@{getNom}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getNom()}{getNom()}}
+{\footnotesize\ttfamily string Personnage\+::get\+Nom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur de nom. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre nom 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a97ba768da8eb65cf88e5dc52bd3743df}\label{classPersonnage_a97ba768da8eb65cf88e5dc52bd3743df}} 
+\index{Personnage@{Personnage}!getPiece@{getPiece}}
+\index{getPiece@{getPiece}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getPiece()}{getPiece()}}
+{\footnotesize\ttfamily int Personnage\+::get\+Piece (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur de piece. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre piece 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a27b4469731bfdd0397000cf88a48ac68}\label{classPersonnage_a27b4469731bfdd0397000cf88a48ac68}} 
+\index{Personnage@{Personnage}!getPortee@{getPortee}}
+\index{getPortee@{getPortee}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getPortee()}{getPortee()}}
+{\footnotesize\ttfamily int Personnage\+::get\+Portee (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur de portée. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre portée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a84bb0f597e9779ac4bda3eb493d5c147}\label{classPersonnage_a84bb0f597e9779ac4bda3eb493d5c147}} 
+\index{Personnage@{Personnage}!getSens@{getSens}}
+\index{getSens@{getSens}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getSens()}{getSens()}}
+{\footnotesize\ttfamily int Personnage\+::get\+Sens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de sens. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre sens 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a53ccbfdaf796f2aab94441f5e77443ea}\label{classPersonnage_a53ccbfdaf796f2aab94441f5e77443ea}} 
+\index{Personnage@{Personnage}!getSensO@{getSensO}}
+\index{getSensO@{getSensO}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getSensO()}{getSensO()}}
+{\footnotesize\ttfamily int Personnage\+::get\+SensO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de l\textquotesingle{}ancien sens. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre sens\+\_\+o 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_acfc0e083fc825f72ef00a2cd0917f574}\label{classPersonnage_acfc0e083fc825f72ef00a2cd0917f574}} 
+\index{Personnage@{Personnage}!getSexe@{getSexe}}
+\index{getSexe@{getSexe}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getSexe()}{getSexe()}}
+{\footnotesize\ttfamily bool Personnage\+::get\+Sexe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur du sexe. 
+
+\begin{DoxyReturn}{Returns}
+bool la donnée-\/membre sexe 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a487bdb4280c421f21aa6c0228115853d}\label{classPersonnage_a487bdb4280c421f21aa6c0228115853d}} 
+\index{Personnage@{Personnage}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily int Personnage\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de statut. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre statut 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a41dc1d517163e92617d3fc18f6f06ed1}\label{classPersonnage_a41dc1d517163e92617d3fc18f6f06ed1}} 
+\index{Personnage@{Personnage}!getStatusO@{getStatusO}}
+\index{getStatusO@{getStatusO}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getStatusO()}{getStatusO()}}
+{\footnotesize\ttfamily int Personnage\+::get\+StatusO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de l\textquotesingle{}ancien statut. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre statut\+\_\+o 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a261cbb9bb3b23a147d0f88b10eaa1857}\label{classPersonnage_a261cbb9bb3b23a147d0f88b10eaa1857}} 
+\index{Personnage@{Personnage}!getVie@{getVie}}
+\index{getVie@{getVie}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getVie()}{getVie()}}
+{\footnotesize\ttfamily int Personnage\+::get\+Vie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur de vie. 
+
+\begin{DoxyReturn}{Returns}
+int la donnée-\/membre vie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a5e4e1b8c568232a939151b0a04011d72}\label{classPersonnage_a5e4e1b8c568232a939151b0a04011d72}} 
+\index{Personnage@{Personnage}!getX@{getX}}
+\index{getX@{getX}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily int Personnage\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de x. 
+
+\begin{DoxyReturn}{Returns}
+int la coordonnée x 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a8e3b72ec923921dc3dc476afc6cffa54}\label{classPersonnage_a8e3b72ec923921dc3dc476afc6cffa54}} 
+\index{Personnage@{Personnage}!getXO@{getXO}}
+\index{getXO@{getXO}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getXO()}{getXO()}}
+{\footnotesize\ttfamily int Personnage\+::get\+XO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de l\textquotesingle{}ancien x. 
+
+\begin{DoxyReturn}{Returns}
+int la coordonnée ancienne x 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a025945633aade245b9ee9adf07374dd3}\label{classPersonnage_a025945633aade245b9ee9adf07374dd3}} 
+\index{Personnage@{Personnage}!getY@{getY}}
+\index{getY@{getY}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily int Personnage\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de y. 
+
+\begin{DoxyReturn}{Returns}
+int la coordonnée y 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_acfae330ad45edcc1b132833cd785b75f}\label{classPersonnage_acfae330ad45edcc1b132833cd785b75f}} 
+\index{Personnage@{Personnage}!getYO@{getYO}}
+\index{getYO@{getYO}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{getYO()}{getYO()}}
+{\footnotesize\ttfamily int Personnage\+::get\+YO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de l\textquotesingle{}ancien y. 
+
+\begin{DoxyReturn}{Returns}
+int la coordonnée ancienne y 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPersonnage_a6da6850f53d3b7f70543dcd55333c35f}\label{classPersonnage_a6da6850f53d3b7f70543dcd55333c35f}} 
+\index{Personnage@{Personnage}!gravite@{gravite}}
+\index{gravite@{gravite}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{gravite()}{gravite()}}
+{\footnotesize\ttfamily void Personnage\+::gravite (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTerrain}{Terrain}} \&}]{ter }\end{DoxyParamCaption})}
+
+
+
+la procédure qui applique la gravité au \mbox{\hyperlink{classPersonnage}{Personnage}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ter} & le terrain \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPersonnage_ab66f4ee4683eee3ae13b864604ea0ff5}\label{classPersonnage_ab66f4ee4683eee3ae13b864604ea0ff5}} 
+\index{Personnage@{Personnage}!sauter@{sauter}}
+\index{sauter@{sauter}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{sauter()}{sauter()}}
+{\footnotesize\ttfamily void Personnage\+::sauter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTerrain}{Terrain}} \&}]{ter }\end{DoxyParamCaption})}
+
+
+
+le procédure qui permet au héros de sauter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ter} & le terrain \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPersonnage_aba6ecf32a15666c615ae89f1d686dc60}\label{classPersonnage_aba6ecf32a15666c615ae89f1d686dc60}} 
+\index{Personnage@{Personnage}!setSaute@{setSaute}}
+\index{setSaute@{setSaute}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{setSaute()}{setSaute()}}
+{\footnotesize\ttfamily void Personnage\+::set\+Saute (\begin{DoxyParamCaption}\item[{bool}]{saute }\end{DoxyParamCaption})}
+
+
+
+Procédure qui permet de modifier la valeur du booléen saut. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em saute} & mutateur de la donnée membre saut \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPersonnage_af276b532e5f025357cec6ae1a1672aae}\label{classPersonnage_af276b532e5f025357cec6ae1a1672aae}} 
+\index{Personnage@{Personnage}!subirDegat@{subirDegat}}
+\index{subirDegat@{subirDegat}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{subirDegat()}{subirDegat()}}
+{\footnotesize\ttfamily void Personnage\+::subir\+Degat (\begin{DoxyParamCaption}\item[{int}]{degat }\end{DoxyParamCaption})}
+
+
+
+La procédure qui fait subir les dégats et réduit les points de vie du personnage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em degat} & le nombre de dégat subi \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPersonnage_a7e479a9700f88eeb5d0e9d67c8e478ab}\label{classPersonnage_a7e479a9700f88eeb5d0e9d67c8e478ab}} 
+\index{Personnage@{Personnage}!updateStatus@{updateStatus}}
+\index{updateStatus@{updateStatus}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{updateStatus()}{updateStatus()}}
+{\footnotesize\ttfamily void Personnage\+::update\+Status (\begin{DoxyParamCaption}\item[{int}]{s }\end{DoxyParamCaption})}
+
+
+
+la procédure de mise à jour du statut 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & le nouveau statut \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPersonnage_a35d83587b0adea217151410af0481b91}\label{classPersonnage_a35d83587b0adea217151410af0481b91}} 
+\index{Personnage@{Personnage}!versPerso@{versPerso}}
+\index{versPerso@{versPerso}!Personnage@{Personnage}}
+\doxysubsubsection{\texorpdfstring{versPerso()}{versPerso()}}
+{\footnotesize\ttfamily void Personnage\+::vers\+Perso (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTerrain}{Terrain}} \&}]{ter,  }\item[{const \mbox{\hyperlink{classPersonnage}{Personnage}} \&}]{p }\end{DoxyParamCaption})}
+
+
+
+La procédure qui permet au monstre de se diriger vers le héros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ter} & le terrain \\
+\hline
+{\em p} & le héros \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/smirboulack/\+Documents/projet-\/lifap4/src/core/Personnage.\+h\item 
+/home/smirboulack/\+Documents/projet-\/lifap4/src/core/Personnage.\+cpp\end{DoxyCompactItemize}

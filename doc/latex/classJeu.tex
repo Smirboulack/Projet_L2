@@ -1,0 +1,267 @@
+\hypertarget{classJeu}{}\doxysection{Jeu Class Reference}
+\label{classJeu}\index{Jeu@{Jeu}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJeu_acc5795ee00edf75516d3dfe65be3e6d6}\label{classJeu_acc5795ee00edf75516d3dfe65be3e6d6}} 
+\mbox{\hyperlink{classJeu_acc5795ee00edf75516d3dfe65be3e6d6}{Jeu}} ()
+\begin{DoxyCompactList}\small\item\em Construct du jeu faisant appel aux autres constrcteurs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTerrain}{Terrain}} \& \mbox{\hyperlink{classJeu_a4b5b107671761a6bb963475bf4ecc8dd}{get\+Terrain}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur du terrain ter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPersonnage}{Personnage}} \& \mbox{\hyperlink{classJeu_a8bd22f468785fad79d17e6381e04862a}{get\+Perso}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur du personnage perso. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_a479fd012d03c2d2550f4609a64003fb3}\label{classJeu_a479fd012d03c2d2550f4609a64003fb3}} 
+\mbox{\hyperlink{classPersonnage}{Personnage}} \& {\bfseries get\+Monstre} ()
+\item 
+\mbox{\hyperlink{classPersonnage}{Personnage}} \& \mbox{\hyperlink{classJeu_acd9fb21ecffaf5b94a8f13c958e7a7bf}{get\+Monstre}} (const int \&i)
+\begin{DoxyCompactList}\small\item\em Accesseur du ieme monstre. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classTerrain}{Terrain}} \& \mbox{\hyperlink{classJeu_af7e7bd59e117f78b9d8623fd76230ca3}{get\+Const\+Terrain}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur du terrain ter en donnée. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classPersonnage}{Personnage}} \& \mbox{\hyperlink{classJeu_ae3b2e048b68b8155e7351a61ca97979b}{get\+Const\+Personnage}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur du \mbox{\hyperlink{classPersonnage}{Personnage}} perso en donnée. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_ab7f363444745c5ee215f118e83eabc29}\label{classJeu_ab7f363444745c5ee215f118e83eabc29}} 
+const \mbox{\hyperlink{classPersonnage}{Personnage}} \& {\bfseries get\+Const\+Monstre} () const
+\item 
+const \mbox{\hyperlink{classPersonnage}{Personnage}} \& \mbox{\hyperlink{classJeu_a74a1e78aebd5f38e706a5c5d3e2fb631}{get\+Const\+Monstre}} (const int \&i) const
+\begin{DoxyCompactList}\small\item\em Accesseur du ieme monstre. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classJeu_a9b75e03002ef11c82f65e2fbb26e14c3}{get\+Status}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur du statut actuel du personnage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classJeu_a64d704b266741034d9a68333e1fbb9fa}{get\+StatusO}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de l\textquotesingle{}ancien statut du personnage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classJeu_ae5a51575e48d3d32229b106e2f883264}{get\+Sens}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur du sens du personnage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classJeu_a5ed3795fb201921c3c399090568a2996}{get\+SensO}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur de l\textquotesingle{}ancien sens du personnage. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classJeu_a36aed67a4d35968e42bdff09a7aa1a43}{get\+Fdj}} ()
+\begin{DoxyCompactList}\small\item\em Accesseur à la variable fdj (findujeu) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classJeu_ac59dd70ecb3c4163fd3ec3a71112ea7b}{set\+Fdj}} (bool fdj)
+\begin{DoxyCompactList}\small\item\em Mutateur de fdj. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_a849e140df1504ddfd1e1eccc4374718f}\label{classJeu_a849e140df1504ddfd1e1eccc4374718f}} 
+void \mbox{\hyperlink{classJeu_a849e140df1504ddfd1e1eccc4374718f}{actions\+Automatiques}} ()
+\begin{DoxyCompactList}\small\item\em La procédure appellée en boucle qui execute les actions automatiques. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_add1d393df73df5b640912a2ecc42ad32}\label{classJeu_add1d393df73df5b640912a2ecc42ad32}} 
+void \mbox{\hyperlink{classJeu_add1d393df73df5b640912a2ecc42ad32}{init\+Monstre}} ()
+\begin{DoxyCompactList}\small\item\em La fonction d\textquotesingle{}initaialisation des monstres. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classJeu_a09f346479ae121660bcf6397c206a289}{action\+Clavier}} (const int touche)
+\begin{DoxyCompactList}\small\item\em la fonction qui fait appel à la procédure correspondante à la touche pressée \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_a3c8145deb4c5e9c94b9d4400f2ae16f7}\label{classJeu_a3c8145deb4c5e9c94b9d4400f2ae16f7}} 
+void \mbox{\hyperlink{classJeu_a3c8145deb4c5e9c94b9d4400f2ae16f7}{gravite}} ()
+\begin{DoxyCompactList}\small\item\em La fonction qui applique la gravité sur le terrain. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_a4a3af43054604b4b56a21371b8122340}\label{classJeu_a4a3af43054604b4b56a21371b8122340}} 
+void \mbox{\hyperlink{classJeu_a4a3af43054604b4b56a21371b8122340}{gravite\+Monstre}} ()
+\begin{DoxyCompactList}\small\item\em La fonction qui applique la gravité uniquement sur les monstres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_aa404be37d65426a63b6dbef231ad0bc3}\label{classJeu_aa404be37d65426a63b6dbef231ad0bc3}} 
+void \mbox{\hyperlink{classJeu_aa404be37d65426a63b6dbef231ad0bc3}{ramasser\+Items}} ()
+\begin{DoxyCompactList}\small\item\em La procédure qui permet au héros de ramasser les items. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_a1ebe7034ef5d3e0e4aa808d1c38a8b69}\label{classJeu_a1ebe7034ef5d3e0e4aa808d1c38a8b69}} 
+void \mbox{\hyperlink{classJeu_a1ebe7034ef5d3e0e4aa808d1c38a8b69}{Perso\+Subir\+Degat}} ()
+\begin{DoxyCompactList}\small\item\em La procédure qui permet de gérer la collision entre le héros et les monstres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_abe86e0834b7d1616edbddb1a470e5290}\label{classJeu_abe86e0834b7d1616edbddb1a470e5290}} 
+void \mbox{\hyperlink{classJeu_abe86e0834b7d1616edbddb1a470e5290}{Fin\+Du\+Jeu}} ()
+\begin{DoxyCompactList}\small\item\em La procédure qui permet de vérifier si le jeu doit se terminer ou non. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_a2f2c2d95e12b5ff21e3e57c7faf805be}\label{classJeu_a2f2c2d95e12b5ff21e3e57c7faf805be}} 
+void \mbox{\hyperlink{classJeu_a2f2c2d95e12b5ff21e3e57c7faf805be}{niveau\+Suivant}} ()
+\begin{DoxyCompactList}\small\item\em La procédure qui permet le passage aux niveaux suivants. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_a9bb01981966833d1cb1c788caf86d401}\label{classJeu_a9bb01981966833d1cb1c788caf86d401}} 
+void \mbox{\hyperlink{classJeu_a9bb01981966833d1cb1c788caf86d401}{bouge\+Auto\+Monstre}} (\mbox{\hyperlink{classTerrain}{Terrain}} \&ter)
+\begin{DoxyCompactList}\small\item\em La procédure qui permet de faire bouger les monstres automatiquement et de façon aléatoires. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_ac7c855956828e80fca5d59f909dfbc65}\label{classJeu_ac7c855956828e80fca5d59f909dfbc65}} 
+void \mbox{\hyperlink{classJeu_ac7c855956828e80fca5d59f909dfbc65}{test\+Regression}} ()
+\begin{DoxyCompactList}\small\item\em La procédure test de \mbox{\hyperlink{classJeu}{Jeu}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJeu_a09f346479ae121660bcf6397c206a289}\label{classJeu_a09f346479ae121660bcf6397c206a289}} 
+\index{Jeu@{Jeu}!actionClavier@{actionClavier}}
+\index{actionClavier@{actionClavier}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{actionClavier()}{actionClavier()}}
+{\footnotesize\ttfamily bool Jeu\+::action\+Clavier (\begin{DoxyParamCaption}\item[{const int}]{touche }\end{DoxyParamCaption})}
+
+
+
+la fonction qui fait appel à la procédure correspondante à la touche pressée 
+
+
+\begin{DoxyParams}{Parameters}
+{\em touche} & la touche pressée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_a74a1e78aebd5f38e706a5c5d3e2fb631}\label{classJeu_a74a1e78aebd5f38e706a5c5d3e2fb631}} 
+\index{Jeu@{Jeu}!getConstMonstre@{getConstMonstre}}
+\index{getConstMonstre@{getConstMonstre}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getConstMonstre()}{getConstMonstre()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classPersonnage}{Personnage}} \& Jeu\+::get\+Const\+Monstre (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur du ieme monstre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em il\textquotesingle{}indice} & du monstre dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le const \mbox{\hyperlink{classPersonnage}{Personnage}}\& monstre d\textquotesingle{}indice i en donnée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_ae3b2e048b68b8155e7351a61ca97979b}\label{classJeu_ae3b2e048b68b8155e7351a61ca97979b}} 
+\index{Jeu@{Jeu}!getConstPersonnage@{getConstPersonnage}}
+\index{getConstPersonnage@{getConstPersonnage}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getConstPersonnage()}{getConstPersonnage()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classPersonnage}{Personnage}} \& Jeu\+::get\+Const\+Personnage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur du \mbox{\hyperlink{classPersonnage}{Personnage}} perso en donnée. 
+
+\begin{DoxyReturn}{Returns}
+le const \mbox{\hyperlink{classPersonnage}{Personnage}}\& perso en donnée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_af7e7bd59e117f78b9d8623fd76230ca3}\label{classJeu_af7e7bd59e117f78b9d8623fd76230ca3}} 
+\index{Jeu@{Jeu}!getConstTerrain@{getConstTerrain}}
+\index{getConstTerrain@{getConstTerrain}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getConstTerrain()}{getConstTerrain()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classTerrain}{Terrain}} \& Jeu\+::get\+Const\+Terrain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur du terrain ter en donnée. 
+
+\begin{DoxyReturn}{Returns}
+le const \mbox{\hyperlink{classTerrain}{Terrain}}\& ter en donnée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_a36aed67a4d35968e42bdff09a7aa1a43}\label{classJeu_a36aed67a4d35968e42bdff09a7aa1a43}} 
+\index{Jeu@{Jeu}!getFdj@{getFdj}}
+\index{getFdj@{getFdj}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getFdj()}{getFdj()}}
+{\footnotesize\ttfamily bool Jeu\+::get\+Fdj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur à la variable fdj (findujeu) 
+
+\begin{DoxyReturn}{Returns}
+fdj le booléen qui indique si le jeu doit se terminer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_acd9fb21ecffaf5b94a8f13c958e7a7bf}\label{classJeu_acd9fb21ecffaf5b94a8f13c958e7a7bf}} 
+\index{Jeu@{Jeu}!getMonstre@{getMonstre}}
+\index{getMonstre@{getMonstre}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getMonstre()}{getMonstre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPersonnage}{Personnage}} \& Jeu\+::get\+Monstre (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption})}
+
+
+
+Accesseur du ieme monstre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & l\textquotesingle{}indice du monstre dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le \mbox{\hyperlink{classPersonnage}{Personnage}}\& monstre d\textquotesingle{}indice i 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_a8bd22f468785fad79d17e6381e04862a}\label{classJeu_a8bd22f468785fad79d17e6381e04862a}} 
+\index{Jeu@{Jeu}!getPerso@{getPerso}}
+\index{getPerso@{getPerso}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getPerso()}{getPerso()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPersonnage}{Personnage}} \& Jeu\+::get\+Perso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur du personnage perso. 
+
+\begin{DoxyReturn}{Returns}
+le \mbox{\hyperlink{classPersonnage}{Personnage}}\& perso 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_ae5a51575e48d3d32229b106e2f883264}\label{classJeu_ae5a51575e48d3d32229b106e2f883264}} 
+\index{Jeu@{Jeu}!getSens@{getSens}}
+\index{getSens@{getSens}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getSens()}{getSens()}}
+{\footnotesize\ttfamily int Jeu\+::get\+Sens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur du sens du personnage. 
+
+\begin{DoxyReturn}{Returns}
+entier correspondant au sens 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_a5ed3795fb201921c3c399090568a2996}\label{classJeu_a5ed3795fb201921c3c399090568a2996}} 
+\index{Jeu@{Jeu}!getSensO@{getSensO}}
+\index{getSensO@{getSensO}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getSensO()}{getSensO()}}
+{\footnotesize\ttfamily int Jeu\+::get\+SensO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de l\textquotesingle{}ancien sens du personnage. 
+
+\begin{DoxyReturn}{Returns}
+entier correspondant au sens 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_a9b75e03002ef11c82f65e2fbb26e14c3}\label{classJeu_a9b75e03002ef11c82f65e2fbb26e14c3}} 
+\index{Jeu@{Jeu}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily int Jeu\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur du statut actuel du personnage. 
+
+\begin{DoxyReturn}{Returns}
+entier correspondant au statut 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_a64d704b266741034d9a68333e1fbb9fa}\label{classJeu_a64d704b266741034d9a68333e1fbb9fa}} 
+\index{Jeu@{Jeu}!getStatusO@{getStatusO}}
+\index{getStatusO@{getStatusO}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getStatusO()}{getStatusO()}}
+{\footnotesize\ttfamily int Jeu\+::get\+StatusO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur de l\textquotesingle{}ancien statut du personnage. 
+
+\begin{DoxyReturn}{Returns}
+entier correspondant au statut 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_a4b5b107671761a6bb963475bf4ecc8dd}\label{classJeu_a4b5b107671761a6bb963475bf4ecc8dd}} 
+\index{Jeu@{Jeu}!getTerrain@{getTerrain}}
+\index{getTerrain@{getTerrain}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getTerrain()}{getTerrain()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTerrain}{Terrain}} \& Jeu\+::get\+Terrain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accesseur du terrain ter. 
+
+\begin{DoxyReturn}{Returns}
+le \mbox{\hyperlink{classTerrain}{Terrain}}\& ter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJeu_ac59dd70ecb3c4163fd3ec3a71112ea7b}\label{classJeu_ac59dd70ecb3c4163fd3ec3a71112ea7b}} 
+\index{Jeu@{Jeu}!setFdj@{setFdj}}
+\index{setFdj@{setFdj}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{setFdj()}{setFdj()}}
+{\footnotesize\ttfamily void Jeu\+::set\+Fdj (\begin{DoxyParamCaption}\item[{bool}]{fdj }\end{DoxyParamCaption})}
+
+
+
+Mutateur de fdj. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fdj} & le booléen qu\textquotesingle{}on affecte à la donnée-\/membre fdj \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/smirboulack/\+Documents/projet-\/lifap4/src/core/Jeu.\+h\item 
+/home/smirboulack/\+Documents/projet-\/lifap4/src/core/Jeu.\+cpp\end{DoxyCompactItemize}

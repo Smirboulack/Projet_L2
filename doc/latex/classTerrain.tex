@@ -1,0 +1,263 @@
+\hypertarget{classTerrain}{}\doxysection{Terrain Class Reference}
+\label{classTerrain}\index{Terrain@{Terrain}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTerrain_a7160a06ab07a86ed97d23374405e8ef6}\label{classTerrain_a7160a06ab07a86ed97d23374405e8ef6}} 
+\mbox{\hyperlink{classTerrain_a7160a06ab07a86ed97d23374405e8ef6}{Terrain}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut de \mbox{\hyperlink{classTerrain}{Terrain}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTerrain_a2f7f0a2aee54886324ccf48a6f321de0}\label{classTerrain_a2f7f0a2aee54886324ccf48a6f321de0}} 
+\mbox{\hyperlink{classTerrain_a2f7f0a2aee54886324ccf48a6f321de0}{$\sim$\+Terrain}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \mbox{\hyperlink{classTerrain}{Terrain}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrain_a4eb866a84f63e6085ec2e23fb1bf0f04}{load\+Map}} (const std\+::string pathname)
+\begin{DoxyCompactList}\small\item\em Procédure de chargement d\textquotesingle{}un niveau. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTerrain_a660d258a35670ffadcf33622b6f75651}\label{classTerrain_a660d258a35670ffadcf33622b6f75651}} 
+void \mbox{\hyperlink{classTerrain_a660d258a35670ffadcf33622b6f75651}{afficher\+Terrain}} ()
+\begin{DoxyCompactList}\small\item\em La procédure qui permet l\textquotesingle{}affichage du terrain. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classTerrain_a60a33d464cfb8468e26f1b4dee525178}{get\+XY}} (const int x, const int y) const
+\item 
+void \mbox{\hyperlink{classTerrain_a94014e12948d8118525481f4e7c3e97c}{set\+XY}} (const int x, const int y, const char \&c)
+\begin{DoxyCompactList}\small\item\em Mutateur du terrain en coordonnée x et y. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrain_a32ef839d3f7176417693c392fd7187bd}{set\+Dimx}} (const int Dimx)
+\begin{DoxyCompactList}\small\item\em Mutateur de dimx. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrain_a87f461b46cff3ec378d3aea33e744436}{set\+Version}} (const int \&v)
+\begin{DoxyCompactList}\small\item\em Mutateur de la version. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrain_a19edaf270ae6ac69c5730b63b72056dd}{set\+Choixniv}} (const int \&n)
+\begin{DoxyCompactList}\small\item\em Mutateur du choix du niveau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTerrain_accb6cc4ab37641b10d6d0cc3c2d9b0cb}{get\+DimX}} () const
+\begin{DoxyCompactList}\small\item\em Acesseur de dimx. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTerrain_a60bc76d822c15ca30576bd747d156b48}{get\+DimY}} () const
+\begin{DoxyCompactList}\small\item\em Acesseur de dimy. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTerrain_ab0cdc3c5dc9b3a6a49ef20ee70cda90a}{get\+Choixniv}} () const
+\begin{DoxyCompactList}\small\item\em Acesseur du Choix de niveau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTerrain_aeb7a8607969c1c864f3847ed5d7bd0a2}{get\+Version}} () const
+\begin{DoxyCompactList}\small\item\em Acesseur dela version. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrain_a4350609a0dbf7ef4613fb0c9c074ffec}{est\+Position\+Perso\+Valide}} (const int x, const int y) const
+\begin{DoxyCompactList}\small\item\em La fonction qui vérifie si la position du \mbox{\hyperlink{classPersonnage}{Personnage}} est valide. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrain_a5e8a05c0b8a6c8e3fe2905378991bd3f}{est\+Position\+Monstre\+Valide}} (const int x, const int y) const
+\begin{DoxyCompactList}\small\item\em La fonction qui vérifie si la position du monstre est valide. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrain_af27eafa95d119582b7d34bd5d14096f2}{ouvrir}} (std\+::string pathname)
+\begin{DoxyCompactList}\small\item\em La procédure de lecture d\textquotesingle{}un terrain. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTerrain_a0b49ca062daad52478cfeeaaa7bfb8fa}\label{classTerrain_a0b49ca062daad52478cfeeaaa7bfb8fa}} 
+void \mbox{\hyperlink{classTerrain_a0b49ca062daad52478cfeeaaa7bfb8fa}{test\+Regression}} ()
+\begin{DoxyCompactList}\small\item\em Procédure test\+Regression de terrain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTerrain_a5e8a05c0b8a6c8e3fe2905378991bd3f}\label{classTerrain_a5e8a05c0b8a6c8e3fe2905378991bd3f}} 
+\index{Terrain@{Terrain}!estPositionMonstreValide@{estPositionMonstreValide}}
+\index{estPositionMonstreValide@{estPositionMonstreValide}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{estPositionMonstreValide()}{estPositionMonstreValide()}}
+{\footnotesize\ttfamily bool Terrain\+::est\+Position\+Monstre\+Valide (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y }\end{DoxyParamCaption}) const}
+
+
+
+La fonction qui vérifie si la position du monstre est valide. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & la coordonnée x \\
+\hline
+{\em y} & la coordonnée y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la position est valide 
+
+false si la position est invalide 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrain_a4350609a0dbf7ef4613fb0c9c074ffec}\label{classTerrain_a4350609a0dbf7ef4613fb0c9c074ffec}} 
+\index{Terrain@{Terrain}!estPositionPersoValide@{estPositionPersoValide}}
+\index{estPositionPersoValide@{estPositionPersoValide}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{estPositionPersoValide()}{estPositionPersoValide()}}
+{\footnotesize\ttfamily bool Terrain\+::est\+Position\+Perso\+Valide (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y }\end{DoxyParamCaption}) const}
+
+
+
+La fonction qui vérifie si la position du \mbox{\hyperlink{classPersonnage}{Personnage}} est valide. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & la coordonnée x \\
+\hline
+{\em y} & la coordonnée y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la position est valide 
+
+false si la position est invalide 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrain_ab0cdc3c5dc9b3a6a49ef20ee70cda90a}\label{classTerrain_ab0cdc3c5dc9b3a6a49ef20ee70cda90a}} 
+\index{Terrain@{Terrain}!getChoixniv@{getChoixniv}}
+\index{getChoixniv@{getChoixniv}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{getChoixniv()}{getChoixniv()}}
+{\footnotesize\ttfamily int Terrain\+::get\+Choixniv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Acesseur du Choix de niveau. 
+
+\begin{DoxyReturn}{Returns}
+int dimx 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrain_accb6cc4ab37641b10d6d0cc3c2d9b0cb}\label{classTerrain_accb6cc4ab37641b10d6d0cc3c2d9b0cb}} 
+\index{Terrain@{Terrain}!getDimX@{getDimX}}
+\index{getDimX@{getDimX}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{getDimX()}{getDimX()}}
+{\footnotesize\ttfamily int Terrain\+::get\+DimX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Acesseur de dimx. 
+
+\begin{DoxyReturn}{Returns}
+int dimx 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrain_a60bc76d822c15ca30576bd747d156b48}\label{classTerrain_a60bc76d822c15ca30576bd747d156b48}} 
+\index{Terrain@{Terrain}!getDimY@{getDimY}}
+\index{getDimY@{getDimY}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{getDimY()}{getDimY()}}
+{\footnotesize\ttfamily int Terrain\+::get\+DimY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Acesseur de dimy. 
+
+\begin{DoxyReturn}{Returns}
+int dimy 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrain_aeb7a8607969c1c864f3847ed5d7bd0a2}\label{classTerrain_aeb7a8607969c1c864f3847ed5d7bd0a2}} 
+\index{Terrain@{Terrain}!getVersion@{getVersion}}
+\index{getVersion@{getVersion}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{getVersion()}{getVersion()}}
+{\footnotesize\ttfamily int Terrain\+::get\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Acesseur dela version. 
+
+\begin{DoxyReturn}{Returns}
+int la version 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrain_a60a33d464cfb8468e26f1b4dee525178}\label{classTerrain_a60a33d464cfb8468e26f1b4dee525178}} 
+\index{Terrain@{Terrain}!getXY@{getXY}}
+\index{getXY@{getXY}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{getXY()}{getXY()}}
+{\footnotesize\ttfamily char Terrain\+::get\+XY (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y }\end{DoxyParamCaption}) const}
+
+Renvoie le type d\textquotesingle{}objet se trouvant en (x,y) 
+\begin{DoxyParams}{Parameters}
+{\em x} & abs de la case de l\textquotesingle{}objet \\
+\hline
+{\em y} & ordonnée de la case de l\textquotesingle{}objet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le type d\textquotesingle{}objet se trouvant en (x,y) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrain_a4eb866a84f63e6085ec2e23fb1bf0f04}\label{classTerrain_a4eb866a84f63e6085ec2e23fb1bf0f04}} 
+\index{Terrain@{Terrain}!loadMap@{loadMap}}
+\index{loadMap@{loadMap}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{loadMap()}{loadMap()}}
+{\footnotesize\ttfamily bool Terrain\+::load\+Map (\begin{DoxyParamCaption}\item[{const std\+::string}]{pathname }\end{DoxyParamCaption})}
+
+
+
+Procédure de chargement d\textquotesingle{}un niveau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pathname} & le chemain vers le niveau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrain_af27eafa95d119582b7d34bd5d14096f2}\label{classTerrain_af27eafa95d119582b7d34bd5d14096f2}} 
+\index{Terrain@{Terrain}!ouvrir@{ouvrir}}
+\index{ouvrir@{ouvrir}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{ouvrir()}{ouvrir()}}
+{\footnotesize\ttfamily void Terrain\+::ouvrir (\begin{DoxyParamCaption}\item[{std\+::string}]{pathname }\end{DoxyParamCaption})}
+
+
+
+La procédure de lecture d\textquotesingle{}un terrain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pathname} & le chemin vers le terrain \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrain_a19edaf270ae6ac69c5730b63b72056dd}\label{classTerrain_a19edaf270ae6ac69c5730b63b72056dd}} 
+\index{Terrain@{Terrain}!setChoixniv@{setChoixniv}}
+\index{setChoixniv@{setChoixniv}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{setChoixniv()}{setChoixniv()}}
+{\footnotesize\ttfamily void Terrain\+::set\+Choixniv (\begin{DoxyParamCaption}\item[{const int \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Mutateur du choix du niveau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & le niveau \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrain_a32ef839d3f7176417693c392fd7187bd}\label{classTerrain_a32ef839d3f7176417693c392fd7187bd}} 
+\index{Terrain@{Terrain}!setDimx@{setDimx}}
+\index{setDimx@{setDimx}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{setDimx()}{setDimx()}}
+{\footnotesize\ttfamily void Terrain\+::set\+Dimx (\begin{DoxyParamCaption}\item[{const int}]{Dimx }\end{DoxyParamCaption})}
+
+
+
+Mutateur de dimx. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Dimx} & la coordonnée à insérer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrain_a87f461b46cff3ec378d3aea33e744436}\label{classTerrain_a87f461b46cff3ec378d3aea33e744436}} 
+\index{Terrain@{Terrain}!setVersion@{setVersion}}
+\index{setVersion@{setVersion}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{setVersion()}{setVersion()}}
+{\footnotesize\ttfamily void Terrain\+::set\+Version (\begin{DoxyParamCaption}\item[{const int \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Mutateur de la version. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & la version \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrain_a94014e12948d8118525481f4e7c3e97c}\label{classTerrain_a94014e12948d8118525481f4e7c3e97c}} 
+\index{Terrain@{Terrain}!setXY@{setXY}}
+\index{setXY@{setXY}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{setXY()}{setXY()}}
+{\footnotesize\ttfamily void Terrain\+::set\+XY (\begin{DoxyParamCaption}\item[{const int}]{x,  }\item[{const int}]{y,  }\item[{const char \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Mutateur du terrain en coordonnée x et y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & la coordonnée \\
+\hline
+{\em y} & la coordonnée \\
+\hline
+{\em c} & le caractère à insérer \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/smirboulack/\+Documents/projet-\/lifap4/src/core/Terrain.\+h\item 
+/home/smirboulack/\+Documents/projet-\/lifap4/src/core/Terrain.\+cpp\end{DoxyCompactItemize}

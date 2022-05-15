@@ -1,0 +1,116 @@
+\hypertarget{classImage}{}\doxysection{Image Class Reference}
+\label{classImage}\index{Image@{Image}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classImage_a58edd1c45b4faeb5f789b0d036d02313}\label{classImage_a58edd1c45b4faeb5f789b0d036d02313}} 
+\mbox{\hyperlink{classImage_a58edd1c45b4faeb5f789b0d036d02313}{Image}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut de la classe \mbox{\hyperlink{classsdlJeu}{sdl\+Jeu}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImage_aa276b5183099671ddeaf8f083068046c}{load\+From\+File}} (const char $\ast$filename, SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Procédure qui permet de charger une iamge depuis le chemin specifié \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImage_aee71e67e123b6fdd1d3c91caa2892792}{load\+From\+Current\+Surface}} (SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Procédure qui permet de créer une texture à partir du renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImage_a82d6936d466ba0161d8b9cbacf613de5}{draw}} (SDL\+\_\+\+Renderer $\ast$renderer, int x, int y, int w=-\/1, int h=-\/1)
+\begin{DoxyCompactList}\small\item\em Procédure qui dessine l\textquotesingle{}image avec les paramètres spécifiés. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImage_a199c62f87a64736b87483e65918565d3}{draw\+\_\+animation}} (int n, SDL\+\_\+\+Renderer $\ast$renderer, int i, int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em Procédure pour dessiner une animation avec les paramètres spécifiés. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classImage_ae9e27e310b4322d04366f2882f3a4242}\label{classImage_ae9e27e310b4322d04366f2882f3a4242}} 
+SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{classImage_ae9e27e310b4322d04366f2882f3a4242}{get\+Texture}} () const
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie la donnée membre texture. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classImage_a833f5d3b4b9f905320c6dffcc9b84b95}\label{classImage_a833f5d3b4b9f905320c6dffcc9b84b95}} 
+void \mbox{\hyperlink{classImage_a833f5d3b4b9f905320c6dffcc9b84b95}{set\+Surface}} (SDL\+\_\+\+Surface $\ast$surf)
+\begin{DoxyCompactList}\small\item\em Procédure qui permet de spécifier la donnée membre surface. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classImage_a82ffef6c89927b0cc755a3fe2fec637b}\label{classImage_a82ffef6c89927b0cc755a3fe2fec637b}} 
+void \mbox{\hyperlink{classImage_a82ffef6c89927b0cc755a3fe2fec637b}{test\+Regression}} ()
+\begin{DoxyCompactList}\small\item\em Procédure test\+Regression de la classe \mbox{\hyperlink{classImage}{Image}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classImage_a82d6936d466ba0161d8b9cbacf613de5}\label{classImage_a82d6936d466ba0161d8b9cbacf613de5}} 
+\index{Image@{Image}!draw@{draw}}
+\index{draw@{draw}!Image@{Image}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Image\+::draw (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w = {\ttfamily -\/1},  }\item[{int}]{h = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Procédure qui dessine l\textquotesingle{}image avec les paramètres spécifiés. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+{\em x} & position X de l\textquotesingle{}image \\
+\hline
+{\em y} & position Y de l\textquotesingle{}image \\
+\hline
+{\em w} & largeur de l\textquotesingle{}image \\
+\hline
+{\em h} & hauteur de l\textquotesingle{}image \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classImage_a199c62f87a64736b87483e65918565d3}\label{classImage_a199c62f87a64736b87483e65918565d3}} 
+\index{Image@{Image}!draw\_animation@{draw\_animation}}
+\index{draw\_animation@{draw\_animation}!Image@{Image}}
+\doxysubsubsection{\texorpdfstring{draw\_animation()}{draw\_animation()}}
+{\footnotesize\ttfamily void Image\+::draw\+\_\+animation (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{i,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+Procédure pour dessiner une animation avec les paramètres spécifiés. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & animation à n image \\
+\hline
+{\em renderer} & pointeur sur SDL\+\_\+renderder \\
+\hline
+{\em i} & image actuel \\
+\hline
+{\em x} & position X de l\textquotesingle{}image \\
+\hline
+{\em y} & position Y de l\textquotesingle{}image \\
+\hline
+{\em w} & largeur de l\textquotesingle{}image \\
+\hline
+{\em h} & hauteur de l\textquotesingle{}image \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classImage_aee71e67e123b6fdd1d3c91caa2892792}\label{classImage_aee71e67e123b6fdd1d3c91caa2892792}} 
+\index{Image@{Image}!loadFromCurrentSurface@{loadFromCurrentSurface}}
+\index{loadFromCurrentSurface@{loadFromCurrentSurface}!Image@{Image}}
+\doxysubsubsection{\texorpdfstring{loadFromCurrentSurface()}{loadFromCurrentSurface()}}
+{\footnotesize\ttfamily void Image\+::load\+From\+Current\+Surface (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Procédure qui permet de créer une texture à partir du renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & pointeur sur SDL\+\_\+renderer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classImage_aa276b5183099671ddeaf8f083068046c}\label{classImage_aa276b5183099671ddeaf8f083068046c}} 
+\index{Image@{Image}!loadFromFile@{loadFromFile}}
+\index{loadFromFile@{loadFromFile}!Image@{Image}}
+\doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
+{\footnotesize\ttfamily void Image\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Procédure qui permet de charger une iamge depuis le chemin specifié 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & chaîne de caractères qui permet de spécifier le chemin vers le fichier image \\
+\hline
+{\em renderer} & pointeur sur SDL\+\_\+renderer \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/smirboulack/\+Documents/projet-\/lifap4/src/sdl2/Image.\+h\item 
+/home/smirboulack/\+Documents/projet-\/lifap4/src/sdl2/Image.\+cpp\end{DoxyCompactItemize}
