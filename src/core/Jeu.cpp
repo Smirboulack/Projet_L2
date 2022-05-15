@@ -49,7 +49,6 @@ bool Jeu::actionClavier(const int touche)
 			for(int i = 0;i < NbMonstre;i++){
 			perso.attaquer(tabmonstre[i]);
 		}
-
 		break;
 	}
 	return false;
@@ -280,12 +279,11 @@ void Jeu::bougeAutoMonstre(Terrain & ter){
 	  srand((int)time(0));
 		for(int i = 0;i < NbMonstre;i++){
 			if(rand()%100 < 50){
-		    tabmonstre[i].deplacer('d',ter);
+		    tabmonstre[i].deplacerMonstre('d',ter);
 		  }else{
-		    tabmonstre[i].deplacer('q', ter);
+		    tabmonstre[i].deplacerMonstre('q', ter);
 		  }
 		}
-
 }
 
 void Jeu::niveauSuivant(){

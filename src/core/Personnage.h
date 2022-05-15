@@ -76,6 +76,14 @@ public:
    */
   bool deplacer(char direction, const Terrain &t);
   /**
+   * @brief la fonction qui permet le déplacement du monstre
+   * @param direction le direction voulue
+   * @param t le terrain
+   * @return true
+   * @return false
+   */
+  bool deplacerMonstre(char direction, const Terrain &t);
+  /**
    * @brief la fonction qui permet le déplacement rapide du personnage
    *
    * @param n la vitesse souhaitée
