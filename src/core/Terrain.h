@@ -105,6 +105,8 @@ class Terrain
      * @return false si la position est invalide
      */
     bool estPositionPersoValide(const int x,const int y) const;
+    bool estPositionMonstreValide(const int x,const int y) const;
+
     /**
      * @brief La procédure de lecture d'un terrain
      * 
