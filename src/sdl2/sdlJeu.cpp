@@ -283,21 +283,6 @@ SDL_Event sdlJeu::getEvent() const { return event; }
 void sdlJeu::sdlBoucle()
 {
 
-
-  const Terrain & ter = jeu.getConstTerrain();
-/*
-  for(int y = 0; y < jeu.getTerrain().getDimY(); y++){
-    cout << y;
-    for(int x = 0; x < jeu.getTerrain().getDimX(); x++){
-
-      cout << ter.getXY(x , y);
-    }
-    cout << endl;
-  }
-  */
-
-
-  //ter.getXY(11, 5);
   bool quit = false;
   SDL_Event events = getEvent();
 
@@ -309,7 +294,7 @@ void sdlJeu::sdlBoucle()
     while (SDL_PollEvent(&events)) {
 			if (events.type == SDL_QUIT) quit = true;           // Si l'utilisateur a clique sur la croix de fermeture
 			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
-                bool mangepiece = false;
+             //   bool mangepiece = false;
 				switch (events.key.keysym.sym) {
 				case SDLK_UP:
 				//	mangepiece = jeu.actionClavier();    // car Y inverse

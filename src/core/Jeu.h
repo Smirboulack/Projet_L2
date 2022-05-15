@@ -59,7 +59,7 @@ public:
   /**
    * @brief Accesseur du ieme monstre
    *
-   * @param il'indice du monstre dans le tableau
+   * @param i l'indice du monstre dans le tableau
    * @return le const Personnage& monstre d'indice i en donnée
    */
   const Personnage &getConstMonstre(const int &i) const;

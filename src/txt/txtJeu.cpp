@@ -28,7 +28,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 	int xp,xd=0;
 	if(perso.getX()>20){xp = perso.getX()-20;}else{xp=0;}
 	xd = perso.getX()+25;
-	if(xp == perso.getX()+1) {xp = xp++;}
+	if(xp == perso.getX()+1) {xp++;}
 
 	 // Affichage des murs,des plateformes et des monstres selon le champ de vision du personnage
 	if(xd){
@@ -104,9 +104,6 @@ void txtBoucle(Jeu &jeu)
 	do
 	{
 		txtAff(win, jeu);
-		//cout << jeu.getPerso().getVie();
-		//cout << jeu.getTerrain().getChoixniv() << endl;
-
 		#ifdef _WIN32
 		Sleep(100);
 		#else
@@ -119,7 +116,7 @@ void txtBoucle(Jeu &jeu)
 		jeu.actionsAutomatiques();
 		jeu.actionClavier(c);
 
-		//if(jeu.getFdj()) AffFin(win, jeu);
+	//	if(jeu.getFdj()) AffFin(win, jeu);
 
 		if (c == 'x') {
 			jeu.setFdj(true);

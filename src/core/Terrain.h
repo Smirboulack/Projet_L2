@@ -71,25 +71,25 @@ public:
      */
     void setChoixniv(const int &n);
     /**
-     * @brief Acesseur de dimx
+     * @brief Accesseur de dimx
      *
      * @return int dimx
      */
     int getDimX() const;
     /**
-     * @brief Acesseur de dimy
+     * @brief Accesseur de dimy
      *
      * @return int dimy
      */
     int getDimY() const;
     /**
-     * @brief Acesseur du Choix de niveau
+     * @brief Accesseur du Choix de niveau
      *
      * @return int dimx
      */
     int getChoixniv() const;
     /**
-     * @brief Acesseur dela version
+     * @brief Accesseur dela version
      *
      * @return int la version
      */

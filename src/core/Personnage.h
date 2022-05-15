@@ -94,7 +94,7 @@ public:
    */
   void updateSens(int s);
   /**
-   * @brief le procédure qui permet au héros de sauter
+   * @brief la procédure qui permet au héros de sauter
    *
    * @param ter le terrain
    */
@@ -162,7 +162,7 @@ public:
    */
   void setPiece(int piece);
   /**
-   * @brief Mutateur de armurer
+   * @brief Mutateur de armure
    *
    */
   void setArmure(int armure);

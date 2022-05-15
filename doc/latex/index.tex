@@ -1,0 +1,186 @@
+\hypertarget{index_intro}{}\doxysection{Introduction}\label{index_intro}
+\hypertarget{index_autotoc_md0}{}\doxysection{PROJET ULTIMATE-\/\+LIFKAS pour l\textquotesingle{}\+UE LIFAP4}\label{index_autotoc_md0}
+TEMIRBOULATOV KOUREICH p1707160 ; BENZIANE ABDELDJALLIL p1919796 ; MA SHENGQI p2108131
+
+Ultimate-\/\+LIFKAS est un jeu-\/vidéo developpé en c++ en utilisant la SDL/\+SDL2. Ce projet de developpement à été réalisé dans le cadre de l\textquotesingle{}UE LIFAP4 ~\newline
+ Voir la page du cours \+: \href{http://licence-info.univ-lyon1.fr/LIFAP4}{\texttt{ http\+://licence-\/info.\+univ-\/lyon1.\+fr/\+LIFAP4}}
+
+Ce dossier contient un makefile permettant d\textquotesingle{}executer le code du jeu-\/vidéo.~\newline
+ le Dossier src contient les sous-\/dossiers /core /sdl2 et /txt qui contiennent les modules spécifiques du jeu. (fichiers .h et .cpp) ~\newline
+
+
+Le jeu-\/vidéo est jouable en version console(version texte) sans interface graphique et en version graphique avec la SDL.
+
+Il peut se compiler sous Linux et Windows (avec WSL notamment) , avec la commande make depuis le dossier source.\hypertarget{index_autotoc_md1}{}\doxysubsection{Code et l\textquotesingle{}organisation des fichiers}\label{index_autotoc_md1}
+Le code est divisé en plusieurs modules répartis entre le coeur (fichiers dans le dossiers /src/core) qui constitue le noyau du programme et entre les modes d\textquotesingle{}interfaces (fichiers dans le sous-\/dossier /src/txt) pour la version console(texte) ~\newline
+ et l\textquotesingle{}interface graphique (fichiers dans le sous-\/dossier src/sdl2) pour la version en SDL.\hypertarget{index_compil}{}\doxysection{Compilation}\label{index_compil}
+L\textquotesingle{}organistion des fichiers est la suivante.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{bin}} \+: Contient les fichiers executable créees avec la commande make depuis le dossier racine , pour éxecuter un fichier il faut executer la commande ./nom\+\_\+executable , exemple \+: ./main\+\_\+sdl
+\item {\bfseries{data}} \+: Contient les fichiers images,audio et .txt du jeu
+\item {\bfseries{doc}} \+: Contient le fichier .doxy permettant d\textquotesingle{}éditer et générer la documentation doxygen.
+\item {\bfseries{doc/html/index.\+html}} \+: La page internet de la documentation généré par doxygen.
+\item {\bfseries{obj}} \+: répertoire comportant les fichiers objets créés lors de la compilation.
+\item {\bfseries{src}} \+: Contient les sous-\/dossiers /core /sdl2 et /txt
+\item {\bfseries{src/core}} \+: Contient les fichiers source .cpp et .h qui constitue les modules principaux du jeu , les modules noyau.
+\item {\bfseries{src/sdl2}} \+: Contient les fichiers source .cpp et .h qui constitue de les modules principaux pour la version graphique SDL du jeu.
+\item {\bfseries{src/txt}} \+: Contient les fichiers source .cpp et .h qui constitue les modules principaux pour la version txt du jeu.
+\end{DoxyItemize}
+
+Pour la documentation du code, voir la rubrique \char`\"{}documentation du code\char`\"{} plus bas.\hypertarget{index_autotoc_md2}{}\doxysubsection{Pour compiler}\label{index_autotoc_md2}
+Si vous êtes sous linux , assurez-\/vous d\textquotesingle{}avoir SDL/\+SDL2 installer sur votre machine. -\/Ouvrez un terminal et éxecuter simplement la commande \+: sudo apt install libsdl2-\/dev libsdl2-\/image-\/dev libsdl2-\/ttf-\/dev libsdl2-\/mixer-\/dev imagemagick -\/Puis depuis le dossier racine du jeu , executez , depuis votre terminal, la commande \+: make -\/Une fois la compilation terminée , executez la commande ./bin/main\+\_\+txt pour lancer la version txt du jeu ou ./bin/main\+\_\+sdl pour lancer la version graphique
+
+Si la commande d\textquotesingle{}installation de la SDL/\+SDL2 ne fonctionne pas , reférez-\/vous à la commande spécifique pour installer SDL/\+SDL2 selon votre distribution linux.\hypertarget{index_autotoc_md3}{}\doxysubsubsection{Préambule \+: si vous voulez un Linux sous Windows, vous pouvez installer WSL !}\label{index_autotoc_md3}
+Voir la page de l\textquotesingle{}UE \+: \href{https://perso.liris.cnrs.fr/alexandre.meyer/public_html/www/doku.php?id=lifap4\#wsl_pour_faire_tourner_un_linux_ultra_leger_sous_windows}{\texttt{ https\+://perso.\+liris.\+cnrs.\+fr/alexandre.\+meyer/public\+\_\+html/www/doku.\+php?id=lifap4\#wsl\+\_\+pour\+\_\+faire\+\_\+tourner\+\_\+un\+\_\+linux\+\_\+ultra\+\_\+leger\+\_\+sous\+\_\+windows}}
+
+C\textquotesingle{}est léger, pratique, rapide et suffisant pour de nombreuses applications. Windows/\+WSL est exactement comme une machine Linux avec des drivers minimalistes, donc la gestion de certains périphériques commes la carte son ou l\textquotesingle{}accélération 3D peut ne pas marcher mais pour ce cours ca peut être suffisant. Il faut parcontre que vous ayez installé XMing pour pouvoir ouvrir des fenêtres comme expliqué sur la page du cours. Valgrind marche aussi !\hypertarget{index_autotoc_md4}{}\doxysubsubsection{Pour installer SDL2}\label{index_autotoc_md4}
+Pour installer SDL2 sous Linux ou avec WSL/\+Windows {\ttfamily sudo apt install libsdl2-\/dev libsdl2-\/image-\/dev libsdl2-\/ttf-\/dev libsdl2-\/mixer-\/dev imagemagick}\hypertarget{index_autotoc_md5}{}\doxysubsubsection{Une fois SDL2 et WSL (le cas échéant) installés, la compilation s\textquotesingle{}effectue en ligne de commande\+:}\label{index_autotoc_md5}
+Depuis le répertoire racine du module image, exécutez la commande make. Si la compilation ne s\textquotesingle{}effectue pas, vérifiez que les chemins d\textquotesingle{}inclusion précisés dans le fichier Makefile en racine du projet correspondent à votre installation de SDL2 (par défaut /usr/include).\hypertarget{index_doc}{}\doxysection{Documentation}\label{index_doc}
+Une documentation détaillée générée grâce à Doxygen est disponible dans le répertoire doc ~\newline
+
+
+Le programme contient neuf classes et utilise plusieurs librairies .
+
+Les classes sont \mbox{\hyperlink{classCamera}{Camera}},\mbox{\hyperlink{classJeu}{Jeu}},\mbox{\hyperlink{classTerrain}{Terrain}},\mbox{\hyperlink{classPersonnage}{Personnage}},Menu,\mbox{\hyperlink{classImage}{Image}},\mbox{\hyperlink{classsdlJeu}{sdl\+Jeu}},txt\+Jeu et win\+Txt ~\newline
+\hypertarget{index_autotoc_md6}{}\doxysubsubsection{class Camera}\label{index_autotoc_md6}
+La class \mbox{\hyperlink{classCamera}{Camera}} permet de gérer le déplacement de la caméra dans la version graphique (SDL) ~\newline
+ \begin{DoxyVerb}    Pour les fonctions membres : 
+\end{DoxyVerb}
+ int decalage\+X(const Personnage \&perso, const Terrain \&ter) \+: La fonction qui calcule le décalage à appliquer pour le déplacement du terrain ~\newline
+\hypertarget{index_autotoc_md7}{}\doxysubsubsection{class Jeu}\label{index_autotoc_md7}
+La class \mbox{\hyperlink{classJeu}{Jeu}} constitue la class principale du \mbox{\hyperlink{classJeu}{Jeu}} , elle gère le personnage , les monstres , la gravité etc ... \begin{DoxyVerb}    Pour les fonctions membres : 
+\end{DoxyVerb}
+ \mbox{\hyperlink{classTerrain}{Terrain}} \&get\+Terrain(); Accesseur du terrain qui renvoie la donnée membre ter ~\newline
+ \mbox{\hyperlink{classPersonnage}{Personnage}} \&get\+Perso(); Accesseur de \mbox{\hyperlink{classPersonnage}{Personnage}} qui renvoie la donnée membre perso ~\newline
+ \mbox{\hyperlink{classPersonnage}{Personnage}} \&get\+Monstre(); Accesseur de \mbox{\hyperlink{classPersonnage}{Personnage}} qui renvoie la donnée membre monstre ~\newline
+ \mbox{\hyperlink{classPersonnage}{Personnage}} \&get\+Monstre(const int \&i); Accesseur de \mbox{\hyperlink{classPersonnage}{Personnage}} qui renvoie le monstre d\textquotesingle{}indice i du tableau de monstre ~\newline
+ const \mbox{\hyperlink{classTerrain}{Terrain}} \&get\+Const\+Terrain() const; Accesseur du terrain qui renvoie la donnée membre ter ~\newline
+ const \mbox{\hyperlink{classPersonnage}{Personnage}} \&get\+Const\+Personnage() const; Accesseur de \mbox{\hyperlink{classPersonnage}{Personnage}} qui renvoie la donnée membre perso ~\newline
+ const \mbox{\hyperlink{classPersonnage}{Personnage}} \&get\+Const\+Monstre() const; Accesseur de \mbox{\hyperlink{classPersonnage}{Personnage}} qui renvoie la donnée membre monstre ~\newline
+ int get\+Status() const; Accesseur qui renvoie la donnée membre status ~\newline
+ int get\+Status\+O() const; Accesseur qui renvoie la donnée membre statusO ~\newline
+ int get\+Sens() const; Accesseur qui renvoie la donnée membre Sens ~\newline
+ int get\+Sens\+O() const; Accesseur qui renvoie la donnée membre SensO ~\newline
+ bool get\+Fdj(); Accesseur qui renvoie la donnée membre fdj ~\newline
+ void set\+Fdj(bool fdj); mutateur qui modifie la donnée membre fdj ~\newline
+ void actions\+Automatiques(); Procédure qui sert à appeler les fonctions membres en boucle ~\newline
+ void init\+Monstre(); Procédure qui sert à initialiser les monstres ~\newline
+ bool action\+Clavier(const int touche); Fonction qui fait appel à la procédure correspondante à la touche pressée ~\newline
+ void gravite(); Fonction qui applique la gravité sur le terrain ~\newline
+ void gravite\+Monstre(); Fonction qui applique la gravité uniquement sur les monstres ~\newline
+ void ramasser\+Items(); Procédure qui permet au héros de ramasser les items ~\newline
+ void Perso\+Subir\+Degat(); Procédure qui permet de gérer la collision entre le héros et les monstres ~\newline
+ void Fin\+Du\+Jeu(); Procédure qui permet de vérifier si le jeu doit se terminer ou non ~\newline
+ void niveau\+Suivant(); Procédure qui permet le passage aux niveaux suivants ~\newline
+ void bouge\+Auto\+Monstre(\+Terrain \&ter); Procédure qui permet de faire bouger les monstres automatiquement et de façon aléatoires ~\newline
+\hypertarget{index_autotoc_md8}{}\doxysubsubsection{class Terrain}\label{index_autotoc_md8}
+La class \mbox{\hyperlink{classTerrain}{Terrain}} est la class qui gère la lecture et l\textquotesingle{}affichage du terrain de jeu. \begin{DoxyVerb}    Pour les fonctions membres : 
+\end{DoxyVerb}
+ bool load\+Map(const std\+::string pathname);Procédure de chargement d\textquotesingle{}un niveau ~\newline
+ void afficher\+Terrain(); procédure qui permet l\textquotesingle{}affichage du terrain~\newline
+ char get\+XY(const int x, const int y) const; Renvoie le type d\textquotesingle{}objet se trouvant en (x,y)~\newline
+ void set\+XY(const int x, const int y, const char \&c); Mutateur du terrain en coordonnée x et y~\newline
+ void set\+Dimx(const int Dimx); Mutateur de dimx ~\newline
+ void set\+Version(const int \&v); Mutateur de la version~\newline
+ void set\+Choixniv(const int \&n); Mutateur du choix du niveau~\newline
+ int get\+Dim\+X() const; Accesseur de dimx ~\newline
+ int get\+Dim\+Y() const; Accesseur de dimy ~\newline
+ int get\+Choixniv() const; Accesseur du Choix de niveau ~\newline
+ int get\+Version() const; Accesseur dela version ~\newline
+ bool est\+Position\+Perso\+Valide(const int x, const int y) const; Fonction qui vérifie si la position du \mbox{\hyperlink{classPersonnage}{Personnage}} est valide ~\newline
+ bool est\+Position\+Monstre\+Valide(const int x, const int y) const; Fonction qui vérifie si la position du monstre est valide ~\newline
+ void ouvrir(std\+::string pathname); Procédure de lecture d\textquotesingle{}un terrain ~\newline
+\hypertarget{index_autotoc_md9}{}\doxysubsubsection{class Personnage}\label{index_autotoc_md9}
+La class \mbox{\hyperlink{classPersonnage}{Personnage}} permet d\textquotesingle{}initialiser un personnage joueur et des monstres \begin{DoxyVerb}    Pour les fonctions membres : 
+\end{DoxyVerb}
+ bool deplacer(char direction, const Terrain \&t); la fonction qui permet le déplacement du personnage~\newline
+ bool deplacer\+Monstre(char direction, const Terrain \&t); la fonction qui permet le déplacement du monstre~\newline
+ bool deplacer\+Vite(int n, char direction, const Terrain \&t); la fonction qui permet le déplacement rapide du personnage~\newline
+ void subir\+Degat(int degat); La procédure qui fait subir les dégats et réduit les points de vie du personnage~\newline
+ void update\+Status(int s); la procédure de mise à jour du statut ~\newline
+ void update\+Sens(int s); la procédure de mise à jour du sens~\newline
+ void sauter(const Terrain \&ter); la procédure qui permet au héros de sauter~\newline
+ void gravite(const Terrain \&ter); la procédure qui applique la gravité au \mbox{\hyperlink{classPersonnage}{Personnage}}~\newline
+ void attaquer(\+Personnage \&perso); la procédure qui permet au héros d\textquotesingle{}attaquer~\newline
+ void set\+X(int x); Mutateur de x~\newline
+ void set\+Y(int y); Mutateur de y~\newline
+ void set\+Vie(int vie); Mutateur de vie~\newline
+ void set\+Sexe(bool sexe); Mutateur du sexe~\newline
+ void set\+Sens(int sens); Mutateur du sens~\newline
+ void set\+Mort(bool mort); Mutateur de mort~\newline
+ void set\+Nom(std\+::string nom); Mutateur du nom~\newline
+ void set\+Degat(int degat); Mutateur de degat~\newline
+ void set\+Portee(int portee); Mutateur de portée~\newline
+ void set\+Piece(int piece); Mutateur de piece~\newline
+ void set\+Armure(int armure); Mutateur de armure~\newline
+ void set\+Arme(bool b); Mutateur de arme~\newline
+ void set\+Saute(bool saute); Procédure qui permet de modifier la valeur du booléen saut~\newline
+ int get\+X() const; Accesseur de x~\newline
+ int get\+Y() const; Accesseur de y~\newline
+ int get\+XO() const; Accesseur de l\textquotesingle{}ancien x~\newline
+ int get\+YO() const; Accesseur de l\textquotesingle{}ancien y~\newline
+ int get\+Vie(); Accesseur de vie~\newline
+ std\+::string get\+Nom(); Accesseur de nom~\newline
+ bool get\+Sexe(); Accesseur du sexe~\newline
+ int get\+Sens() const; Accesseur de sens~\newline
+ int get\+Sens\+O() const; Accesseur de l\textquotesingle{}ancien sens~\newline
+ bool get\+Mort(); Accesseur de mort~\newline
+ int get\+Degat(); Accesseur de degat~\newline
+ int get\+Portee(); Accesseur de portée~\newline
+ int get\+Status() const; Accesseur de statut~\newline
+ int get\+Status\+O() const; Accesseur de l\textquotesingle{}ancien statut~\newline
+ int get\+Piece(); Accesseur de piece~\newline
+ int get\+Armure(); Accesseur de armure~\newline
+ bool get\+Arme(); Accesseur de arme~\newline
+ bool get\+Saute(); Fonction accesseur qui renvoie le booléen saut~\newline
+ void vers\+Perso(const Terrain \&ter, const Personnage \&p); La procédure qui permet au monstre de se diriger vers le héros~\newline
+\hypertarget{index_autotoc_md10}{}\doxysubsubsection{class Menu}\label{index_autotoc_md10}
+La class Menu permet de faire l\textquotesingle{}affichage d\textquotesingle{}un menu en version txt \begin{DoxyVerb}    Pour les fonctions membres : 
+\end{DoxyVerb}
+ void menu\+Aff(); Procédure qui permet d\textquotesingle{}afficher les choix du menu principal ~\newline
+ void menuo\+Aff(); Procédure qui permet d\textquotesingle{}afficher les choix du sous-\/menu options ~\newline
+ Choix\+Menu menu\+Question(); Procédure qui permet gérer le déplacement dans le menu principal ~\newline
+ Choix\+Menu\+Options menuo\+Question(); Procédure qui permet gérer le déplacement dans le sous-\/menu options ~\newline
+\hypertarget{index_autotoc_md11}{}\doxysubsubsection{class Image}\label{index_autotoc_md11}
+La classe permet de charger une image et de l\textquotesingle{}afficher \begin{DoxyVerb}    Pour les fonctions membres : 
+void loadFromFile(const char *filename, SDL_Renderer *renderer); Procédure qui permet de charger une iamge depuis le chemin specifié<br>
+void loadFromCurrentSurface(SDL_Renderer *renderer); Procédure qui permet de créer une texture à partir du renderer<br>
+void draw(SDL_Renderer *renderer, int x, int y, int w = -1, int h = -1); Procédure qui dessine l'image avec les paramètres spécifiés<br>
+void draw_animation(int n, SDL_Renderer *renderer, int i, int x, int y, int w, int h); Procédure pour dessiner une animation avec les paramètres spécifiés<br>
+SDL_Texture *getTexture() const; Fonction qui renvoie la donnée membre texture<br>
+void setSurface(SDL_Surface *surf); Procédure qui permet de spécifier la donnée membre surface<br>
+\end{DoxyVerb}
+ \hypertarget{index_autotoc_md12}{}\doxysubsubsection{class sdl\+Jeu}\label{index_autotoc_md12}
+La class \mbox{\hyperlink{classsdlJeu}{sdl\+Jeu}} gère la version graphique du jeu ainsi que l\textquotesingle{}audio \begin{DoxyVerb}    Pour les fonctions membres : 
+\end{DoxyVerb}
+ void sdl\+Boucle(); Procédure qui permet de faire appels aux fonctions membres en boucle~\newline
+ void sdl\+Aff(); Procédure qui permet de faire l\textquotesingle{}affichage des objets du jeu et les animations~\newline
+ void draw\+Terrain(); Procédure qui permet de dessiner le terrain de jeu~\newline
+ void draw\+Personnage(); Procédure qui permet de dessiner le personnage joueur~\newline
+ void draw\+Monstre(); Procédure qui permet de dessiner le personnage monstre~\newline
+ SDL\+\_\+\+Event get\+Event() const; Fonction qui permet de renvoyer l\textquotesingle{}objet event de type SDL\+\_\+\+Event~\newline
+ void draw\+Info\+Perso(); Procédure qui permet de dessiner les informations sur le personnage~\newline
+\hypertarget{index_autotoc_md13}{}\doxysubsubsection{class txt\+Jeu}\label{index_autotoc_md13}
+La class txt\+Jeu gère la version console(texte) du jeu. \begin{DoxyVerb}    Pour les fonctions membres : 
+\end{DoxyVerb}
+ void txt\+Boucle(\+Jeu \&j);Procédure qui permet de faire l\textquotesingle{}affichage de l\textquotesingle{}écran en boucle~\newline
+\hypertarget{index_autotoc_md14}{}\doxysubsubsection{class win\+Txt}\label{index_autotoc_md14}
+La class win\+Txt gère l\textquotesingle{}affichage en version console(texte) \begin{DoxyVerb}    Pour les fonctions membres : 
+\end{DoxyVerb}
+ void clear(char c = \textquotesingle{} \textquotesingle{});Procédure qui nettoie l\textquotesingle{}écran en l\textquotesingle{}a remplissant avec le caractère \textquotesingle{} \textquotesingle{} ~\newline
+ void print(int x, int y, char c); Procédure qui affiche à l\textquotesingle{}écran le caractère c au paramètres spécifiés ~\newline
+ void print(int x, int y, char $\ast$c); Procédure qui affiche à l\textquotesingle{}écran le caractère c au paramètres spécifiés ~\newline
+ void draw(int x = 0, int y = 0); Procédure qui permet de dessiner dans l\textquotesingle{}écran ~\newline
+ void pause(); Procédure qui permet de mettre en pause l\textquotesingle{}écran en attente de l\textquotesingle{}entrée d\textquotesingle{}une touche ~\newline
+ char get\+Ch(); Fonction qui retourne le caractère ~\newline
+
+
+l\textquotesingle{}executable bin/test permet de faire un test de regression en faisant appel à la procédure de test de régression ~\newline
+~\newline
+ l\textquotesingle{}executable bin/main\+\_\+sdl lance la version graphique du jeu ~\newline
+~\newline
+ l\textquotesingle{}executable bin/main\+\_\+txt permet lance la version texte du jeu ~\newline
+~\newline
+ 
