@@ -8,7 +8,7 @@ using namespace std;
 const int VITESSE = 1;
 
 
-Jeu::Jeu() : ter(), perso(), monst(360,180,20,20,20,"Monstre")
+Jeu::Jeu() : ter(), perso()
 {
 	Fdj = false;
 }
@@ -73,7 +73,7 @@ void Jeu::FinDuJeu()
 void Jeu::gravite()
 {
 	perso.gravite(ter);
-	for(int i = 0; i < 10;i++){
+	for(int i = 0; i < NbMonstre;i++){
 		tabmonstre[i].gravite(ter);
 	}
 }
@@ -183,58 +183,95 @@ bool Jeu::getFdj(){
 
 void Jeu::initMonstre()
 {
-	if(getTerrain().getVersion()==1)
+	if (getTerrain().getVersion() == 1)
 	{
+		tabmonstre[0].setX(15 * TAILLE_SPRITE);
+		tabmonstre[0].setY(14 * TAILLE_SPRITE);
+		tabmonstre[1].setX(17 * TAILLE_SPRITE);
+		tabmonstre[1].setY(14 * TAILLE_SPRITE);
+		tabmonstre[2].setX(18 * TAILLE_SPRITE);
+		tabmonstre[2].setY(14 * TAILLE_SPRITE);
+		tabmonstre[3].setX(22 * TAILLE_SPRITE);
+		tabmonstre[3].setY(14 * TAILLE_SPRITE);
+		tabmonstre[4].setX(30 * TAILLE_SPRITE);
+		tabmonstre[4].setY(14 * TAILLE_SPRITE);
+		tabmonstre[5].setX(41 * TAILLE_SPRITE);
+		tabmonstre[5].setY(14 * TAILLE_SPRITE);
+		tabmonstre[6].setX(65 * TAILLE_SPRITE);
+		tabmonstre[6].setY(6 * TAILLE_SPRITE);
+		tabmonstre[7].setX(73 * TAILLE_SPRITE);
+		tabmonstre[7].setY(14 * TAILLE_SPRITE);
+		tabmonstre[8].setX(71 * TAILLE_SPRITE);
+		tabmonstre[8].setY(14 * TAILLE_SPRITE);
+		tabmonstre[9].setX(85 * TAILLE_SPRITE);
+		tabmonstre[9].setY(14 * TAILLE_SPRITE);
 
-		tabmonstre[0].setX(0 * TAILLE_SPRITE);
-	tabmonstre[0].setY(14 * TAILLE_SPRITE);
-	tabmonstre[1].setX(40 * TAILLE_SPRITE);
-	tabmonstre[1].setY(10 * TAILLE_SPRITE);
-	tabmonstre[2].setX(5 * TAILLE_SPRITE);
-	tabmonstre[2].setY(10 * TAILLE_SPRITE);
-	tabmonstre[3].setX(44 * TAILLE_SPRITE);
-	tabmonstre[3].setY(15 * TAILLE_SPRITE);
-	tabmonstre[4].setX(44 * TAILLE_SPRITE);
-	tabmonstre[4].setY(15 * TAILLE_SPRITE);
-	tabmonstre[5].setX(65 * TAILLE_SPRITE);
-	tabmonstre[5].setY(15 * TAILLE_SPRITE);
-	tabmonstre[6].setX(19 * TAILLE_SPRITE);
-	tabmonstre[6].setY(15 * TAILLE_SPRITE);
-	tabmonstre[7].setX(83 * TAILLE_SPRITE);
-	tabmonstre[7].setY(15 * TAILLE_SPRITE);
-	tabmonstre[8].setX(71 * TAILLE_SPRITE);
-	tabmonstre[8].setY(13 * TAILLE_SPRITE);
-	tabmonstre[9].setX(54 * TAILLE_SPRITE);
-	tabmonstre[9].setY(10 * TAILLE_SPRITE);
+		tabmonstre[10].setX(86 * TAILLE_SPRITE);
+		tabmonstre[10].setY(14 * TAILLE_SPRITE);
+		tabmonstre[11].setX(88 * TAILLE_SPRITE);
+		tabmonstre[11].setY(14 * TAILLE_SPRITE);
+		tabmonstre[12].setX(90 * TAILLE_SPRITE);
+		tabmonstre[12].setY(14 * TAILLE_SPRITE);
+		tabmonstre[13].setX(122 * TAILLE_SPRITE);
+		tabmonstre[13].setY(14 * TAILLE_SPRITE);
+		tabmonstre[14].setX(13 * TAILLE_SPRITE);
+		tabmonstre[14].setY(14 * TAILLE_SPRITE);
+		tabmonstre[15].setX(144 * TAILLE_SPRITE);
+		tabmonstre[15].setY(14 * TAILLE_SPRITE);
+		tabmonstre[16].setX(150 * TAILLE_SPRITE);
+		tabmonstre[16].setY(14 * TAILLE_SPRITE);
+		tabmonstre[17].setX(155 * TAILLE_SPRITE);
+		tabmonstre[17].setY(14 * TAILLE_SPRITE);
+		tabmonstre[18].setX(157 * TAILLE_SPRITE);
+		tabmonstre[18].setY(14 * TAILLE_SPRITE);
 
-	for(int i=0; i<NbMonstre; i++)
-	{
-		tabmonstre[i].setVie(55);
-	}
-
+		for (int i = 0; i < NbMonstre; i++)
+		{
+			tabmonstre[i].setVie(55);
+		}
 	}
 	else
 	{
-		tabmonstre[0].setX(0 );
-	tabmonstre[0].setY(14 );
-	tabmonstre[1].setX(40 );
-	tabmonstre[1].setY(10 );
-	tabmonstre[2].setX(5 );
-	tabmonstre[2].setY(10 );
-	tabmonstre[3].setX(44 );
-	tabmonstre[3].setY(15 );
-	tabmonstre[4].setX(44 );
-	tabmonstre[4].setY(15 );
-	tabmonstre[5].setX(65 );
-	tabmonstre[5].setY(15 );
-	tabmonstre[6].setX(19 );
-	tabmonstre[6].setY(15 );
-	tabmonstre[7].setX(83 );
-	tabmonstre[7].setY(15 );
-	tabmonstre[8].setX(71 );
-	tabmonstre[8].setY(13 );
-	tabmonstre[9].setX(54 );
-	tabmonstre[9].setY(10 );
+
+		tabmonstre[0].setX(15);
+		tabmonstre[0].setY(14);
+		tabmonstre[1].setX(17);
+		tabmonstre[1].setY(14);
+		tabmonstre[2].setX(18);
+		tabmonstre[2].setY(14);
+		tabmonstre[3].setX(22);
+		tabmonstre[3].setY(14);
+		tabmonstre[4].setX(30);
+		tabmonstre[4].setY(14);
+		tabmonstre[5].setX(41);
+		tabmonstre[5].setY(14);
+		tabmonstre[6].setX(65);
+		tabmonstre[6].setY(6);
+		tabmonstre[7].setX(73);
+		tabmonstre[7].setY(14);
+		tabmonstre[8].setX(71);
+		tabmonstre[8].setY(14);
+		tabmonstre[9].setX(85);
+		tabmonstre[9].setY(14);
+
+		tabmonstre[10].setX(86);
+		tabmonstre[10].setY(14);
+		tabmonstre[11].setX(88);
+		tabmonstre[11].setY(14);
+		tabmonstre[12].setX(90);
+		tabmonstre[12].setY(14);
+		tabmonstre[13].setX(122);
+		tabmonstre[13].setY(14);
+		tabmonstre[14].setX(13);
+		tabmonstre[14].setY(14);
+		tabmonstre[15].setX(144);
+		tabmonstre[15].setY(14);
+		tabmonstre[16].setX(150);
+		tabmonstre[16].setY(14);
+		tabmonstre[17].setX(155);
+		tabmonstre[17].setY(14);
+		tabmonstre[18].setX(157);
+		tabmonstre[18].setY(14);
 	}
 
 }

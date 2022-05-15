@@ -21,7 +21,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 	 Personnage& perso = jeu.getPerso();
 	 
 	 Personnage Tmonst[10];
-	 for (int i=0;i<10;i++){ Tmonst[i] = jeu.getConstMonstre(i);}
+	 for (int i=0;i<NbMonstre;i++){ Tmonst[i] = jeu.getConstMonstre(i);}
 
 	win.clear();
 
@@ -36,7 +36,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 		for(int x=xp;x<xd;++x)
 		for(int y=0;y<ter.getDimY();++y)
 		win.print(x,y,ter.getXY(x,y));
-		for(int i=0;i<10;i++){
+		for(int i=0;i<NbMonstre;i++){
 			if(Tmonst[i].getX()<=xd && Tmonst[i].getX()>=xp){
 		win.print(Tmonst[i].getX(),Tmonst[i].getY(),'M');
 		}
@@ -46,7 +46,7 @@ void txtAff(WinTXT &win, Jeu &jeu)
 		for(int x=0;x<ter.getDimX()/2;++x)
 		for(int y=0;y<ter.getDimY();++y)
 		win.print(x,y,ter.getXY(x,y));
-		for(int i=0;i<10;i++){win.print(Tmonst[i].getX(),Tmonst[i].getY(),'M');}
+		for(int i=0;i<NbMonstre;i++){win.print(Tmonst[i].getX(),Tmonst[i].getY(),'M');}
 
 	}
 

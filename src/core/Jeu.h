@@ -12,7 +12,7 @@ private:
   Terrain ter;      // Le terrain pour jouer
   Personnage perso; // Le persnnage que nous pouvons incarner (le héros)
   Personnage monst;
-  Personnage tabmonstre[10]; // La liste de monstres présents sur le terrain
+  Personnage tabmonstre[18]; // La liste de monstres présents sur le terrain
 
   bool Fdj; // Le booléen qui indique si la partie est terminée
 
