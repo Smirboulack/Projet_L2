@@ -49,7 +49,7 @@ bool Jeu::actionClavier(const int touche)
 			for(int i = 0;i < NbMonstre;i++){
 			perso.attaquer(tabmonstre[i]);
 		}
-		
+
 		break;
 	}
 	return false;
@@ -59,7 +59,7 @@ void Jeu::actionsAutomatiques()
 {
 
 	gravite();
-	for (int i=0;i<NbMonstre;i++){tabmonstre[i].bougeAutoMonstre(ter);}
+	bougeAutoMonstre(ter);
 	FinDuJeu();
 	PersoSubirDegat();
 	ramasserItems();
@@ -134,18 +134,18 @@ void Jeu::PersoSubirDegat()
 	{
 		if(getPerso().getX()==getMonstre(i).getX() && getPerso().getY()==getMonstre(i).getY())
 		{
-			if(getPerso().getArmure()>0) 
+			if(getPerso().getArmure()>0)
 			{
 				getPerso().setArmure(getPerso().getArmure()-1);
 			}else getPerso().subirDegat(2);
-			
+
 		}
 		if(getPerso().getY() >= getTerrain().getDimY())
 		{
 			getPerso().setMort(true);
 		}
 	}
-	
+
 }
 
 int Jeu::getStatus() const{
@@ -236,5 +236,17 @@ void Jeu::initMonstre()
 	tabmonstre[9].setX(54 );
 	tabmonstre[9].setY(10 );
 	}
-	
+
+}
+
+void Jeu::bougeAutoMonstre(Terrain & ter){
+	  srand((int)time(0));
+		for(int i = 0;i < NbMonstre;i++){
+			if(rand()%100 < 50){
+		    tabmonstre[i].deplacer('d',ter);
+		  }else{
+		    tabmonstre[i].deplacer('q', ter);
+		  }
+		}
+
 }

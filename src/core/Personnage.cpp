@@ -230,17 +230,6 @@ bool Personnage::getArme()
   return arme;
 }
 
-
-
-void Personnage::bougeAutoMonstre(const Terrain & ter){
-
-  srand((int)time(0));
-  if(rand()%100 < 50){
-    deplacer('d',ter);
-  }else{
-    deplacer('q', ter);
-  }
-}
 /*
 void Personnage::bougeAutoMonstre(const int &i,const Terrain & ter){
 
