@@ -5,47 +5,28 @@
 #include "Terrain.h"
 
 class Terrain;
-const int VITESSE_SAUTER = 6;
-const int VITESSE_ACCELEREE = 20;
-const int NbMonstre = 18;
+const int VITESSE_SAUTER = 6;     //!< \brief constante de la vitesse de saut
+const int VITESSE_ACCELEREE = 20; //!< \brief constante utilisé pour la gravité du personnage
+const int NbMonstre = 18;         //!< \brief constante pour spécifier le nombre de monstre
 class Personnage
 {
 private:
-  // position du personnage en x et y
-  int x, y;
-  // point de vie de personnage
-  int vie;
-  bool sexe;
-  // le sens du personnage -1 pour gauche et 1 pour droit
-  int sens;
-  // le sens d'avant
-  int sens_o;
-  // l'etat viant ou mort du personnage
-  bool mort;
-  // le nom du personnage
-  std::string nom;
-  // dégats du personnage
-  int degat;
-  // portée d'attaque du personnage
-  int portee;
-  int Armure;
-  // Possession d'une arme
-  bool arme;
-  // Piece du personnage
-  int piece;
-  // status de Personnage
-  // idle:0
-  // left:1
-  // right:2
-  // down:3
-  // up:4
-  int status;
-  // status avant de Personnage
-  int status_o;
-
-  int vitesse_gravite;
-
-  bool saute;
+  int x, y;            //!< \brief position du personnage en x et y
+  int vie;             //!< \brief point de vie de personnage
+  bool sexe;           //!< \brief booleen : 0 pour personnage masculin 1 pour personnage feminin
+  int sens;            //!< \brief le sens du personnage -1 pour gauche et 1 pour droit
+  int sens_o;          //!< \brief le sens précedent du personnage
+  bool mort;           //!< \brief l'etat viant ou mort du personnage
+  std::string nom;     //!< \brief le nom du personnage
+  int degat;           //!< \brief dégats du personnage
+  int portee;          //!< \brief portée d'attaque du personnage
+  int Armure;          //!< \brief armure du personnage
+  bool arme;           //!< \brief Possession d'une arme ou non
+  int piece;           //!< \brief Piece du personnage
+  int status;          //!< \brief status de Personnage , idle:0 , left:1 ,  right:2 ,  down:3 , up:4
+  int status_o;        //!< \brief status précédant du Personnage
+  int vitesse_gravite; //!< \brief entier qui servira à gérer la vitesse gravitationnelle du personnage
+  bool saute;          //!< \brief booléen qui permet de savoir si le personnage est en saut ou non
 
 public:
   /**
@@ -190,9 +171,12 @@ public:
    *
    */
   void setArme(bool b);
-
-
-
+  /**
+   * @brief Procédure qui permet de modifier la valeur du booléen saut
+   *@param saute mutateur de la donnée membre saut
+   *
+   */
+  void setSaute(bool saute);
 
   /**
    * @brief Accesseur de x
@@ -296,6 +280,11 @@ public:
    * @return bool la donnée-membre arme
    */
   bool getArme();
+  /**
+   * @brief Fonction accesseur qui renvoie le booléen saut
+   *
+   */
+  bool getSaute();
 
   /**
    * @brief La procédure qui permet au monstre de se diriger vers le héros
@@ -304,11 +293,11 @@ public:
    * @param p le héros
    */
   void versPerso(const Terrain &ter, const Personnage &p);
-
+  /**
+   * @brief Procédure de test de Personnage
+   *
+   */
   void testRegression();
-
-  void setSaute(bool saute);
-  bool getSaute();
 };
 
 #endif

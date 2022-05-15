@@ -3,18 +3,17 @@
 
 #include "Personnage.h"
 #include "Terrain.h"
-//#include "Monstre.h"
 
 class Jeu
 {
 
 private:
-  Terrain ter;      // Le terrain pour jouer
-  Personnage perso; // Le persnnage que nous pouvons incarner (le héros)
-  Personnage monst;
-  Personnage tabmonstre[18]; // La liste de monstres présents sur le terrain
+  Terrain ter;               //!< \brief Le terrain pour jouer
+  Personnage perso;          //!< \brief Le personnage que nous pouvons incarner (le héros)
+  Personnage monst;          //!< \brief Objet monst de type Personnage
+  Personnage tabmonstre[18]; //!< \brief La liste de monstres présents sur le terrain
 
-  bool Fdj; // Le booléen qui indique si la partie est terminée
+  bool Fdj; //!< \brief Le booléen qui indique si la partie est terminée
 
 public:
   /**
@@ -30,7 +29,7 @@ public:
    */
   Terrain &getTerrain();
   /**
-   * @brief Acceseur du personnage perso
+   * @brief Accesseur du personnage perso
    *
    * @return le Personnage& perso
    */
@@ -89,6 +88,18 @@ public:
    * @return entier correspondant au sens
    */
   int getSensO() const;
+  /**
+   * @brief Accesseur à la variable fdj (findujeu)
+   *
+   * @return fdj le booléen qui indique si le jeu doit se terminer
+   */
+  bool getFdj();
+  /**
+   * @brief Mutateur de fdj
+   *
+   * @param fdj le booléen qu'on affecte à la donnée-membre fdj
+   */
+  void setFdj(bool fdj);
 
   /**
    * @brief La procédure appellée en boucle qui execute les actions automatiques
@@ -135,24 +146,20 @@ public:
    */
   void FinDuJeu();
   /**
-   * @brief La procéudure qui permet le passage aux niveaux suivants
+   * @brief La procédure qui permet le passage aux niveaux suivants
    *
    */
   void niveauSuivant();
   /**
-   * @brief Acceseur à la variable fdj (findujeu)
+   * @brief La procédure qui permet de faire bouger les monstres automatiquement et de façon aléatoires
    *
-   * @return fdj le booléen qui indique si le jeu doit se terminer
    */
-  bool getFdj();
+  void bougeAutoMonstre(Terrain &ter);
   /**
-   * @brief Mutateur de fdj
+   * @brief La procédure test de Jeu
    *
-   * @param fdj le booléen qu'on affecte à la donnée-membre fdj
    */
-  void setFdj(bool fdj);
   void testRegression();
-  void bougeAutoMonstre(Terrain & ter);
 };
 
 #endif
