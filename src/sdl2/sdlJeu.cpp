@@ -11,11 +11,11 @@ sdlJeu::sdlJeu() : jeu()
   int n;
   cout << "quel niveau jouer ? " << endl;
   cin >> n;
-  
+
   jeu.getTerrain().setChoixniv(n);
   jeu.getTerrain().setVersion(1);
   jeu.getTerrain().loadMap("./data/Niveau" + std::to_string(jeu.getTerrain().getChoixniv()) + ".txt");
-	
+
   jeu.initMonstre();
 
 
@@ -69,7 +69,7 @@ sdlJeu::sdlJeu() : jeu()
 
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
- 
+
   im_mortperso.loadFromFile("data/deathscene.png", renderer);
   im_mur.loadFromFile("data/#.png", renderer);
   im_ter.loadFromFile("data/GT.png", renderer);
@@ -111,7 +111,7 @@ sdlJeu::sdlJeu() : jeu()
   im_heart.loadFromFile("data/vie2.png", renderer);
   im_shield.loadFromFile("data/bouclier.png", renderer);
   im_arbremort.loadFromFile("data/arbremort.png",renderer);
-  
+
 
 
   // SONS et MUSIQUE
@@ -188,7 +188,7 @@ sdlJeu::sdlJeu() : jeu()
                 SDL_Quit();
                 exit(1);
         }
-      
+
 
     }
 
@@ -243,7 +243,7 @@ if (withmusique && jeu.getConstTerrain().getChoixniv()==3){
 
 
 }
-  
+
 
 
 
@@ -269,6 +269,7 @@ void sdlJeu::sdlAff()
   drawPersonnage();
   drawMonstre();
   drawInfoPerso();
+  i++;
 }
 
 SDL_Event sdlJeu::getEvent() const { return event; }
@@ -294,7 +295,7 @@ void sdlJeu::sdlBoucle()
   bool quit = false;
   SDL_Event events = getEvent();
   bool sauter = false;
-  
+
 
   while (!quit && !jeu.getFdj())
   {
@@ -564,7 +565,6 @@ void sdlJeu::drawPersonnage()
   {
     im_idleright.draw_animation(2, renderer, (i / FPS) % 2, perso.getX() + 3 - dx, perso.getY(), 30, 36);
   }
-  i++;
 }
 
 void sdlJeu::drawMonstre()
@@ -592,11 +592,11 @@ void sdlJeu::drawMonstre()
 
     if (Tsens[i] == 1)
     {
-      im_skeletonWalkRight.draw_animation(13, renderer, (i / FPS) % 13, Tmonst[i].getX() - dx -4, Tmonst[i].getY() - 30, 44, 66);
+      im_skeletonWalkRight.draw_animation(13, renderer, (this->i / FPS) % 13, Tmonst[i].getX() - dx -4, Tmonst[i].getY() - 30, 44, 66);
     }
     else
     {
-      im_skeletonWalkLeft.draw_animation(13, renderer, (i / FPS) % 13, Tmonst[i].getX() - dx - 4, Tmonst[i].getY() - 30, 44, 66);
+      im_skeletonWalkLeft.draw_animation(13, renderer, (this->i / FPS) % 13, Tmonst[i].getX() - dx - 4, Tmonst[i].getY() - 30, 44, 66);
     }
   }
   }
@@ -617,4 +617,3 @@ void sdlJeu::drawInfoPerso()
   }
   if(perso.getArme()) im_item.draw(renderer, 500, 10, TAILLE_SPRITE, TAILLE_SPRITE);
 }
-
