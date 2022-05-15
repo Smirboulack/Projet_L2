@@ -72,7 +72,7 @@ bool Personnage::deplacer(char direction, const Terrain & t){
       return false;
     }
 }
-
+/*
 bool Personnage::deplacerMonstre(char direction, const Terrain & t){
 
       if(direction == 'd' && t.estPositionMonstreValide(x+1,y+1) && t.estPositionMonstreValide(x+1,y+2) ){
@@ -99,7 +99,7 @@ bool Personnage::deplacerMonstre(char direction, const Terrain & t){
       return false;
     }
 }
-
+*/
 void Personnage::updateStatus(int s){
   status_o = status;
   status = s;
@@ -135,16 +135,6 @@ void Personnage::attaquer(Personnage & perso){
     updateStatus(5);
   }
 }
-/*
-void Personnage::attack(Personnage & perso){
-  if(getArme())
-  {
-    if((x + portee * sens >= perso.getX() && y == perso.getY())) perso.subirDegat(degat);
-    updateStatus(5);
-  }
-}
-*/
-
 
 
 void Personnage::sauter(const Terrain & ter){
@@ -257,23 +247,3 @@ bool Personnage::getArme()
   return arme;
 }
 
-/*
-void Personnage::bougeAutoMonstre(const int &i,const Terrain & ter){
-
-  srand((int)time(0));
-  if(rand()%100 < 50){
-    if (ter.estPositionPersoValide(i,y)) deplacer('d',ter);
-    if (!ter.estPositionPersoValide(i,y)) deplacer ('q',ter);
-    if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)) {deplacer ('q',ter) || deplacer ('d',ter);}
-    if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){deplacer ('d',ter) || deplacer ('q',ter);}
-
-  }else{
-   if (ter.estPositionPersoValide(i,y)) deplacer('q', ter);
-   if (!ter.estPositionPersoValide(i,y)) deplacer ('d',ter);
-
-   if(!ter.estPositionPersoValide(x+1,y) || ter.estPositionPersoValide(x+1,y+1)) {deplacer ('q',ter) || deplacer ('d',ter);}
-    if(!ter.estPositionPersoValide(x-1,y) || ter.estPositionPersoValide(x-1,y+1)){deplacer ('d',ter) || deplacer ('q',ter);}
-  }
-
-}
-*/

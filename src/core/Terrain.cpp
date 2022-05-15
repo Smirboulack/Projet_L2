@@ -139,7 +139,7 @@ bool Terrain::estPositionPersoValide(const int x, const int y) const
     return ((x >= 0) && (x < dimx) && (y >= 0) && (y < dimy) && ((ter[y][x] == ' ') || (ter[y][x] == '$') || (ter[y][x] == '!') || (ter[y][x] == 'O') || (ter[y][x] == '+') || (ter[y][x] == 'F') || (ter[y][x] == 'Y') || (ter[y][x] == '/') || (ter[y][x] == '=') || (ter[y][x] == '^') || (ter[y][x] == '9')));
   }
 }
-
+/*
 bool Terrain::estPositionMonstreValide(const int x, const int y) const
 {
   int xtMin = x / TAILLE_SPRITE;
@@ -158,7 +158,7 @@ bool Terrain::estPositionMonstreValide(const int x, const int y) const
       && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
   }
   */
-
+/*
   if (version == 1)
   {
     return (
@@ -174,3 +174,5 @@ bool Terrain::estPositionMonstreValide(const int x, const int y) const
     return ((x >= 0) && (x < dimx) && (y >= 0) && (y < dimy) && ((ter[y][x] == ' ') || (ter[y][x] == '$') || (ter[y][x] == '!') || (ter[y][x] == 'O') || (ter[y][x] == '+') || (ter[y][x] == 'F') || (ter[y][x] == 'Y') || (ter[y][x] == '/') || (ter[y][x] == '=') || (ter[y][x] == '^') || (ter[y][x] == '9')));
   }
 }
+*/
+

@@ -274,7 +274,7 @@ void Jeu::initMonstre()
 	}
 
 }
-
+/*
 void Jeu::bougeAutoMonstre(Terrain & ter){
 	  srand((int)time(0));
 		for(int i = 0;i < NbMonstre;i++){
@@ -284,7 +284,20 @@ void Jeu::bougeAutoMonstre(Terrain & ter){
 		    tabmonstre[i].deplacerMonstre('q', ter);
 		  }
 		}
+}*/
+
+void Jeu::bougeAutoMonstre(Terrain & ter){
+	  srand((int)time(0));
+		for(int i = 0;i < NbMonstre;i++){
+			if(rand()%100 < 50){
+		    tabmonstre[i].deplacer('d',ter);
+		  }else{
+		    tabmonstre[i].deplacer('q', ter);
+		  }
+		}
 }
+
+
 
 void Jeu::niveauSuivant(){
 
