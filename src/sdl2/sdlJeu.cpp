@@ -78,12 +78,8 @@ sdlJeu::sdlJeu() : jeu()
   im_mur.loadFromFile("data/#.png", renderer);
   im_ter.loadFromFile("data/GT.png", renderer);
   im_grass.loadFromFile("data/GT.png", renderer);
- /// im_grass_gauche.loadFromFile("data/[.png", renderer);
-  //im_grass_droite.loadFromFile("data/].png", renderer);
- // im_mur_bas.loadFromFile("data/_.png", renderer);
   im_mur_bas_gauche.loadFromFile("data/(2.png", renderer);
   im_mur_bas_droite.loadFromFile("data/)2.png", renderer);
-  //im_background.loadFromFile("data/background.png", renderer);
   im_ciel.loadFromFile("data/background1.png", renderer);
   im_runright.loadFromFile("data/RunRight.png", renderer);
   im_runleft.loadFromFile("data/RunLeft.png", renderer);
@@ -247,10 +243,6 @@ if (withmusique && jeu.getConstTerrain().getChoixniv()==3){
 
 
 }
-
-
-
-
 }
 
 sdlJeu::~sdlJeu()
@@ -336,9 +328,6 @@ void sdlJeu::sdlBoucle()
                     break;
 				default: break;
 				}
-				/*if (withSound){
-          Mix_PlayChannel(-1,soundpiece,0);
-        }*/
 
 			}
 		}
@@ -384,14 +373,11 @@ void sdlJeu::sdlBoucle()
   }
 }
 
-void sdlJeu::drawTerrain()
+void sdlJeu::drawTerrain() //Procédure d'affichage du terrain
 {
   int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
   int x, y;
   const Terrain &ter = jeu.getConstTerrain();
-  // renderer background
-  //  im_background.draw(renderer,0,0,25*TAILLE_SPRITE,20*TAILLE_SPRITE);
-  // renderer background
  if(ter.getChoixniv()==1)im_ciel.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
  if(ter.getChoixniv()==2)im_ciel2.draw(renderer, 0, 0, 28 * TAILLE_SPRITE, 19 * TAILLE_SPRITE);
  if(ter.getChoixniv()==3)im_ciel3.draw(renderer, 0, 0, 25* TAILLE_SPRITE, 19*TAILLE_SPRITE);
@@ -474,7 +460,7 @@ void sdlJeu::drawTerrain()
   }
 }
 
-void sdlJeu::drawPersonnage()
+void sdlJeu::drawPersonnage() //Affichage du héros
 {
   int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
   const Personnage &perso = jeu.getConstPersonnage();
@@ -482,8 +468,6 @@ void sdlJeu::drawPersonnage()
   int sens = jeu.getSens();
   int status_o = jeu.getStatusO();
   int sens_o = jeu.getSensO();
-  // cout << "sens_o: " << sens_o << " sens: " << sens << endl;
-  // status idle left and right
   if (status == -1 && sens == -1 && status_o == 0 && sens_o == -1)
   {
     im_idleleft.draw_animation(2, renderer, (i / FPS) % 2, perso.getX() + 3 - dx, perso.getY(), 30, 36);
@@ -548,17 +532,8 @@ void sdlJeu::drawPersonnage()
   }
 }
 
-void sdlJeu::drawMonstre()
+void sdlJeu::drawMonstre() //Affichages des monstres
 {
-  /*
-  int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
-   Personnage& monst = jeu.getMonstre();
-  int sens = monst.getSens();
-  if(sens == 1){
-    im_skeletonWalkRight.draw_animation(13, renderer, (i/FPS)%13,monst.getX()-4-dx,monst.getY()-30,44,66);
-  }else{
-    im_skeletonWalkLeft.draw_animation(13, renderer, (i/FPS)%13,monst.getX()-4-dx,monst.getY()-30,44,66);
-  }*/
 
   int dx = camera.decalageX(jeu.getConstPersonnage(), jeu.getConstTerrain());
   int Tsens[10];

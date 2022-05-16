@@ -48,7 +48,7 @@ Personnage::~Personnage(){
   piece=0;
 }
 
-bool Personnage::deplacer(char direction, const Terrain & t){
+bool Personnage::deplacer(char direction, const Terrain & t){ //Procédure permettant de vérifier si le déplacement du personnage est correct
 
     if(direction == 'd' && t.estPositionPersoValide(x+1,y)){
       x++;
@@ -83,7 +83,7 @@ void Personnage::updateSens(int s){
   sens_o = sens;
   sens = s;
 }
-bool Personnage::deplacerVite(int n, char direction, const Terrain & t){
+bool Personnage::deplacerVite(int n, char direction, const Terrain & t){ //Procédure permettant de se déplacer vite
   for(int i = 0; i < n;i++){
     if(!deplacer(direction, t)){
       return false;
@@ -93,7 +93,7 @@ bool Personnage::deplacerVite(int n, char direction, const Terrain & t){
 }
 
 
-void Personnage::subirDegat(int degat){
+void Personnage::subirDegat(int degat){ //Cette procédure permet de diminuer les pv selon un evenement
   if(degat <= vie)
     vie -= degat;
   else
@@ -103,7 +103,7 @@ void Personnage::subirDegat(int degat){
 }
 
 
-void Personnage::attaquer(Personnage & perso){
+void Personnage::attaquer(Personnage & perso){// Cette procédure inflige les dégats aux monstres lorsque le héros attaque
   if(getArme())
   {
     if((x + portee * sens >= perso.getX() && y == perso.getY())) perso.subirDegat(degat);
@@ -112,7 +112,7 @@ void Personnage::attaquer(Personnage & perso){
 }
 
 
-void Personnage::sauter(const Terrain & ter){
+void Personnage::sauter(const Terrain & ter){// Cette procédure permet de sauter
   if(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE) > 0){
     deplacerVite(VITESSE_SAUTER-(vitesse_gravite/VITESSE_ACCELEREE), 'z', ter);
   }else{
@@ -121,7 +121,7 @@ void Personnage::sauter(const Terrain & ter){
   vitesse_gravite++;
 }
 
-void Personnage::gravite(const Terrain & ter){
+void Personnage::gravite(const Terrain & ter){//Cette procédure applique la gravité
   if(!saute){
     if(deplacerVite(vitesse_gravite/VITESSE_ACCELEREE, 's', ter)){
       vitesse_gravite++;

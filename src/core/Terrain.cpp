@@ -22,7 +22,7 @@ Terrain::~Terrain()
   dimy = 0;
 }
 
-bool Terrain::loadMap(const std::string pathname)
+bool Terrain::loadMap(const std::string pathname) //Procédure de lecture d'un terrain
 {
   char buf[1];
   int fd, nbrd;
@@ -66,7 +66,7 @@ bool Terrain::loadMap(const std::string pathname)
   return EXIT_SUCCESS;
 }
 
-void Terrain::afficherTerrain()
+void Terrain::afficherTerrain() //Procédure de débug pour afficher le terrain
 {
   for (int i = 0; i < dimx; i++)
   {
@@ -78,7 +78,7 @@ void Terrain::afficherTerrain()
   }
 }
 
-char Terrain::getXY(const int x, const int y) const
+char Terrain::getXY(const int x, const int y) const const // Procédure qui retourne la case xy et son caractere
 {
   assert(x >= 0);
   assert(y >= 0);
@@ -87,7 +87,7 @@ char Terrain::getXY(const int x, const int y) const
   return ter[y][x];
 }
 
-void Terrain::setXY(const int x, const int y, const char &c)
+void Terrain::setXY(const int x, const int y, const char &c) // Procédure qui insére en x y le caractere
 {
   assert(x >= 0);
   assert(y >= 0);
@@ -105,24 +105,12 @@ int Terrain::getDimY() const { return dimy; }
 int Terrain::getVersion() const { return version; }
 int Terrain::getChoixniv() const { return choixniv; }
 
-bool Terrain::estPositionPersoValide(const int x, const int y) const
+bool Terrain::estPositionPersoValide(const int x, const int y) const //Procédure qui permet de vérifier si la position du personnage est valide
 {
   int xtMin = x / TAILLE_SPRITE;
   int ytMin = y / TAILLE_SPRITE;
   int xtMax = (x + TAILLE_SPRITE - 1) / TAILLE_SPRITE;
   int ytMax = (y + TAILLE_SPRITE - 1) / TAILLE_SPRITE;
-  // cout << dimx * TAILLE_SPRITE << " " << dimy * TAILLE_SPRITE << endl;
-  // cout << x << " " << y << endl;
-  // cout << xtMin << " " << ytMin << endl;
-  // cout << xtMax << " " << ytMax << endl;
-
-  /*
-  if(version==1){return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && ((ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' ')));
-  }else{
-      return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
-      && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
-  }
-  */
 
   if (version == 1)
   {
@@ -139,40 +127,4 @@ bool Terrain::estPositionPersoValide(const int x, const int y) const
     return ((x >= 0) && (x < dimx) && (y >= 0) && (y < dimy) && ((ter[y][x] == ' ') || (ter[y][x] == '$') || (ter[y][x] == '!') || (ter[y][x] == 'O') || (ter[y][x] == '+') || (ter[y][x] == 'F') || (ter[y][x] == 'Y') || (ter[y][x] == '/') || (ter[y][x] == '=') || (ter[y][x] == '^') || (ter[y][x] == '9')));
   }
 }
-/*
-bool Terrain::estPositionMonstreValide(const int x, const int y) const
-{
-  int xtMin = x / TAILLE_SPRITE;
-  int ytMin = y / TAILLE_SPRITE;
-  int xtMax = (x + TAILLE_SPRITE - 1) / TAILLE_SPRITE;
-  int ytMax = (y + TAILLE_SPRITE - 1) / TAILLE_SPRITE;
-  // cout << dimx * TAILLE_SPRITE << " " << dimy * TAILLE_SPRITE << endl;
-  // cout << x << " " << y << endl;
-  // cout << xtMin << " " << ytMin << endl;
-  // cout << xtMax << " " << ytMax << endl;
-
-  
-  if(version==1){return ((x>=0) && (x+TAILLE_SPRITE<dimx*TAILLE_SPRITE) && (y>=0) && (y+TAILLE_SPRITE<dimy*TAILLE_SPRITE) && ((ter[ytMin][xtMin] == ' ') && (ter[ytMax][xtMax] == ' ') && (ter[ytMin][xtMax] == ' ') && (ter[ytMax][xtMin] == ' ')));
-  }else{
-      return ((x>=0) && (x<dimx) && (y>=0) && (y<dimy)
-      && ((ter[y][x]==' ') || (ter[y][x]=='$') || (ter[y][x]=='!') || (ter[y][x]=='O') || (ter[y][x]=='+') || (ter[y][x]=='F') ));
-  }
-  
-
-  if (version == 1)
-  {
-    return (
-        (x >= 0) && (x + TAILLE_SPRITE < dimx * TAILLE_SPRITE) && (y >= 0) && (y + TAILLE_SPRITE < dimy * TAILLE_SPRITE) &&
-        ((
-             (ter[ytMin][xtMin] == ' ') || (ter[ytMin][xtMin] == '+') || (ter[ytMin][xtMin] == '$') || (ter[ytMin][xtMin] == 'O') || (ter[ytMin][xtMin] == '!') || (ter[ytMin][xtMin] == 'F') || (ter[ytMin][xtMin] == 'Y') || (ter[ytMin][xtMin] == '/') || (ter[ytMin][xtMin] == '9')) &&
-         ((ter[ytMax][xtMax] == ' ') || (ter[ytMax][xtMax] == '+') || (ter[ytMax][xtMax] == '$') || (ter[ytMax][xtMax] == 'O') || (ter[ytMax][xtMax] == '!') || (ter[ytMax][xtMax] == 'F') || (ter[ytMax][xtMax] == 'Y') || (ter[ytMax][xtMax] == '/') || (ter[ytMax][xtMax] == '9')) &&
-         ((ter[ytMin][xtMax] == ' ') || (ter[ytMin][xtMax] == '+') || (ter[ytMin][xtMax] == '$') || (ter[ytMin][xtMax] == 'O') || (ter[ytMin][xtMax] == '!') || (ter[ytMin][xtMax] == 'F') || (ter[ytMin][xtMax] == 'Y') || (ter[ytMin][xtMax] == '/') || (ter[ytMin][xtMax] == '9')) &&
-         ((ter[ytMax][xtMin] == ' ') || (ter[ytMax][xtMin] == '+') || (ter[ytMax][xtMin] == '$') || (ter[ytMax][xtMin] == 'O') || (ter[ytMax][xtMin] == '!') || (ter[ytMax][xtMin] == 'F') || (ter[ytMax][xtMin] == 'Y') || (ter[ytMax][xtMin] == '/') || (ter[ytMax][xtMin] == '9'))));
-  }
-  else
-  {
-    return ((x >= 0) && (x < dimx) && (y >= 0) && (y < dimy) && ((ter[y][x] == ' ') || (ter[y][x] == '$') || (ter[y][x] == '!') || (ter[y][x] == 'O') || (ter[y][x] == '+') || (ter[y][x] == 'F') || (ter[y][x] == 'Y') || (ter[y][x] == '/') || (ter[y][x] == '=') || (ter[y][x] == '^') || (ter[y][x] == '9')));
-  }
-}
-*/
 
