@@ -78,7 +78,7 @@ void Terrain::afficherTerrain() //Procédure de débug pour afficher le terrain
   }
 }
 
-char Terrain::getXY(const int x, const int y) const const // Procédure qui retourne la case xy et son caractere
+char Terrain::getXY(const int x, const int y) const // Procédure qui retourne la case xy et son caractere
 {
   assert(x >= 0);
   assert(y >= 0);
