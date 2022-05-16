@@ -34,6 +34,11 @@ public:
    * @return le Personnage& perso
    */
   Personnage &getPerso();
+  /**
+   * @brief Accesseur du personnage monstre
+   *
+   * @return le Personnage& perso
+   */
   Personnage &getMonstre();
   /**
    * @brief Accesseur du ieme monstre

@@ -11,17 +11,15 @@ using namespace std;
 
 sdlJeu::sdlJeu() : jeu()
 {
-  /*
+  
   int n;
   cout << "quel niveau jouer ? " << endl;
   cin >> n;
 
 
   jeu.getTerrain().setChoixniv(n);
-  */
   jeu.getTerrain().setVersion(1);
-  //jeu.getTerrain().loadMap("./data/Niveau" + std::to_string(jeu.getTerrain().getChoixniv()) + ".txt");
-
+  jeu.getTerrain().loadMap("./data/Niveau" + std::to_string(jeu.getTerrain().getChoixniv()) + ".txt");
   jeu.initMonstre();
 
 
@@ -305,11 +303,12 @@ void sdlJeu::sdlBoucle()
 					break;
 				case SDLK_LEFT:
 				//	mangepiece = jeu.actionClavier();
+					Mix_PlayChannel(-1,sonpas2,0);
 
 					break;
 				case SDLK_RIGHT:
 				//	mangepiece = jeu.actionClavier();
-         Mix_PlayChannel(-1,sonpas1,0);
+         				Mix_PlayChannel(-1,sonpas1,0);
 					break;
         case SDLK_v:
           Mix_PlayChannel(-1,soundattack,0);
