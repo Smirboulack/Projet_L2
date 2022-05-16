@@ -277,14 +277,22 @@ void Jeu::initMonstre()
 
 
 void Jeu::bougeAutoMonstre(Terrain & ter){
-	  srand((int)time(0));
-		for(int i = 0;i < NbMonstre;i++){
-			if(rand()%100 < 50){
-		    tabmonstre[i].deplacer('d',ter);
-		  }else{
-		    tabmonstre[i].deplacer('q', ter);
-		  }
+	srand((int)time(0));
+	for (int i = 0; i < NbMonstre; i++)
+	{
+		int x = tabmonstre[i].getX();
+		int y = tabmonstre[i].getY();
+		if (rand() % 100 < 50)
+		{
+			if (!ter.estPositionPersoValide(x + 1, y + 1) && ter.estPositionPersoValide(x + 1, y))
+				tabmonstre[i].deplacer('d', ter);
 		}
+		else
+		{
+			if (!ter.estPositionPersoValide(x - 1, y + 1) && ter.estPositionPersoValide(x - 1, y))
+				tabmonstre[i].deplacer('q', ter);
+		}
+	}
 }
 
 
