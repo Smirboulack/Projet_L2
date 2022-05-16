@@ -74,34 +74,7 @@ bool Personnage::deplacer(char direction, const Terrain & t){
       return false;
     }
 }
-/*
-bool Personnage::deplacerMonstre(char direction, const Terrain & t){
 
-      if(direction == 'd' && t.estPositionMonstreValide(x+1,y+1) && t.estPositionMonstreValide(x+1,y+2) ){
-      x++;
-      updateStatus(2);//droite
-      updateSens(1);
-      return true;
-    }else if(direction == 'q' && t.estPositionMonstreValide(x-1,y-1) && t.estPositionMonstreValide(x-1,y-2)){
-      x--;
-      updateStatus(1);//gauche
-      updateSens(-1);
-      return true;
-    }else if(direction == 's' && t.estPositionMonstreValide(x,y+1)){
-      y++;
-      updateStatus(3);//tomper
-      return true;
-    }else if(direction == 'z' && t.estPositionMonstreValide(x,y-1)){
-      y--;
-      updateStatus(4);//sauter
-      return true;
-    }else{
-      updateStatus(0);//idle
-      updateSens(sens);
-      return false;
-    }
-}
-*/
 void Personnage::updateStatus(int s){
   status_o = status;
   status = s;
