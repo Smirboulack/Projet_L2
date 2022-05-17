@@ -180,10 +180,10 @@ sdlJeu::sdlJeu() : jeu()
                 exit(1);
         }
 
-        sonpas1 = Mix_LoadWAV("data/sonpas1.wav");
-        if (sonpas1 == nullptr)
-            sonpas1 = Mix_LoadWAV("../data/sonpas1.wav");
-        if (sonpas1 == nullptr) {
+        sonpas2 = Mix_LoadWAV("data/sonpas2.wav");
+        if (sonpas2 == nullptr)
+            sonpas2 = Mix_LoadWAV("../data/sonpas2.wav");
+        if (sonpas2 == nullptr) {
                 cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl;
                 SDL_Quit();
                 exit(1);
