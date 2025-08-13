@@ -123,17 +123,9 @@ Modules pour l’interface texte
 
 ### 📦 Installation des dépendances (Linux / WSL)
 
-bash
-
-CopierModifier
-
 `sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev imagemagick` 
 
 ### ▶ Compilation et exécution
-
-bash
-
-CopierModifier
 
 `# Compilation make # Lancer version texte ./bin/main_txt # Lancer version SDL ./bin/main_sdl` 
 
