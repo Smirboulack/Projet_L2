@@ -127,7 +127,7 @@ Modules pour l’interface texte
 
 ### ▶ Compilation et exécution
 
-`
+```
 # Compilation
 make
 
@@ -136,7 +136,7 @@ make
 
 # Lancer version SDL
 ./bin/main_sdl
-` 
+```
 
 💡 Sous WSL, installez **XMing** pour l’affichage graphique.  
 [Guide WSL sur le site du cours](https://perso.liris.cnrs.fr/alexandre.meyer/public_html/www/doku.php?id=lifap4#wsl_pour_faire_tourner_un_linux_ultra_leger_sous_windows)
